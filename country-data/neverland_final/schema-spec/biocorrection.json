@@ -1,0 +1,239 @@
+{
+	"id": "BIOMETRIC_CORRECTION",
+	"order": 4,
+	"flow": "CORRECTION",
+	"isSubProcess": false,
+	"label": {
+		"eng": "Biometric correction",
+		"ara": "التصحيح البيومتري",
+		"fra": "Correction biométrique",
+		"tam": "பயோமெட்ரிக் திருத்தம்",
+		"kan": "ಬಯೋಮೆಟ್ರಿಕ್ ತಿದ್ದುಪಡಿ",
+		"hin": "बायोमेट्रिक सुधार"
+	},
+	"screens": [
+		{
+			"order": 1,
+			"name": "consentdet",
+			"label": {
+				"ara": "موافقة",
+				"fra": "Consentement",
+				"eng": "Consent",
+				"tam": "சம்மதம்",
+				"kan": "ಒಪ್ಪಿಗೆ",
+				"hin": "सहमति"
+			},
+			"caption": {
+				"ara": "موافقة",
+				"fra": "Consentement",
+				"eng": "Consent",
+				"tam": "சம்மதம்",
+				"kan": "ಒಪ್ಪಿಗೆ",
+				"hin": "सहमति"
+			},
+			"fields": [
+				{
+					"id": "consentText",
+					"inputRequired": true,
+					"type": "simpleType",
+					"minimum": 0,
+					"maximum": 0,
+					"description": "Consent",
+					"label": {},
+					"controlType": "html",
+					"fieldType": "default",
+					"format": "none",
+					"validators": [],
+					"fieldCategory": "evidence",
+					"alignmentGroup": null,
+					"visible": null,
+					"contactType": null,
+					"group": "consentText",
+					"groupLabel": null,
+					"changeAction": null,
+					"transliterate": false,
+					"templateName": "Registration Consent",
+					"fieldLayout": null,
+					"locationHierarchy": null,
+					"conditionalBioAttributes": null,
+					"required": true,
+					"bioAttributes": null,
+					"requiredOn": [],
+					"subType": "consentText"
+				},
+				{
+					"id": "consent",
+					"inputRequired": true,
+					"type": "string",
+					"minimum": 0,
+					"maximum": 0,
+					"description": "consent accepted",
+					"label": {
+						"ara": "الاسم الكامل الكامل الكامل",
+						"fra": "J'ai lu et j'accepte les termes et conditions pour partager mes PII",
+						"eng": "I have read and accept terms and conditions to share my PII",
+						"tam": "எனது PIIஐப் பகிர்வதற்கான விதிமுறைகள் மற்றும் நிபந்தனைகளைப் படித்து ஏற்றுக்கொண்டேன்",
+						"kan": "ನನ್ನ PII ಅನ್ನು ಹಂಚಿಕೊಳ್ಳಲು ನಾನು ನಿಯಮಗಳು ಮತ್ತು ಷರತ್ತುಗಳನ್ನು ಓದಿದ್ದೇನೆ ಮತ್ತು ಸ್ವೀಕರಿಸಿದ್ದೇನೆ",
+						"hin": "मैंने अपनी पीआईआई साझा करने के लिए नियम और शर्तें पढ़ ली हैं और उन्हें स्वीकार करता हूं"
+					},
+					"controlType": "checkbox",
+					"fieldType": "default",
+					"format": "none",
+					"validators": [],
+					"fieldCategory": "evidence",
+					"alignmentGroup": null,
+					"visible": null,
+					"contactType": null,
+					"group": "consent",
+					"groupLabel": null,
+					"changeAction": null,
+					"transliterate": false,
+					"templateName": null,
+					"fieldLayout": null,
+					"locationHierarchy": null,
+					"conditionalBioAttributes": null,
+					"required": true,
+					"bioAttributes": null,
+					"requiredOn": [],
+					"subType": "consent"
+				}
+			],
+			"layoutTemplate": null,
+			"preRegFetchRequired": false,
+			"additionalInfoRequestIdRequired": false,
+			"active": false
+		},
+		{
+			"order": 2,
+			"name": "BiometricDetails",
+			"label": {
+				"ara": "التفاصيل البيومترية",
+				"fra": "Détails biométriques",
+				"eng": "Biometric Details",
+				"tam": "பயோமெட்ரிக் விவரங்கள்",
+				"kan": "ಬಯೋಮೆಟ್ರಿಕ್ ವಿವರಗಳು",
+				"hin": "बॉयोमीट्रिक विवरण"
+			},
+			"caption": {
+				"ara": "التفاصيل البيومترية",
+				"fra": "Détails biométriques",
+				"eng": "Biometric Details",
+				"tam": "பயோமெட்ரிக் விவரங்கள்",
+				"kan": "ಬಯೋಮೆಟ್ರಿಕ್ ವಿವರಗಳು",
+				"hin": "बॉयोमीट्रिक विवरण"
+			},
+			"fields": [
+				{
+					"id": "individualBiometrics",
+					"inputRequired": true,
+					"type": "biometricsType",
+					"minimum": 0,
+					"maximum": 0,
+					"description": "",
+					"label": {
+						"ara": "القياسات الحيوية الفردية",
+						"fra": "Applicant Biometrics",
+						"eng": "Applicant Biometrics",
+						"tam": "விண்ணப்பதாரர் பயோமெட்ரிக்ஸ்",
+						"kan": "ಅರ್ಜಿದಾರರ ಬಯೋಮೆಟ್ರಿಕ್ಸ್",
+						"hin": "आवेदक बायोमेट्रिक्स"
+					},
+					"controlType": "biometrics",
+					"fieldType": "default",
+					"format": "none",
+					"validators": [],
+					"fieldCategory": "pvt",
+					"alignmentGroup": null,
+					"visible": null,
+					"contactType": null,
+					"group": "Biometrics",
+					"groupLabel": null,
+					"changeAction": null,
+					"transliterate": false,
+					"templateName": null,
+					"fieldLayout": null,
+					"locationHierarchy": null,
+					"conditionalBioAttributes": [
+						{
+							"ageGroup": "INFANT",
+							"process": "ALL",
+							"validationExpr": "face",
+							"bioAttributes": [
+								"face"
+							]
+						}
+					],
+					"required": true,
+					"bioAttributes": [
+						"leftEye",
+						"rightEye",
+						"rightIndex",
+						"rightLittle",
+						"rightRing",
+						"rightMiddle",
+						"leftIndex",
+						"leftLittle",
+						"leftRing",
+						"leftMiddle",
+						"leftThumb",
+						"rightThumb",
+						"face"
+					],
+					"requiredOn": [],
+					"subType": "applicant"
+				},
+				{
+					"id": "proofOfException",
+					"inputRequired": false,
+					"type": "documentType",
+					"minimum": 0,
+					"maximum": 0,
+					"description": "proofOfException",
+					"label": {
+						"ara": "إثبات الاستثناء",
+						"fra": "Exception Proof",
+						"eng": "Exception Proof",
+						"tam": "விதிவிலக்கு சான்று",
+						"kan": "ವಿನಾಯಿತಿ ಪುರಾವೆ",
+						"hin": "अपवाद प्रमाण"
+					},
+					"controlType": "fileupload",
+					"fieldType": "default",
+					"format": "none",
+					"validators": [],
+					"fieldCategory": "evidence",
+					"alignmentGroup": null,
+					"visible": null,
+					"contactType": null,
+					"group": "Documents",
+					"groupLabel": null,
+					"changeAction": null,
+					"transliterate": false,
+					"templateName": null,
+					"fieldLayout": null,
+					"locationHierarchy": null,
+					"conditionalBioAttributes": null,
+					"required": false,
+					"bioAttributes": null,
+					"requiredOn": [],
+					"subType": "POE"
+				}
+			],
+			"layoutTemplate": null,
+			"preRegFetchRequired": false,
+			"additionalInfoRequestIdRequired": true,
+			"active": false
+		}
+	],
+	"caption": {
+		"eng": "Biometric correction",
+		"ara": "التصحيح البيومتري",
+		"fra": "Correction biométrique",
+		"tam": "பயோமெட்ரிக் திருத்தம்",
+		"kan": "ತಿದ್ದುಪಡಿ ಬಯೋಮೆಟ್ರಿಕ್",
+		"hin": "सुधार बायोमेट्रिक"
+	},
+	"icon": "UINUpdate.png",
+	"isActive": true,
+	"autoSelectedGroups": null
+}

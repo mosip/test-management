@@ -1,1 +1,0 @@
-This folder contains the master data backup of the country related schema, ui specs, dynamic fields, zone and location, location hierarchy tables.

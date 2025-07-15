@@ -1,0 +1,1319 @@
+
+<!DOCTYPE html>
+<html>
+
+
+<head>
+	<meta charset='utf-8' /> 
+	<meta name='description' content='' />
+	<meta name='robots' content='noodp, noydir' />
+	<meta name='viewport' content='width=device-width, initial-scale=1' />
+	<meta id="timeStampFormat" name="timeStampFormat" content='MMM d, yyyy hh:mm:ss a'/>
+	
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css' />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+		<link href='https://cdn.rawgit.com/anshooarora/extentreports-java/b4a58fcfd1e137bd9287244035a7c80d3d73b3af/dist/css/extent.css' type='text/css' rel='stylesheet' />
+	
+	<title>ExtentReports</title>
+
+	<style type='text/css'>
+	</style>
+</head>
+
+	<body class='extent standard default hide-overflow '>
+		<div id='theme-selector' alt='Click to toggle theme. To enable by default, use theme configuration.' title='Click to toggle theme. To enable by default, use theme configuration.'>
+			<span><i class='material-icons'>desktop_windows</i></span>
+		</div>
+
+<nav>
+	<div class="nav-wrapper">
+		<a href="#!" class="brand-logo blue darken-3">Extent</a>
+
+		<!-- slideout menu -->
+		<ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
+			<li class='waves-effect active'><a href='#!' view='test-view' onclick="configureView(0);chartsView('test');"><i class='material-icons'>dashboard</i></a></li>
+						<li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></i></a></li>
+		</ul>
+
+		<!-- report name -->
+		<span class='report-name'>ExtentReports</span>
+		
+		<!-- report headline -->
+		<span class='report-headline'></span>
+
+		<!-- nav-right -->
+		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
+			<li>
+                <a href='#!'>
+                    <span class='label suite-start-time blue darken-3'>Jun 6, 2025 09:40:39 AM</span>
+				</a>
+			</li>
+			<li>
+                <a href='#!'>
+                    <span class='label blue darken-3'>3.1.5</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+</nav>
+
+		<!-- container -->
+		<div class='container'>
+
+<div id='test-view' class='view'>
+				
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- test toggle -->
+			<div class='chip transparent'>
+				<a class='dropdown-button tests-toggle' data-activates='tests-toggle' data-constrainwidth='true' data-beloworigin='true' data-hover='true' href='#'>
+					<i class='material-icons'>warning</i> Status
+				</a>
+				<ul id='tests-toggle' class='dropdown-content'>
+											<li status='pass'><a href='#!'>Pass <i class='material-icons green-text'>check_circle</i></a></li>
+						<li status='fail'><a href='#!'>Fail <i class='material-icons red-text'>cancel</i></a></li>
+					<li class='divider'></li>
+					<li status='clear' clear='true'><a href='#!'>Clear Filters <i class='material-icons'>clear</i></a></li>
+				</ul>
+			</div>
+			<!-- test toggle -->
+
+			<!-- category toggle -->
+			<!-- category toggle -->
+
+			<!-- clear filters -->
+			<div class='chip transparent hide'>
+				<a class='' id='clear-filters' alt='Clear Filters' title='Clear Filters'>
+					<i class='material-icons'>close</i> Clear
+				</a>
+			</div>
+			<!-- clear filters -->
+
+			<!-- enable dashboard -->
+			<div id='toggle-test-view-charts' class='chip transparent'>
+				<a class='pink-text' id='enable-dashboard' alt='Enable Dashboard' title='Enable Dashboard'>
+					<i class='material-icons'>track_changes</i> Dashboard
+				</a>
+			</div>
+			<!-- enable dashboard -->
+
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+					<i class='material-icons'>search</i> Search
+				</a>
+
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+				
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+
+
+<div id='test-view-charts' class='subview-full'>
+	<div id='charts-row' class='row nm-v nm-h'>
+		<div class='col s12 m6 l6 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Tests</div>
+				<div class='chart-box'>
+					<canvas id='parent-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='0%'><span class='strong'>0</span> test(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='100%'>1</span> test(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+				</div>
+			</div>
+		</div>
+		
+		<div class='col s12 m6 l6 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Steps</div>
+				<div class='chart-box'>
+					<canvas id='child-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='0%'><span class='strong'>0</span> step(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='12.5%'>1</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='87.5%'>7</span> others
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</div>
+
+	<div class='subview-left left'>
+		
+		<div class='view-summary'>
+			<h5>Tests</h5>
+			<ul id='test-collection' class='test-collection'>
+				
+				
+				<li class='test displayed active  fail' status='fail' bdd='false' test-id='1'>
+					<div class='test-heading'>
+						<span class='test-name'>New Registration Scenario : bioCorrection FileName : BioCorrection.json</span>
+						<span class='test-time'>Jun 6, 2025 09:40:39 AM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jun 6, 2025 09:40:39 AM</span>
+	<span class='label end-time'>Jun 6, 2025 09:45:47 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 5m 8s+397ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>9:40:55 AM</td>
+					<td class='step-details'>Successfully Screen Loaded</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>9:41:18 AM</td>
+					<td class='step-details'>Operator Logs in</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>9:44:23 AM</td>
+					<td class='step-details'>Demo, Doc, Bio - Done</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>9:44:23 AM</td>
+					<td class='step-details'>Preview done</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>9:45:24 AM</td>
+					<td class='step-details'>Approve Packet done</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>9:45:45 AM</td>
+					<td class='step-details'>Upload Packet done</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>9:45:47 AM</td>
+					<td class='step-details'>TESTCASE FAIL</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>9:45:47 AM</td>
+					<td class='step-details'>Test Data Below{
+  "identity": {
+	  "additionalInfoRequestId":"34287982413467-BIOMETRIC_CORRECTION-1",
+	  "BELOW_ARE_STATIC_KEYWORDS":"",
+	  "ageGroup":"MINOR",
+    "process": "bioCorrection",
+    "profile":"Default",
+    "score1":"90",
+    "score2":"90",
+    "score3":"90",
+    "score4":"90",
+    "documentUploadAttributes":["POB","POR","POA","POI"],
+    "bioAuthAttributes":["leftThumb"],
+	  "bioAttributes": [
+			 "leftEye",
+				"rightEye",
+				"rightIndex",
+				"rightLittle",
+				"rightRing",
+				"rightMiddle",
+				"leftIndex",
+				"leftLittle",
+				"leftRing",
+				"leftMiddle",
+				"leftThumb",
+				"rightThumb",
+				"face"
+			],
+		"BELOW_ARE_THE_SCHEMA_LEVEL_ID's_DATA":"",
+		 "dateOfBirth": "13",
+		    "preferredLang":  "English",
+    "gender": [
+      {
+        "language": "kan",
+        "value": "ಹೆಣ್ಣು",
+        "code": "FLE"
+      },
+      {
+        "language": "hin",
+        "value": "महिला",
+        "code": "FLE"
+      },
+      {
+        "language": "tam",
+        "value": "பெண்",
+        "code": "FLE"
+      },
+      {
+          "language": "eng",
+          "value": "Female",
+          "code": "FLE"
+        },
+        {
+          "language": "ara",
+          "value": "أنثى",
+          "code": "FLE"
+        },
+        {
+          "language": "fra",
+          "value": "Femme",
+          "code": "FLE"
+        }
+      
+    ],
+    "city": [
+      {
+        "language": "hin",
+        "value": "केनिट्रा",
+        "code": "KNT"
+        
+      },
+      {
+        "language": "kan",
+        "value": "ಕೆನಿತ್ರಾ",
+        "code": "KNT"
+      },
+      {
+        "language": "tam",
+        "value": "கெனிட்ரா",
+        "code": "KNT"
+      }
+    ],
+    "postalCode" : "14022",
+    "fullName": [
+      {
+        "language": "hin",
+        "value": "परीक्षण स्वचालन"
+      },
+      {
+        "language": "kan",
+        "value": "ಟೆಸ್ಟ್ ಆಟೊಮೇಷನ್"
+      },
+      {
+        "language": "tam",
+        "value": "சோதனை ஆட்டோமேஷன்"
+      }
+    ],
+   
+    "referenceIdentityNumber": "23444444444444322",
+  
+    "province": [
+      {
+        "language": "hin",
+        "value": "केनिट्रा",
+        "code": "KTA"
+      },
+      {
+        "language": "kan",
+        "value": "ಕೆನಿತ್ರಾ",
+        "code": "KTA"
+      },
+      {
+        "language": "tam",
+        "value": "கெனிட்ரா",
+        "code": "KTA"
+      }
+    ],
+    "zone": [
+      {
+        "language": "hin",
+        "value": "बेन मंसूर",
+        "code": "BNMR"
+      },
+      {
+        "language": "kan",
+        "value": "ಬೆನ್ ಮನ್ಸೂರ್",
+        "code": "BNMR"
+      },
+      {
+        "language": "tam",
+        "value": "பென் மன்சூர்",
+        "code": "BNMR"
+      }
+    ],
+    "phone": "8600097143",
+    "addressLine1": [
+      {
+        "language": "kan",
+        "value": "ಟೆಸ್ಟ್ ಆಟೊಮೇಷನ್ ಡೇಟಾ 1"
+      },
+      {
+        "language": "hin",
+        "value": "परीक्षण स्वचालन डेटा1"
+      },
+      {
+        "language": "tam",
+        "value": "சோதனை ஆட்டோமேஷன் தரவு 2"
+      }
+    ],
+    "addressLine2": [
+      {
+        "language": "kan",
+        "value": "ಟೆಸ್ಟ್ ಆಟೊಮೇಷನ್ ಡೇಟಾ 2"
+      },
+      {
+        "language": "hin",
+        "value": "परीक्षण स्वचालन डेटा2"
+      },
+      {
+        "language": "tam",
+        "value": "சோதனை ஆட்டோமேஷன் தரவு 2"
+      }
+    ],
+    "residenceStatus": [
+      {
+        "language": "hin",
+        "value": "परदेशी",     
+        "code":"FR"
+      },
+      {
+        "language": "kan",
+        "value": "ವಿದೇಶಿ",     
+        "code":"FR"
+      },
+      {
+        "language": "tam",
+        "value": "வெளிநாட்டவர்",     
+        "code":"FR"
+      }
+    ],
+    "addressLine3": [
+      {
+        "language": "kan",
+        "value": "ಟೆಸ್ಟ್ ಆಟೊಮೇಷನ್ ಡೇಟಾ 3"
+      },
+      {
+        "language": "hin",
+        "value": "परीक्षण स्वचालन डेटा3"
+      },
+      {
+        "language": "tam",
+        "value": "சோதனை ஆட்டோமேஷன் தரவு 3"
+      }
+    ],
+    "region": [
+      {
+        "language": "hin",
+        "value": "रबात बिक्री केनिट्रा",
+        "code": "RSK"
+      },
+      {
+        "language": "kan",
+        "value": "ರಬತ್ ಮಾರಾಟ ಕೆನಿತ್ರಾ",
+        "code": "RSK"
+      },
+      {
+        "language": "tam",
+        "value": "ரபாத் விற்பனை கெனிட்ரா",
+        "code": "RSK"
+      }
+    ],
+    "modeOfClaim": [
+      {
+        "language": "hin",
+        "value": "पिक अप",
+        "code": "101"
+      },
+      {
+        "language": "kan",
+        "value": "ಪಿಕ್ ಅಪ್",
+        "code": "101"
+      },
+      {
+        "language": "tam",
+        "value": "பிக்-அப்",
+        "code": "101"
+      }
+    ],
+    "email": "abc@abc.co.in",
+    "consent": "Y",
+    "introducerRID": "10002100870001120210806171437",
+    "introducerUIN": "8926150729",
+    "introducerName": [
+    	{
+            "language": "hin",
+            "value": "परीक्षण स्वचालन"
+          },
+          {
+            "language": "kan",
+            "value": "ಟೆಸ್ಟ್ ಆಟೊಮೇಷನ್"
+          },
+          {
+            "language": "tam",
+            "value": "சோதனை ஆட்டோமேஷன்"
+          }
+    ],
+    "proofOfConsent": [
+      {
+        "language": "hin",
+        "value": "पासपोर्ट",
+        "code": "DOC001"
+      },
+      {
+        "language": "kan",
+        "value": "ಪಾಸ್ಪೋರ್ಟ್",
+        "code": "DOC001"
+      },
+      {
+        "language": "tam",
+        "value": "கடவுச்சீட்டு",
+        "code": "DOC001"
+      }
+    ],
+    "proofOfAddress": [
+      {
+        "language": "hin",
+        "value": "पासपोर्ट",
+        "code": "DOC001"
+      },
+      {
+        "language": "kan",
+        "value": "ಪಾಸ್ಪೋರ್ಟ್",
+        "code": "DOC001"
+      },
+      {
+        "language": "tam",
+        "value": "கடவுச்சீட்டு",
+        "code": "DOC001"
+      }
+    ],
+    "proofOfIdentity": [
+      {
+        "language": "hin",
+        "value": "पासपोर्ट",
+        "code": "DOC001"
+      },
+      {
+        "language": "kan",
+        "value": "ಪಾಸ್ಪೋರ್ಟ್",
+        "code": "DOC001"
+      },
+      {
+        "language": "tam",
+        "value": "கடவுச்சீட்டு",
+        "code": "DOC001"
+      }
+    ],
+    "proofOfRelationship": [
+      {
+        "language": "hin",
+        "value": "पासपोर्ट",
+        "code": "DOC001"
+      },
+      {
+        "language": "kan",
+        "value": "ಪಾಸ್ಪೋರ್ಟ್",
+        "code": "DOC001"
+      },
+      {
+        "language": "tam",
+        "value": "கடவுச்சீட்டு",
+        "code": "DOC001"
+      }
+    ],
+    "proofOfDateOfBirth": [
+      {
+        "language": "hin",
+        "value": "जन्म का प्रमाण पत्र",
+        "code": "COB"
+      },
+      {
+        "language": "kan",
+        "value": "ಜನ್ಮ ಪ್ರಮಾಣಪತ್ರ",
+        "code": "COB"
+      },
+      {
+        "language": "tam",
+        "value": "பிறப்பு சான்றிதழ்",
+        "code": "COB"
+      }
+    ]
+,
+					         "BELOW ARE SRILANKA SPECIFIC DATA":"",
+					       "printedName": [
+					   		{
+					   			"language": "hin",
+					   			"value": "परीक्षण स्वचालन"
+					   		},
+					   		{
+					   			"language": "kan",
+					   			"value": "ಟೆಸ್ಟ್ ಆಟೊಮೇಷನ್"
+					   		},
+					   		{
+					   			"language": "tam",
+					   			"value": "சோதனை ஆட்டோமேஷன்"
+					   		}
+					   	],
+					   	"shortenedPrintedName": [
+					   		{
+					   			"language": "hin",
+					   			"value": "परीक्षण स्वचालन"
+					   		},
+					   		{
+					   			"language": "kan",
+					   			"value": "ಟೆಸ್ಟ್ ಆಟೊಮೇಷನ್"
+					   		},
+					   		{
+					   			"language": "tam",
+					   			"value": "சோதனை ஆட்டோமேஷன்"
+					   		}
+					   	],
+					   	"layName": [
+					   		{
+					   			"language": "hin",
+					   			"value": "परीक्षण स्वचालन"
+					   		},
+					   		{
+					   			"language": "kan",
+					   			"value": "ಟೆಸ್ಟ್ ಆಟೊಮೇಷನ್"
+					   		},
+					   		{
+					   			"language": "tam",
+					   			"value": "சோதனை ஆட்டோமேஷன்"
+					   		}
+					   	],
+					   	"permanentAddress": [
+					   		{
+					   			"language": "kan",
+					   			"value": "ಟೆಸ್ಟ್ ಆಟೊಮೇಷನ್ ಡೇಟಾ 1"
+					   		},
+					   		{
+					   			"language": "hin",
+					   			"value": "परीक्षण स्वचालन डेटा1"
+					   		},
+					   		{
+					   			"language": "tam",
+					   			"value": "சோதனை ஆட்டோமேஷன் தரவு 2"
+					   		}
+					   	],
+					   	"temporaryAddress": [
+					   		{
+					   			"language": "kan",
+					   			"value": "ಟೆಸ್ಟ್ ಆಟೊಮೇಷನ್ ಡೇಟಾ 1"
+					   		},
+					   		{
+					   			"language": "hin",
+					   			"value": "परीक्षण स्वचालन डेटा1"
+					   		},
+					   		{
+					   			"language": "tam",
+					   			"value": "சோதனை ஆட்டோமேஷன் தரவு 2"
+					   		}
+					   	],
+					   	"profession": [
+					   		{
+					   			"language": "kan",
+					   			"value": "ಅಕೌಂಟೆಂಟ್",
+					   			"code": "101"
+					   		},
+					   		{
+					   			"language": "hin",
+					   			"value": "मुनीम",
+					   			"code": "101"
+					   		},
+					   		{
+					   			"language": "tam",
+					   			"value": "கணக்காளர்",
+					   			"code": "101"
+					   		}
+					   	],
+					   	"bcertificateAvailability": [
+					   		{
+					   			"language": "kan",
+					   			"value": "ಹೌದು",
+					   			"code": "101"
+					   		},
+					   		{
+					   			"language": "hin",
+					   			"value": "हाँ",
+					   			"code": "101"
+					   		},
+					   		{
+					   			"language": "tam",
+					   			"value": "ஆம்",
+					   			"code": "101"
+					   		}
+					   	],
+					   	"applicantLanguage": [
+					   		{
+					   			"language": "kan",
+					   			"value": "हिंदी",
+					   			"code": "101"
+					   		},
+					   		{
+					   			"language": "hin",
+					   			"value": "हिंदी",
+					   			"code": "101"
+					   		},
+					   		{
+					   			"language": "tam",
+					   			"value": "हिंदी",
+					   			"code": "101"
+					   		}
+					   	],
+					   	"dualCitizenshipAvailability": [
+					   		{
+					   			"language": "kan",
+					   			"value": "ಹೌದು",
+					   			"code": "101"
+					   		},
+					   		{
+					   			"language": "hin",
+					   			"value": "हाँ",
+					   			"code": "101"
+					   		},
+					   		{
+					   			"language": "tam",
+					   			"value": "ஆம்",
+					   			"code": "101"
+					   		}
+					   	],
+					   	"fatherLivingStatus": [
+					   		{
+					   			"language": "kan",
+					   			"value": "ಜೀವಂತವಾಗಿ",
+					   			"code": "101"
+					   		},
+					   		{
+					   			"language": "hin",
+					   			"value": "जीवित",
+					   			"code": "101"
+					   		},
+					   		{
+					   			"language": "tam",
+					   			"value": "உயிருடன்",
+					   			"code": "101"
+					   		}
+					   	],
+					   	"modeOfdelivery": [
+					   		{
+					   			"language": "kan",
+					   			"value": "ಮನೆ ವಿತರಣೆ",
+					   			"code": "101"
+					   		},
+					   		{
+					   			"language": "hin",
+					   			"value": "घर पहुँचाना",
+					   			"code": "101"
+					   		},
+					   		{
+					   			"language": "tam",
+					   			"value": "முகப்பு DIVERY.",
+					   			"code": "101"
+					   		}
+					   	],
+					   	"title": [
+					   		{
+					   			"language": "kan",
+					   			"value": "ಶ್ರೀ",
+					   			"code": "101"
+					   		},
+					   		{
+					   			"language": "hin",
+					   			"value": "श्री",
+					   			"code": "101"
+					   		},
+					   		{
+					   			"language": "tam",
+					   			"value": "திரு",
+					   			"code": "101"
+					   		}
+					   	],
+					   	"motherLivingStatus": [
+					   		{
+					   			"language": "kan",
+					   			"value": "ಜೀವಂತವಾಗಿ",
+					   			"code": "101"
+					   		},
+					   		{
+					   			"language": "hin",
+					   			"value": "जीवित",
+					   			"code": "101"
+					   		},
+					   		{
+					   			"language": "tam",
+					   			"value": "உயிருடன்",
+					   			"code": "101"
+					   		}
+					   	],
+					   	"livingStatus": [
+					   		{
+					   			"language": "kan",
+					   			"value": "ಜೀವಂತವಾಗಿ",
+					   			"code": "101"
+					   		},
+					   		{
+					   			"language": "hin",
+					   			"value": "जीवित",
+					   			"code": "101"
+					   		},
+					   		{
+					   			"language": "tam",
+					   			"value": "உயிருடன்",
+					   			"code": "101"
+					   		}
+					   	],
+					   	"bcertificateNo": "G}&nnd$0%3b8",
+					   	"bcertificateIssueDate": "2011/12/05",
+					   	"bcertificateCountry": [
+					   		{
+					   			"language": "hin",
+					   			"value": "परीक्षण स्वचालन"
+					   		},
+					   		{
+					   			"language": "kan",
+					   			"value": "ಟೆಸ್ಟ್ ಆಟೊಮೇಷನ್"
+					   		},
+					   		{
+					   			"language": "tam",
+					   			"value": "சோதனை ஆட்டோமேஷன்"
+					   		}
+					   	],
+					   	"bcertificateDistrict":  [
+					   		{
+					   			"language": "hin",
+					   			"value": "परीक्षण स्वचालन"
+					   		},
+					   		{
+					   			"language": "kan",
+					   			"value": "ಟೆಸ್ಟ್ ಆಟೊಮೇಷನ್"
+					   		},
+					   		{
+					   			"language": "tam",
+					   			"value": "சோதனை ஆட்டோமேஷன்"
+					   		}
+					   	],
+					   	"bcertificateDivision": [
+					   		{
+					   			"language": "hin",
+					   			"value": "परीक्षण स्वचालन"
+					   		},
+					   		{
+					   			"language": "kan",
+					   			"value": "ಟೆಸ್ಟ್ ಆಟೊಮೇಷನ್"
+					   		},
+					   		{
+					   			"language": "tam",
+					   			"value": "சோதனை ஆட்டோமேஷன்"
+					   		}
+					   	],
+					   	"bcertificatePlaceOfBirth":  [
+					   		{
+					   			"language": "kan",
+					   			"value": "ಟೆಸ್ಟ್ ಆಟೊಮೇಷನ್ ಡೇಟಾ 1"
+					   		},
+					   		{
+					   			"language": "hin",
+					   			"value": "परीक्षण स्वचालन डेटा1"
+					   		},
+					   		{
+					   			"language": "tam",
+					   			"value": "சோதனை ஆட்டோமேஷன் தரவு 2"
+					   		}
+					   	],
+					   	"maritalStatus": [
+					   		{
+					   			"language": "kan",
+					   			"value": "ವಿವಾಹಿತ",
+					   			"code": "102"
+					   		},
+					   		{
+					   			"language": "hin",
+					   			"value": "शादी हो ग",
+					   			"code": "102"
+					   		},
+					   		{
+					   			"language": "tam",
+					   			"value": "திருமணமானவர்",
+					   			"code": "102"
+					   		}
+					   	],
+					   	"nationalIdentityNumber": "635792158X",
+					   	"nicIssueDate": "2000/11/27",
+					   	"nicSerialNo": "Y2140893",
+					   	"dualCitizenshipCertificateNo": "10467",
+					   	"dualCitizenshipIssueDate": "2005/12/09",
+					   	"dualCitizenshipSectionNo": "3419926314797002",
+					   	"dualCitizenshipOtherNationality": [
+					   		{
+					   			"language": "kan",
+					   			"value": "ಹೌದು",
+					   			"code": "101"
+					   		},
+					   		{
+					   			"language": "hin",
+					   			"value": "हाँ",
+					   			"code": "101"
+					   		},
+					   		{
+					   			"language": "tam",
+					   			"value": "ஆம்",
+					   			"code": "101"
+					   		}
+					   	],
+					   	"fatherName": [
+					   		{
+					   			"language": "hin",
+					   			"value": "परीक्षण स्वचालन"
+					   		},
+					   		{
+					   			"language": "kan",
+					   			"value": "ಟೆಸ್ಟ್ ಆಟೊಮೇಷನ್"
+					   		},
+					   		{
+					   			"language": "tam",
+					   			"value": "சோதனை ஆட்டோமேஷன்"
+					   		}
+					   	],
+					   	"fatherDOB": "1986/11/27",
+					   	"fatherRID": "",
+					   	"fatherUIN": "",
+					   	"motherName": [
+					   		{
+					   			"language": "hin",
+					   			"value": "परीक्षण स्वचालन"
+					   		},
+					   		{
+					   			"language": "kan",
+					   			"value": "ಟೆಸ್ಟ್ ಆಟೊಮೇಷನ್"
+					   		},
+					   		{
+					   			"language": "tam",
+					   			"value": "சோதனை ஆட்டோமேஷன்"
+					   		}
+					   	],
+					   	"motherDOB": "1986/11/27",
+					   	"motherRID": "",
+					   	"motherUIN": "",
+					   	"guardianName": [
+					   		{
+					   			"language": "hin",
+					   			"value": "परीक्षण स्वचालन"
+					   		},
+					   		{
+					   			"language": "kan",
+					   			"value": "ಟೆಸ್ಟ್ ಆಟೊಮೇಷನ್"
+					   		},
+					   		{
+					   			"language": "tam",
+					   			"value": "சோதனை ஆட்டோமேஷன்"
+					   		}
+					   	],
+					   	"guardianDOB":"1986/11/27",
+					   	"guardianRID": "",
+					   	"guardianUIN": "",
+					   	"guardianLivingStatus": [
+					   		{
+					   			"language": "kan",
+					   			"value": "ಜೀವಂತವಾಗಿ",
+					   			"code": "101"
+					   		},
+					   		{
+					   			"language": "hin",
+					   			"value": "जीवित",
+					   			"code": "101"
+					   		},
+					   		{
+					   			"language": "tam",
+					   			"value": "உயிருடன்",
+					   			"code": "101"
+					   		}
+					   	],
+					   	"spouseName": [
+					   		{
+					   			"language": "hin",
+					   			"value": "परीक्षण स्वचालन"
+					   		},
+					   		{
+					   			"language": "kan",
+					   			"value": "ಟೆಸ್ಟ್ ಆಟೊಮೇಷನ್"
+					   		},
+					   		{
+					   			"language": "tam",
+					   			"value": "சோதனை ஆட்டோமேஷன்"
+					   		}
+					   	],
+					   	"spouseDOB": "1996/11/27",
+					   	"spouseRID": "",
+					   	"spouseUIN": "",
+					   	"spouseLivingStatus": [
+					   		{
+					   			"language": "kan",
+					   			"value": "ಜೀವಂತವಾಗಿ",
+					   			"code": "101"
+					   		},
+					   		{
+					   			"language": "hin",
+					   			"value": "जीवित",
+					   			"code": "101"
+					   		},
+					   		{
+					   			"language": "tam",
+					   			"value": "உயிருடன்",
+					   			"code": "101"
+					   		}
+					   	],
+					   	"sibling1Name":  [
+					   		{
+					   			"language": "kan",
+					   			"value": "ಜೀವಂತವಾಗಿ",
+					   			"code": "101"
+					   		},
+					   		{
+					   			"language": "hin",
+					   			"value": "जीवित",
+					   			"code": "101"
+					   		},
+					   		{
+					   			"language": "tam",
+					   			"value": "உயிருடன்",
+					   			"code": "101"
+					   		}
+					   	],
+					   	"sibling1DOB": "1996/11/27",
+					   	"sibling1CivilStatus": "",
+					   	"sibling1Gender":  [{
+					           "language": "kan",
+					           "value": "ಹೆಣ್ಣು",
+					           "code": "FLE"
+					         },
+					         {
+					           "language": "hin",
+					           "value": "महिला",
+					           "code": "FLE"
+					         },
+					         {
+					           "language": "tam",
+					           "value": "பெண்",
+					           "code": "FLE"
+					         }],
+					   	"sibling1RID": "",
+					   	"sibling1UIN": "",
+					   	"sibling1LivingStatus": [
+					   		{
+					   			"language": "kan",
+					   			"value": "ಜೀವಂತವಾಗಿ",
+					   			"code": "101"
+					   		},
+					   		{
+					   			"language": "hin",
+					   			"value": "जीवित",
+					   			"code": "101"
+					   		},
+					   		{
+					   			"language": "tam",
+					   			"value": "உயிருடன்",
+					   			"code": "101"
+					   		}
+					   	],
+					   	"sibling2Name":  [
+					   		{
+					   			"language": "kan",
+					   			"value": "ಜೀವಂತವಾಗಿ",
+					   			"code": "101"
+					   		},
+					   		{
+					   			"language": "hin",
+					   			"value": "जीवित",
+					   			"code": "101"
+					   		},
+					   		{
+					   			"language": "tam",
+					   			"value": "உயிருடன்",
+					   			"code": "101"
+					   		}
+					   	],
+					   	"sibling2DOB":"1990/11/27",
+					   	"sibling2CivilStatus": "",
+					   	"sibling2Gender":  [{
+					           "language": "kan",
+					           "value": "ಹೆಣ್ಣು",
+					           "code": "FLE"
+					         },
+					         {
+					           "language": "hin",
+					           "value": "महिला",
+					           "code": "FLE"
+					         },
+					         {
+					           "language": "tam",
+					           "value": "பெண்",
+					           "code": "FLE"
+					         }],
+					   	"sibling2RID": "",
+					   	"sibling2UIN": "",
+					   	"sibling2LivingStatus": [
+					   		{
+					   			"language": "kan",
+					   			"value": "ಜೀವಂತವಾಗಿ",
+					   			"code": "101"
+					   		},
+					   		{
+					   			"language": "hin",
+					   			"value": "जीवित",
+					   			"code": "101"
+					   		},
+					   		{
+					   			"language": "tam",
+					   			"value": "உயிருடன்",
+					   			"code": "101"
+					   		}
+					   	],
+					   	"child1Name":  [
+					   		{
+					   			"language": "kan",
+					   			"value": "ಜೀವಂತವಾಗಿ",
+					   			"code": "101"
+					   		},
+					   		{
+					   			"language": "hin",
+					   			"value": "जीवित",
+					   			"code": "101"
+					   		},
+					   		{
+					   			"language": "tam",
+					   			"value": "உயிருடன்",
+					   			"code": "101"
+					   		}
+					   	],
+					   	"child1DOB": "2015/11/27",
+					   	"child1CivilStatus": "",
+					   	"child1Gender": [{
+					           "language": "kan",
+					           "value": "ಹೆಣ್ಣು",
+					           "code": "FLE"
+					         },
+					         {
+					           "language": "hin",
+					           "value": "महिला",
+					           "code": "FLE"
+					         },
+					         {
+					           "language": "tam",
+					           "value": "பெண்",
+					           "code": "FLE"
+					         }],
+					   	"child1RID": "",
+					   	"child1UIN": "",
+					   	"child1LivingStatus": [
+					   		{
+					   			"language": "kan",
+					   			"value": "ಜೀವಂತವಾಗಿ",
+					   			"code": "101"
+					   		},
+					   		{
+					   			"language": "hin",
+					   			"value": "जीवित",
+					   			"code": "101"
+					   		},
+					   		{
+					   			"language": "tam",
+					   			"value": "உயிருடன்",
+					   			"code": "101"
+					   		}
+					   	],
+					   	"child2Name":  [
+					   		{
+					   			"language": "kan",
+					   			"value": "ಜೀವಂತವಾಗಿ",
+					   			"code": "101"
+					   		},
+					   		{
+					   			"language": "hin",
+					   			"value": "जीवित",
+					   			"code": "101"
+					   		},
+					   		{
+					   			"language": "tam",
+					   			"value": "உயிருடன்",
+					   			"code": "101"
+					   		}
+					   	],
+					   	"child2DOB": "2020/11/27",
+					   	"child2CivilStatus": [
+					   		{
+					   			"language": "kan",
+					   			"value": "ಜೀವಂತವಾಗಿ",
+					   			"code": "101"
+					   		},
+					   		{
+					   			"language": "hin",
+					   			"value": "जीवित",
+					   			"code": "101"
+					   		},
+					   		{
+					   			"language": "tam",
+					   			"value": "உயிருடன்",
+					   			"code": "101"
+					   		}
+					   	],
+					   	"child2Gender": [{
+					           "language": "kan",
+					           "value": "ಹೆಣ್ಣು",
+					           "code": "FLE"
+					         },
+					         {
+					           "language": "hin",
+					           "value": "महिला",
+					           "code": "FLE"
+					         },
+					         {
+					           "language": "tam",
+					           "value": "பெண்",
+					           "code": "FLE"
+					         }],
+					   	"child2RID": "",
+					   	"child2UIN": "",
+					   	"child2LivingStatus": [
+					   		{
+					   			"language": "kan",
+					   			"value": "ಜೀವಂತವಾಗಿ",
+					   			"code": "101"
+					   		},
+					   		{
+					   			"language": "hin",
+					   			"value": "जीवित",
+					   			"code": "101"
+					   		},
+					   		{
+					   			"language": "tam",
+					   			"value": "உயிருடன்",
+					   			"code": "101"
+					   		}
+					   	],
+					   	"rNumber": "1234567891"
+					     }
+					   }</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- subview left -->
+
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<h5 class='test-name'></h5>
+
+			<div id='step-filters' class="right">
+				<span class="blue-text" status="info" alt="info" title="info"><i class="material-icons">info_outline</i></span>
+				<span class="green-text" status="pass" alt="pass" title="pass"><i class="material-icons">check_circle</i></span>
+				<span class="red-text" status="fail" alt="fail" title="fail"><i class="material-icons">cancel</i></span>
+				<span class="red-text text-darken-4" status="fatal" alt="fatal" title="fatal"><i class="material-icons">cancel</i></span>
+				<span class="pink-text text-lighten-1" status="error" alt="error" title="error"><i class="material-icons">error</i></span>
+				<span class="orange-text" alt="warning" status="warning" title="warning"><i class="material-icons">warning</i></span>
+				<span class="teal-text" status="skip" alt="skip" title="skip"><i class="material-icons">redo</i></span>
+				<span status="clear" alt="Clear filters" title="Clear filters"><i class="material-icons">clear</i></span>
+			</div>
+		</div>
+	</div>
+	<!-- subview right -->
+
+</div>
+<!-- test view -->
+<!-- category view -->
+<!-- exception view -->
+<div id='dashboard-view' class='view hide'>
+	<div class='card-panel transparent np-v'>
+		<h5>Dashboard</h5>
+
+		<div class='row'>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Tests
+					<div class='panel-lead'>1</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Steps
+					<div class='panel-lead'>8</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Start
+					<div class='panel-lead'>Jun 6, 2025 09:40:39 AM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+			 		End
+			 		<div class='panel-lead'>Jun 6, 2025 09:45:48 AM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Time Taken
+					<div class='panel-lead'>0h 5m 8s+941ms</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- dashboard view -->
+<!-- testrunner-logs view -->
+		</div>
+		<!-- container -->
+
+		<script>
+			var statusGroup = {
+				passParent: 0,
+				failParent: 1,
+				fatalParent: 0,
+				errorParent: 0,
+				warningParent: 0,
+				skipParent: 0,
+				exceptionsParent: 1,
+				
+				passChild: 0,
+				failChild: 1,
+				fatalChild: 0,
+				errorChild: 0,
+				warningChild: 0,
+				skipChild: 0,
+				infoChild: 7,
+				exceptionsChild: 1,
+				
+				passGrandChild: 0,
+				failGrandChild: 0,
+				fatalGrandChild: 0,
+				errorGrandChild: 0,
+				warningGrandChild: 0,
+				skipGrandChild: 0,
+				infoGrandChild: 0,
+				exceptionsGrandChild: 0,
+			};
+		</script>
+		
+			<script src='https://cdn.rawgit.com/anshooarora/extentreports-java/fca20fb7653aade98810546ab96a2a4360e3e712/dist/js/extent.js' type='text/javascript'></script>
+		
+		
+ 		<script type='text/javascript'>
+ 		</script>
+	</body>
+	
+</html>

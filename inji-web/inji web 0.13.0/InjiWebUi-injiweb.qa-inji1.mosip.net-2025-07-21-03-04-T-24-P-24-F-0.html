@@ -1,0 +1,4553 @@
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='UTF-8' /> 
+	<meta name='description' content='' />
+	<meta name='robots' content='noodp, noydir' />
+	<meta name='viewport' content='width=device-width, initial-scale=1' />
+	<meta id="timeStampFormat" name="timeStampFormat" content='MMM d, yyyy hh:mm:ss a'/>
+	
+        <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css' />
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+        <link href='http://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@ff53917fbbdb5ef820abbbe4d199a6942dc771ff/v3html/css/extent.css' type='text/css' rel='stylesheet' />
+	
+	<title>Automation Report</title>
+
+	<style type='text/css'>
+		/* json-tree */
+		.jstBracket,.jstComma,.jstValue{white-space:pre-wrap}.jstValue{font-size:10px;font-weight:400;font-family:"Lucida Console",Monaco,monospace}.jstProperty{color:#666;word-wrap:break-word}.jstBool{color:#2525CC}.jstNum{color:#D036D0}.jstNull{color:gray}.jstStr{color:#2DB669}.jstFold:after{content:' -';cursor:pointer}.jstExpand{white-space:normal}.jstExpand:after{content:' +';cursor:pointer}.jstFolded{white-space:normal!important}.jstHiddenBlock{display:none}
+			
+	</style>
+	
+	<script type="text/javascript">
+		/*! json-tree - v0.2.2 - 2017-09-25, MIT LICENSE */
+		var JSONTree=function(){var n={"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#x27;","/":"&#x2F;"},t=0,r=0;this.create=function(n,t){return r+=1,N(u(n,0,!1),{class:"jstValue"})};var e=function(t){return t.replace(/[&<>'"]/g,function(t){return n[t]})},s=function(){return r+"_"+t++},u=function(n,t,r){if(null===n)return f(r?t:0);switch(typeof n){case"boolean":return l(n,r?t:0);case"number":return i(n,r?t:0);case"string":return o(n,r?t:0);default:return n instanceof Array?a(n,t,r):c(n,t,r)}},c=function(n,t,r){var e=s(),u=Object.keys(n).map(function(r){return j(r,n[r],t+1,!0)}).join(m()),c=[g("{",r?t:0,e),N(u,{id:e}),p("}",t)].join("\n");return N(c,{})},a=function(n,t,r){var e=s(),c=n.map(function(n){return u(n,t+1,!0)}).join(m());return[g("[",r?t:0,e),N(c,{id:e}),p("]",t)].join("\n")},o=function(n,t){var r=e(JSON.stringify(n));return N(v(r,t),{class:"jstStr"})},i=function(n,t){return N(v(n,t),{class:"jstNum"})},l=function(n,t){return N(v(n,t),{class:"jstBool"})},f=function(n){return N(v("null",n),{class:"jstNull"})},j=function(n,t,r){var s=v(e(JSON.stringify(n))+": ",r),c=N(u(t,r,!1),{});return N(s+c,{class:"jstProperty"})},m=function(){return N(",\n",{class:"jstComma"})},N=function(n,t){return d("span",t,n)},d=function(n,t,r){return"<"+n+Object.keys(t).map(function(n){return" "+n+'="'+t[n]+'"'}).join("")+">"+r+"</"+n+">"},g=function(n,t,r){return N(v(n,t),{class:"jstBracket"})+N("",{class:"jstFold",onclick:"JSONTree.toggle('"+r+"')"})};this.toggle=function(n){var t=document.getElementById(n),r=t.parentNode,e=t.previousElementSibling;""===t.className?(t.className="jstHiddenBlock",r.className="jstFolded",e.className="jstExpand"):(t.className="",r.className="",e.className="jstFold")};var p=function(n,t){return N(v(n,t),{})},v=function(n,t){return Array(2*t+1).join(" ")+n};return this}();
+	</script>
+</head>
+	<body class='extent dark default hide-overflow '>
+		<div id='theme-selector' alt='Click to toggle theme. To enable by default, use theme configuration.' title='Click to toggle theme. To enable by default, use theme configuration.'>
+			<span><i class='material-icons'>desktop_windows</i></span>
+		</div>
+<nav>
+	<div class="nav-wrapper">
+        <a href="#!" class="brand-logo black"><img src="http://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@ff53917fbbdb5ef820abbbe4d199a6942dc771ff/commons/img/logo.png"></a>
+		<!-- slideout menu -->
+		<ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
+			<li class='waves-effect active'><a href='#!' view='test-view' onclick="configureView(0);chartsView('test');"><i class='material-icons'>dashboard</i></a></li>
+			<li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></a></li>
+		</ul>
+		<!-- report name -->
+		<span class='report-name'>InjiWebUi-injiweb.qa-inji1.mosip.net</span>
+		<!-- report headline -->
+		<span class='report-headline'></span>
+		<!-- nav-right -->
+		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
+			<a href='#!'>
+			<span class='label blue darken-3 suite-start-time'>Jul 21, 2025 03:04:15 AM</span>
+			</a>
+		</ul>
+	</div>
+</nav>		<!-- container -->
+		<div class='container'>
+<div id='test-view' class='view'>
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- test toggle -->
+			<div class='chip transparent'>
+				<a class='dropdown-button tests-toggle' data-activates='tests-toggle' data-constrainwidth='true' data-beloworigin='true' data-hover='true' href='#'>
+				<i class='material-icons'>warning</i> Status
+				</a>
+				<ul id='tests-toggle' class='dropdown-content'>
+										<li status='pass'><a href='#!'>Pass <i class='material-icons green-text'>check_circle</i></a></li>
+					<li class='divider'></li>
+					<li status='clear' clear='true'><a href='#!'>Clear Filters <i class='material-icons'>clear</i></a></li>
+				</ul>
+			</div>
+			<!-- test toggle -->
+			<!-- category toggle -->
+			<!-- category toggle -->
+			<!-- clear filters -->
+			<div class='chip transparent hide'>
+				<a class='' id='clear-filters' alt='Clear Filters' title='Clear Filters'>
+				<i class='material-icons'>close</i> Clear
+				</a>
+			</div>
+			<!-- clear filters -->
+			<!-- enable dashboard -->
+			<div id='toggle-test-view-charts' class='chip transparent'>
+				<a class='pink-text' id='enable-dashboard' alt='Enable Dashboard' title='Enable Dashboard'>
+				<i class='material-icons'>track_changes</i> Dashboard
+				</a>
+			</div>
+			<!-- enable dashboard -->
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+				<i class='material-icons'>search</i> Search
+				</a>
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+
+<div id='test-view-charts' class='subview-full'>
+    <div id='charts-row' class='row nm-v nm-h'>
+        <div class='col s12 m12 l12 np-h'>
+            <div class='card-panel nm-v'>
+                <div class='left panel-name'>Tests</div>
+                <div class='chart-box' style="max-height:94px;">
+                    <canvas id='parent-analysis' width='90' height='70'></canvas>
+                </div>
+                <div class='block text-small'>
+                    <span class='tooltipped' data-position='top' data-tooltip='$100%'>
+                    <span class='strong'>24</span> tests passed</span>
+                </div>
+                <div class='block text-small'>
+                    <span class='strong tooltipped' data-position='top' data-tooltip='0%'>
+                    0</span> tests failed, 
+                    <span class='strong tooltipped' data-position='top' data-tooltip='0%'>
+                    0</span> skipped
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="timeline-chart" class="row nm-v nm-h">
+        <div class="col s12 m12 l12 np-h">
+            <div class="card-panel">
+                <div class='left panel-name'>Timeline (seconds)</div>
+                <div class="chart-box" style="width:98%;max-height:145px;">
+                    <canvas id="timeline" height="120"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>	
+	<div class='subview-left left'>
+		<div class='view-summary'>
+			<ul id='test-collection' class='test-collection'>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='5'>
+					<div class='test-heading'>
+						<span class='test-name'>Mosip Natonal Id by e-Signet</span>
+						<span class='test-time'>Jul 21, 2025 03:04:15 AM</span>
+						<span class='test-status right pass'>Pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jul 21, 2025 03:04:15 AM</span>
+	<span class='label end-time'>Jul 21, 2025 03:05:37 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>00 01 22.183</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='info'>			
+				<td class='status info' title='Info' alt='Info'><i class='material-icons'> info_outline </i></td>
+				<td class='timestamp'>3:04:15 AM</td>
+				<td class='step-details'>
+						Scenario Started: Mosip Natonal Id by e-Signet
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:04:37 AM</td>
+				<td class='step-details'>
+						User successfully clicked on continue as guest
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:04:44 AM</td>
+				<td class='step-details'>
+						Searched issuers with: National Identity Department
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:04:44 AM</td>
+				<td class='step-details'>
+						User clicked on download MOSIP credentials button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:04:45 AM</td>
+				<td class='step-details'>
+						Verified that list of credential types is displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:04:45 AM</td>
+				<td class='step-details'>
+						Verified that MOSIP National ID and Issuer Logo are displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:04:48 AM</td>
+				<td class='step-details'>
+						User successfully clicked on the MOSIP National ID by e-Signet button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:04:48 AM</td>
+				<td class='step-details'>
+						User clicked on 'Data Share Content Validity' button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:04:48 AM</td>
+				<td class='step-details'>
+						User clicked on 'Select Custom Validity' button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:04:48 AM</td>
+				<td class='step-details'>
+						User entered validity for data share content: 3
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:04:49 AM</td>
+				<td class='step-details'>
+						User successfully clicked on the Proceed button.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:05:22 AM</td>
+				<td class='step-details'>
+						User successfully verified the login page labels
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:05:22 AM</td>
+				<td class='step-details'>
+						User successfully verified the VID input box header
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:05:22 AM</td>
+				<td class='step-details'>
+						User successfully entered the UIN: 7281476132
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:05:22 AM</td>
+				<td class='step-details'>
+						User successfully clicked on the Get OTP button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:05:31 AM</td>
+				<td class='step-details'>
+						User successfully entered the OTP: 111111
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:05:32 AM</td>
+				<td class='step-details'>
+						User clicked on verify button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:05:33 AM</td>
+				<td class='step-details'>
+						User successfully verified 'Downloading in Progress' text.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:05:37 AM</td>
+				<td class='step-details'>
+						Verified that Go Home button is displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:05:37 AM</td>
+				<td class='step-details'>
+						Verified that Download Success text is displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:05:37 AM</td>
+				<td class='step-details'>
+						✅ Scenario Passed: Mosip Natonal Id by e-Signet
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='69'>
+					<div class='test-heading'>
+						<span class='test-name'>Verify Search With Invalid String</span>
+						<span class='test-time'>Jul 21, 2025 03:05:43 AM</span>
+						<span class='test-status right pass'>Pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jul 21, 2025 03:05:43 AM</span>
+	<span class='label end-time'>Jul 21, 2025 03:06:16 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>00 00 33.313</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='info'>			
+				<td class='status info' title='Info' alt='Info'><i class='material-icons'> info_outline </i></td>
+				<td class='timestamp'>3:05:43 AM</td>
+				<td class='step-details'>
+						Scenario Started: Verify Search With Invalid String
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:05:54 AM</td>
+				<td class='step-details'>
+						User successfully clicked on continue as guest
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:06:04 AM</td>
+				<td class='step-details'>
+						Searched issuers with: qewqdda
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:06:05 AM</td>
+				<td class='step-details'>
+						Verified that 'No Issuer Found' message is displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:06:16 AM</td>
+				<td class='step-details'>
+						Searched issuers with: National Identity Department
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:06:16 AM</td>
+				<td class='step-details'>
+						User clicked on download MOSIP credentials button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:06:16 AM</td>
+				<td class='step-details'>
+						✅ Scenario Passed: Verify Search With Invalid String
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='92'>
+					<div class='test-heading'>
+						<span class='test-name'>Verify And DownloadVc Via Mosip NatinalId</span>
+						<span class='test-time'>Jul 21, 2025 03:06:22 AM</span>
+						<span class='test-status right pass'>Pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jul 21, 2025 03:06:22 AM</span>
+	<span class='label end-time'>Jul 21, 2025 03:07:38 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>00 01 16.654</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='info'>			
+				<td class='status info' title='Info' alt='Info'><i class='material-icons'> info_outline </i></td>
+				<td class='timestamp'>3:06:22 AM</td>
+				<td class='step-details'>
+						Scenario Started: Verify And DownloadVc Via Mosip NatinalId
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:06:36 AM</td>
+				<td class='step-details'>
+						User successfully clicked on continue as guest
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:06:43 AM</td>
+				<td class='step-details'>
+						Searched issuers with: National Identity Department
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:06:43 AM</td>
+				<td class='step-details'>
+						User successfully verified that the issuer logo is displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:06:44 AM</td>
+				<td class='step-details'>
+						User clicked on download MOSIP credentials button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:06:44 AM</td>
+				<td class='step-details'>
+						User successfully verified that the issuer logo is displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:06:44 AM</td>
+				<td class='step-details'>
+						Verified that list of credential types is displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:06:45 AM</td>
+				<td class='step-details'>
+						Verified that MOSIP National ID and Issuer Logo are displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:06:47 AM</td>
+				<td class='step-details'>
+						User successfully clicked on the MOSIP National ID by e-Signet button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:06:47 AM</td>
+				<td class='step-details'>
+						User clicked on 'Data Share Content Validity' button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:06:47 AM</td>
+				<td class='step-details'>
+						User clicked on 'Select Custom Validity' button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:06:48 AM</td>
+				<td class='step-details'>
+						User entered validity for data share content: 3
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:06:49 AM</td>
+				<td class='step-details'>
+						User successfully clicked on the Proceed button.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:07:21 AM</td>
+				<td class='step-details'>
+						User successfully verified the login page labels
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:07:21 AM</td>
+				<td class='step-details'>
+						User successfully verified the VID input box header
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:07:21 AM</td>
+				<td class='step-details'>
+						User successfully entered the UIN: 7281476132
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:07:21 AM</td>
+				<td class='step-details'>
+						User successfully clicked on the Get OTP button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:07:30 AM</td>
+				<td class='step-details'>
+						User successfully entered the OTP: 111111
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:07:31 AM</td>
+				<td class='step-details'>
+						User clicked on verify button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:07:37 AM</td>
+				<td class='step-details'>
+						Verified that Go Home button is displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:07:37 AM</td>
+				<td class='step-details'>
+						Verified that Download Success text is displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:07:38 AM</td>
+				<td class='step-details'>
+						✅ Scenario Passed: Verify And DownloadVc Via Mosip NatinalId
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='163'>
+					<div class='test-heading'>
+						<span class='test-name'>Verify And DownloadVc Via Mosip NatinalId And rfreshPage</span>
+						<span class='test-time'>Jul 21, 2025 03:07:43 AM</span>
+						<span class='test-status right pass'>Pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jul 21, 2025 03:07:43 AM</span>
+	<span class='label end-time'>Jul 21, 2025 03:09:07 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>00 01 23.123</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='info'>			
+				<td class='status info' title='Info' alt='Info'><i class='material-icons'> info_outline </i></td>
+				<td class='timestamp'>3:07:43 AM</td>
+				<td class='step-details'>
+						Scenario Started: Verify And DownloadVc Via Mosip NatinalId And rfreshPage
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:08:01 AM</td>
+				<td class='step-details'>
+						User successfully clicked on continue as guest
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:08:08 AM</td>
+				<td class='step-details'>
+						Searched issuers with: National Identity Department
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:08:10 AM</td>
+				<td class='step-details'>
+						User clicked on download MOSIP credentials button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:08:11 AM</td>
+				<td class='step-details'>
+						Verified that list of credential types is displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:08:11 AM</td>
+				<td class='step-details'>
+						Verified that MOSIP National ID and Issuer Logo are displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:08:14 AM</td>
+				<td class='step-details'>
+						User successfully clicked on the MOSIP National ID by e-Signet button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:08:14 AM</td>
+				<td class='step-details'>
+						User clicked on 'Data Share Content Validity' button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:08:16 AM</td>
+				<td class='step-details'>
+						User clicked on 'Select Custom Validity' button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:08:16 AM</td>
+				<td class='step-details'>
+						User entered validity for data share content: 3
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:08:18 AM</td>
+				<td class='step-details'>
+						User successfully clicked on the Proceed button.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:08:50 AM</td>
+				<td class='step-details'>
+						User successfully verified the login page labels
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:08:50 AM</td>
+				<td class='step-details'>
+						User successfully verified the VID input box header
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:08:51 AM</td>
+				<td class='step-details'>
+						User successfully entered the UIN: 7281476132
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:08:51 AM</td>
+				<td class='step-details'>
+						User successfully clicked on the Get OTP button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:09:00 AM</td>
+				<td class='step-details'>
+						User successfully entered the OTP: 111111
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:09:01 AM</td>
+				<td class='step-details'>
+						User clicked on verify button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:09:06 AM</td>
+				<td class='step-details'>
+						Verified that Go Home button is displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:09:06 AM</td>
+				<td class='step-details'>
+						Verified that Download Success text is displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:09:07 AM</td>
+				<td class='step-details'>
+						✅ Scenario Passed: Verify And DownloadVc Via Mosip NatinalId And rfreshPage
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='232'>
+					<div class='test-heading'>
+						<span class='test-name'>download vc via sunbird</span>
+						<span class='test-time'>Jul 21, 2025 03:09:12 AM</span>
+						<span class='test-status right pass'>Pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jul 21, 2025 03:09:12 AM</span>
+	<span class='label end-time'>Jul 21, 2025 03:10:27 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>00 01 14.646</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='info'>			
+				<td class='status info' title='Info' alt='Info'><i class='material-icons'> info_outline </i></td>
+				<td class='timestamp'>3:09:12 AM</td>
+				<td class='step-details'>
+						Scenario Started: download vc via sunbird
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:09:25 AM</td>
+				<td class='step-details'>
+						User successfully clicked on continue as guest
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:09:32 AM</td>
+				<td class='step-details'>
+						Searched issuers with: StayProtected Insurance
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:09:35 AM</td>
+				<td class='step-details'>
+						User successfully verified the Sunbird credentials button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:09:37 AM</td>
+				<td class='step-details'>
+						User successfully clicked on the Sunbird credentials button.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:09:38 AM</td>
+				<td class='step-details'>
+						Verified that list of credential types is displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:09:40 AM</td>
+				<td class='step-details'>
+						User successfully verified that Sunbird RC insurance verifiable credential is displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:09:40 AM</td>
+				<td class='step-details'>
+						User successfully clicked on Sunbird RC insurance verifiable credential button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:09:40 AM</td>
+				<td class='step-details'>
+						User clicked on 'Data Share Content Validity' button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:09:40 AM</td>
+				<td class='step-details'>
+						User clicked on 'Select Custom Validity' button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:09:41 AM</td>
+				<td class='step-details'>
+						User entered validity for data share content: 3
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:09:42 AM</td>
+				<td class='step-details'>
+						User successfully clicked on the Proceed button.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:09:45 AM</td>
+				<td class='step-details'>
+						User successfully entered the policy number: 134803134
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:09:45 AM</td>
+				<td class='step-details'>
+						User successfully entered the full name: Latrisha Balistreri
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:09:48 AM</td>
+				<td class='step-details'>
+						User successfully entered the date of birth: 05-08-2006
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:10:24 AM</td>
+				<td class='step-details'>
+						Verified that Download Success text is displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:10:27 AM</td>
+				<td class='step-details'>
+						Verified that Go Home button is displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:10:27 AM</td>
+				<td class='step-details'>
+						✅ Scenario Passed: download vc via sunbird
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='294'>
+					<div class='test-heading'>
+						<span class='test-name'>download vc via sunbird life</span>
+						<span class='test-time'>Jul 21, 2025 03:10:32 AM</span>
+						<span class='test-status right pass'>Pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jul 21, 2025 03:10:32 AM</span>
+	<span class='label end-time'>Jul 21, 2025 03:11:49 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>00 01 16.526</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='info'>			
+				<td class='status info' title='Info' alt='Info'><i class='material-icons'> info_outline </i></td>
+				<td class='timestamp'>3:10:32 AM</td>
+				<td class='step-details'>
+						Scenario Started: download vc via sunbird life
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:10:49 AM</td>
+				<td class='step-details'>
+						User successfully clicked on continue as guest
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:10:56 AM</td>
+				<td class='step-details'>
+						Searched issuers with: StayProtected Insurance
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:10:58 AM</td>
+				<td class='step-details'>
+						User successfully verified the Sunbird credentials button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:11:00 AM</td>
+				<td class='step-details'>
+						User successfully clicked on the Sunbird credentials button.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:11:01 AM</td>
+				<td class='step-details'>
+						Verified that list of credential types is displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:11:01 AM</td>
+				<td class='step-details'>
+						User successfully verified that Life Insurance is displayed.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:11:02 AM</td>
+				<td class='step-details'>
+						User successfully clicked on the Life Insurance button.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:11:02 AM</td>
+				<td class='step-details'>
+						User clicked on 'Data Share Content Validity' button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:11:02 AM</td>
+				<td class='step-details'>
+						User clicked on 'Select Custom Validity' button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:11:03 AM</td>
+				<td class='step-details'>
+						User entered validity for data share content: 3
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:11:04 AM</td>
+				<td class='step-details'>
+						User successfully clicked on the Proceed button.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:11:05 AM</td>
+				<td class='step-details'>
+						User successfully verified that the policy number input box header is displayed.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:11:08 AM</td>
+				<td class='step-details'>
+						User successfully entered the policy number: 134803134
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:11:08 AM</td>
+				<td class='step-details'>
+						User successfully verified that the full name input box header is displayed.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:11:08 AM</td>
+				<td class='step-details'>
+						User successfully entered the full name: Latrisha Balistreri
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:11:09 AM</td>
+				<td class='step-details'>
+						User successfully verified that the date of birth input box header is displayed.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:11:11 AM</td>
+				<td class='step-details'>
+						User successfully entered the date of birth: 05-08-2006
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:11:47 AM</td>
+				<td class='step-details'>
+						Verified that Download Success text is displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:11:49 AM</td>
+				<td class='step-details'>
+						Verified that Go Home button is displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:11:49 AM</td>
+				<td class='step-details'>
+						✅ Scenario Passed: download vc via sunbird life
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='362'>
+					<div class='test-heading'>
+						<span class='test-name'>download vc via sunbird with invalid policy number</span>
+						<span class='test-time'>Jul 21, 2025 03:11:54 AM</span>
+						<span class='test-status right pass'>Pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jul 21, 2025 03:11:54 AM</span>
+	<span class='label end-time'>Jul 21, 2025 03:13:11 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>00 01 16.975</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='info'>			
+				<td class='status info' title='Info' alt='Info'><i class='material-icons'> info_outline </i></td>
+				<td class='timestamp'>3:11:54 AM</td>
+				<td class='step-details'>
+						Scenario Started: download vc via sunbird with invalid policy number
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:12:13 AM</td>
+				<td class='step-details'>
+						User successfully clicked on continue as guest
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:12:21 AM</td>
+				<td class='step-details'>
+						Searched issuers with: StayProtected Insurance
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:12:23 AM</td>
+				<td class='step-details'>
+						User successfully verified the Sunbird credentials button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:12:27 AM</td>
+				<td class='step-details'>
+						User successfully clicked on the Sunbird credentials button.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:12:28 AM</td>
+				<td class='step-details'>
+						Verified that list of credential types is displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:12:28 AM</td>
+				<td class='step-details'>
+						User successfully verified that Life Insurance is displayed.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:12:28 AM</td>
+				<td class='step-details'>
+						User successfully clicked on the Life Insurance button.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:12:29 AM</td>
+				<td class='step-details'>
+						User clicked on 'Data Share Content Validity' button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:12:29 AM</td>
+				<td class='step-details'>
+						User clicked on 'Select Custom Validity' button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:12:29 AM</td>
+				<td class='step-details'>
+						User entered validity for data share content: 3
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:12:30 AM</td>
+				<td class='step-details'>
+						User successfully clicked on the Proceed button.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:12:31 AM</td>
+				<td class='step-details'>
+						User successfully verified that the policy number input box header is displayed.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:12:32 AM</td>
+				<td class='step-details'>
+						User successfully verified that the full name input box header is displayed.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:12:32 AM</td>
+				<td class='step-details'>
+						User successfully entered the full name: Latrisha Balistreri
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:12:32 AM</td>
+				<td class='step-details'>
+						User successfully verified that the date of birth input box header is displayed.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:12:35 AM</td>
+				<td class='step-details'>
+						User successfully entered the date of birth: 05-08-2006
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:13:11 AM</td>
+				<td class='step-details'>
+						User successfully verified that the authentication failed message is displayed.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:13:11 AM</td>
+				<td class='step-details'>
+						✅ Scenario Passed: download vc via sunbird with invalid policy number
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='427'>
+					<div class='test-heading'>
+						<span class='test-name'>download vc via sunbird with invalid name</span>
+						<span class='test-time'>Jul 21, 2025 03:13:16 AM</span>
+						<span class='test-status right pass'>Pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jul 21, 2025 03:13:16 AM</span>
+	<span class='label end-time'>Jul 21, 2025 03:14:31 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>00 01 14.107</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='info'>			
+				<td class='status info' title='Info' alt='Info'><i class='material-icons'> info_outline </i></td>
+				<td class='timestamp'>3:13:16 AM</td>
+				<td class='step-details'>
+						Scenario Started: download vc via sunbird with invalid name
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:13:32 AM</td>
+				<td class='step-details'>
+						User successfully clicked on continue as guest
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:13:39 AM</td>
+				<td class='step-details'>
+						Searched issuers with: StayProtected Insurance
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:13:42 AM</td>
+				<td class='step-details'>
+						User successfully verified the Sunbird credentials button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:13:45 AM</td>
+				<td class='step-details'>
+						User successfully clicked on the Sunbird credentials button.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:13:45 AM</td>
+				<td class='step-details'>
+						Verified that list of credential types is displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:13:45 AM</td>
+				<td class='step-details'>
+						User successfully verified that Vehicle Insurance is displayed.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:13:46 AM</td>
+				<td class='step-details'>
+						User successfully clicked on the Vehicle Insurance button.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:13:46 AM</td>
+				<td class='step-details'>
+						User clicked on 'Data Share Content Validity' button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:13:46 AM</td>
+				<td class='step-details'>
+						User clicked on 'Select Custom Validity' button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:13:46 AM</td>
+				<td class='step-details'>
+						User entered validity for data share content: 3
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:13:48 AM</td>
+				<td class='step-details'>
+						User successfully clicked on the Proceed button.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:13:48 AM</td>
+				<td class='step-details'>
+						User successfully verified that the policy number input box header is displayed.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:13:52 AM</td>
+				<td class='step-details'>
+						User successfully entered the policy number: 134803134
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:13:52 AM</td>
+				<td class='step-details'>
+						User successfully verified that the full name input box header is displayed.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:13:52 AM</td>
+				<td class='step-details'>
+						User successfully verified that the date of birth input box header is displayed.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:13:55 AM</td>
+				<td class='step-details'>
+						User successfully entered the date of birth: 05-08-2006
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:14:31 AM</td>
+				<td class='step-details'>
+						User successfully verified that the authentication failed message is displayed.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:14:31 AM</td>
+				<td class='step-details'>
+						✅ Scenario Passed: download vc via sunbird with invalid name
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='492'>
+					<div class='test-heading'>
+						<span class='test-name'>download vc via sunbird vehicle insurance</span>
+						<span class='test-time'>Jul 21, 2025 03:14:36 AM</span>
+						<span class='test-status right pass'>Pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jul 21, 2025 03:14:36 AM</span>
+	<span class='label end-time'>Jul 21, 2025 03:15:58 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>00 01 22.404</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='info'>			
+				<td class='status info' title='Info' alt='Info'><i class='material-icons'> info_outline </i></td>
+				<td class='timestamp'>3:14:36 AM</td>
+				<td class='step-details'>
+						Scenario Started: download vc via sunbird vehicle insurance
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:14:53 AM</td>
+				<td class='step-details'>
+						User successfully clicked on continue as guest
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:15:03 AM</td>
+				<td class='step-details'>
+						Searched issuers with: StayProtected Insurance
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:15:06 AM</td>
+				<td class='step-details'>
+						User successfully verified the Sunbird credentials button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:15:08 AM</td>
+				<td class='step-details'>
+						User successfully clicked on the Sunbird credentials button.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:15:10 AM</td>
+				<td class='step-details'>
+						Verified that list of credential types is displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:15:10 AM</td>
+				<td class='step-details'>
+						User successfully verified that Vehicle Insurance is displayed.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:15:10 AM</td>
+				<td class='step-details'>
+						User successfully clicked on the Vehicle Insurance button.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:15:11 AM</td>
+				<td class='step-details'>
+						User clicked on 'Data Share Content Validity' button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:15:11 AM</td>
+				<td class='step-details'>
+						User clicked on 'Select Custom Validity' button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:15:11 AM</td>
+				<td class='step-details'>
+						User entered validity for data share content: 3
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:15:13 AM</td>
+				<td class='step-details'>
+						User successfully clicked on the Proceed button.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:15:16 AM</td>
+				<td class='step-details'>
+						User successfully verified that the policy number input box header is displayed.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:15:19 AM</td>
+				<td class='step-details'>
+						User successfully entered the policy number: 134803134
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:15:19 AM</td>
+				<td class='step-details'>
+						User successfully verified that the full name input box header is displayed.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:15:20 AM</td>
+				<td class='step-details'>
+						User successfully entered the full name: Latrisha Balistreri
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:15:20 AM</td>
+				<td class='step-details'>
+						User successfully verified that the date of birth input box header is displayed.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:15:22 AM</td>
+				<td class='step-details'>
+						User successfully entered the date of birth: 05-08-2006
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:15:58 AM</td>
+				<td class='step-details'>
+						Verified that Download Success text is displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:15:58 AM</td>
+				<td class='step-details'>
+						✅ Scenario Passed: download vc via sunbird vehicle insurance
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='557'>
+					<div class='test-heading'>
+						<span class='test-name'>verify Faq Page</span>
+						<span class='test-time'>Jul 21, 2025 03:16:04 AM</span>
+						<span class='test-status right pass'>Pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jul 21, 2025 03:16:04 AM</span>
+	<span class='label end-time'>Jul 21, 2025 03:16:51 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>00 00 47.815</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='info'>			
+				<td class='status info' title='Info' alt='Info'><i class='material-icons'> info_outline </i></td>
+				<td class='timestamp'>3:16:04 AM</td>
+				<td class='step-details'>
+						Scenario Started: verify Faq Page
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:16:20 AM</td>
+				<td class='step-details'>
+						User validate the title of the page
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:16:50 AM</td>
+				<td class='step-details'>
+						User successfully clicked on the Faq button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:16:51 AM</td>
+				<td class='step-details'>
+						User verify the FAQ header and its description
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:16:51 AM</td>
+				<td class='step-details'>
+						Verified that only one FAQ is open. Up Arrow Displayed: true, Count: 1
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:16:51 AM</td>
+				<td class='step-details'>
+						User verified that the Inji web logo is displayed successfully
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:16:51 AM</td>
+				<td class='step-details'>
+						✅ Scenario Passed: verify Faq Page
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='583'>
+					<div class='test-heading'>
+						<span class='test-name'>Verify the Inji web homepage</span>
+						<span class='test-time'>Jul 21, 2025 03:16:57 AM</span>
+						<span class='test-status right pass'>Pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jul 21, 2025 03:16:57 AM</span>
+	<span class='label end-time'>Jul 21, 2025 03:17:23 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>00 00 25.657</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='info'>			
+				<td class='status info' title='Info' alt='Info'><i class='material-icons'> info_outline </i></td>
+				<td class='timestamp'>3:16:57 AM</td>
+				<td class='step-details'>
+						Scenario Started: Verify the Inji web homepage
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:17:12 AM</td>
+				<td class='step-details'>
+						User validate the title of the page
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:17:13 AM</td>
+				<td class='step-details'>
+						User verified that home banner heading is displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:17:13 AM</td>
+				<td class='step-details'>
+						User verified that home banner description is displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:17:13 AM</td>
+				<td class='step-details'>
+						User verified that the Feature heading is displayed on the home page
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:17:13 AM</td>
+				<td class='step-details'>
+						User verified that the Feature description is displayed on the home page
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:17:14 AM</td>
+				<td class='step-details'>
+						User verified that the Feature desktop image is displayed on the home page
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:17:14 AM</td>
+				<td class='step-details'>
+						User verified that the 'Access Your Credentials' image is displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:17:14 AM</td>
+				<td class='step-details'>
+						User verified that the 'Your Documents Downloaded' image is displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:17:14 AM</td>
+				<td class='step-details'>
+						User verified that the 'Easy Sharing' image is displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:17:14 AM</td>
+				<td class='step-details'>
+						User verified that the 'Secure and Private' image is displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:17:15 AM</td>
+				<td class='step-details'>
+						User verified that the 'Wider Access and Compatibility' image is displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:17:16 AM</td>
+				<td class='step-details'>
+						User verified that the 'Access Your Credentials' heading is displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:17:16 AM</td>
+				<td class='step-details'>
+						User verified that the 'Your Documents Downloaded' heading is displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:17:16 AM</td>
+				<td class='step-details'>
+						User verified that the 'Easy Sharing' heading is displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:17:16 AM</td>
+				<td class='step-details'>
+						User verified that the 'Secure and Private' heading is displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:17:16 AM</td>
+				<td class='step-details'>
+						User verified that the 'Wider Access and Compatibility' heading is displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:17:17 AM</td>
+				<td class='step-details'>
+						User verified that 'Credentials Simplified' text is displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:17:17 AM</td>
+				<td class='step-details'>
+						User verified that 'No More Paperwork' text is displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:17:17 AM</td>
+				<td class='step-details'>
+						User verified that 'Download With Confidence' text is displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:17:17 AM</td>
+				<td class='step-details'>
+						User verified that 'Safe and Sound' text is displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:17:18 AM</td>
+				<td class='step-details'>
+						User verified that 'Share With QR Code' text is displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:17:18 AM</td>
+				<td class='step-details'>
+						User verified that 'Read, Set, Share' text is displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:17:18 AM</td>
+				<td class='step-details'>
+						User verified that 'Your Credentials Protected' text is displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:17:19 AM</td>
+				<td class='step-details'>
+						User verified that 'Rest Easy' text is displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:17:19 AM</td>
+				<td class='step-details'>
+						User verified that 'Available on Your Favourite Browser' text is displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:17:19 AM</td>
+				<td class='step-details'>
+						User verified that 'Always Within Reach' text is displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:17:19 AM</td>
+				<td class='step-details'>
+						User verified that 'Credentials Simplified' description is displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:17:19 AM</td>
+				<td class='step-details'>
+						User verified that 'No More Paperwork' description is displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:17:20 AM</td>
+				<td class='step-details'>
+						User verified that 'Download With Confidence' description is displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:17:20 AM</td>
+				<td class='step-details'>
+						User verified that 'Safe and Sound' description is displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:17:20 AM</td>
+				<td class='step-details'>
+						User verified that 'Share With QR Code' description is displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:17:20 AM</td>
+				<td class='step-details'>
+						User verified that 'Read, Set, Share' description is displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:17:20 AM</td>
+				<td class='step-details'>
+						User verified that 'Your Credentials Protected' description is displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:17:20 AM</td>
+				<td class='step-details'>
+						User verified that 'Rest Easy' description is displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:17:21 AM</td>
+				<td class='step-details'>
+						User verified that 'Available on Your Favourite Browser' description is displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:17:21 AM</td>
+				<td class='step-details'>
+						User verified that 'Always Within Reach' description is displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:17:21 AM</td>
+				<td class='step-details'>
+						User successfully clicked on continue as guest
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:17:21 AM</td>
+				<td class='step-details'>
+						User verified that the header container is displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:17:22 AM</td>
+				<td class='step-details'>
+						User verified that the home page container is displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:17:22 AM</td>
+				<td class='step-details'>
+						User verified that the footer is displayed on the home page
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:17:22 AM</td>
+				<td class='step-details'>
+						User verified that the footer text matches the expected value: © 2024 MOSIP. All rights reserved.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:17:22 AM</td>
+				<td class='step-details'>
+						User verified that the Inji web logo is displayed successfully
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:17:22 AM</td>
+				<td class='step-details'>
+						User verified that the search box is displayed on the home page
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:17:23 AM</td>
+				<td class='step-details'>
+						Verified that Language button is displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:17:23 AM</td>
+				<td class='step-details'>
+						✅ Scenario Passed: Verify the Inji web homepage
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='641'>
+					<div class='test-heading'>
+						<span class='test-name'>Verify the Inji web homepage in arabic</span>
+						<span class='test-time'>Jul 21, 2025 03:17:28 AM</span>
+						<span class='test-status right pass'>Pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jul 21, 2025 03:17:28 AM</span>
+	<span class='label end-time'>Jul 21, 2025 03:17:40 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>00 00 12.052</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='info'>			
+				<td class='status info' title='Info' alt='Info'><i class='material-icons'> info_outline </i></td>
+				<td class='timestamp'>3:17:28 AM</td>
+				<td class='step-details'>
+						Scenario Started: Verify the Inji web homepage in arabic
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:17:40 AM</td>
+				<td class='step-details'>
+						User validate the title of the page
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:17:40 AM</td>
+				<td class='step-details'>
+						User verified that the Inji web logo is displayed successfully
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:17:40 AM</td>
+				<td class='step-details'>
+						Verified that Language button is displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:17:40 AM</td>
+				<td class='step-details'>
+						✅ Scenario Passed: Verify the Inji web homepage in arabic
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='657'>
+					<div class='test-heading'>
+						<span class='test-name'>Verify the Inji web homepage in multitabs</span>
+						<span class='test-time'>Jul 21, 2025 03:17:45 AM</span>
+						<span class='test-status right pass'>Pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jul 21, 2025 03:17:45 AM</span>
+	<span class='label end-time'>Jul 21, 2025 03:18:31 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>00 00 45.192</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='info'>			
+				<td class='status info' title='Info' alt='Info'><i class='material-icons'> info_outline </i></td>
+				<td class='timestamp'>3:17:45 AM</td>
+				<td class='step-details'>
+						Scenario Started: Verify the Inji web homepage in multitabs
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:17:58 AM</td>
+				<td class='step-details'>
+						User validate the title of the page
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:17:58 AM</td>
+				<td class='step-details'>
+						User verified that the Inji web logo is displayed successfully
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:17:58 AM</td>
+				<td class='step-details'>
+						Verified that Language button is displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:17:58 AM</td>
+				<td class='step-details'>
+						User validate the title of the page
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:17:59 AM</td>
+				<td class='step-details'>
+						User verified that the Inji web logo is displayed successfully
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:17:59 AM</td>
+				<td class='step-details'>
+						User validate the title of the page
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:18:00 AM</td>
+				<td class='step-details'>
+						User verified that the Inji web logo is displayed successfully
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:18:00 AM</td>
+				<td class='step-details'>
+						Verified that Language button is displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:18:31 AM</td>
+				<td class='step-details'>
+						User successfully clicked on the Faq button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:18:31 AM</td>
+				<td class='step-details'>
+						✅ Scenario Passed: Verify the Inji web homepage in multitabs
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='696'>
+					<div class='test-heading'>
+						<span class='test-name'>User first time login with OIDC using various passcode attempts</span>
+						<span class='test-time'>Jul 21, 2025 03:18:36 AM</span>
+						<span class='test-status right pass'>Pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jul 21, 2025 03:18:36 AM</span>
+	<span class='label end-time'>Jul 21, 2025 03:19:22 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>00 00 46.074</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='info'>			
+				<td class='status info' title='Info' alt='Info'><i class='material-icons'> info_outline </i></td>
+				<td class='timestamp'>3:18:36 AM</td>
+				<td class='step-details'>
+						Scenario Started: User first time login with OIDC using various passcode attempts
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:18:49 AM</td>
+				<td class='step-details'>
+						User successfully verified that google Login Button on Home page
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:19:11 AM</td>
+				<td class='step-details'>
+						User successfully verified Submit button is disabled
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:19:13 AM</td>
+				<td class='step-details'>
+						User successfully verified that Toggle button displayed text in plain test format
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:19:16 AM</td>
+				<td class='step-details'>
+						Passcodes do not match. Please ensure both passcode fields match exactly. Re-enter and try again.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:19:21 AM</td>
+				<td class='step-details'>
+						Verified password is shown in plain text using keyboard interaction
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:19:22 AM</td>
+				<td class='step-details'>
+						✅ Scenario Passed: User first time login with OIDC using various passcode attempts
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='752'>
+					<div class='test-heading'>
+						<span class='test-name'>User verifies Profile page options</span>
+						<span class='test-time'>Jul 21, 2025 03:19:28 AM</span>
+						<span class='test-status right pass'>Pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jul 21, 2025 03:19:28 AM</span>
+	<span class='label end-time'>Jul 21, 2025 03:20:21 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>00 00 52.708</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='info'>			
+				<td class='status info' title='Info' alt='Info'><i class='material-icons'> info_outline </i></td>
+				<td class='timestamp'>3:19:28 AM</td>
+				<td class='step-details'>
+						Scenario Started: User verifies Profile page options
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:19:50 AM</td>
+				<td class='step-details'>
+						User successfully verified that google Login Button on Home page
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:20:17 AM</td>
+				<td class='step-details'>
+						User successfully redirected to user home page
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:20:18 AM</td>
+				<td class='step-details'>
+						Passcodes do not match. Please ensure both passcode fields match exactly. Re-enter and try again.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:20:18 AM</td>
+				<td class='step-details'>
+						User successfully verified Back arrow button on profile Displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:20:18 AM</td>
+				<td class='step-details'>
+						User successfully verified Home arrow button on profile Displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:20:19 AM</td>
+				<td class='step-details'>
+						User successfully verified Label fullname Displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:20:19 AM</td>
+				<td class='step-details'>
+						User successfully verified Label fullname value Displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:20:19 AM</td>
+				<td class='step-details'>
+						User successfully verified Label fullname info Displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:20:19 AM</td>
+				<td class='step-details'>
+						User successfully verified Label fullname info value value Displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:20:20 AM</td>
+				<td class='step-details'>
+						User successfully redirected to user home page
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:20:21 AM</td>
+				<td class='step-details'>
+						User successfully redirected to user home page
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:20:21 AM</td>
+				<td class='step-details'>
+						✅ Scenario Passed: User verifies Profile page options
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='814'>
+					<div class='test-heading'>
+						<span class='test-name'>User home page verification for all the options</span>
+						<span class='test-time'>Jul 21, 2025 03:20:26 AM</span>
+						<span class='test-status right pass'>Pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jul 21, 2025 03:20:26 AM</span>
+	<span class='label end-time'>Jul 21, 2025 03:21:07 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>00 00 40.466</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='info'>			
+				<td class='status info' title='Info' alt='Info'><i class='material-icons'> info_outline </i></td>
+				<td class='timestamp'>3:20:26 AM</td>
+				<td class='step-details'>
+						Scenario Started: User home page verification for all the options
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:20:38 AM</td>
+				<td class='step-details'>
+						User successfully verified that google Login Button on Home page
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:21:03 AM</td>
+				<td class='step-details'>
+						User successfully verified Home button on home page Displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:21:03 AM</td>
+				<td class='step-details'>
+						User successfully verified Stored cards  on home page Displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:21:03 AM</td>
+				<td class='step-details'>
+						User successfully verified Collapse on home page Displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:21:03 AM</td>
+				<td class='step-details'>
+						User successfully verified that After clicking on collpase button Home string is not visible
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:21:04 AM</td>
+				<td class='step-details'>
+						User successfully verified that After clicking on collpase button icons are visible visible
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:21:04 AM</td>
+				<td class='step-details'>
+						User successfully verified Profile details disabled 
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:21:04 AM</td>
+				<td class='step-details'>
+						User successfully verified Profile image disabled 
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:21:04 AM</td>
+				<td class='step-details'>
+						User successfully verified Profile name disabled 
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:21:05 AM</td>
+				<td class='step-details'>
+						User successfully verified Profile dropdown disabled 
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:21:05 AM</td>
+				<td class='step-details'>
+						User successfully verified that profile drop down options are Displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:21:05 AM</td>
+				<td class='step-details'>
+						User successfully verified that profile drop down optionsProfileis visible
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:21:05 AM</td>
+				<td class='step-details'>
+						User successfully verified that profile drop down optionsFAQis visible
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:21:06 AM</td>
+				<td class='step-details'>
+						User successfully verified that profile drop down optionsLogoutis visible
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:21:06 AM</td>
+				<td class='step-details'>
+						User successfully verified welcome message
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:21:06 AM</td>
+				<td class='step-details'>
+						User successfully verified Home text is highlighted
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:21:06 AM</td>
+				<td class='step-details'>
+						User successfully verified Home icon is highlighted
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:21:06 AM</td>
+				<td class='step-details'>
+						User successfully verified visual bar near Home
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:21:06 AM</td>
+				<td class='step-details'>
+						User successfully redirected to user credentials page
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:21:06 AM</td>
+				<td class='step-details'>
+						User successfully verified Stored Cards text is highlighted
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:21:06 AM</td>
+				<td class='step-details'>
+						User successfully verified Stored Cards icon is highlighted
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:21:06 AM</td>
+				<td class='step-details'>
+						User successfully verified visual bar near Stored Cards
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:21:07 AM</td>
+				<td class='step-details'>
+						User successfully redirected to user faq page
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:21:07 AM</td>
+				<td class='step-details'>
+						✅ Scenario Passed: User home page verification for all the options
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='921'>
+					<div class='test-heading'>
+						<span class='test-name'>User download card verification and verifies it</span>
+						<span class='test-time'>Jul 21, 2025 03:21:12 AM</span>
+						<span class='test-status right pass'>Pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jul 21, 2025 03:21:12 AM</span>
+	<span class='label end-time'>Jul 21, 2025 03:24:33 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>00 03 21.108</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='info'>			
+				<td class='status info' title='Info' alt='Info'><i class='material-icons'> info_outline </i></td>
+				<td class='timestamp'>3:21:12 AM</td>
+				<td class='step-details'>
+						Scenario Started: User download card verification and verifies it
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:21:22 AM</td>
+				<td class='step-details'>
+						User successfully verified that google Login Button on Home page
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:21:46 AM</td>
+				<td class='step-details'>
+						User successfully redirected to user credentials page
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:21:46 AM</td>
+				<td class='step-details'>
+						User successfully verified no cards message Displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:21:46 AM</td>
+				<td class='step-details'>
+						User successfully verified Substring for no cards message Displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:21:53 AM</td>
+				<td class='step-details'>
+						Searched issuers with: National Identity Department
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:21:53 AM</td>
+				<td class='step-details'>
+						User clicked on download MOSIP credentials button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:21:54 AM</td>
+				<td class='step-details'>
+						Verified that list of credential types is displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:21:54 AM</td>
+				<td class='step-details'>
+						Verified that MOSIP National ID and Issuer Logo are displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:21:57 AM</td>
+				<td class='step-details'>
+						User successfully clicked on the MOSIP National ID by e-Signet button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:22:29 AM</td>
+				<td class='step-details'>
+						User successfully verified the login page labels
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:22:29 AM</td>
+				<td class='step-details'>
+						User successfully verified the VID input box header
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:22:29 AM</td>
+				<td class='step-details'>
+						User successfully entered the UIN: 7281476132
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:22:29 AM</td>
+				<td class='step-details'>
+						User successfully clicked on the Get OTP button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:22:38 AM</td>
+				<td class='step-details'>
+						User successfully entered the OTP: 111111
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:22:38 AM</td>
+				<td class='step-details'>
+						User clicked on verify button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:22:47 AM</td>
+				<td class='step-details'>
+						Searched issuers with: StayProtected Insurance
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:22:49 AM</td>
+				<td class='step-details'>
+						User successfully verified the Sunbird credentials button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:22:51 AM</td>
+				<td class='step-details'>
+						User successfully clicked on the Sunbird credentials button.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:22:52 AM</td>
+				<td class='step-details'>
+						Verified that list of credential types is displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:22:54 AM</td>
+				<td class='step-details'>
+						User successfully verified that Sunbird RC insurance verifiable credential is displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:22:55 AM</td>
+				<td class='step-details'>
+						User successfully clicked on Sunbird RC insurance verifiable credential button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:22:58 AM</td>
+				<td class='step-details'>
+						User successfully entered the policy number: 134803134
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:22:59 AM</td>
+				<td class='step-details'>
+						User successfully entered the full name: Latrisha Balistreri
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:23:01 AM</td>
+				<td class='step-details'>
+						User successfully entered the date of birth: 05-08-2006
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:23:43 AM</td>
+				<td class='step-details'>
+						Searched issuers with: StayProtected Insurance
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:23:46 AM</td>
+				<td class='step-details'>
+						User successfully verified the Sunbird credentials button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:23:48 AM</td>
+				<td class='step-details'>
+						User successfully clicked on the Sunbird credentials button.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:23:49 AM</td>
+				<td class='step-details'>
+						Verified that list of credential types is displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:23:49 AM</td>
+				<td class='step-details'>
+						User successfully verified that Life Insurance is displayed.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:23:50 AM</td>
+				<td class='step-details'>
+						User successfully clicked on the Life Insurance button.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:23:51 AM</td>
+				<td class='step-details'>
+						User successfully verified that the policy number input box header is displayed.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:23:54 AM</td>
+				<td class='step-details'>
+						User successfully entered the policy number: 134803134
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:23:54 AM</td>
+				<td class='step-details'>
+						User successfully verified that the full name input box header is displayed.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:23:54 AM</td>
+				<td class='step-details'>
+						User successfully entered the full name: Latrisha Balistreri
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:23:54 AM</td>
+				<td class='step-details'>
+						User successfully verified that the date of birth input box header is displayed.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:23:57 AM</td>
+				<td class='step-details'>
+						User successfully entered the date of birth: 05-08-2006
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:24:33 AM</td>
+				<td class='step-details'>
+						✅ Scenario Passed: User download card verification and verifies it
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='1,070'>
+					<div class='test-heading'>
+						<span class='test-name'>User Reset passcode and verify login with new passcode</span>
+						<span class='test-time'>Jul 21, 2025 03:24:38 AM</span>
+						<span class='test-status right pass'>Pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jul 21, 2025 03:24:38 AM</span>
+	<span class='label end-time'>Jul 21, 2025 03:26:21 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>00 01 42.376</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='info'>			
+				<td class='status info' title='Info' alt='Info'><i class='material-icons'> info_outline </i></td>
+				<td class='timestamp'>3:24:38 AM</td>
+				<td class='step-details'>
+						Scenario Started: User Reset passcode and verify login with new passcode
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:24:53 AM</td>
+				<td class='step-details'>
+						User successfully verified that google Login Button on Home page
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:25:15 AM</td>
+				<td class='step-details'>
+						User successfully verified Forget passcode option Displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:25:16 AM</td>
+				<td class='step-details'>
+						Title of the forget Passcode window
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:25:16 AM</td>
+				<td class='step-details'>
+						User successfully redirected to user reset pass code page
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:25:16 AM</td>
+				<td class='step-details'>
+						User successfully verified Back button on Forget passcode option Displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:25:17 AM</td>
+				<td class='step-details'>
+						User successfully User info1 for forget passcode button Displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:25:17 AM</td>
+				<td class='step-details'>
+						User successfully User info for forget passcode button Displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:25:17 AM</td>
+				<td class='step-details'>
+						User successfully verified Forget passcode button Displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:25:17 AM</td>
+				<td class='step-details'>
+						User successfully verified Forget passcode button Enabled
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:25:24 AM</td>
+				<td class='step-details'>
+						Passcodes do not match. Please ensure both passcode fields match exactly. Re-enter and try again.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:25:32 AM</td>
+				<td class='step-details'>
+						User successfully verified that google Login Button on Home page
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:25:56 AM</td>
+				<td class='step-details'>
+						User successfully redirected to user home page
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:25:57 AM</td>
+				<td class='step-details'>
+						User successfully redirected to user credentials page
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:25:57 AM</td>
+				<td class='step-details'>
+						User successfully verified no cards message Displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:25:57 AM</td>
+				<td class='step-details'>
+						User successfully verified Substring for no cards message Displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:25:59 AM</td>
+				<td class='step-details'>
+						User successfully verified that google Login Button on Home page
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:26:20 AM</td>
+				<td class='step-details'>
+						User successfully verified Forget passcode option Displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:26:21 AM</td>
+				<td class='step-details'>
+						✅ Scenario Passed: User Reset passcode and verify login with new passcode
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='1,171'>
+					<div class='test-heading'>
+						<span class='test-name'>Verify the Inji web configured language</span>
+						<span class='test-time'>Jul 21, 2025 03:26:26 AM</span>
+						<span class='test-status right pass'>Pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jul 21, 2025 03:26:26 AM</span>
+	<span class='label end-time'>Jul 21, 2025 03:26:44 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>00 00 17.305</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='info'>			
+				<td class='status info' title='Info' alt='Info'><i class='material-icons'> info_outline </i></td>
+				<td class='timestamp'>3:26:26 AM</td>
+				<td class='step-details'>
+						Scenario Started: Verify the Inji web configured language
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:26:41 AM</td>
+				<td class='step-details'>
+						User validate the title of the page
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:26:42 AM</td>
+				<td class='step-details'>
+						User successfully clicked on continue as guest
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:26:42 AM</td>
+				<td class='step-details'>
+						User verified that the Inji web logo is displayed successfully
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:26:43 AM</td>
+				<td class='step-details'>
+						Verified that Language button is displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:26:43 AM</td>
+				<td class='step-details'>
+						Clicked on Language button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:26:44 AM</td>
+				<td class='step-details'>
+						User successfully verified all the languages in the language filter
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:26:44 AM</td>
+				<td class='step-details'>
+						✅ Scenario Passed: Verify the Inji web configured language
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='1,196'>
+					<div class='test-heading'>
+						<span class='test-name'>Verify the Inji web homepage and search in configured language</span>
+						<span class='test-time'>Jul 21, 2025 03:26:49 AM</span>
+						<span class='test-status right pass'>Pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jul 21, 2025 03:26:49 AM</span>
+	<span class='label end-time'>Jul 21, 2025 03:27:52 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>00 01 02.705</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='info'>			
+				<td class='status info' title='Info' alt='Info'><i class='material-icons'> info_outline </i></td>
+				<td class='timestamp'>3:26:49 AM</td>
+				<td class='step-details'>
+						Scenario Started: Verify the Inji web homepage and search in configured language
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:27:03 AM</td>
+				<td class='step-details'>
+						User validate the title of the page
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:27:03 AM</td>
+				<td class='step-details'>
+						User successfully clicked on continue as guest
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:27:03 AM</td>
+				<td class='step-details'>
+						User verified that the Inji web logo is displayed successfully
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:27:04 AM</td>
+				<td class='step-details'>
+						Verified that Language button is displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:27:05 AM</td>
+				<td class='step-details'>
+						Clicked on Language button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:27:05 AM</td>
+				<td class='step-details'>
+						User successfully clicked on the Arabic language option
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:27:06 AM</td>
+				<td class='step-details'>
+						Verified Arabic home screen text
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:27:12 AM</td>
+				<td class='step-details'>
+						Searched issuers with: الوطنية
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:27:13 AM</td>
+				<td class='step-details'>
+						Verified that MOSIP National ID and Issuer Logo are displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:27:13 AM</td>
+				<td class='step-details'>
+						Clicked on Language button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:27:13 AM</td>
+				<td class='step-details'>
+						Clicked on Tamil language button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:27:14 AM</td>
+				<td class='step-details'>
+						Verified Tamil home screen text
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:27:20 AM</td>
+				<td class='step-details'>
+						Searched issuers with: தேசிய
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:27:21 AM</td>
+				<td class='step-details'>
+						Verified that MOSIP National ID and Issuer Logo are displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:27:21 AM</td>
+				<td class='step-details'>
+						Clicked on Language button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:27:21 AM</td>
+				<td class='step-details'>
+						Clicked on Kannada language button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:27:22 AM</td>
+				<td class='step-details'>
+						Verified Kannada home screen text
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:27:28 AM</td>
+				<td class='step-details'>
+						Searched issuers with: ರಾಷ್ಟ್ರೀ
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:27:28 AM</td>
+				<td class='step-details'>
+						Verified that MOSIP National ID and Issuer Logo are displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:27:29 AM</td>
+				<td class='step-details'>
+						Clicked on Language button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:27:29 AM</td>
+				<td class='step-details'>
+						Clicked on Hindi language button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:27:29 AM</td>
+				<td class='step-details'>
+						Verified Hindi home screen text
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:27:36 AM</td>
+				<td class='step-details'>
+						Searched issuers with: राष्ट्रीय
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:27:36 AM</td>
+				<td class='step-details'>
+						Verified that MOSIP National ID and Issuer Logo are displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:27:37 AM</td>
+				<td class='step-details'>
+						Clicked on Language button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:27:37 AM</td>
+				<td class='step-details'>
+						Clicked on French language button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:27:37 AM</td>
+				<td class='step-details'>
+						Verified French home screen text
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:27:44 AM</td>
+				<td class='step-details'>
+						Searched issuers with: National Identity Department
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:27:44 AM</td>
+				<td class='step-details'>
+						Verified that MOSIP National ID and Issuer Logo are displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:27:44 AM</td>
+				<td class='step-details'>
+						Clicked on Language button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:27:44 AM</td>
+				<td class='step-details'>
+						User successfully clicked on the Portuguese language option
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:27:45 AM</td>
+				<td class='step-details'>
+						User successfully verified home screens in Portuguese
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:27:51 AM</td>
+				<td class='step-details'>
+						Searched issuers with: National Identity Department
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:27:52 AM</td>
+				<td class='step-details'>
+						Verified that MOSIP National ID and Issuer Logo are displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:27:52 AM</td>
+				<td class='step-details'>
+						✅ Scenario Passed: Verify the Inji web homepage and search in configured language
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='1,305'>
+					<div class='test-heading'>
+						<span class='test-name'>Verify the Credential Details Page for mosip in configured langauge</span>
+						<span class='test-time'>Jul 21, 2025 03:27:57 AM</span>
+						<span class='test-status right pass'>Pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jul 21, 2025 03:27:57 AM</span>
+	<span class='label end-time'>Jul 21, 2025 03:28:27 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>00 00 29.835</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='info'>			
+				<td class='status info' title='Info' alt='Info'><i class='material-icons'> info_outline </i></td>
+				<td class='timestamp'>3:27:57 AM</td>
+				<td class='step-details'>
+						Scenario Started: Verify the Credential Details Page for mosip in configured langauge
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:28:13 AM</td>
+				<td class='step-details'>
+						User validate the title of the page
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:28:13 AM</td>
+				<td class='step-details'>
+						User successfully clicked on continue as guest
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:28:13 AM</td>
+				<td class='step-details'>
+						User verified that the Inji web logo is displayed successfully
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:28:20 AM</td>
+				<td class='step-details'>
+						Searched issuers with: National
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:28:20 AM</td>
+				<td class='step-details'>
+						User clicked on download MOSIP credentials button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:28:21 AM</td>
+				<td class='step-details'>
+						User successfully validated the list of credential types title on the page
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:28:22 AM</td>
+				<td class='step-details'>
+						Clicked on Language button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:28:22 AM</td>
+				<td class='step-details'>
+						User successfully clicked on the Arabic language option
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:28:22 AM</td>
+				<td class='step-details'>
+						Successfully validated the credential types title in Arabic for Sunbird.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:28:23 AM</td>
+				<td class='step-details'>
+						Clicked on Language button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:28:23 AM</td>
+				<td class='step-details'>
+						Clicked on Kannada language button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:28:23 AM</td>
+				<td class='step-details'>
+						Successfully validated the credential types title in Kannada.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:28:24 AM</td>
+				<td class='step-details'>
+						Clicked on Language button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:28:24 AM</td>
+				<td class='step-details'>
+						Clicked on Hindi language button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:28:24 AM</td>
+				<td class='step-details'>
+						Successfully validated the credential types title in Hindi.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:28:25 AM</td>
+				<td class='step-details'>
+						Clicked on Language button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:28:25 AM</td>
+				<td class='step-details'>
+						Clicked on French language button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:28:25 AM</td>
+				<td class='step-details'>
+						Successfully validated the credential types title in French.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:28:25 AM</td>
+				<td class='step-details'>
+						Clicked on Language button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:28:26 AM</td>
+				<td class='step-details'>
+						Clicked on Tamil language button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:28:26 AM</td>
+				<td class='step-details'>
+						Successfully validated the credential types title in Tamil.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:28:26 AM</td>
+				<td class='step-details'>
+						Clicked on Language button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:28:27 AM</td>
+				<td class='step-details'>
+						User successfully clicked on the Portuguese language option
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:28:27 AM</td>
+				<td class='step-details'>
+						Successfully validated the credential types title in Portuguese.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:28:27 AM</td>
+				<td class='step-details'>
+						✅ Scenario Passed: Verify the Credential Details Page for mosip in configured langauge
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='1,384'>
+					<div class='test-heading'>
+						<span class='test-name'>Verify the Credential Details Page for sunbird in configured languge</span>
+						<span class='test-time'>Jul 21, 2025 03:28:33 AM</span>
+						<span class='test-status right pass'>Pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jul 21, 2025 03:28:33 AM</span>
+	<span class='label end-time'>Jul 21, 2025 03:32:49 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>00 04 16.485</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='info'>			
+				<td class='status info' title='Info' alt='Info'><i class='material-icons'> info_outline </i></td>
+				<td class='timestamp'>3:28:33 AM</td>
+				<td class='step-details'>
+						Scenario Started: Verify the Credential Details Page for sunbird in configured languge
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:28:51 AM</td>
+				<td class='step-details'>
+						User validate the title of the page
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:28:51 AM</td>
+				<td class='step-details'>
+						User successfully clicked on continue as guest
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:28:52 AM</td>
+				<td class='step-details'>
+						User verified that the Inji web logo is displayed successfully
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:28:59 AM</td>
+				<td class='step-details'>
+						Searched issuers with: Insurance
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:29:01 AM</td>
+				<td class='step-details'>
+						User successfully verified the Sunbird credentials button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:29:04 AM</td>
+				<td class='step-details'>
+						User successfully clicked on the Sunbird credentials button.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:29:04 AM</td>
+				<td class='step-details'>
+						Successfully validated the credential types title for Sunbird.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:29:05 AM</td>
+				<td class='step-details'>
+						Clicked on Language button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:29:05 AM</td>
+				<td class='step-details'>
+						User successfully clicked on the Arabic language option
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:29:42 AM</td>
+				<td class='step-details'>
+						Searched issuers with: life
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:29:42 AM</td>
+				<td class='step-details'>
+						User successfully validated the list of credential types title in Arabic for Sunbird
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:29:42 AM</td>
+				<td class='step-details'>
+						Clicked on Language button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:29:43 AM</td>
+				<td class='step-details'>
+						Clicked on Tamil language button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:30:19 AM</td>
+				<td class='step-details'>
+						Searched issuers with: life
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:30:19 AM</td>
+				<td class='step-details'>
+						User successfully validated the list of credential types title in Tamil for Sunbird
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:30:20 AM</td>
+				<td class='step-details'>
+						Clicked on Language button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:30:20 AM</td>
+				<td class='step-details'>
+						Clicked on Kannada language button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:30:57 AM</td>
+				<td class='step-details'>
+						Searched issuers with: life
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:30:57 AM</td>
+				<td class='step-details'>
+						User successfully validated the list of credential types title in Kannada for Sunbird
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:30:57 AM</td>
+				<td class='step-details'>
+						Clicked on Language button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:30:58 AM</td>
+				<td class='step-details'>
+						Clicked on Hindi language button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:31:34 AM</td>
+				<td class='step-details'>
+						Searched issuers with: life
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:31:34 AM</td>
+				<td class='step-details'>
+						User successfully validated the list of credential types title in Hindi for Sunbird
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:31:35 AM</td>
+				<td class='step-details'>
+						Clicked on Language button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:31:35 AM</td>
+				<td class='step-details'>
+						Clicked on French language button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:32:12 AM</td>
+				<td class='step-details'>
+						Searched issuers with: life
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:32:12 AM</td>
+				<td class='step-details'>
+						User successfully validated the list of credential types title in French for Sunbird
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:32:12 AM</td>
+				<td class='step-details'>
+						Clicked on Language button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:32:12 AM</td>
+				<td class='step-details'>
+						User successfully clicked on the Portuguese language option
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:32:49 AM</td>
+				<td class='step-details'>
+						Searched issuers with: life
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:32:49 AM</td>
+				<td class='step-details'>
+						User successfully validated the list of credential types title in Portuguese for Sunbird
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:32:49 AM</td>
+				<td class='step-details'>
+						✅ Scenario Passed: Verify the Credential Details Page for sunbird in configured languge
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='1,484'>
+					<div class='test-heading'>
+						<span class='test-name'>Verify the Credential Details Page and verify home page</span>
+						<span class='test-time'>Jul 21, 2025 03:32:54 AM</span>
+						<span class='test-status right pass'>Pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jul 21, 2025 03:32:54 AM</span>
+	<span class='label end-time'>Jul 21, 2025 03:33:55 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>00 01 01.055</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='info'>			
+				<td class='status info' title='Info' alt='Info'><i class='material-icons'> info_outline </i></td>
+				<td class='timestamp'>3:32:54 AM</td>
+				<td class='step-details'>
+						Scenario Started: Verify the Credential Details Page and verify home page
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:33:05 AM</td>
+				<td class='step-details'>
+						User validate the title of the page
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:33:06 AM</td>
+				<td class='step-details'>
+						User successfully clicked on continue as guest
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:33:06 AM</td>
+				<td class='step-details'>
+						User verified that the Inji web logo is displayed successfully
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:33:13 AM</td>
+				<td class='step-details'>
+						Searched issuers with: National
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:33:13 AM</td>
+				<td class='step-details'>
+						User clicked on download MOSIP credentials button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:33:14 AM</td>
+				<td class='step-details'>
+						User successfully validated the list of credential types title on the page
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:33:14 AM</td>
+				<td class='step-details'>
+						Clicked on Language button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:33:14 AM</td>
+				<td class='step-details'>
+						Clicked on Tamil language button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:33:15 AM</td>
+				<td class='step-details'>
+						Verified Tamil home screen text
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:33:21 AM</td>
+				<td class='step-details'>
+						Searched issuers with: தேசிய
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:33:21 AM</td>
+				<td class='step-details'>
+						Verified that MOSIP National ID and Issuer Logo are displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:33:22 AM</td>
+				<td class='step-details'>
+						User clicked on download MOSIP credentials button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:33:23 AM</td>
+				<td class='step-details'>
+						Clicked on Language button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:33:23 AM</td>
+				<td class='step-details'>
+						Clicked on Kannada language button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:33:23 AM</td>
+				<td class='step-details'>
+						Verified Kannada home screen text
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:33:30 AM</td>
+				<td class='step-details'>
+						Searched issuers with: ರಾಷ್ಟ್ರೀ
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:33:30 AM</td>
+				<td class='step-details'>
+						Verified that MOSIP National ID and Issuer Logo are displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:33:30 AM</td>
+				<td class='step-details'>
+						User clicked on download MOSIP credentials button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:33:31 AM</td>
+				<td class='step-details'>
+						Clicked on Language button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:33:31 AM</td>
+				<td class='step-details'>
+						Clicked on Hindi language button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:33:31 AM</td>
+				<td class='step-details'>
+						Verified Hindi home screen text
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:33:38 AM</td>
+				<td class='step-details'>
+						Searched issuers with: राष्ट्रीय
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:33:38 AM</td>
+				<td class='step-details'>
+						Verified that MOSIP National ID and Issuer Logo are displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:33:38 AM</td>
+				<td class='step-details'>
+						User clicked on download MOSIP credentials button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:33:39 AM</td>
+				<td class='step-details'>
+						Clicked on Language button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:33:39 AM</td>
+				<td class='step-details'>
+						Clicked on French language button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:33:40 AM</td>
+				<td class='step-details'>
+						Verified French home screen text
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:33:46 AM</td>
+				<td class='step-details'>
+						Searched issuers with: National Identity Department
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:33:46 AM</td>
+				<td class='step-details'>
+						Verified that MOSIP National ID and Issuer Logo are displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:33:47 AM</td>
+				<td class='step-details'>
+						User clicked on download MOSIP credentials button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:33:48 AM</td>
+				<td class='step-details'>
+						Clicked on Language button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:33:48 AM</td>
+				<td class='step-details'>
+						User successfully clicked on the Portuguese language option
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:33:48 AM</td>
+				<td class='step-details'>
+						User successfully verified home screens in Portuguese
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:33:55 AM</td>
+				<td class='step-details'>
+						Searched issuers with: National Identity Department
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:33:55 AM</td>
+				<td class='step-details'>
+						Verified that MOSIP National ID and Issuer Logo are displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:33:55 AM</td>
+				<td class='step-details'>
+						✅ Scenario Passed: Verify the Credential Details Page and verify home page
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='1,611'>
+					<div class='test-heading'>
+						<span class='test-name'>Verify the Inji web homepage  and search in configured langauge</span>
+						<span class='test-time'>Jul 21, 2025 03:34:00 AM</span>
+						<span class='test-status right pass'>Pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jul 21, 2025 03:34:00 AM</span>
+	<span class='label end-time'>Jul 21, 2025 03:37:35 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>00 03 34.640</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='info'>			
+				<td class='status info' title='Info' alt='Info'><i class='material-icons'> info_outline </i></td>
+				<td class='timestamp'>3:34:00 AM</td>
+				<td class='step-details'>
+						Scenario Started: Verify the Inji web homepage  and search in configured langauge
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:34:15 AM</td>
+				<td class='step-details'>
+						User validate the title of the page
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:34:17 AM</td>
+				<td class='step-details'>
+						User successfully clicked on continue as guest
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:34:17 AM</td>
+				<td class='step-details'>
+						User verified that the Inji web logo is displayed successfully
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:34:17 AM</td>
+				<td class='step-details'>
+						Verified that Language button is displayed
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:34:18 AM</td>
+				<td class='step-details'>
+						Clicked on Language button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:34:18 AM</td>
+				<td class='step-details'>
+						User successfully clicked on the Arabic language option
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:34:19 AM</td>
+				<td class='step-details'>
+						Verified Arabic home screen text
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:34:49 AM</td>
+				<td class='step-details'>
+						User successfully clicked on the Faq button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:34:50 AM</td>
+				<td class='step-details'>
+						User verify the FAQ header and its description
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:34:50 AM</td>
+				<td class='step-details'>
+						Verified that only one FAQ is open. Up Arrow Displayed: true, Count: 1
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:34:50 AM</td>
+				<td class='step-details'>
+						User verified that the Inji web logo is displayed successfully
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:35:21 AM</td>
+				<td class='step-details'>
+						Clicked on Language button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:35:21 AM</td>
+				<td class='step-details'>
+						Clicked on Tamil language button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:35:21 AM</td>
+				<td class='step-details'>
+						User verify the FAQ header and its description
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:35:21 AM</td>
+				<td class='step-details'>
+						Verified that only one FAQ is open. Up Arrow Displayed: true, Count: 1
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:35:22 AM</td>
+				<td class='step-details'>
+						User verified that the Inji web logo is displayed successfully
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:35:52 AM</td>
+				<td class='step-details'>
+						Clicked on Language button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:35:53 AM</td>
+				<td class='step-details'>
+						Clicked on Kannada language button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:35:53 AM</td>
+				<td class='step-details'>
+						User verify the FAQ header and its description
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:35:53 AM</td>
+				<td class='step-details'>
+						Verified that only one FAQ is open. Up Arrow Displayed: true, Count: 1
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:35:53 AM</td>
+				<td class='step-details'>
+						User verified that the Inji web logo is displayed successfully
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:36:24 AM</td>
+				<td class='step-details'>
+						Clicked on Language button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:36:26 AM</td>
+				<td class='step-details'>
+						Clicked on Hindi language button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:36:27 AM</td>
+				<td class='step-details'>
+						User verify the FAQ header and its description
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:36:29 AM</td>
+				<td class='step-details'>
+						Verified that only one FAQ is open. Up Arrow Displayed: true, Count: 1
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:36:31 AM</td>
+				<td class='step-details'>
+						User verified that the Inji web logo is displayed successfully
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:37:02 AM</td>
+				<td class='step-details'>
+						Clicked on Language button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:37:02 AM</td>
+				<td class='step-details'>
+						Clicked on French language button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:37:03 AM</td>
+				<td class='step-details'>
+						User verify the FAQ header and its description
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:37:03 AM</td>
+				<td class='step-details'>
+						Verified that only one FAQ is open. Up Arrow Displayed: true, Count: 1
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:37:03 AM</td>
+				<td class='step-details'>
+						User verified that the Inji web logo is displayed successfully
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:37:34 AM</td>
+				<td class='step-details'>
+						Clicked on Language button
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:37:34 AM</td>
+				<td class='step-details'>
+						User successfully clicked on the Portuguese language option
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:37:34 AM</td>
+				<td class='step-details'>
+						User verify the FAQ header and its description
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:37:35 AM</td>
+				<td class='step-details'>
+						Verified that only one FAQ is open. Up Arrow Displayed: true, Count: 1
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:37:35 AM</td>
+				<td class='step-details'>
+						User verified that the Inji web logo is displayed successfully
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>3:37:35 AM</td>
+				<td class='step-details'>
+						✅ Scenario Passed: Verify the Inji web homepage  and search in configured langauge
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	
+	
+	<!-- subview left -->
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<div id='step-filters' class="right sr-filters">
+				<a class="btn-floating waves-effect waves-light green" status="pass" alt="pass" title="pass"><i class="material-icons">check_circle</i></a>
+				<a class="btn-floating waves-effect waves-light red" status="fail" alt="fail" title="fail"><i class="material-icons">cancel</i></a>
+				<a class="btn-floating waves-effect waves-light red darken-4" status="fatal" alt="fatal" title="fatal"><i class="material-icons">cancel</i></a>
+				<a class="btn-floating waves-effect waves-light pink text-lighten-1" status="error" alt="error" title="error"><i class="material-icons">error</i></a>
+				<a class="btn-floating waves-effect waves-light orange" alt="warning" status="warning" title="warning"><i class="material-icons">warning</i></a>
+				<a class="btn-floating waves-effect waves-light teal" status="skip" alt="skip" title="skip"><i class="material-icons">redo</i></a>
+				<a class="btn-floating waves-effect waves-light grey" status="clear" alt="Clear filters" title="Clear filters"><i class="material-icons">clear</i></a>
+			</div>
+			<h5 class='test-name'></h5>
+		</div>
+	</div>
+	<!-- subview right -->
+</div>
+<!-- test view --><div id='dashboard-view' class='view hide'>
+	<div class='card-panel transparent np-v'>
+		<h5>Dashboard</h5>
+
+		<div class='row'>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Tests
+					<div class='panel-lead'>24</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Steps
+					<div class='panel-lead'>0</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Start
+					<div class='panel-lead'>Jul 21, 2025 03:04:15 AM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+			 		End
+			 		<div class='panel-lead'>Jul 21, 2025 03:37:35 AM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Time Taken
+					<div class='panel-lead'>00 33 20.301</div>
+				</div>
+			</div>
+			<div class='col s4'>
+				<div class='card-panel dashboard-environment'>
+					<span class='right label cyan white-text'>Environment</span><p>&nbsp;</p>
+					
+					<table>
+						<tr>
+							<th>Name</th>
+							<th>Value</th>
+						</tr>
+							<tr>
+								<td>Git Branch</td>
+								<td>release-0.13.x</td>
+							</tr>
+							<tr>
+								<td>Commit ID</td>
+								<td>57a9da2fef28c3f299adf3fb6885b68d7032b2fa</td>
+							</tr>
+							<tr>
+								<td>TEST_URL</td>
+								<td>https://injiweb.qa-inji1.mosip.net/</td>
+							</tr>
+							<tr>
+								<td>Execution Time</td>
+								<td>2025-07-21-03-04</td>
+							</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- dashboard view -->
+		</div>
+		<!-- container -->
+		<script>
+			var statusGroup = {
+                parentCount: 24,
+				passParent: 24,
+				failParent: 0,
+				fatalParent: 0,
+				errorParent: 0,
+				warningParent: 0,
+				skipParent: 0,
+				childCount: 0,
+				passChild: 0,
+				failChild: 0,
+				fatalChild: 0,
+				errorChild: 0,
+				warningChild: 0,
+				skipChild: 0,
+				infoChild: 0,
+				grandChildCount: 0,
+				passGrandChild: 0,
+				failGrandChild: 0,
+				fatalGrandChild: 0,
+				errorGrandChild: 0,
+				warningGrandChild: 0,
+				skipGrandChild: 0,
+				infoGrandChild: 0,
+			};
+			</script>
+		
+		<script>
+			var timeline = {
+			        "Mosip Natonal Id by e-Signet":82.183,"Verify Search With Invalid String":33.313,"Verify And DownloadVc Via Mosip NatinalId":76.654,"Verify And DownloadVc Via Mosip NatinalId And rfreshPage":83.123,"download vc via sunbird":74.646,"download vc via sunbird life":76.526,"download vc via sunbird with invalid policy number":76.975,"download vc via sunbird with invalid name":74.107,"download vc via sunbird vehicle insurance":82.404,"verify Faq Page":47.815,"Verify the Inji web homepage":25.657,"Verify the Inji web homepage in arabic":12.052,"Verify the Inji web homepage in multitabs":45.192,"User first time login with OIDC using various passcode attempts":46.074,"User verifies Profile page options":52.708,"User home page verification for all the options":40.466,"User download card verification and verifies it":201.108,"User Reset passcode and verify login with new passcode":102.376,"Verify the Inji web configured language":17.305,"Verify the Inji web homepage and search in configured language":62.705,"Verify the Credential Details Page for mosip in configured langauge":29.835,"Verify the Credential Details Page for sunbird in configured languge":256.485,"Verify the Credential Details Page and verify home page":61.055,"Verify the Inji web homepage  and search in configured langauge":214.64
+			};
+		</script>
+		
+		  <script src='http://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@ff53917fbbdb5ef820abbbe4d199a6942dc771ff/v3html/js/extent.js' type='text/javascript'></script>
+		
+		
+		<script type='text/javascript'>
+				
+		</script> 
+
+	</body>
+</html>

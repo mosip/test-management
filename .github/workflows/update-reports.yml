@@ -77,7 +77,7 @@ jobs:
         run: python minio-report-tracker/scripts/generate_xlsx.py
 
       - name: Ensure XLSX folder exists
-        run: mkdir -p minio-report-tracker/minio-report-tracker/xlxs
+        run: mkdir -p minio-report-tracker/xlxs
         
       - name: Run Google Sheet Update Script
         run: |

@@ -8,7 +8,7 @@ import json
 
 # --- CONFIGURATION ---
 SOURCE_DIR = "minio-report-tracker/csv"
-SPREADSHEET_ID = "1uGwQLZ0wIF4nGF98cyoJjZTu9UG30UbTM259X2R1RH4"
+SPREADSHEET_ID = "1gpV5T5Ol45VqmS8nI6Xk2MXWEeJMiXU1yoFUDMODi6g"
 CREDENTIALS_FILE = "creds.json"
 
 # --- CONSTANTS ---

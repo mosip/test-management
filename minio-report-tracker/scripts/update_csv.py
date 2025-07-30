@@ -105,8 +105,22 @@ for alias in MINIO_ALIASES:
                 if not any(row[1] == mod for row in all_data_by_date[date_key]):
                     all_data_by_date[date_key].append([date_key, mod, T, P, S, F, I, KI])
 
-    sorted_dates = sorted(all_data_by_date.keys(), key=lambda x: datetime.strptime(x, "%d-%B-%Y"), reverse=True)
-    latest_dates = sorted_dates[:5]
+    # === Only include latest 5 working days (Mon–Fri) ===
+    sorted_dates = sorted(
+        all_data_by_date.keys(),
+        key=lambda x: datetime.strptime(x, "%d-%B-%Y"),
+        reverse=True
+    )
+
+    weekdays_only = []
+    for date_str in sorted_dates:
+        dt = datetime.strptime(date_str, "%d-%B-%Y")
+        if dt.weekday() < 5:  # Monday to Friday (0–4)
+            weekdays_only.append(date_str)
+        if len(weekdays_only) == 5:
+            break
+
+    latest_dates = weekdays_only
 
     dfs = []
     for date in latest_dates:

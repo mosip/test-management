@@ -1,4 +1,4 @@
-# mosip-labs - MinIO Report Tracker
+# MinIO Report Tracker
 
 This repository automates the extraction, transformation, and visualization of report metadata from MinIO buckets. It generates `.csv` and `.xlsx` reports with charts and commits them to the repository daily.
 

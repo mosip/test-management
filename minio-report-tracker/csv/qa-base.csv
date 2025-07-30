@@ -1,11 +1,10 @@
-Date,Module,T,P,S,F,I,KI,, ,Date,Module,T,P,S,F,I,KI,, ,Date,Module,T,P,S,F,I,KI,, ,Date,Module,T,P,S,F,I,KI,, ,Date,Module,T,P,S,F,I,KI
-11-July-2025,auth,610,570,0,19,5,16,,,10-July-2025,auth,610,574,0,15,5,16,,,09-July-2025,auth,610,573,0,16,5,16,,,08-July-2025,idrepo,410,309,1,16,84,0,,,07-July-2025,auth,610,574,0,15,5,16
-11-July-2025,idrepo,410,309,1,16,84,0,,,10-July-2025,idrepo,410,309,1,16,84,0,,,09-July-2025,idrepo,410,309,1,16,84,0,,,08-July-2025,masterdata-ara,945,894,0,2,15,34,,,07-July-2025,idrepo,410,309,1,16,84,0
-11-July-2025,masterdata-ara,945,894,0,2,15,34,,,10-July-2025,masterdata-ara,945,894,0,2,15,34,,,09-July-2025,masterdata-ara,945,894,0,2,15,34,,,08-July-2025,masterdata-eng,945,922,0,1,0,22,,,07-July-2025,masterdata-ara,945,894,0,2,15,34
-11-July-2025,masterdata-eng,945,922,0,1,0,22,,,10-July-2025,masterdata-eng,945,922,0,1,0,22,,,09-July-2025,masterdata-eng,945,922,0,1,0,22,,,08-July-2025,masterdata-fra,945,906,0,1,15,23,,,07-July-2025,masterdata-eng,945,922,0,1,0,22
-11-July-2025,masterdata-fra,945,906,0,1,15,23,,,10-July-2025,masterdata-fra,945,906,0,1,15,23,,,09-July-2025,masterdata-fra,945,906,0,1,15,23,,,08-July-2025,masterdata-khm,945,793,0,137,15,0,,,07-July-2025,masterdata-fra,945,906,0,1,15,23
-11-July-2025,masterdata-khm,945,793,0,137,15,0,,,10-July-2025,masterdata-khm,945,793,0,137,15,0,,,09-July-2025,masterdata-khm,945,793,0,137,15,0,,,08-July-2025,mimoto,315,0,0,315,0,0,,,07-July-2025,masterdata-khm,945,793,0,137,15,0
-11-July-2025,mimoto,315,0,0,315,0,0,,,10-July-2025,mimoto,315,0,0,315,0,0,,,09-July-2025,mimoto,315,0,0,315,0,0,,,08-July-2025,partner,509,329,134,34,0,12,,,07-July-2025,mimoto,315,0,0,315,0,0
-11-July-2025,partner,509,329,134,34,0,12,,,10-July-2025,partner,509,329,134,34,0,12,,,09-July-2025,partner,509,329,134,34,0,12,,,08-July-2025,prereg,288,97,163,17,2,9,,,07-July-2025,partner,509,329,134,34,0,12
-11-July-2025,prereg,288,97,163,17,2,9,,,10-July-2025,prereg,288,97,163,17,2,9,,,09-July-2025,prereg,288,92,116,69,2,9,,,08-July-2025,resident,1126,1073,3,50,0,0,,,07-July-2025,prereg,288,97,162,18,2,9
-,,,,,,,,,,10-July-2025,resident,1126,1078,0,48,0,0,,,09-July-2025,resident,1126,1068,1,57,0,0,,,,,,,,,,,,,07-July-2025,resident,1126,1076,2,48,0,0
+Date,Module,T,P,S,F,I,KI,, ,Date,Module,T,P,S,F,I,KI,, ,Date,Module,T,P,S,F,I,KI,, ,Date,Module,T,P,S,F,I,KI
+29-July-2025,auth,610,580,1,8,5,16,,,28-July-2025,auth,610,40,478,71,5,16,,,25-July-2025,auth,610,51,478,60,5,16,,,24-July-2025,auth,610,572,0,17,5,16
+29-July-2025,idrepo,414,313,0,3,78,20,,,28-July-2025,idrepo,414,384,0,10,0,20,,,25-July-2025,idrepo,414,379,0,15,0,20,,,24-July-2025,idrepo,414,384,0,10,0,20
+29-July-2025,masterdata-ara,945,894,0,2,15,34,,,28-July-2025,masterdata-ara,945,894,0,2,15,34,,,25-July-2025,masterdata-ara,945,894,0,2,15,34,,,,,,,,,,
+29-July-2025,masterdata-eng,945,922,0,1,0,22,,,28-July-2025,masterdata-eng,945,922,0,1,0,22,,,25-July-2025,masterdata-eng,945,922,0,1,0,22,,,,,,,,,,
+29-July-2025,masterdata-fra,945,906,0,1,15,23,,,28-July-2025,masterdata-fra,945,906,0,1,15,23,,,25-July-2025,masterdata-fra,945,906,0,1,15,23,,,,,,,,,,
+29-July-2025,masterdata-khm,945,793,0,137,15,0,,,28-July-2025,masterdata-khm,945,793,0,137,15,0,,,25-July-2025,masterdata-khm,945,793,0,137,15,0,,,,,,,,,,
+29-July-2025,partner,509,329,134,34,0,12,,,28-July-2025,partner,509,329,134,34,0,12,,,25-July-2025,partner,509,329,134,34,0,12,,,,,,,,,,
+29-July-2025,prereg,288,97,163,17,2,9,,,28-July-2025,prereg,288,97,163,17,2,9,,,25-July-2025,prereg,288,97,163,17,2,9,,,,,,,,,,
+29-July-2025,resident,1142,1085,1,44,0,12,,,28-July-2025,resident,1142,233,438,459,0,12,,,25-July-2025,resident,1142,1089,0,41,0,12,,,,,,,,,,

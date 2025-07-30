@@ -4,12 +4,12 @@ import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 from openpyxl import Workbook
 from openpyxl.drawing.image import Image
-from openpyxl.utils.dataframe import dataframe_to_rows
+from openpyxl.styles import Font
 from openpyxl.utils import get_column_letter
 
-def load_and_normalize_data(input_file):
+def load_normalized_data(csv_path):
     rows = []
-    with open(input_file, 'r') as f:
+    with open(csv_path, 'r') as f:
         for line in f:
             line = line.strip()
             if not line or line.startswith("###"):
@@ -35,12 +35,24 @@ def generate_graphs(df, output_dir):
 
     for module in modules:
         module_df = df[df["Module"] == module]
-        module_df = module_df.groupby(["Date", "Module"]).sum().reset_index()
-        module_df = module_df.sort_values("Date")
-
         if module_df.empty:
             continue
 
+        # Group and sort
+        module_df = module_df.groupby("Date").agg({
+            "T": "sum",
+            "P": "sum",
+            "F": "sum"
+        }).reset_index()
+
+        # ✅ Remove weekends (Saturday=5, Sunday=6)
+        module_df = module_df[module_df["Date"].dt.weekday < 5]
+
+        module_df = module_df.sort_values("Date")
+        if module_df.empty:
+            continue
+
+        # Plotting
         plt.figure(figsize=(10, 5))
         plt.plot(module_df["Date"], module_df["T"], label="Total", linewidth=2, color='blue', marker='o')
         plt.plot(module_df["Date"], module_df["P"], label="Passed", linewidth=2.5, color='green', marker='o')
@@ -64,24 +76,52 @@ def generate_graphs(df, output_dir):
 
     return graph_files
 
-def export_to_excel(df, graph_files, xlsx_path):
+def export_to_excel(csv_path, graph_files, xlsx_path):
     wb = Workbook()
-
     ws_data = wb.active
     ws_data.title = "Module Data"
 
-    for row in dataframe_to_rows(df, index=False, header=True):
-        ws_data.append(row)
+    # Load CSV with proper handling of unnamed columns
+    df_raw = pd.read_csv(csv_path, dtype=str)
 
-    # Format date cells in column A and auto-adjust column widths
-    for cell in ws_data["A"][1:]:  # Skip header
-        cell.number_format = "DD-MMM-YYYY"
+    # Drop all unnamed/empty columns
+    df_raw = df_raw.loc[:, ~df_raw.columns.str.contains('^Unnamed', na=False)]
+    df_raw = df_raw.dropna(axis=1, how='all')
 
-    for column_cells in ws_data.columns:
-        length = max(len(str(cell.value)) if cell.value is not None else 0 for cell in column_cells)
-        col_letter = get_column_letter(column_cells[0].column)
-        ws_data.column_dimensions[col_letter].width = length + 2
+    # Normalize headers (remove .1, .2 etc.)
+    def normalize_header(col):
+        return col.split('.')[0].strip()
 
+    df_raw.columns = [normalize_header(col) for col in df_raw.columns]
+
+    # Split into 8-column blocks
+    num_cols = df_raw.shape[1]
+    block_size = 8
+    blocks = [df_raw.iloc[:, i:i + block_size] for i in range(0, num_cols, block_size)]
+
+    # Write blocks with one column gap
+    start_col = 1
+    for block in blocks:
+        # Write bold header
+        for col_idx, col_name in enumerate(block.columns):
+            cell = ws_data.cell(row=1, column=start_col + col_idx)
+            cell.value = col_name
+            cell.font = Font(bold=True)
+
+        # Write data
+        for row_idx, row in enumerate(block.itertuples(index=False), start=2):
+            for col_idx, value in enumerate(row):
+                ws_data.cell(row=row_idx, column=start_col + col_idx, value=value)
+
+        start_col += block_size + 1  # One column gap
+
+    # Auto-adjust column widths
+    for col_cells in ws_data.columns:
+        max_len = max(len(str(cell.value)) if cell.value else 0 for cell in col_cells)
+        col_letter = get_column_letter(col_cells[0].column)
+        ws_data.column_dimensions[col_letter].width = max_len + 2
+
+    # Add graph sheet
     ws_charts = wb.create_sheet(title="Module Graphs")
     row_pos = 1
     for module, image_path in graph_files:
@@ -96,7 +136,6 @@ def export_to_excel(df, graph_files, xlsx_path):
     wb.save(xlsx_path)
 
 # === MAIN EXECUTION ===
-
 csv_dir = "minio-report-tracker/csv"
 output_base = "minio-report-tracker/xlxs"
 os.makedirs(output_base, exist_ok=True)
@@ -107,11 +146,12 @@ for file in os.listdir(csv_dir):
 
     alias = file.replace(".csv", "")
     csv_path = os.path.join(csv_dir, file)
-    df = load_and_normalize_data(csv_path)
 
+    df_normalized = load_normalized_data(csv_path)
     output_dir = os.path.join(output_base, f"{alias}_images")
     os.makedirs(output_dir, exist_ok=True)
 
-    graph_files = generate_graphs(df, output_dir)
+    graph_files = generate_graphs(df_normalized, output_dir)
     xlsx_path = os.path.join(output_base, f"{alias}.xlsx")
-    export_to_excel(df, graph_files, xlsx_path)
+
+    export_to_excel(csv_path, graph_files, xlsx_path)

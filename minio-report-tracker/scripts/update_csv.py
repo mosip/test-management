@@ -6,7 +6,7 @@ import pandas as pd
 from datetime import datetime
 
 MINIO_ALIASES = ["cellbox21", "collab", "dev-int", "dev3", "released", "dev1", "qa-base", "qa-core", "qa-country", "qa1-java21"]
-MINIO_BUCKETS = ["apitestrig", "automation", "dslreports"]
+MINIO_BUCKETS = ["apitestrig", "automation", "dslreports", "uitestrig"]
 columns = ["Date", "Module", "T", "P", "S", "F", "I", "KI"]
 
 def format_date_str(dt):
@@ -19,6 +19,7 @@ for alias in MINIO_ALIASES:
     for bucket in MINIO_BUCKETS:
         folders = []
 
+        # Special handling for dslreports
         if bucket == "dslreports":
             cmd = f"mc ls --json {alias}/dslreports/full/"
             output = subprocess.getoutput(cmd)
@@ -52,6 +53,39 @@ for alias in MINIO_ALIASES:
                     all_data_by_date[date_key].append([date_key, "dsl", T, P, S, F, I, KI])
             continue
 
+        if bucket == "uitestrig":
+            cmd = f"mc ls --json {alias}/{bucket}/"
+            lines = subprocess.getoutput(cmd).splitlines()
+
+            for line in lines:
+                try:
+                    info = json.loads(line)
+                    fn = info["key"]
+                    ts = info["lastModified"]
+                    date_obj = datetime.strptime(ts[:10], "%Y-%m-%d")
+                except (json.JSONDecodeError, KeyError, ValueError):
+                    continue
+
+                if not re.search(r"-report_T-\d+_P-\d+_S-\d+_F-\d+\.html$", fn):
+                    continue
+
+                mod_match = re.match(r"(ADMINUI|RESIDENT)-api-", fn)
+                if mod_match:
+                    mod_raw = mod_match.group(1).lower()
+                    mod = "residentui" if mod_raw == "resident" else mod_raw
+                    m = re.search(r"report_T-(\d+)_P-(\d+)_S-(\d+)_F-(\d+)", fn)
+                    if not m:
+                        continue
+                    T, P, S, F = m.groups()
+                    I, KI = "0", "0"
+                    date_key = format_date_str(date_obj)
+                    if date_key not in all_data_by_date:
+                        all_data_by_date[date_key] = []
+                    if not any(row[1] == mod for row in all_data_by_date[date_key]):
+                        all_data_by_date[date_key].append([date_key, mod, T, P, S, F, I, KI])
+            # Do not 'continue' here, allow folder logic to run for Pmpui
+
+        # List folders
         cmd = f"mc ls --json {alias}/{bucket}/"
         output = subprocess.getoutput(cmd)
 
@@ -65,6 +99,39 @@ for alias in MINIO_ALIASES:
             continue
 
         for folder in folders:
+            # Special case: PMPUI report inside 'Pmpui' subfolder
+            if bucket == "uitestrig" and folder.lower() == "pmpui":
+                folder_path = f"{bucket}/{folder}"
+                cmd = f"mc ls --json {alias}/{folder_path}/"
+                lines = subprocess.getoutput(cmd).splitlines()
+
+                for line in lines:
+                    try:
+                        info = json.loads(line)
+                        fn = info["key"]
+                        ts = info["lastModified"]
+                        date_obj = datetime.strptime(ts[:10], "%Y-%m-%d")
+                    except (json.JSONDecodeError, KeyError, ValueError):
+                        continue
+
+                    if not re.search(r"PMPUI-.*-report_T-\d+_P-\d+_S-\d+_F-\d+", fn):
+                        continue
+
+                    m = re.search(r"report_T-(\d+)_P-(\d+)_S-(\d+)_F-(\d+)", fn)
+                    if not m:
+                        continue
+
+                    T, P, S, F = m.groups()
+                    I, KI = "0", "0"
+                    mod = "pmpui"
+                    date_key = format_date_str(date_obj)
+                    if date_key not in all_data_by_date:
+                        all_data_by_date[date_key] = []
+                    if not any(row[1] == mod for row in all_data_by_date[date_key]):
+                        all_data_by_date[date_key].append([date_key, mod, T, P, S, F, I, KI])
+                continue
+
+            # Default logic for other folders
             folder_path = f"{bucket}/{folder}"
             cmd = f"mc ls --json {alias}/{folder_path}/"
             lines = subprocess.getoutput(cmd).splitlines()

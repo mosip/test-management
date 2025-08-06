@@ -219,7 +219,7 @@ def update_sheet(service, spreadsheet, sheet_name, csv_path):
     else:
         print(f"  -> Date '{date_label}' found. Updating columns in place.")
 
-    update_body = {"valueInputOption": "USER_ENTERED", "data": [{"range": f"'{sheet.title}'!{col_to_a1(target_col)}1", "values": [[date_label]]}, {"range": f"'{sheet.title}'!{col_to_a1(target_col)}2", "values": [csv_headers]}, {"range": f"'{sheet.title}'!{col_to_a1(target_col)}{START_ROW_INDEX + 1}", "values": aligned_data_block}]}
+    update_body = {"valueInputOption": "USER_ENTERED", "data": [{"range": f"'{sheet.title}'!{col_to_a1(target_col)}1", "values": [[date_label]]}, {"range": f"'{sheet.title}'!{col_to_a1(target_col)}2", "values": [csv_headers + ["PO"]]}, {"range": f"'{sheet.title}'!{col_to_a1(target_col)}{START_ROW_INDEX + 1}", "values": [row + [None] for row in aligned_data_block]}]}
     print(f"  -> Writing data to sheet '{sheet.title}' starting at column {col_to_a1(target_col)}.")
     service.spreadsheets().values().batchUpdate(spreadsheetId=SPREADSHEET_ID, body=update_body).execute()
     

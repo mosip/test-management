@@ -15,7 +15,7 @@ CREDENTIALS_FILE = "creds.json"
 START_ROW_INDEX = 2
 START_COL = 9 # This is column J
 NUM_DATA_COLS = 6
-BLOCK_WIDTH = 9 # The number of columns each block spans
+BLOCK_WIDTH = 8 # The number of columns each block spans
 
 # --- FORMATTING STYLES ---
 COLORS = {

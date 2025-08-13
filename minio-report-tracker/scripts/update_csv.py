@@ -35,15 +35,16 @@ for alias in MINIO_ALIASES:
                 except (json.JSONDecodeError, KeyError, ValueError):
                     continue
 
-                if not re.search(r"report_T-\d+_P-\d+_S-\d+_F-", fn):
+                if not re.search(r"report_T-\d+_P-\d+(?:_KI-\d+)?(?:_I-\d+)?_S-\d+_F-\d+", fn):
                     continue
 
-                m = re.search(r"report_T-(\d+)_P-(\d+)_S-(\d+)_F-(\d+)", fn)
+                m = re.search(r"report_T-(\d+)_P-(\d+)(?:_KI-(\d+))?(?:_I-(\d+))?_S-(\d+)_F-(\d+)",fn)
                 if not m:
                     continue
 
-                T, P, S, F = m.groups()
-                I, KI = "0", "0"
+                T, P, KI, I, S, F = m.groups()
+                I = I or "0"
+                KI = KI or "0"
                 date_key = format_date_str(date_obj)
 
                 if date_key not in all_data_by_date:

@@ -1,15 +1,14 @@
-Date,Module,T,P,S,F,I,KI,, ,Date,Module,T,P,S,F,I,KI,, ,Date,Module,T,P,S,F,I,KI,, ,Date,Module,T,P,S,F,I,KI
-15-August-2025,auth,610,499,0,90,5,16,,,14-August-2025,auth,610,495,0,94,5,16,,,13-August-2025,auth,610,495,0,94,5,16,,,12-August-2025,injiverify,27,27,0,0,0,0
-15-August-2025,idrepo,414,316,0,0,78,20,,,14-August-2025,idrepo,414,316,0,0,78,20,,,13-August-2025,idrepo,414,316,0,0,78,20,,,12-August-2025,adminui,16,16,0,0,0,0
-15-August-2025,injiverify,27,27,0,0,0,0,,,14-August-2025,injiverify,27,27,0,0,0,0,,,13-August-2025,injiverify,27,27,0,0,0,0,,,12-August-2025,pmpui,15,0,15,0,0,0
-15-August-2025,masterdata-ara,945,896,0,0,15,34,,,14-August-2025,masterdata-ara,945,896,0,0,15,34,,,13-August-2025,masterdata-ara,945,896,0,0,15,34,,,,,,,,,,
-15-August-2025,masterdata-eng,945,923,0,0,0,22,,,14-August-2025,masterdata-eng,945,923,0,0,0,22,,,13-August-2025,masterdata-eng,945,923,0,0,0,22,,,,,,,,,,
-15-August-2025,masterdata-fra,945,907,0,0,15,23,,,14-August-2025,masterdata-fra,945,907,0,0,15,23,,,13-August-2025,masterdata-fra,945,907,0,0,15,23,,,,,,,,,,
-15-August-2025,masterdata-hin,945,896,0,0,15,34,,,14-August-2025,masterdata-hin,945,896,0,0,15,34,,,13-August-2025,masterdata-hin,945,896,0,0,15,34,,,,,,,,,,
-15-August-2025,masterdata-kan,945,896,0,0,15,34,,,14-August-2025,masterdata-kan,945,896,0,0,15,34,,,13-August-2025,masterdata-kan,945,896,0,0,15,34,,,,,,,,,,
-15-August-2025,masterdata-tam,945,896,0,0,15,34,,,14-August-2025,masterdata-tam,945,896,0,0,15,34,,,13-August-2025,mimoto,315,245,15,4,33,18,,,,,,,,,,
-15-August-2025,mimoto,315,245,15,4,33,18,,,14-August-2025,mimoto,315,245,15,4,33,18,,,13-August-2025,partner,509,494,0,1,2,12,,,,,,,,,,
-15-August-2025,partner,509,332,134,29,2,12,,,14-August-2025,partner,509,332,134,29,2,12,,,13-August-2025,prereg,288,277,0,0,2,9,,,,,,,,,,
-15-August-2025,prereg,288,277,0,0,2,9,,,14-August-2025,prereg,288,277,0,0,2,9,,,13-August-2025,adminui,16,15,0,1,0,0,,,,,,,,,,
-15-August-2025,pmpui,15,0,15,0,0,0,,,14-August-2025,adminui,16,16,0,0,0,0,,,13-August-2025,pmpui,15,0,15,0,0,0,,,,,,,,,,
-,,,,,,,,,,14-August-2025,pmpui,15,0,15,0,0,0,,,,,,,,,,,,,,,,,,,,
+Date,Module,T,P,S,F,I,KI,, ,Date,Module,T,P,S,F,I,KI
+18-August-2025,auth,610,579,0,10,5,16,,,15-August-2025,injiverify,27,27,0,0,0,0
+18-August-2025,idrepo,414,316,0,0,78,20,,,15-August-2025,adminui,16,15,0,1,0,0
+18-August-2025,injiverify,27,27,0,0,0,0,,,15-August-2025,pmpui,15,0,15,0,0,0
+18-August-2025,masterdata-ara,945,896,0,0,15,34,,,,,,,,,,
+18-August-2025,masterdata-eng,945,923,0,0,0,22,,,,,,,,,,
+18-August-2025,masterdata-fra,945,907,0,0,15,23,,,,,,,,,,
+18-August-2025,masterdata-hin,945,896,0,0,15,34,,,,,,,,,,
+18-August-2025,masterdata-kan,945,896,0,0,15,34,,,,,,,,,,
+18-August-2025,masterdata-tam,945,896,0,0,15,34,,,,,,,,,,
+18-August-2025,mimoto,315,245,15,4,33,18,,,,,,,,,,
+18-August-2025,partner,509,332,134,29,2,12,,,,,,,,,,
+18-August-2025,prereg,288,277,0,0,2,9,,,,,,,,,,
+18-August-2025,pmpui,15,0,15,0,0,0,,,,,,,,,,

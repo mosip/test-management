@@ -1,0 +1,15 @@
+Date,Module,T,P,S,F,I,KI,, ,Date,Module,T,P,S,F,I,KI
+22-August-2025,partner,509,320,137,40,0,12,,,18-August-2025,auth,612,329,164,114,5,0
+22-August-2025,prereg,281,124,126,31,0,0,,,18-August-2025,idrepo,414,277,38,21,78,0
+22-August-2025,dsl,197,7,0,190,0,0,,,18-August-2025,masterdata-ara,945,930,0,0,15,0
+22-August-2025,adminui,16,16,0,0,0,0,,,18-August-2025,masterdata-eng,945,945,0,0,0,0
+22-August-2025,residentui,25,2,5,18,0,0,,,18-August-2025,masterdata-fra,945,929,0,1,15,0
+22-August-2025,pmpui,15,4,9,2,0,0,,,18-August-2025,masterdata-hin,945,930,0,0,15,0
+,,,,,,,,,,18-August-2025,masterdata-kan,945,930,0,0,15,0
+,,,,,,,,,,18-August-2025,masterdata-tam,945,930,0,0,15,0
+,,,,,,,,,,18-August-2025,partner,509,322,137,38,0,12
+,,,,,,,,,,18-August-2025,prereg,281,182,37,62,0,0
+,,,,,,,,,,18-August-2025,resident,1124,283,188,653,0,0
+,,,,,,,,,,18-August-2025,dsl,197,0,0,197,0,0
+,,,,,,,,,,18-August-2025,adminui,16,16,0,0,0,0
+,,,,,,,,,,18-August-2025,pmpui,15,4,9,2,0,0

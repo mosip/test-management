@@ -1,7 +1,6 @@
-Date,Module,T,P,S,F,I,KI,, ,Date,Module,T,P,S,F,I,KI,, ,Date,Module,T,P,S,F,I,KI
-26-August-2025,partner,509,320,137,40,0,12,,,25-August-2025,partner,509,320,137,40,0,12,,,22-August-2025,partner,509,320,137,40,0,12
-26-August-2025,prereg,281,136,106,39,0,0,,,25-August-2025,prereg,281,179,39,63,0,0,,,22-August-2025,prereg,281,124,126,31,0,0
-26-August-2025,dsl,197,7,0,190,0,0,,,25-August-2025,dsl,197,7,0,190,0,0,,,22-August-2025,dsl,197,7,0,190,0,0
-26-August-2025,adminui,16,16,0,0,0,0,,,25-August-2025,adminui,16,16,0,0,0,0,,,22-August-2025,adminui,16,16,0,0,0,0
-26-August-2025,pmpui,15,4,9,2,0,0,,,25-August-2025,pmpui,15,4,9,2,0,0,,,22-August-2025,residentui,25,2,5,18,0,0
-,,,,,,,,,,,,,,,,,,,,22-August-2025,pmpui,15,4,9,2,0,0
+Date,Module,T,P,S,F,I,KI,, ,Date,Module,T,P,S,F,I,KI,, ,Date,Module,T,P,S,F,I,KI,, ,Date,Module,T,P,S,F,I,KI
+27-August-2025,partner,509,320,137,40,0,12,,,26-August-2025,partner,509,320,137,40,0,12,,,25-August-2025,partner,509,320,137,40,0,12,,,22-August-2025,dsl,197,7,0,190,0,0
+27-August-2025,prereg,281,144,92,45,0,0,,,26-August-2025,prereg,281,136,106,39,0,0,,,25-August-2025,prereg,281,179,39,63,0,0,,,22-August-2025,adminui,16,16,0,0,0,0
+27-August-2025,dsl,197,7,0,190,0,0,,,26-August-2025,dsl,197,7,0,190,0,0,,,25-August-2025,dsl,197,7,0,190,0,0,,,22-August-2025,residentui,25,2,5,18,0,0
+27-August-2025,adminui,16,16,0,0,0,0,,,26-August-2025,adminui,16,16,0,0,0,0,,,25-August-2025,adminui,16,16,0,0,0,0,,,22-August-2025,pmpui,15,4,9,2,0,0
+27-August-2025,pmpui,15,4,9,2,0,0,,,26-August-2025,pmpui,15,4,9,2,0,0,,,25-August-2025,pmpui,15,4,9,2,0,0,,,,,,,,,,

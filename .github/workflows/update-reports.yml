@@ -1,0 +1,96 @@
+name: Update CSV, XLSX, and Google Sheet via MinIO
+
+on:
+  schedule:
+    - cron: '15 4 * * 1-5'  # 9:45 AM IST, Mon–Fri
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    environment:
+      name: daily-automation-reports
+
+    steps:
+      - name: Checkout daily-automation-reports branch
+        uses: actions/checkout@v4
+        with:
+          ref: daily-automation-reports
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Python dependencies
+        run: |
+          pip install pandas matplotlib openpyxl gspread oauth2client gspread-formatting google-api-python-client google-auth
+
+      - name: Install WireGuard
+        run: sudo apt-get install -y wireguard
+
+      - name: Configure and start WireGuard
+        run: |
+          echo "${{ secrets.WIREGUARD_CONF }}" | sudo tee /etc/wireguard/wg0.conf > /dev/null
+          sudo chmod 600 /etc/wireguard/wg0.conf
+          sudo wg-quick up wg0
+          sudo wg show wg0
+
+      - name: Install MinIO Client (mc)
+        run: |
+          curl -L https://dl.min.io/client/mc/release/linux-amd64/archive/mc.RELEASE.2022-07-29T19-17-16Z -o mc
+          chmod +x mc
+          sudo mv mc /usr/local/bin/
+          mc --version
+
+      - name: Configure MinIO Aliases from Secrets
+        run: |
+          mc alias set "${{ secrets.MINIO_CELLBOX21_NAME }}" "${{ secrets.MINIO_CELLBOX21_URL }}" "${{ secrets.MINIO_CELLBOX21_USER }}" "${{ secrets.MINIO_CELLBOX21_PASSWORD }}" --api S3v2
+          mc alias set "${{ secrets.MINIO_COLLAB_NAME }}"    "${{ secrets.MINIO_COLLAB_URL }}"    "${{ secrets.MINIO_COLLAB_USER }}"    "${{ secrets.MINIO_COLLAB_PASSWORD }}" --api S3v2
+          mc alias set "${{ secrets.MINIO_DEVINT_NAME }}"    "${{ secrets.MINIO_DEVINT_URL }}"    "${{ secrets.MINIO_DEVINT_USER }}"    "${{ secrets.MINIO_DEVINT_PASSWORD }}" --api S3v2
+          mc alias set "${{ secrets.MINIO_DEV3_NAME }}"      "${{ secrets.MINIO_DEV3_URL }}"      "${{ secrets.MINIO_DEV3_USER }}"      "${{ secrets.MINIO_DEV3_PASSWORD }}" --api S3v2
+          mc alias set "${{ secrets.MINIO_RELEASED_NAME }}"  "${{ secrets.MINIO_RELEASED_URL }}"  "${{ secrets.MINIO_RELEASED_USER }}"  "${{ secrets.MINIO_RELEASED_PASSWORD }}" --api S3v2
+          mc alias set "${{ secrets.MINIO_DEV1_NAME }}"      "${{ secrets.MINIO_DEV1_URL }}"      "${{ secrets.MINIO_DEV1_USER }}"      "${{ secrets.MINIO_DEV1_PASSWORD }}" --api S3v2
+          mc alias set "${{ secrets.MINIO_QABASE_NAME }}"    "${{ secrets.MINIO_QABASE_URL }}"    "${{ secrets.MINIO_QABASE_USER }}"    "${{ secrets.MINIO_QABASE_PASSWORD }}" --api S3v2
+          mc alias set "${{ secrets.MINIO_QACOUNTRY_NAME }}" "${{ secrets.MINIO_QACOUNTRY_URL }}" "${{ secrets.MINIO_QACOUNTRY_USER }}" "${{ secrets.MINIO_QACOUNTRY_PASSWORD }}" --api S3v2
+          mc alias set "${{ secrets.MINIO_QA1JAVA21_NAME }}"      "${{ secrets.MINIO_QA1JAVA21_URL }}"      "${{ secrets.MINIO_QA1JAVA21_USER }}"      "${{ secrets.MINIO_QA1JAVA21_PASSWORD }}" --api S3v2
+          mc alias set "${{ secrets.MINIO_QATEST1_NAME }}" "${{ secrets.MINIO_QATEST1_URL }}" "${{ secrets.MINIO_QATEST1_USER }}" "${{ secrets.MINIO_QATEST1_PASSWORD }}" --api S3v2
+
+      - name: Remove old CSVs from Git folder
+        run: |
+          rm -f minio-report-tracker/csv/*.csv || true
+          git rm -f minio-report-tracker/csv/*.csv || echo "No old CSV files to remove"
+      
+      - name: Run CSV generation script
+        run: python minio-report-tracker/scripts/update_csv.py
+
+      - name: Move new CSVs to Git folder
+        run: |
+          mkdir -p minio-report-tracker/csv
+          mv ../csv/*.csv minio-report-tracker/csv/
+
+      - name: Remove old XLSX files from Git folder
+        run: |
+          rm -f minio-report-tracker/xlxs/*.xlsx || true
+          git rm -f minio-report-tracker/xlxs/*.xlsx || echo "No old XLSX files to remove"
+
+      - name: Run XLSX generation script
+        run: python minio-report-tracker/scripts/generate_xlsx.py
+
+      - name: Ensure XLSX folder exists
+        run: mkdir -p minio-report-tracker/xlxs
+        
+      - name: Run Google Sheet Update Script
+        run: |
+          echo '${{ secrets.GSHEETCREDS }}' > creds.json
+          python minio-report-tracker/scripts/update_sheet.py
+
+      - name: Commit and push updates
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+          git add minio-report-tracker/csv/*.csv
+          git add minio-report-tracker/xlxs/*.xlsx
+          git commit -m "Update CSV, XLSX, and Google Sheet reports" --allow-empty || echo "Nothing to commit"
+          git push origin daily-automation-reports

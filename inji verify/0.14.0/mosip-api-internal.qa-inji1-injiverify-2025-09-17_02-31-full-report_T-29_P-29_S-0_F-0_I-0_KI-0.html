@@ -1,0 +1,1528 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>TestNG Report</title><style type="text/css">table {margin-bottom:10px;border-collapse:collapse;empty-cells:show;width: 100%;}th,td {border:1px solid #009;padding:.25em .5em;width: 25%;}th {vertical-align:bottom}td {vertical-align:top}table a {font-weight:bold}.stripe td {background-color: #E6EBF9}.num {text-align:center}.orange-bg {background-color: #FFD28E}.grey-bg {background-color: #808080}.thich-orange-bg {background-color: #CC5500}.green-bg {background-color: #D0F0C0}.attn {background-color: #E74C3C}.passedodd td {background-color: #D0F0C0}.passedeven td {background-color: #D0F0C0}.skippedodd td {background-color: #FFD28E}.skippedeven td,.stripe {background-color: #FFD28E}.failedodd td {background-color: #E74C3C}.failedeven td,.stripe {background-color: #E74C3C}.ignoredodd td {background-color: #808080}.ignoredeven td {background-color: #808080}.known_issuesodd td {background-color: #CC5500}.known_issueseven td {background-color: #CC5500}.stacktrace {white-space:pre;font-family:monospace}.totop {font-size:85%;text-align:center;border-bottom:2px solid #000}</style></head><body style='font-family: Arial, sans-serif;'><table><th style="text-align: center; vertical-align: middle;" colspan="1"><span class="not-bold"><pre>Server Component Details</span></th><td colspan="8"><pre></pre></td></th></tr><th style="text-align: center; vertical-align: middle;" colspan="1"><span class="not-bold"><pre>End Points used</span></th><td colspan="8"><pre>
+Domain: api-internal.qa-inji1.mosip.net ---- Module: masterdata ---- End Point: v1/masterdata/actuator/env</pre></td></th></tr><tr><th colspan="9"><span class="not-bold"><pre>Server Errors 
+No server errors</pre></span></th></tr><tr><th colspan="9"><span class="not-bold"><pre>Captcha Enabled
+false</pre></span></th></tr><tr><th colspan="9" style="background-color: #FFFFE0;">Inji-Verify API Test ---- Report Date: 2025-09-17 ---- Tested Environment: qa-inji1 ---- Commit Id is: 53c11109 &amp; Branch Name is:release-0.14.x</th></tr><tr><th>Test Scenario</th><th># Total</th><th># Passed</th><th># Skipped</th><th># Failed</th><th># Ignored</th><th># Known_Issues</th><th>Execution Time (HH:MM:SS)</th></tr><tr><td class="num"><a href="#t0">CreateNewVerificationRequest</a></td><td class="num">9</td><td class="num green-bg">9</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">00:00:01</td></tr><tr><td class="num"><a href="#t1">CreateNewVerificationRequestWithDID</a></td><td class="num">1</td><td class="num green-bg">1</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">00:00:01</td></tr><tr><td class="num"><a href="#t2">GetVpRequestWithDID</a></td><td class="num">1</td><td class="num green-bg">1</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">00:00:01</td></tr><tr><td class="num"><a href="#t3">VpSubmission</a></td><td class="num">10</td><td class="num green-bg">10</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">00:00:01</td></tr><tr><td class="num"><a href="#t4">GetVpRequestStatus</a></td><td class="num">4</td><td class="num green-bg">4</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">00:05:56</td></tr><tr><td class="num"><a href="#t5">GetVpTokenForRequest</a></td><td class="num">2</td><td class="num green-bg">2</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">00:00:04</td></tr><tr><td class="num"><a href="#t6">VcVerification</a></td><td class="num">2</td><td class="num green-bg">2</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">00:00:01</td></tr><tr><th>Total</th><th class="num">29</th><th class="num green-bg">29</th><th class="num">0</th><th class="num">0</th><th class="num">0</th><th class="num">0</th><th class="num">00:06:06</th></tr></table><table id='summary'><thead><tr><th>TestCase Number</th><th>TestCase Description</th><th>Execution Time (HH:MM:SS)</th></tr></thead><tbody id="t0"><tr><th colspan="3">CreateNewVerificationRequest &#8212; Passed</th></tr><tr class="passedeven"><td style="text-align:left;"><a href="#m0">TC_InjiVerify_CreateNewVerificationRequest_01</a></td><td style="text-align:left;">Creating a new verification request</td><td style="text-align:left;" rowspan="1">00:00:01</td></tr><tr class="passedeven"><td style="text-align:left;"><a href="#m1">TC_InjiVerify_CreateNewVerificationRequest_05</a></td><td style="text-align:left;">Creating a new verification request with empty client id</td><td style="text-align:left;" rowspan="1">00:00:01</td></tr><tr class="passedeven"><td style="text-align:left;"><a href="#m2">TC_InjiVerify_CreateNewVerificationRequest_07</a></td><td style="text-align:left;">Creating a new verification request with empty presentation definition id</td><td style="text-align:left;" rowspan="1">00:00:01</td></tr><tr class="passedeven"><td style="text-align:left;"><a href="#m3">TC_InjiVerify_CreateNewVerificationRequest_02</a></td><td style="text-align:left;">Creating a new verification request for expiry</td><td style="text-align:left;" rowspan="1">00:00:01</td></tr><tr class="passedeven"><td style="text-align:left;"><a href="#m4">TC_InjiVerify_CreateNewVerificationRequest_09</a></td><td style="text-align:left;">Creating a new verification request</td><td style="text-align:left;" rowspan="1">00:00:01</td></tr><tr class="passedeven"><td style="text-align:left;"><a href="#m5">TC_InjiVerify_CreateNewVerificationRequest_03</a></td><td style="text-align:left;">Creating a new verification request with random value for client id</td><td style="text-align:left;" rowspan="1">00:00:01</td></tr><tr class="passedeven"><td style="text-align:left;"><a href="#m6">TC_InjiVerify_CreateNewVerificationRequest_04</a></td><td style="text-align:left;">Creating a new verification request with random value for presentation definition id</td><td style="text-align:left;" rowspan="1">00:00:01</td></tr><tr class="passedeven"><td style="text-align:left;"><a href="#m7">TC_InjiVerify_CreateNewVerificationRequest_08</a></td><td style="text-align:left;">Creating a new verification request without presentation definition id</td><td style="text-align:left;" rowspan="1">00:00:01</td></tr><tr class="passedeven"><td style="text-align:left;"><a href="#m8">TC_InjiVerify_CreateNewVerificationRequest_06</a></td><td style="text-align:left;">Creating a new verification request without client id</td><td style="text-align:left;" rowspan="1">00:00:01</td></tr></tbody><tbody id="t1"><tr><th colspan="3">CreateNewVerificationRequestWithDID &#8212; Passed</th></tr><tr class="passedeven"><td style="text-align:left;"><a href="#m9">TC_InjiVerify_CreateNewVerificationRequestWithDID_01</a></td><td style="text-align:left;">Creating a new verification request with DID-based client id</td><td style="text-align:left;" rowspan="1">00:00:01</td></tr></tbody><tbody id="t2"><tr><th colspan="3">GetVpRequestWithDID &#8212; Passed</th></tr><tr class="passedeven"><td style="text-align:left;"><a href="#m10">TC_InjiVerify_GetVpRequestWithDID_02</a></td><td style="text-align:left;">Get VP request JWT for DID-based client id and validate Auth Request</td><td style="text-align:left;" rowspan="1">00:00:01</td></tr></tbody><tbody id="t3"><tr><th colspan="3">VpSubmission &#8212; Passed</th></tr><tr class="passedeven"><td style="text-align:left;"><a href="#m11">TC_InjiVerify_VpSubmission_01</a></td><td style="text-align:left;">Submitting the authorization response</td><td style="text-align:left;" rowspan="1">00:00:01</td></tr><tr class="passedeven"><td style="text-align:left;"><a href="#m12">TC_InjiVerify_VpSubmission_07</a></td><td style="text-align:left;">Submitting the authorization response with empty presentation definition id</td><td style="text-align:left;" rowspan="1">00:00:01</td></tr><tr class="passedeven"><td style="text-align:left;"><a href="#m13">TC_InjiVerify_VpSubmission_05</a></td><td style="text-align:left;">Submitting the authorization response with empty state</td><td style="text-align:left;" rowspan="1">00:00:01</td></tr><tr class="passedeven"><td style="text-align:left;"><a href="#m14">TC_InjiVerify_VpSubmission_04</a></td><td style="text-align:left;">Submitting the authorization response with empty vp token</td><td style="text-align:left;" rowspan="1">00:00:01</td></tr><tr class="passedeven"><td style="text-align:left;"><a href="#m15">TC_InjiVerify_VpSubmission_06</a></td><td style="text-align:left;">Submitting the authorization response with random value for presentation definition id</td><td style="text-align:left;" rowspan="1">00:00:01</td></tr><tr class="passedeven"><td style="text-align:left;"><a href="#m16">TC_InjiVerify_VpSubmission_03</a></td><td style="text-align:left;">Submitting the authorization response with random value for vp token</td><td style="text-align:left;" rowspan="1">00:00:01</td></tr><tr class="passedeven"><td style="text-align:left;"><a href="#m17">TC_InjiVerify_VpSubmission_02</a></td><td style="text-align:left;">Submitting the authorization response with random value for state</td><td style="text-align:left;" rowspan="1">00:00:01</td></tr><tr class="passedeven"><td style="text-align:left;"><a href="#m18">TC_InjiVerify_VpSubmission_08</a></td><td style="text-align:left;">Submitting the authorization response without presentation definition id</td><td style="text-align:left;" rowspan="1">00:00:01</td></tr><tr class="passedeven"><td style="text-align:left;"><a href="#m19">TC_InjiVerify_VpSubmission_09</a></td><td style="text-align:left;">Submitting the authorization response without state</td><td style="text-align:left;" rowspan="1">00:00:01</td></tr><tr class="passedeven"><td style="text-align:left;"><a href="#m20">TC_InjiVerify_VpSubmission_10</a></td><td style="text-align:left;">Submitting the authorization response without vp token</td><td style="text-align:left;" rowspan="1">00:00:01</td></tr></tbody><tbody id="t4"><tr><th colspan="3">GetVpRequestStatus &#8212; Passed</th></tr><tr class="passedeven"><td style="text-align:left;"><a href="#m21">TC_InjiVerify_GetVpRequestStatus_04</a></td><td style="text-align:left;">Getting the status of VP Request</td><td style="text-align:left;" rowspan="1">00:00:55</td></tr><tr class="passedeven"><td style="text-align:left;"><a href="#m22">TC_InjiVerify_GetVpRequestStatus_01</a></td><td style="text-align:left;">Getting the status of VP Request</td><td style="text-align:left;" rowspan="1">00:00:55</td></tr><tr class="passedeven"><td style="text-align:left;"><a href="#m23">TC_InjiVerify_GetVpRequestStatus_02</a></td><td style="text-align:left;">Getting the status of VP Request</td><td style="text-align:left;" rowspan="1">00:04:05</td></tr><tr class="passedeven"><td style="text-align:left;"><a href="#m24">TC_InjiVerify_GetVpRequestStatus_03</a></td><td style="text-align:left;">Getting the status of VP Request with invalid request id</td><td style="text-align:left;" rowspan="1">00:00:01</td></tr></tbody><tbody id="t5"><tr><th colspan="3">GetVpTokenForRequest &#8212; Passed</th></tr><tr class="passedeven"><td style="text-align:left;"><a href="#m25">TC_InjiVerify_GetVpTokenForRequest_01</a></td><td style="text-align:left;">Getting the VP token for the Request</td><td style="text-align:left;" rowspan="1">00:00:04</td></tr><tr class="passedeven"><td style="text-align:left;"><a href="#m26">TC_InjiVerify_GetVpTokenForRequest_02</a></td><td style="text-align:left;">Getting the VP token for the Request with inavlid transaction id</td><td style="text-align:left;" rowspan="1">00:00:01</td></tr></tbody><tbody id="t6"><tr><th colspan="3">VcVerification &#8212; Passed</th></tr><tr class="passedeven"><td style="text-align:left;"><a href="#m27">TC_InjiVerify_VcVerification_01</a></td><td style="text-align:left;">Submitting the authorization response</td><td style="text-align:left;" rowspan="1">00:00:01</td></tr><tr class="passedeven"><td style="text-align:left;"><a href="#m28">TC_InjiVerify_VcVerification_02</a></td><td style="text-align:left;">Submitting the authorization response</td><td style="text-align:left;" rowspan="1">00:00:01</td></tr></tbody></table><h3 id="m0">io.mosip.testrig.apirig.injiverify.testscripts.SimplePostForAutoGenId#Injiverify_CreateNewVerificationRequest_All_Valid_Smoke_Sid</h3><table class="result"><tr class="param"><th>Testcase Input</th></tr><tr class="param stripe"><td>testCaseName=Injiverify_CreateNewVerificationRequest_All_Valid_Smoke_Sid, endPoint=/v1/verify/vp-request, role=noauth, templateFields=null, input={ &quot;clientId&quot;:&quot;client123&quot;, &quot;id&quot;:&quot;$PRESENTATIONDEFINITIONID$&quot; }, output={ &quot;responseType&quot;: &quot;vp_token&quot;, &quot;clientId&quot;: &quot;client123&quot;, &quot;responseUri&quot;: &quot;$INJIVERIFYBASEURL$/v1/verify/vp-submission/direct-post&quot;, &quot;id&quot;: &quot;$PRESENTATIONDEFINITIONID$&quot; }, inputTemplate=injiverify/CreateNewVerificationRequest/CreateNewVerificationRequest, outputTemplate=injiverify/CreateNewVerificationRequest/CreateNewVerificationRequestResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, checkOnlyStatusCodeInResponse=false, allowedErrorCodes=null, kycFields=null, description=Creating a new verification request, uniqueIdentifier=TC_InjiVerify_CreateNewVerificationRequest_01</td></tr><tr><th>Messages</th></tr><tr><td><div class="Request and Response messages including headers"><b><u>Request: </u></b>(End Point URL: https://injiverify.qa-inji1.mosip.net/v1/verify/vp-request) <pre><div style='padding: 0; margin: 0;'><textarea style='border: solid 1px gray; background-color: lightgray; width: 100%; padding: 0; margin: 0;' name='headers' rows='2' readonly='true'>No headers</textarea></div><div style='width: 100%; overflow: hidden;'><textarea style='border:solid 1px black; width: 100%; box-sizing: border-box;' name='message' rows='6' readonly='true'>{
+  "clientId": "client123",
+  "presentationDefinition": {
+    "id": "32f54163-7166-48f1-93d8-ff217bdb0653",
+    "input_descriptors": [
+      {
+        "id": "wa_driver_license",
+        "name": "Washington State Business License",
+        "purpose": "We can only allow licensed Washington State business representatives into the WA Business Conference",
+        "constraints": {}
+      }
+    ]
+  }
+}</textarea> </div></pre><br/><b><u>Response: </u></b><pre><div style='padding: 0; margin: 0;'><textarea style='border: solid 1px gray; background-color: lightgray; width: 100%; padding: 0; margin: 0;' name='headers' rows='2' readonly='true'>[Server=nginx, Date=Wed, 17 Sep 2025 02:31:49 GMT, Content-Type=application/json, Transfer-Encoding=chunked, Connection=keep-alive, x-envoy-upstream-service-time=39, cache-control=no-store, pragma=no-cache, strict-transport-security=max-age=31536000; includeSubDomains, x-frame-options=SAMEORIGIN]</textarea></div><div style='width: 100%; overflow: hidden;'><textarea style='border:solid 1px black; width: 100%; box-sizing: border-box;' name='message' rows='6' readonly='true'>{
+  "transactionId": "txn_3ba9442c-6140-490c-8874-189f46c18aaf",
+  "requestId": "req_6c53e8fc-99c7-4749-9c7c-edfd32dddd88",
+  "authorizationDetails": {
+    "clientId": "client123",
+    "presentationDefinition": {
+      "id": "32f54163-7166-48f1-93d8-ff217bdb0653",
+      "input_descriptors": [
+        {
+          "id": "wa_driver_license",
+          "name": "Washington State Business License",
+          "purpose": "We can only allow licensed Washington State business representatives into the WA Business Conference",
+          "constraints": {}
+        }
+      ]
+    },
+    "nonce": "25ac7f18dfbef6e07a92b0bf6a62eeae",
+    "responseUri": "https://injiverify.qa-inji1.mosip.net/v1/verify/vp-submission/direct-post",
+    "responseType": "vp_token",
+    "responseMode": "direct_post",
+    "issuedAt": 1758076309410
+  },
+  "expiresAt": 1758076609409
+}</textarea> </div></pre><br/><b> Output validation: </b>EXPECTED vs ACTUAL
+<table width='100%' charset='UTF8'>
+  <tr style='background-color: #d3d3d3;'>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>authorizationDetails.presentationDefinition.id</td>
+    <td>32f54163-7166-48f1-93d8-ff217bdb0653</td>
+    <td>32f54163-7166-48f1-93d8-ff217bdb0653</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>authorizationDetails.clientId</td>
+    <td>client123</td>
+    <td>client123</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>authorizationDetails.responseUri</td>
+    <td>https://injiverify.qa-inji1.mosip.net/v1/verify/vp-submission/direct-post</td>
+    <td>https://injiverify.qa-inji1.mosip.net/v1/verify/vp-submission/direct-post</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>authorizationDetails.responseType</td>
+    <td>vp_token</td>
+    <td>vp_token</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table></div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p><h3 id="m1">io.mosip.testrig.apirig.injiverify.testscripts.SimplePostForAutoGenId#Injiverify_CreateNewVerificationRequest_Empty_ClientId_Neg</h3><table class="result"><tr class="param"><th>Testcase Input</th></tr><tr class="param stripe"><td>testCaseName=Injiverify_CreateNewVerificationRequest_Empty_ClientId_Neg, endPoint=/v1/verify/vp-request, role=noauth, templateFields=null, input={ &quot;clientId&quot;:&quot;&quot;, &quot;id&quot;:&quot;$PRESENTATIONDEFINITIONID$&quot; }, output={ &quot;responseCode&quot;: &quot;400&quot; }, inputTemplate=injiverify/CreateNewVerificationRequest/CreateNewVerificationRequest, outputTemplate=injiverify/responseCode, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, checkOnlyStatusCodeInResponse=true, allowedErrorCodes=null, kycFields=null, description=Creating a new verification request with empty client id, uniqueIdentifier=TC_InjiVerify_CreateNewVerificationRequest_05</td></tr><tr><th>Messages</th></tr><tr><td><div class="Request and Response messages including headers"><b><u>Request: </u></b>(End Point URL: https://injiverify.qa-inji1.mosip.net/v1/verify/vp-request) <pre><div style='padding: 0; margin: 0;'><textarea style='border: solid 1px gray; background-color: lightgray; width: 100%; padding: 0; margin: 0;' name='headers' rows='2' readonly='true'>No headers</textarea></div><div style='width: 100%; overflow: hidden;'><textarea style='border:solid 1px black; width: 100%; box-sizing: border-box;' name='message' rows='6' readonly='true'>{
+  "clientId": "",
+  "presentationDefinition": {
+    "id": "32f54163-7166-48f1-93d8-ff217bdb0653",
+    "input_descriptors": [
+      {
+        "id": "wa_driver_license",
+        "name": "Washington State Business License",
+        "purpose": "We can only allow licensed Washington State business representatives into the WA Business Conference",
+        "constraints": {}
+      }
+    ]
+  }
+}</textarea> </div></pre><br/><b><u>Response: </u></b><pre><div style='padding: 0; margin: 0;'><textarea style='border: solid 1px gray; background-color: lightgray; width: 100%; padding: 0; margin: 0;' name='headers' rows='2' readonly='true'>[Server=nginx, Date=Wed, 17 Sep 2025 02:31:49 GMT, Content-Type=application/json, Transfer-Encoding=chunked, Connection=keep-alive, x-envoy-upstream-service-time=19, cache-control=no-store, pragma=no-cache, strict-transport-security=max-age=31536000; includeSubDomains, x-frame-options=SAMEORIGIN]</textarea></div><div style='width: 100%; overflow: hidden;'><textarea style='border:solid 1px black; width: 100%; box-sizing: border-box;' name='message' rows='6' readonly='true'>{
+  "timestamp": "2025-09-17T02:31:49.886+00:00",
+  "status": 400,
+  "error": "Bad Request",
+  "path": "/v1/verify/vp-request"
+}</textarea> </div></pre><br/><b> Output validation: </b>EXPECTED vs ACTUAL
+<table width='100%' charset='UTF8'>
+  <tr style='background-color: #d3d3d3;'>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>status</td>
+    <td>400</td>
+    <td>400</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table></div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p><h3 id="m2">io.mosip.testrig.apirig.injiverify.testscripts.SimplePostForAutoGenId#Injiverify_CreateNewVerificationRequest_Empty_PresentationDefinitionId_Neg</h3><table class="result"><tr class="param"><th>Testcase Input</th></tr><tr class="param stripe"><td>testCaseName=Injiverify_CreateNewVerificationRequest_Empty_PresentationDefinitionId_Neg, endPoint=/v1/verify/vp-request, role=noauth, templateFields=null, input={ &quot;clientId&quot;:&quot;client123&quot;, &quot;id&quot;:&quot;&quot; }, output={ &quot;responseCode&quot;: &quot;400&quot; }, inputTemplate=injiverify/CreateNewVerificationRequest/CreateNewVerificationRequest, outputTemplate=injiverify/responseCode, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, checkOnlyStatusCodeInResponse=true, allowedErrorCodes=null, kycFields=null, description=Creating a new verification request with empty presentation definition id, uniqueIdentifier=TC_InjiVerify_CreateNewVerificationRequest_07</td></tr><tr><th>Messages</th></tr><tr><td><div class="Request and Response messages including headers"><b><u>Request: </u></b>(End Point URL: https://injiverify.qa-inji1.mosip.net/v1/verify/vp-request) <pre><div style='padding: 0; margin: 0;'><textarea style='border: solid 1px gray; background-color: lightgray; width: 100%; padding: 0; margin: 0;' name='headers' rows='2' readonly='true'>No headers</textarea></div><div style='width: 100%; overflow: hidden;'><textarea style='border:solid 1px black; width: 100%; box-sizing: border-box;' name='message' rows='6' readonly='true'>{
+  "clientId": "client123",
+  "presentationDefinition": {
+    "id": "",
+    "input_descriptors": [
+      {
+        "id": "wa_driver_license",
+        "name": "Washington State Business License",
+        "purpose": "We can only allow licensed Washington State business representatives into the WA Business Conference",
+        "constraints": {}
+      }
+    ]
+  }
+}</textarea> </div></pre><br/><b><u>Response: </u></b><pre><div style='padding: 0; margin: 0;'><textarea style='border: solid 1px gray; background-color: lightgray; width: 100%; padding: 0; margin: 0;' name='headers' rows='2' readonly='true'>[Server=nginx, Date=Wed, 17 Sep 2025 02:31:50 GMT, Content-Type=application/json, Transfer-Encoding=chunked, Connection=keep-alive, x-envoy-upstream-service-time=14, cache-control=no-store, pragma=no-cache, strict-transport-security=max-age=31536000; includeSubDomains, x-frame-options=SAMEORIGIN]</textarea></div><div style='width: 100%; overflow: hidden;'><textarea style='border:solid 1px black; width: 100%; box-sizing: border-box;' name='message' rows='6' readonly='true'>{
+  "timestamp": "2025-09-17T02:31:50.005+00:00",
+  "status": 400,
+  "error": "Bad Request",
+  "path": "/v1/verify/vp-request"
+}</textarea> </div></pre><br/><b> Output validation: </b>EXPECTED vs ACTUAL
+<table width='100%' charset='UTF8'>
+  <tr style='background-color: #d3d3d3;'>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>status</td>
+    <td>400</td>
+    <td>400</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table></div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p><h3 id="m3">io.mosip.testrig.apirig.injiverify.testscripts.SimplePostForAutoGenId#Injiverify_CreateNewVerificationRequest_ForExpiry_All_Valid_Smoke_Sid</h3><table class="result"><tr class="param"><th>Testcase Input</th></tr><tr class="param stripe"><td>testCaseName=Injiverify_CreateNewVerificationRequest_ForExpiry_All_Valid_Smoke_Sid, endPoint=/v1/verify/vp-request, role=noauth, templateFields=null, input={ &quot;clientId&quot;:&quot;client123&quot;, &quot;id&quot;:&quot;$PRESENTATIONDEFINITIONID$&quot; }, output={ &quot;responseType&quot;: &quot;vp_token&quot;, &quot;clientId&quot;: &quot;client123&quot;, &quot;responseUri&quot;: &quot;$INJIVERIFYBASEURL$/v1/verify/vp-submission/direct-post&quot;, &quot;id&quot;: &quot;$PRESENTATIONDEFINITIONID$&quot; }, inputTemplate=injiverify/CreateNewVerificationRequest/CreateNewVerificationRequest, outputTemplate=injiverify/CreateNewVerificationRequest/CreateNewVerificationRequestResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, checkOnlyStatusCodeInResponse=false, allowedErrorCodes=null, kycFields=null, description=Creating a new verification request for expiry, uniqueIdentifier=TC_InjiVerify_CreateNewVerificationRequest_02</td></tr><tr><th>Messages</th></tr><tr><td><div class="Request and Response messages including headers"><b><u>Request: </u></b>(End Point URL: https://injiverify.qa-inji1.mosip.net/v1/verify/vp-request) <pre><div style='padding: 0; margin: 0;'><textarea style='border: solid 1px gray; background-color: lightgray; width: 100%; padding: 0; margin: 0;' name='headers' rows='2' readonly='true'>No headers</textarea></div><div style='width: 100%; overflow: hidden;'><textarea style='border:solid 1px black; width: 100%; box-sizing: border-box;' name='message' rows='6' readonly='true'>{
+  "clientId": "client123",
+  "presentationDefinition": {
+    "id": "32f54163-7166-48f1-93d8-ff217bdb0653",
+    "input_descriptors": [
+      {
+        "id": "wa_driver_license",
+        "name": "Washington State Business License",
+        "purpose": "We can only allow licensed Washington State business representatives into the WA Business Conference",
+        "constraints": {}
+      }
+    ]
+  }
+}</textarea> </div></pre><br/><b><u>Response: </u></b><pre><div style='padding: 0; margin: 0;'><textarea style='border: solid 1px gray; background-color: lightgray; width: 100%; padding: 0; margin: 0;' name='headers' rows='2' readonly='true'>[Server=nginx, Date=Wed, 17 Sep 2025 02:31:49 GMT, Content-Type=application/json, Transfer-Encoding=chunked, Connection=keep-alive, x-envoy-upstream-service-time=29, cache-control=no-store, pragma=no-cache, strict-transport-security=max-age=31536000; includeSubDomains, x-frame-options=SAMEORIGIN]</textarea></div><div style='width: 100%; overflow: hidden;'><textarea style='border:solid 1px black; width: 100%; box-sizing: border-box;' name='message' rows='6' readonly='true'>{
+  "transactionId": "txn_96d410a4-3d3c-4397-86d9-651a2c1fca8b",
+  "requestId": "req_27930261-1954-4d6c-b23c-690eac568142",
+  "authorizationDetails": {
+    "clientId": "client123",
+    "presentationDefinition": {
+      "id": "32f54163-7166-48f1-93d8-ff217bdb0653",
+      "input_descriptors": [
+        {
+          "id": "wa_driver_license",
+          "name": "Washington State Business License",
+          "purpose": "We can only allow licensed Washington State business representatives into the WA Business Conference",
+          "constraints": {}
+        }
+      ]
+    },
+    "nonce": "77734d65abafa1fd4aac8624d019d39c",
+    "responseUri": "https://injiverify.qa-inji1.mosip.net/v1/verify/vp-submission/direct-post",
+    "responseType": "vp_token",
+    "responseMode": "direct_post",
+    "issuedAt": 1758076309599
+  },
+  "expiresAt": 1758076609599
+}</textarea> </div></pre><br/><b> Output validation: </b>EXPECTED vs ACTUAL
+<table width='100%' charset='UTF8'>
+  <tr style='background-color: #d3d3d3;'>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>authorizationDetails.presentationDefinition.id</td>
+    <td>32f54163-7166-48f1-93d8-ff217bdb0653</td>
+    <td>32f54163-7166-48f1-93d8-ff217bdb0653</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>authorizationDetails.clientId</td>
+    <td>client123</td>
+    <td>client123</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>authorizationDetails.responseUri</td>
+    <td>https://injiverify.qa-inji1.mosip.net/v1/verify/vp-submission/direct-post</td>
+    <td>https://injiverify.qa-inji1.mosip.net/v1/verify/vp-submission/direct-post</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>authorizationDetails.responseType</td>
+    <td>vp_token</td>
+    <td>vp_token</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table></div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p><h3 id="m4">io.mosip.testrig.apirig.injiverify.testscripts.SimplePostForAutoGenId#Injiverify_CreateNewVerificationRequest_ForNeg_Valid_Sid</h3><table class="result"><tr class="param"><th>Testcase Input</th></tr><tr class="param stripe"><td>testCaseName=Injiverify_CreateNewVerificationRequest_ForNeg_Valid_Sid, endPoint=/v1/verify/vp-request, role=noauth, templateFields=null, input={ &quot;clientId&quot;:&quot;client123&quot;, &quot;id&quot;:&quot;$PRESENTATIONDEFINITIONID$&quot; }, output={ &quot;responseType&quot;: &quot;vp_token&quot;, &quot;clientId&quot;: &quot;client123&quot;, &quot;responseUri&quot;: &quot;$INJIVERIFYBASEURL$/v1/verify/vp-submission/direct-post&quot;, &quot;id&quot;: &quot;$PRESENTATIONDEFINITIONID$&quot; }, inputTemplate=injiverify/CreateNewVerificationRequest/CreateNewVerificationRequest, outputTemplate=injiverify/CreateNewVerificationRequest/CreateNewVerificationRequestResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, checkOnlyStatusCodeInResponse=false, allowedErrorCodes=null, kycFields=null, description=Creating a new verification request, uniqueIdentifier=TC_InjiVerify_CreateNewVerificationRequest_09</td></tr><tr><th>Messages</th></tr><tr><td><div class="Request and Response messages including headers"><b><u>Request: </u></b>(End Point URL: https://injiverify.qa-inji1.mosip.net/v1/verify/vp-request) <pre><div style='padding: 0; margin: 0;'><textarea style='border: solid 1px gray; background-color: lightgray; width: 100%; padding: 0; margin: 0;' name='headers' rows='2' readonly='true'>No headers</textarea></div><div style='width: 100%; overflow: hidden;'><textarea style='border:solid 1px black; width: 100%; box-sizing: border-box;' name='message' rows='6' readonly='true'>{
+  "clientId": "client123",
+  "presentationDefinition": {
+    "id": "32f54163-7166-48f1-93d8-ff217bdb0653",
+    "input_descriptors": [
+      {
+        "id": "wa_driver_license",
+        "name": "Washington State Business License",
+        "purpose": "We can only allow licensed Washington State business representatives into the WA Business Conference",
+        "constraints": {}
+      }
+    ]
+  }
+}</textarea> </div></pre><br/><b><u>Response: </u></b><pre><div style='padding: 0; margin: 0;'><textarea style='border: solid 1px gray; background-color: lightgray; width: 100%; padding: 0; margin: 0;' name='headers' rows='2' readonly='true'>[Server=nginx, Date=Wed, 17 Sep 2025 02:31:50 GMT, Content-Type=application/json, Transfer-Encoding=chunked, Connection=keep-alive, x-envoy-upstream-service-time=29, cache-control=no-store, pragma=no-cache, strict-transport-security=max-age=31536000; includeSubDomains, x-frame-options=SAMEORIGIN]</textarea></div><div style='width: 100%; overflow: hidden;'><textarea style='border:solid 1px black; width: 100%; box-sizing: border-box;' name='message' rows='6' readonly='true'>{
+  "transactionId": "txn_9770535f-640d-4863-9c85-f05d81ad6f7f",
+  "requestId": "req_b52b8702-7af3-4f75-95f1-b6e869ade8a2",
+  "authorizationDetails": {
+    "clientId": "client123",
+    "presentationDefinition": {
+      "id": "32f54163-7166-48f1-93d8-ff217bdb0653",
+      "input_descriptors": [
+        {
+          "id": "wa_driver_license",
+          "name": "Washington State Business License",
+          "purpose": "We can only allow licensed Washington State business representatives into the WA Business Conference",
+          "constraints": {}
+        }
+      ]
+    },
+    "nonce": "e2bb74c51e96a09ef3b6e517517b86e6",
+    "responseUri": "https://injiverify.qa-inji1.mosip.net/v1/verify/vp-submission/direct-post",
+    "responseType": "vp_token",
+    "responseMode": "direct_post",
+    "issuedAt": 1758076310113
+  },
+  "expiresAt": 1758076610113
+}</textarea> </div></pre><br/><b> Output validation: </b>EXPECTED vs ACTUAL
+<table width='100%' charset='UTF8'>
+  <tr style='background-color: #d3d3d3;'>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>authorizationDetails.presentationDefinition.id</td>
+    <td>32f54163-7166-48f1-93d8-ff217bdb0653</td>
+    <td>32f54163-7166-48f1-93d8-ff217bdb0653</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>authorizationDetails.clientId</td>
+    <td>client123</td>
+    <td>client123</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>authorizationDetails.responseUri</td>
+    <td>https://injiverify.qa-inji1.mosip.net/v1/verify/vp-submission/direct-post</td>
+    <td>https://injiverify.qa-inji1.mosip.net/v1/verify/vp-submission/direct-post</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>authorizationDetails.responseType</td>
+    <td>vp_token</td>
+    <td>vp_token</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table></div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p><h3 id="m5">io.mosip.testrig.apirig.injiverify.testscripts.SimplePostForAutoGenId#Injiverify_CreateNewVerificationRequest_Random_ClientId_Neg</h3><table class="result"><tr class="param"><th>Testcase Input</th></tr><tr class="param stripe"><td>testCaseName=Injiverify_CreateNewVerificationRequest_Random_ClientId_Neg, endPoint=/v1/verify/vp-request, role=noauth, templateFields=null, input={ &quot;clientId&quot;:&quot;ygygduDS&quot;, &quot;id&quot;:&quot;$PRESENTATIONDEFINITIONID$&quot; }, output={ &quot;responseType&quot;: &quot;vp_token&quot;, &quot;clientId&quot;: &quot;ygygduDS&quot;, &quot;responseUri&quot;: &quot;$INJIVERIFYBASEURL$/v1/verify/vp-submission/direct-post&quot;, &quot;id&quot;: &quot;$PRESENTATIONDEFINITIONID$&quot; }, inputTemplate=injiverify/CreateNewVerificationRequest/CreateNewVerificationRequest, outputTemplate=injiverify/CreateNewVerificationRequest/CreateNewVerificationRequestResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, checkOnlyStatusCodeInResponse=false, allowedErrorCodes=null, kycFields=null, description=Creating a new verification request with random value for client id, uniqueIdentifier=TC_InjiVerify_CreateNewVerificationRequest_03</td></tr><tr><th>Messages</th></tr><tr><td><div class="Request and Response messages including headers"><b><u>Request: </u></b>(End Point URL: https://injiverify.qa-inji1.mosip.net/v1/verify/vp-request) <pre><div style='padding: 0; margin: 0;'><textarea style='border: solid 1px gray; background-color: lightgray; width: 100%; padding: 0; margin: 0;' name='headers' rows='2' readonly='true'>No headers</textarea></div><div style='width: 100%; overflow: hidden;'><textarea style='border:solid 1px black; width: 100%; box-sizing: border-box;' name='message' rows='6' readonly='true'>{
+  "clientId": "ygygduDS",
+  "presentationDefinition": {
+    "id": "32f54163-7166-48f1-93d8-ff217bdb0653",
+    "input_descriptors": [
+      {
+        "id": "wa_driver_license",
+        "name": "Washington State Business License",
+        "purpose": "We can only allow licensed Washington State business representatives into the WA Business Conference",
+        "constraints": {}
+      }
+    ]
+  }
+}</textarea> </div></pre><br/><b><u>Response: </u></b><pre><div style='padding: 0; margin: 0;'><textarea style='border: solid 1px gray; background-color: lightgray; width: 100%; padding: 0; margin: 0;' name='headers' rows='2' readonly='true'>[Server=nginx, Date=Wed, 17 Sep 2025 02:31:49 GMT, Content-Type=application/json, Transfer-Encoding=chunked, Connection=keep-alive, x-envoy-upstream-service-time=35, cache-control=no-store, pragma=no-cache, strict-transport-security=max-age=31536000; includeSubDomains, x-frame-options=SAMEORIGIN]</textarea></div><div style='width: 100%; overflow: hidden;'><textarea style='border:solid 1px black; width: 100%; box-sizing: border-box;' name='message' rows='6' readonly='true'>{
+  "transactionId": "txn_91039493-85c2-438d-a0dc-3564f2d2310e",
+  "requestId": "req_85372507-5745-4e5e-a8a2-20a67bbd0131",
+  "authorizationDetails": {
+    "clientId": "ygygduDS",
+    "presentationDefinition": {
+      "id": "32f54163-7166-48f1-93d8-ff217bdb0653",
+      "input_descriptors": [
+        {
+          "id": "wa_driver_license",
+          "name": "Washington State Business License",
+          "purpose": "We can only allow licensed Washington State business representatives into the WA Business Conference",
+          "constraints": {}
+        }
+      ]
+    },
+    "nonce": "915eb72991b2ab6933dbd8c5cfefaf4b",
+    "responseUri": "https://injiverify.qa-inji1.mosip.net/v1/verify/vp-submission/direct-post",
+    "responseType": "vp_token",
+    "responseMode": "direct_post",
+    "issuedAt": 1758076309688
+  },
+  "expiresAt": 1758076609688
+}</textarea> </div></pre><br/><b> Output validation: </b>EXPECTED vs ACTUAL
+<table width='100%' charset='UTF8'>
+  <tr style='background-color: #d3d3d3;'>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>authorizationDetails.presentationDefinition.id</td>
+    <td>32f54163-7166-48f1-93d8-ff217bdb0653</td>
+    <td>32f54163-7166-48f1-93d8-ff217bdb0653</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>authorizationDetails.clientId</td>
+    <td>ygygduDS</td>
+    <td>ygygduDS</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>authorizationDetails.responseUri</td>
+    <td>https://injiverify.qa-inji1.mosip.net/v1/verify/vp-submission/direct-post</td>
+    <td>https://injiverify.qa-inji1.mosip.net/v1/verify/vp-submission/direct-post</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>authorizationDetails.responseType</td>
+    <td>vp_token</td>
+    <td>vp_token</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table></div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p><h3 id="m6">io.mosip.testrig.apirig.injiverify.testscripts.SimplePostForAutoGenId#Injiverify_CreateNewVerificationRequest_Random_PresentationDefinitionId_Neg</h3><table class="result"><tr class="param"><th>Testcase Input</th></tr><tr class="param stripe"><td>testCaseName=Injiverify_CreateNewVerificationRequest_Random_PresentationDefinitionId_Neg, endPoint=/v1/verify/vp-request, role=noauth, templateFields=null, input={ &quot;clientId&quot;:&quot;client123&quot;, &quot;id&quot;:&quot;dsAygyasa&quot; }, output={ &quot;responseType&quot;: &quot;vp_token&quot;, &quot;clientId&quot;: &quot;client123&quot;, &quot;responseUri&quot;: &quot;$INJIVERIFYBASEURL$/v1/verify/vp-submission/direct-post&quot;, &quot;id&quot;: &quot;dsAygyasa&quot; }, inputTemplate=injiverify/CreateNewVerificationRequest/CreateNewVerificationRequest, outputTemplate=injiverify/CreateNewVerificationRequest/CreateNewVerificationRequestResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, checkOnlyStatusCodeInResponse=false, allowedErrorCodes=null, kycFields=null, description=Creating a new verification request with random value for presentation definition id, uniqueIdentifier=TC_InjiVerify_CreateNewVerificationRequest_04</td></tr><tr><th>Messages</th></tr><tr><td><div class="Request and Response messages including headers"><b><u>Request: </u></b>(End Point URL: https://injiverify.qa-inji1.mosip.net/v1/verify/vp-request) <pre><div style='padding: 0; margin: 0;'><textarea style='border: solid 1px gray; background-color: lightgray; width: 100%; padding: 0; margin: 0;' name='headers' rows='2' readonly='true'>No headers</textarea></div><div style='width: 100%; overflow: hidden;'><textarea style='border:solid 1px black; width: 100%; box-sizing: border-box;' name='message' rows='6' readonly='true'>{
+  "clientId": "client123",
+  "presentationDefinition": {
+    "id": "dsAygyasa",
+    "input_descriptors": [
+      {
+        "id": "wa_driver_license",
+        "name": "Washington State Business License",
+        "purpose": "We can only allow licensed Washington State business representatives into the WA Business Conference",
+        "constraints": {}
+      }
+    ]
+  }
+}</textarea> </div></pre><br/><b><u>Response: </u></b><pre><div style='padding: 0; margin: 0;'><textarea style='border: solid 1px gray; background-color: lightgray; width: 100%; padding: 0; margin: 0;' name='headers' rows='2' readonly='true'>[Server=nginx, Date=Wed, 17 Sep 2025 02:31:49 GMT, Content-Type=application/json, Transfer-Encoding=chunked, Connection=keep-alive, x-envoy-upstream-service-time=46, cache-control=no-store, pragma=no-cache, strict-transport-security=max-age=31536000; includeSubDomains, x-frame-options=SAMEORIGIN]</textarea></div><div style='width: 100%; overflow: hidden;'><textarea style='border:solid 1px black; width: 100%; box-sizing: border-box;' name='message' rows='6' readonly='true'>{
+  "transactionId": "txn_dc017b17-1f22-4c62-83f4-5c653c3274a8",
+  "requestId": "req_43754b0e-14ec-48ab-abb3-b27a0c7f1546",
+  "authorizationDetails": {
+    "clientId": "client123",
+    "presentationDefinition": {
+      "id": "dsAygyasa",
+      "input_descriptors": [
+        {
+          "id": "wa_driver_license",
+          "name": "Washington State Business License",
+          "purpose": "We can only allow licensed Washington State business representatives into the WA Business Conference",
+          "constraints": {}
+        }
+      ]
+    },
+    "nonce": "3170abdd99d4f2ead40d0f94dab93494",
+    "responseUri": "https://injiverify.qa-inji1.mosip.net/v1/verify/vp-submission/direct-post",
+    "responseType": "vp_token",
+    "responseMode": "direct_post",
+    "issuedAt": 1758076309786
+  },
+  "expiresAt": 1758076609786
+}</textarea> </div></pre><br/><b> Output validation: </b>EXPECTED vs ACTUAL
+<table width='100%' charset='UTF8'>
+  <tr style='background-color: #d3d3d3;'>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>authorizationDetails.presentationDefinition.id</td>
+    <td>dsAygyasa</td>
+    <td>dsAygyasa</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>authorizationDetails.clientId</td>
+    <td>client123</td>
+    <td>client123</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>authorizationDetails.responseUri</td>
+    <td>https://injiverify.qa-inji1.mosip.net/v1/verify/vp-submission/direct-post</td>
+    <td>https://injiverify.qa-inji1.mosip.net/v1/verify/vp-submission/direct-post</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>authorizationDetails.responseType</td>
+    <td>vp_token</td>
+    <td>vp_token</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table></div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p><h3 id="m7">io.mosip.testrig.apirig.injiverify.testscripts.SimplePostForAutoGenId#Injiverify_CreateNewVerificationRequest_Without_PresentationDefinitionId_Neg</h3><table class="result"><tr class="param"><th>Testcase Input</th></tr><tr class="param stripe"><td>testCaseName=Injiverify_CreateNewVerificationRequest_Without_PresentationDefinitionId_Neg, endPoint=/v1/verify/vp-request, role=noauth, templateFields=null, input={ &quot;clientId&quot;:&quot;client123&quot;, &quot;id&quot;:&quot;$REMOVE$&quot; }, output={ &quot;responseCode&quot;: &quot;400&quot; }, inputTemplate=injiverify/CreateNewVerificationRequest/CreateNewVerificationRequest, outputTemplate=injiverify/responseCode, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, checkOnlyStatusCodeInResponse=true, allowedErrorCodes=null, kycFields=null, description=Creating a new verification request without presentation definition id, uniqueIdentifier=TC_InjiVerify_CreateNewVerificationRequest_08</td></tr><tr><th>Messages</th></tr><tr><td><div class="Request and Response messages including headers"><b><u>Request: </u></b>(End Point URL: https://injiverify.qa-inji1.mosip.net/v1/verify/vp-request) <pre><div style='padding: 0; margin: 0;'><textarea style='border: solid 1px gray; background-color: lightgray; width: 100%; padding: 0; margin: 0;' name='headers' rows='2' readonly='true'>No headers</textarea></div><div style='width: 100%; overflow: hidden;'><textarea style='border:solid 1px black; width: 100%; box-sizing: border-box;' name='message' rows='6' readonly='true'>{
+  "presentationDefinition": {
+    "input_descriptors": [
+      {
+        "purpose": "We can only allow licensed Washington State business representatives into the WA Business Conference",
+        "name": "Washington State Business License",
+        "id": "wa_driver_license",
+        "constraints": {}
+      }
+    ]
+  },
+  "clientId": "client123"
+}</textarea> </div></pre><br/><b><u>Response: </u></b><pre><div style='padding: 0; margin: 0;'><textarea style='border: solid 1px gray; background-color: lightgray; width: 100%; padding: 0; margin: 0;' name='headers' rows='2' readonly='true'>[Server=nginx, Date=Wed, 17 Sep 2025 02:31:50 GMT, Content-Type=application/json, Transfer-Encoding=chunked, Connection=keep-alive, x-envoy-upstream-service-time=10, cache-control=no-store, pragma=no-cache, strict-transport-security=max-age=31536000; includeSubDomains, x-frame-options=SAMEORIGIN]</textarea></div><div style='width: 100%; overflow: hidden;'><textarea style='border:solid 1px black; width: 100%; box-sizing: border-box;' name='message' rows='6' readonly='true'>{
+  "timestamp": "2025-09-17T02:31:50.058+00:00",
+  "status": 400,
+  "error": "Bad Request",
+  "path": "/v1/verify/vp-request"
+}</textarea> </div></pre><br/><b> Output validation: </b>EXPECTED vs ACTUAL
+<table width='100%' charset='UTF8'>
+  <tr style='background-color: #d3d3d3;'>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>status</td>
+    <td>400</td>
+    <td>400</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table></div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p><h3 id="m8">io.mosip.testrig.apirig.injiverify.testscripts.SimplePostForAutoGenId#Injiverify_CreateNewVerificationRequest_without_ClientId_Neg</h3><table class="result"><tr class="param"><th>Testcase Input</th></tr><tr class="param stripe"><td>testCaseName=Injiverify_CreateNewVerificationRequest_without_ClientId_Neg, endPoint=/v1/verify/vp-request, role=noauth, templateFields=null, input={ &quot;clientId&quot;:&quot;$REMOVE$&quot;, &quot;id&quot;:&quot;$PRESENTATIONDEFINITIONID$&quot; }, output={ &quot;responseCode&quot;: &quot;400&quot; }, inputTemplate=injiverify/CreateNewVerificationRequest/CreateNewVerificationRequest, outputTemplate=injiverify/responseCode, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, checkOnlyStatusCodeInResponse=true, allowedErrorCodes=null, kycFields=null, description=Creating a new verification request without client id, uniqueIdentifier=TC_InjiVerify_CreateNewVerificationRequest_06</td></tr><tr><th>Messages</th></tr><tr><td><div class="Request and Response messages including headers"><b><u>Request: </u></b>(End Point URL: https://injiverify.qa-inji1.mosip.net/v1/verify/vp-request) <pre><div style='padding: 0; margin: 0;'><textarea style='border: solid 1px gray; background-color: lightgray; width: 100%; padding: 0; margin: 0;' name='headers' rows='2' readonly='true'>No headers</textarea></div><div style='width: 100%; overflow: hidden;'><textarea style='border:solid 1px black; width: 100%; box-sizing: border-box;' name='message' rows='6' readonly='true'>{
+  "presentationDefinition": {
+    "input_descriptors": [
+      {
+        "purpose": "We can only allow licensed Washington State business representatives into the WA Business Conference",
+        "name": "Washington State Business License",
+        "id": "wa_driver_license",
+        "constraints": {}
+      }
+    ],
+    "id": "32f54163-7166-48f1-93d8-ff217bdb0653"
+  }
+}</textarea> </div></pre><br/><b><u>Response: </u></b><pre><div style='padding: 0; margin: 0;'><textarea style='border: solid 1px gray; background-color: lightgray; width: 100%; padding: 0; margin: 0;' name='headers' rows='2' readonly='true'>[Server=nginx, Date=Wed, 17 Sep 2025 02:31:49 GMT, Content-Type=application/json, Transfer-Encoding=chunked, Connection=keep-alive, x-envoy-upstream-service-time=11, cache-control=no-store, pragma=no-cache, strict-transport-security=max-age=31536000; includeSubDomains, x-frame-options=SAMEORIGIN]</textarea></div><div style='width: 100%; overflow: hidden;'><textarea style='border:solid 1px black; width: 100%; box-sizing: border-box;' name='message' rows='6' readonly='true'>{
+  "timestamp": "2025-09-17T02:31:49.944+00:00",
+  "status": 400,
+  "error": "Bad Request",
+  "path": "/v1/verify/vp-request"
+}</textarea> </div></pre><br/><b> Output validation: </b>EXPECTED vs ACTUAL
+<table width='100%' charset='UTF8'>
+  <tr style='background-color: #d3d3d3;'>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>status</td>
+    <td>400</td>
+    <td>400</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table></div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p><h3 id="m9">io.mosip.testrig.apirig.injiverify.testscripts.SimplePostForAutoGenId#Injiverify_CreateNewVerificationRequest_DID_ClientId_Valid_Sid</h3><table class="result"><tr class="param"><th>Testcase Input</th></tr><tr class="param stripe"><td>testCaseName=Injiverify_CreateNewVerificationRequest_DID_ClientId_Valid_Sid, endPoint=/v1/verify/vp-request, role=noauth, templateFields=null, input={ &quot;clientId&quot;:&quot;did:client123&quot;, &quot;id&quot;:&quot;$PRESENTATIONDEFINITIONID$&quot; }, output={ &quot;responseCode&quot;: &quot;201&quot; }, inputTemplate=injiverify/CreateNewVerificationRequestWithDID/CreateNewVerificationRequestWithDID, outputTemplate=injiverify/responseCode, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, checkOnlyStatusCodeInResponse=true, allowedErrorCodes=null, kycFields=null, description=Creating a new verification request with DID-based client id, uniqueIdentifier=TC_InjiVerify_CreateNewVerificationRequestWithDID_01</td></tr><tr><th>Messages</th></tr><tr><td><div class="Request and Response messages including headers"><b><u>Request: </u></b>(End Point URL: https://injiverify.qa-inji1.mosip.net/v1/verify/vp-request) <pre><div style='padding: 0; margin: 0;'><textarea style='border: solid 1px gray; background-color: lightgray; width: 100%; padding: 0; margin: 0;' name='headers' rows='2' readonly='true'>No headers</textarea></div><div style='width: 100%; overflow: hidden;'><textarea style='border:solid 1px black; width: 100%; box-sizing: border-box;' name='message' rows='6' readonly='true'>{
+  "clientId": "did:client123",
+  "presentationDefinition": {
+    "id": "32f54163-7166-48f1-93d8-ff217bdb0653",
+    "input_descriptors": [
+      {
+        "id": "wa_driver_license",
+        "name": "Washington State Business License",
+        "purpose": "We can only allow licensed Washington State business representatives into the WA Business Conference",
+        "constraints": {}
+      }
+    ]
+  }
+}</textarea> </div></pre><br/><b><u>Response: </u></b><pre><div style='padding: 0; margin: 0;'><textarea style='border: solid 1px gray; background-color: lightgray; width: 100%; padding: 0; margin: 0;' name='headers' rows='2' readonly='true'>[Server=nginx, Date=Wed, 17 Sep 2025 02:31:50 GMT, Content-Type=application/json, Transfer-Encoding=chunked, Connection=keep-alive, x-envoy-upstream-service-time=38, cache-control=no-store, pragma=no-cache, strict-transport-security=max-age=31536000; includeSubDomains, x-frame-options=SAMEORIGIN]</textarea></div><div style='width: 100%; overflow: hidden;'><textarea style='border:solid 1px black; width: 100%; box-sizing: border-box;' name='message' rows='6' readonly='true'>{
+  "transactionId": "txn_46d1877f-0a95-4661-ade0-7f73e805b1b2",
+  "requestId": "req_33c61226-1903-445a-b6fe-1112d3e70d7d",
+  "expiresAt": 1758076610250,
+  "requestUri": "/vp-request/req_33c61226-1903-445a-b6fe-1112d3e70d7d"
+}</textarea> </div></pre><br/><b> Output validation: </b>EXPECTED vs ACTUAL
+<table width='100%' charset='UTF8'>
+  <tr style='background-color: #d3d3d3;'>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>status</td>
+    <td>201</td>
+    <td>201</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table></div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p><h3 id="m10">io.mosip.testrig.apirig.injiverify.testscripts.GetWithParamAndHeader#Injiverify_GetVpRequestWithDID_All_Valid_Smoke_Sid</h3><table class="result"><tr class="param"><th>Testcase Input</th></tr><tr class="param stripe"><td>testCaseName=Injiverify_GetVpRequestWithDID_All_Valid_Smoke_Sid, endPoint=/v1/verify{requestUri}, role=noauth, templateFields=null, input={ &quot;requestUri&quot;: &quot;$ID:CreateNewVerificationRequest_DID_ClientId_Valid_Sid_requestUri$&quot;, &quot;acceptHeader&quot;: &quot;*/*&quot; }, output={ &quot;client_id&quot;: &quot;did:client123&quot; }, inputTemplate=injiverify/GetVpRequestWithDID/GetVpRequestWithDID, outputTemplate=injiverify/GetVpRequestWithDID/GetVpRequestWithDIDResult, restMethod=get, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, checkOnlyStatusCodeInResponse=false, allowedErrorCodes=null, kycFields=null, description=Get VP request JWT for DID-based client id and validate Auth Request, uniqueIdentifier=TC_InjiVerify_GetVpRequestWithDID_02</td></tr><tr><th>Messages</th></tr><tr><td><div class="Request and Response messages including headers"><b><u>Request: </u></b>(End Point URL: https://injiverify.qa-inji1.mosip.net/v1/verify{requestUri}) <pre><div style='padding: 0; margin: 0;'><textarea style='border: solid 1px gray; background-color: lightgray; width: 100%; padding: 0; margin: 0;' name='headers' rows='2' readonly='true'>{}</textarea></div><div style='width: 100%; overflow: hidden;'><textarea style='border:solid 1px black; width: 100%; box-sizing: border-box;' name='message' rows='6' readonly='true'>{
+  "requestUri": "/vp-request/req_33c61226-1903-445a-b6fe-1112d3e70d7d",
+  "acceptHeader": "*/*"
+}</textarea> </div></pre><br/><b><u>Response: </u></b><pre><div style='padding: 0; margin: 0;'><textarea style='border: solid 1px gray; background-color: lightgray; width: 100%; padding: 0; margin: 0;' name='headers' rows='2' readonly='true'>[Server=nginx, Date=Wed, 17 Sep 2025 02:31:51 GMT, Content-Type=application/oauth-authz-req+jwt;charset=UTF-8, Content-Length=1302, Connection=keep-alive, x-envoy-upstream-service-time=921, cache-control=no-store, pragma=no-cache, strict-transport-security=max-age=31536000; includeSubDomains, x-frame-options=SAMEORIGIN]</textarea></div><div style='width: 100%; overflow: hidden;'><textarea style='border:solid 1px black; width: 100%; box-sizing: border-box;' name='message' rows='6' readonly='true'>"eyJraWQiOiJkaWQ6d2ViOmluaml2ZXJpZnkucWEtaW5qaTEubW9zaXAubmV0OnYxOnZlcmlmeSNrZXktMCIsInR5cCI6Im9hdXRoLWF1dGh6LXJlcStqd3QiLCJhbGciOiJFZERTQSJ9.eyJyZXNwb25zZV91cmkiOiJodHRwczovL2luaml2ZXJpZnkucWEtaW5qaTEubW9zaXAubmV0L3YxL3ZlcmlmeS92cC1zdWJtaXNzaW9uL2RpcmVjdC1wb3N0IiwiaXNzIjoiZGlkOmNsaWVudDEyMyIsInJlc3BvbnNlX3R5cGUiOiJ2cF90b2tlbiIsInByZXNlbnRhdGlvbl9kZWZpbml0aW9uIjp7ImlkIjoiMzJmNTQxNjMtNzE2Ni00OGYxLTkzZDgtZmYyMTdiZGIwNjUzIiwiaW5wdXRfZGVzY3JpcHRvcnMiOlt7ImlkIjoid2FfZHJpdmVyX2xpY2Vuc2UiLCJuYW1lIjoiV2FzaGluZ3RvbiBTdGF0ZSBCdXNpbmVzcyBMaWNlbnNlIiwicHVycG9zZSI6IldlIGNhbiBvbmx5IGFsbG93IGxpY2Vuc2VkIFdhc2hpbmd0b24gU3RhdGUgYnVzaW5lc3MgcmVwcmVzZW50YXRpdmVzIGludG8gdGhlIFdBIEJ1c2luZXNzIENvbmZlcmVuY2UiLCJjb25zdHJhaW50cyI6e319XX0sInN0YXRlIjoicmVxXzMzYzYxMjI2LTE5MDMtNDQ1YS1iNmZlLTExMTJkM2U3MGQ3ZCIsImlhdCI6MTc1ODA3NjMxMCwibm9uY2UiOiI3NjJiMjQyNGU1ZDBkNzkxNTY5MGQxMTZhOTY3Njc3YiIsImNsaWVudF9pZCI6ImRpZDpjbGllbnQxMjMiLCJqdGkiOiJjZTBhMDJmZC0xMDY5LTRhOTEtOGEwOS04MTczYzk3NGM2YmYiLCJjbGllbnRfbWV0YWRhdGEiOnsiY2xpZW50X25hbWUiOiJkaWQ6Y2xpZW50MTIzIiwidnBfZm9ybWF0cyI6eyJsZHBfdnAiOnsicHJvb2ZfdHlwZSI6WyJFZDI1NTE5U2lnbmF0dXJlMjAxOCIsIkVkMjU1MTlTaWduYXR1cmUyMDIwIiwiUnNhU2lnbmF0dXJlMjAxOCJdfX19LCJyZXNwb25zZV9tb2RlIjoiZGlyZWN0X3Bvc3QifQ._CJEcRCPVHvKHzD0X-qI7FX1P2cV5j17PgqYe-GNJncOuml-TbCQGNnQqj4zqF3GhUctqYodKnP2n0FZjQ1EAA"</textarea> </div></pre><br/><b><u>Response: </u></b><pre><div style='padding: 0; margin: 0;'><textarea style='border: solid 1px gray; background-color: lightgray; width: 100%; padding: 0; margin: 0;' name='headers' rows='2' readonly='true'>{"kid":"did:web:injiverify.qa-inji1.mosip.net:v1:verify#key-0","typ":"oauth-authz-req+jwt","alg":"EdDSA"}</textarea></div><div style='width: 100%; overflow: hidden;'><textarea style='border:solid 1px black; width: 100%; box-sizing: border-box;' name='message' rows='6' readonly='true'>{
+  "response_uri": "https://injiverify.qa-inji1.mosip.net/v1/verify/vp-submission/direct-post",
+  "iss": "did:client123",
+  "response_type": "vp_token",
+  "presentation_definition": {
+    "id": "32f54163-7166-48f1-93d8-ff217bdb0653",
+    "input_descriptors": [
+      {
+        "id": "wa_driver_license",
+        "name": "Washington State Business License",
+        "purpose": "We can only allow licensed Washington State business representatives into the WA Business Conference",
+        "constraints": {}
+      }
+    ]
+  },
+  "state": "req_33c61226-1903-445a-b6fe-1112d3e70d7d",
+  "iat": 1758076310,
+  "nonce": "762b2424e5d0d7915690d116a967677b",
+  "client_id": "did:client123",
+  "jti": "ce0a02fd-1069-4a91-8a09-8173c974c6bf",
+  "client_metadata": {
+    "client_name": "did:client123",
+    "vp_formats": {
+      "ldp_vp": {
+        "proof_type": [
+          "Ed25519Signature2018",
+          "Ed25519Signature2020",
+          "RsaSignature2018"
+        ]
+      }
+    }
+  },
+  "response_mode": "direct_post"
+}</textarea> </div></pre><br/><b> Output validation: </b>EXPECTED vs ACTUAL
+<table width='100%' charset='UTF8'>
+  <tr style='background-color: #d3d3d3;'>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>payload.iss</td>
+    <td>did:client123</td>
+    <td>did:client123</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>header.alg</td>
+    <td>EdDSA</td>
+    <td>EdDSA</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>payload.response_type</td>
+    <td>vp_token</td>
+    <td>vp_token</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>header.typ</td>
+    <td>oauth-authz-req+jwt</td>
+    <td>oauth-authz-req+jwt</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>payload.client_id</td>
+    <td>did:client123</td>
+    <td>did:client123</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>payload.response_mode</td>
+    <td>direct_post</td>
+    <td>direct_post</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>payload.client_metadata.client_name</td>
+    <td>did:client123</td>
+    <td>did:client123</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table></div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p><h3 id="m11">io.mosip.testrig.apirig.injiverify.testscripts.SimplePostForAutoGenIdForUrlEncoded#Injiverify_VpSubmission_All_Valid_Smoke</h3><table class="result"><tr class="param"><th>Testcase Input</th></tr><tr class="param stripe"><td>testCaseName=Injiverify_VpSubmission_All_Valid_Smoke, endPoint=/v1/verify/vp-submission/direct-post, role=noauth, templateFields=null, input={ &quot;state&quot;:&quot;$ID:CreateNewVerificationRequest_All_Valid_Smoke_Sid_requestId$&quot;, &quot;definition_id&quot;:&quot;$PRESENTATIONDEFINITIONID$&quot; }, output={ &quot;responseCode&quot;: &quot;200&quot; }, inputTemplate=injiverify/VpSubmission/VpSubmission, outputTemplate=injiverify/responseCode, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, checkOnlyStatusCodeInResponse=true, allowedErrorCodes=null, kycFields=null, description=Submitting the authorization response, uniqueIdentifier=TC_InjiVerify_VpSubmission_01</td></tr><tr><th>Messages</th></tr><tr><td><div class="Request and Response messages including headers"><b><u>Request: </u></b>(End Point URL: https://injiverify.qa-inji1.mosip.net/v1/verify/vp-submission/direct-post) <pre><div style='padding: 0; margin: 0;'><textarea style='border: solid 1px gray; background-color: lightgray; width: 100%; padding: 0; margin: 0;' name='headers' rows='2' readonly='true'>No headers</textarea></div><div style='width: 100%; overflow: hidden;'><textarea style='border:solid 1px black; width: 100%; box-sizing: border-box;' name='message' rows='6' readonly='true'>{
+  "vp_token": {
+    "@context": [
+      "https://www.w3.org/2018/credentials/v1",
+      "https://w3id.org/security/suites/jws-2020/v1"
+    ],
+    "type": [
+      "VerifiablePresentation"
+    ],
+    "verifiableCredential": [
+      {
+        "issuanceDate": "2025-06-30T08:46:29.323Z",
+        "credentialSubject": {
+          "benefits": [
+            "Critical Surgery",
+            "Full body checkup"
+          ],
+          "gender": "Male",
+          "policyName": "wallet",
+          "dob": "2025-01-01",
+          "policyNumber": "5555",
+          "mobile": "0123456789",
+          "fullName": "wallet",
+          "policyIssuedOn": "2023-04-20",
+          "id": "did:jwk:eyJrdHkiOiJFQyIsInVzZSI6InNpZyIsImNydiI6IlAtMjU2Iiwia2lkIjoiOWpuWTRZZ1Z0NnFVcGVxRkhCZzNZNjRTdGlUX3VnOFdLdVBsckp6bUlRayIsIngiOiJUQjlGa294S0dSdzh4M0FablJjdVJtMEhpRXBQLVVNOHI1N2pOUkZLa3pBIiwieSI6IkZWTHhiaFduREZsVHJlZGFWaHp4UHg1eFluS29iUWp5aHZrU1ZjVlpsTjgiLCJhbGciOiJFUzI1NiJ9",
+          "policyExpiresOn": "2033-04-20",
+          "email": "abcd@gmail.com"
+        },
+        "id": "did:rcw:a20c5836-99cf-4c44-8429-1b64ee24b73c",
+        "proof": {
+          "proofPurpose": "assertionMethod",
+          "verificationMethod": "did:web:api.released.mosip.net:identity-service:02b073b8-aacd-472e-b63f-265bb7ccdd9f#key-0",
+          "proofValue": "z4DcfNGBBL2wnLJZojpsTyoDDBDnXTH6C3H1UkyiYyEu2V8JssXb7ajcRq4yARGrixCSotN7R495TD8jdyW8jtkD6",
+          "type": "Ed25519Signature2020",
+          "created": "2025-06-30T08:46:29Z"
+        },
+        "type": [
+          "VerifiableCredential",
+          "LifeInsuranceCredential"
+        ],
+        "@context": [
+          "https://www.w3.org/2018/credentials/v1",
+          "https://holashchand.github.io/test_project/insurance-context.json",
+          {
+            "LifeInsuranceCredential": {
+              "@id": "InsuranceCredential"
+            }
+          },
+          "https://w3id.org/security/suites/ed25519-2020/v1"
+        ],
+        "issuer": "did:web:api.released.mosip.net:identity-service:02b073b8-aacd-472e-b63f-265bb7ccdd9f",
+        "expirationDate": "2027-06-30T08:46:29.314Z"
+      }
+    ],
+    "id": "urn:uuid:c99eaffb-308e-449c-9eef-5edc36836284",
+    "holder": "did:jwk:eyJrdHkiOiJPS1AiLCJjcnYiOiJFZDI1NTE5IiwieCI6IjZxa1h5RUlJdXl2WHl2UVpCRDYxNWRGQjhvNWZsTVBHSFBkLXFWWHdQeUUiLCJhbGciOiJFZDI1NTE5IiwidXNlIjoic2lnIn0#0",
+    "proof": {
+      "type": "JsonWebSignature2020",
+      "created": "2025-06-30T14:16:52Z",
+      "challenge": "Mi0vDP17DlFcu/8m+OcP9A\u003d\u003d",
+      "domain": "did:web:mosip.github.io:inji-mock-services:openid4vp-service:docs",
+      "jws": "eyJhbGciOiJFZERTQSIsImNyaXQiOlsiYjY0Il0sImI2NCI6ZmFsc2V9..YuE26DnMlkAWSUAkMVdXwntIDN2lgkT-4MesGQLdqR09HaN8QbfLb6TWIzgEPA5ybdD7C_2S2cevlCxJeBRGDw",
+      "proofPurpose": "authentication",
+      "verificationMethod": "did:jwk:eyJrdHkiOiJPS1AiLCJjcnYiOiJFZDI1NTE5IiwieCI6IjZxa1h5RUlJdXl2WHl2UVpCRDYxNWRGQjhvNWZsTVBHSFBkLXFWWHdQeUUiLCJhbGciOiJFZDI1NTE5IiwidXNlIjoic2lnIn0#0"
+    }
+  },
+  "state": "req_6c53e8fc-99c7-4749-9c7c-edfd32dddd88",
+  "presentation_submission": {
+    "id": "32f54163-7166-48f1-93d8-ff217bdb0653",
+    "definition_id": "32f54163-7166-48f1-93d8-ff217bdb0653",
+    "descriptor_map": [
+      {
+        "id": "citizenship_input_1",
+        "format": "ldp_vc",
+        "path": "$.verifiableCredential[2]"
+      }
+    ]
+  }
+}</textarea> </div></pre><br/><b><u>Response: </u></b><pre><div style='padding: 0; margin: 0;'><textarea style='border: solid 1px gray; background-color: lightgray; width: 100%; padding: 0; margin: 0;' name='headers' rows='2' readonly='true'>[Server=nginx, Date=Wed, 17 Sep 2025 02:31:51 GMT, Content-Length=0, Connection=keep-alive, x-envoy-upstream-service-time=236, cache-control=no-store, pragma=no-cache, strict-transport-security=max-age=31536000; includeSubDomains, x-frame-options=SAMEORIGIN]</textarea></div><div style='width: 100%; overflow: hidden;'><textarea style='border:solid 1px black; width: 100%; box-sizing: border-box;' name='message' rows='6' readonly='true'>null</textarea> </div></pre><br/><b> Output validation: </b>EXPECTED vs ACTUAL
+<table width='100%' charset='UTF8'>
+  <tr style='background-color: #d3d3d3;'>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>status</td>
+    <td>200</td>
+    <td>200</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table></div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p><h3 id="m12">io.mosip.testrig.apirig.injiverify.testscripts.SimplePostForAutoGenIdForUrlEncoded#Injiverify_VpSubmission_Empty_PresentationDefinitionId_Neg</h3><table class="result"><tr class="param"><th>Testcase Input</th></tr><tr class="param stripe"><td>testCaseName=Injiverify_VpSubmission_Empty_PresentationDefinitionId_Neg, endPoint=/v1/verify/vp-submission/direct-post, role=noauth, templateFields=null, input={ &quot;state&quot;:&quot;$ID:CreateNewVerificationRequest_ForNeg_Valid_Sid_requestId$&quot;, &quot;definition_id&quot;:&quot;&quot; }, output={ &quot;responseCode&quot;: &quot;400&quot; }, inputTemplate=injiverify/VpSubmission/VpSubmission, outputTemplate=injiverify/responseCode, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, checkOnlyStatusCodeInResponse=true, allowedErrorCodes=null, kycFields=null, description=Submitting the authorization response with empty presentation definition id, uniqueIdentifier=TC_InjiVerify_VpSubmission_07</td></tr><tr><th>Messages</th></tr><tr><td><div class="Request and Response messages including headers"><b><u>Request: </u></b>(End Point URL: https://injiverify.qa-inji1.mosip.net/v1/verify/vp-submission/direct-post) <pre><div style='padding: 0; margin: 0;'><textarea style='border: solid 1px gray; background-color: lightgray; width: 100%; padding: 0; margin: 0;' name='headers' rows='2' readonly='true'>No headers</textarea></div><div style='width: 100%; overflow: hidden;'><textarea style='border:solid 1px black; width: 100%; box-sizing: border-box;' name='message' rows='6' readonly='true'>{
+  "vp_token": {
+    "@context": [
+      "https://www.w3.org/2018/credentials/v1",
+      "https://w3id.org/security/suites/jws-2020/v1"
+    ],
+    "type": [
+      "VerifiablePresentation"
+    ],
+    "verifiableCredential": [
+      {
+        "issuanceDate": "2025-06-30T08:46:29.323Z",
+        "credentialSubject": {
+          "benefits": [
+            "Critical Surgery",
+            "Full body checkup"
+          ],
+          "gender": "Male",
+          "policyName": "wallet",
+          "dob": "2025-01-01",
+          "policyNumber": "5555",
+          "mobile": "0123456789",
+          "fullName": "wallet",
+          "policyIssuedOn": "2023-04-20",
+          "id": "did:jwk:eyJrdHkiOiJFQyIsInVzZSI6InNpZyIsImNydiI6IlAtMjU2Iiwia2lkIjoiOWpuWTRZZ1Z0NnFVcGVxRkhCZzNZNjRTdGlUX3VnOFdLdVBsckp6bUlRayIsIngiOiJUQjlGa294S0dSdzh4M0FablJjdVJtMEhpRXBQLVVNOHI1N2pOUkZLa3pBIiwieSI6IkZWTHhiaFduREZsVHJlZGFWaHp4UHg1eFluS29iUWp5aHZrU1ZjVlpsTjgiLCJhbGciOiJFUzI1NiJ9",
+          "policyExpiresOn": "2033-04-20",
+          "email": "abcd@gmail.com"
+        },
+        "id": "did:rcw:a20c5836-99cf-4c44-8429-1b64ee24b73c",
+        "proof": {
+          "proofPurpose": "assertionMethod",
+          "verificationMethod": "did:web:api.released.mosip.net:identity-service:02b073b8-aacd-472e-b63f-265bb7ccdd9f#key-0",
+          "proofValue": "z4DcfNGBBL2wnLJZojpsTyoDDBDnXTH6C3H1UkyiYyEu2V8JssXb7ajcRq4yARGrixCSotN7R495TD8jdyW8jtkD6",
+          "type": "Ed25519Signature2020",
+          "created": "2025-06-30T08:46:29Z"
+        },
+        "type": [
+          "VerifiableCredential",
+          "LifeInsuranceCredential"
+        ],
+        "@context": [
+          "https://www.w3.org/2018/credentials/v1",
+          "https://holashchand.github.io/test_project/insurance-context.json",
+          {
+            "LifeInsuranceCredential": {
+              "@id": "InsuranceCredential"
+            }
+          },
+          "https://w3id.org/security/suites/ed25519-2020/v1"
+        ],
+        "issuer": "did:web:api.released.mosip.net:identity-service:02b073b8-aacd-472e-b63f-265bb7ccdd9f",
+        "expirationDate": "2027-06-30T08:46:29.314Z"
+      }
+    ],
+    "id": "urn:uuid:c99eaffb-308e-449c-9eef-5edc36836284",
+    "holder": "did:jwk:eyJrdHkiOiJPS1AiLCJjcnYiOiJFZDI1NTE5IiwieCI6IjZxa1h5RUlJdXl2WHl2UVpCRDYxNWRGQjhvNWZsTVBHSFBkLXFWWHdQeUUiLCJhbGciOiJFZDI1NTE5IiwidXNlIjoic2lnIn0#0",
+    "proof": {
+      "type": "JsonWebSignature2020",
+      "created": "2025-06-30T14:16:52Z",
+      "challenge": "Mi0vDP17DlFcu/8m+OcP9A\u003d\u003d",
+      "domain": "did:web:mosip.github.io:inji-mock-services:openid4vp-service:docs",
+      "jws": "eyJhbGciOiJFZERTQSIsImNyaXQiOlsiYjY0Il0sImI2NCI6ZmFsc2V9..YuE26DnMlkAWSUAkMVdXwntIDN2lgkT-4MesGQLdqR09HaN8QbfLb6TWIzgEPA5ybdD7C_2S2cevlCxJeBRGDw",
+      "proofPurpose": "authentication",
+      "verificationMethod": "did:jwk:eyJrdHkiOiJPS1AiLCJjcnYiOiJFZDI1NTE5IiwieCI6IjZxa1h5RUlJdXl2WHl2UVpCRDYxNWRGQjhvNWZsTVBHSFBkLXFWWHdQeUUiLCJhbGciOiJFZDI1NTE5IiwidXNlIjoic2lnIn0#0"
+    }
+  },
+  "state": "req_b52b8702-7af3-4f75-95f1-b6e869ade8a2",
+  "presentation_submission": {
+    "id": "",
+    "definition_id": "",
+    "descriptor_map": [
+      {
+        "id": "citizenship_input_1",
+        "format": "ldp_vc",
+        "path": "$.verifiableCredential[2]"
+      }
+    ]
+  }
+}</textarea> </div></pre><br/><b><u>Response: </u></b><pre><div style='padding: 0; margin: 0;'><textarea style='border: solid 1px gray; background-color: lightgray; width: 100%; padding: 0; margin: 0;' name='headers' rows='2' readonly='true'>[Server=nginx, Date=Wed, 17 Sep 2025 02:31:52 GMT, Content-Type=text/plain;charset=UTF-8, Content-Length=42, Connection=keep-alive, x-envoy-upstream-service-time=19, cache-control=no-store, pragma=no-cache, strict-transport-security=max-age=31536000; includeSubDomains, x-frame-options=SAMEORIGIN]</textarea></div><div style='width: 100%; overflow: hidden;'><textarea style='border:solid 1px black; width: 100%; box-sizing: border-box;' name='message' rows='6' readonly='true'>Presentation Submission ID cannot be empty</textarea> </div></pre><br/><b> Output validation: </b>EXPECTED vs ACTUAL
+<table width='100%' charset='UTF8'>
+  <tr style='background-color: #d3d3d3;'>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>status</td>
+    <td>400</td>
+    <td>400</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table></div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p><h3 id="m13">io.mosip.testrig.apirig.injiverify.testscripts.SimplePostForAutoGenIdForUrlEncoded#Injiverify_VpSubmission_Empty_State_Neg</h3><table class="result"><tr class="param"><th>Testcase Input</th></tr><tr class="param stripe"><td>testCaseName=Injiverify_VpSubmission_Empty_State_Neg, endPoint=/v1/verify/vp-submission/direct-post, role=noauth, templateFields=null, input={ &quot;state&quot;:&quot;&quot;, &quot;definition_id&quot;:&quot;$PRESENTATIONDEFINITIONID$&quot; }, output={ &quot;responseCode&quot;: &quot;400&quot; }, inputTemplate=injiverify/VpSubmission/VpSubmission, outputTemplate=injiverify/responseCode, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, checkOnlyStatusCodeInResponse=true, allowedErrorCodes=null, kycFields=null, description=Submitting the authorization response with empty state, uniqueIdentifier=TC_InjiVerify_VpSubmission_05</td></tr><tr><th>Messages</th></tr><tr><td><div class="Request and Response messages including headers"><b><u>Request: </u></b>(End Point URL: https://injiverify.qa-inji1.mosip.net/v1/verify/vp-submission/direct-post) <pre><div style='padding: 0; margin: 0;'><textarea style='border: solid 1px gray; background-color: lightgray; width: 100%; padding: 0; margin: 0;' name='headers' rows='2' readonly='true'>No headers</textarea></div><div style='width: 100%; overflow: hidden;'><textarea style='border:solid 1px black; width: 100%; box-sizing: border-box;' name='message' rows='6' readonly='true'>{
+  "vp_token": {
+    "@context": [
+      "https://www.w3.org/2018/credentials/v1",
+      "https://w3id.org/security/suites/jws-2020/v1"
+    ],
+    "type": [
+      "VerifiablePresentation"
+    ],
+    "verifiableCredential": [
+      {
+        "issuanceDate": "2025-06-30T08:46:29.323Z",
+        "credentialSubject": {
+          "benefits": [
+            "Critical Surgery",
+            "Full body checkup"
+          ],
+          "gender": "Male",
+          "policyName": "wallet",
+          "dob": "2025-01-01",
+          "policyNumber": "5555",
+          "mobile": "0123456789",
+          "fullName": "wallet",
+          "policyIssuedOn": "2023-04-20",
+          "id": "did:jwk:eyJrdHkiOiJFQyIsInVzZSI6InNpZyIsImNydiI6IlAtMjU2Iiwia2lkIjoiOWpuWTRZZ1Z0NnFVcGVxRkhCZzNZNjRTdGlUX3VnOFdLdVBsckp6bUlRayIsIngiOiJUQjlGa294S0dSdzh4M0FablJjdVJtMEhpRXBQLVVNOHI1N2pOUkZLa3pBIiwieSI6IkZWTHhiaFduREZsVHJlZGFWaHp4UHg1eFluS29iUWp5aHZrU1ZjVlpsTjgiLCJhbGciOiJFUzI1NiJ9",
+          "policyExpiresOn": "2033-04-20",
+          "email": "abcd@gmail.com"
+        },
+        "id": "did:rcw:a20c5836-99cf-4c44-8429-1b64ee24b73c",
+        "proof": {
+          "proofPurpose": "assertionMethod",
+          "verificationMethod": "did:web:api.released.mosip.net:identity-service:02b073b8-aacd-472e-b63f-265bb7ccdd9f#key-0",
+          "proofValue": "z4DcfNGBBL2wnLJZojpsTyoDDBDnXTH6C3H1UkyiYyEu2V8JssXb7ajcRq4yARGrixCSotN7R495TD8jdyW8jtkD6",
+          "type": "Ed25519Signature2020",
+          "created": "2025-06-30T08:46:29Z"
+        },
+        "type": [
+          "VerifiableCredential",
+          "LifeInsuranceCredential"
+        ],
+        "@context": [
+          "https://www.w3.org/2018/credentials/v1",
+          "https://holashchand.github.io/test_project/insurance-context.json",
+          {
+            "LifeInsuranceCredential": {
+              "@id": "InsuranceCredential"
+            }
+          },
+          "https://w3id.org/security/suites/ed25519-2020/v1"
+        ],
+        "issuer": "did:web:api.released.mosip.net:identity-service:02b073b8-aacd-472e-b63f-265bb7ccdd9f",
+        "expirationDate": "2027-06-30T08:46:29.314Z"
+      }
+    ],
+    "id": "urn:uuid:c99eaffb-308e-449c-9eef-5edc36836284",
+    "holder": "did:jwk:eyJrdHkiOiJPS1AiLCJjcnYiOiJFZDI1NTE5IiwieCI6IjZxa1h5RUlJdXl2WHl2UVpCRDYxNWRGQjhvNWZsTVBHSFBkLXFWWHdQeUUiLCJhbGciOiJFZDI1NTE5IiwidXNlIjoic2lnIn0#0",
+    "proof": {
+      "type": "JsonWebSignature2020",
+      "created": "2025-06-30T14:16:52Z",
+      "challenge": "Mi0vDP17DlFcu/8m+OcP9A\u003d\u003d",
+      "domain": "did:web:mosip.github.io:inji-mock-services:openid4vp-service:docs",
+      "jws": "eyJhbGciOiJFZERTQSIsImNyaXQiOlsiYjY0Il0sImI2NCI6ZmFsc2V9..YuE26DnMlkAWSUAkMVdXwntIDN2lgkT-4MesGQLdqR09HaN8QbfLb6TWIzgEPA5ybdD7C_2S2cevlCxJeBRGDw",
+      "proofPurpose": "authentication",
+      "verificationMethod": "did:jwk:eyJrdHkiOiJPS1AiLCJjcnYiOiJFZDI1NTE5IiwieCI6IjZxa1h5RUlJdXl2WHl2UVpCRDYxNWRGQjhvNWZsTVBHSFBkLXFWWHdQeUUiLCJhbGciOiJFZDI1NTE5IiwidXNlIjoic2lnIn0#0"
+    }
+  },
+  "state": "",
+  "presentation_submission": {
+    "id": "32f54163-7166-48f1-93d8-ff217bdb0653",
+    "definition_id": "32f54163-7166-48f1-93d8-ff217bdb0653",
+    "descriptor_map": [
+      {
+        "id": "citizenship_input_1",
+        "format": "ldp_vc",
+        "path": "$.verifiableCredential[2]"
+      }
+    ]
+  }
+}</textarea> </div></pre><br/><b><u>Response: </u></b><pre><div style='padding: 0; margin: 0;'><textarea style='border: solid 1px gray; background-color: lightgray; width: 100%; padding: 0; margin: 0;' name='headers' rows='2' readonly='true'>[Server=nginx, Date=Wed, 17 Sep 2025 02:31:52 GMT, Content-Type=application/json, Transfer-Encoding=chunked, Connection=keep-alive, x-envoy-upstream-service-time=10, cache-control=no-store, pragma=no-cache, strict-transport-security=max-age=31536000; includeSubDomains, x-frame-options=SAMEORIGIN]</textarea></div><div style='width: 100%; overflow: hidden;'><textarea style='border:solid 1px black; width: 100%; box-sizing: border-box;' name='message' rows='6' readonly='true'>{
+  "timestamp": "2025-09-17T02:31:52.315+00:00",
+  "status": 400,
+  "error": "Bad Request",
+  "path": "/v1/verify/vp-submission/direct-post"
+}</textarea> </div></pre><br/><b> Output validation: </b>EXPECTED vs ACTUAL
+<table width='100%' charset='UTF8'>
+  <tr style='background-color: #d3d3d3;'>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>status</td>
+    <td>400</td>
+    <td>400</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table></div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p><h3 id="m14">io.mosip.testrig.apirig.injiverify.testscripts.SimplePostForAutoGenIdForUrlEncoded#Injiverify_VpSubmission_Empty_VpToken_Neg</h3><table class="result"><tr class="param"><th>Testcase Input</th></tr><tr class="param stripe"><td>testCaseName=Injiverify_VpSubmission_Empty_VpToken_Neg, endPoint=/v1/verify/vp-submission/direct-post, role=noauth, templateFields=null, input={ &quot;state&quot;:&quot;$ID:CreateNewVerificationRequest_ForNeg_Valid_Sid_requestId$&quot;, &quot;definition_id&quot;:&quot;$PRESENTATIONDEFINITIONID$&quot;, &quot;vp_token&quot;: &quot;&quot; }, output={ &quot;responseCode&quot;: &quot;400&quot; }, inputTemplate=injiverify/VpSubmission/VpSubmissionNeg, outputTemplate=injiverify/responseCode, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, checkOnlyStatusCodeInResponse=true, allowedErrorCodes=null, kycFields=null, description=Submitting the authorization response with empty vp token, uniqueIdentifier=TC_InjiVerify_VpSubmission_04</td></tr><tr><th>Messages</th></tr><tr><td><div class="Request and Response messages including headers"><b><u>Request: </u></b>(End Point URL: https://injiverify.qa-inji1.mosip.net/v1/verify/vp-submission/direct-post) <pre><div style='padding: 0; margin: 0;'><textarea style='border: solid 1px gray; background-color: lightgray; width: 100%; padding: 0; margin: 0;' name='headers' rows='2' readonly='true'>No headers</textarea></div><div style='width: 100%; overflow: hidden;'><textarea style='border:solid 1px black; width: 100%; box-sizing: border-box;' name='message' rows='6' readonly='true'>{
+  "vp_token": "",
+  "state": "req_b52b8702-7af3-4f75-95f1-b6e869ade8a2",
+  "presentation_submission": {
+    "id": "a30e3b91-fb77-4d22-95fa-871689c322e2",
+    "definition_id": "32f54163-7166-48f1-93d8-ff217bdb0653",
+    "descriptor_map": [
+      {
+        "id": "citizenship_input_1",
+        "format": "ldp_vc",
+        "path": "$.verifiableCredential[2]"
+      }
+    ]
+  }
+}</textarea> </div></pre><br/><b><u>Response: </u></b><pre><div style='padding: 0; margin: 0;'><textarea style='border: solid 1px gray; background-color: lightgray; width: 100%; padding: 0; margin: 0;' name='headers' rows='2' readonly='true'>[Server=nginx, Date=Wed, 17 Sep 2025 02:31:52 GMT, Content-Type=application/json, Transfer-Encoding=chunked, Connection=keep-alive, x-envoy-upstream-service-time=42, cache-control=no-store, pragma=no-cache, strict-transport-security=max-age=31536000; includeSubDomains, x-frame-options=SAMEORIGIN]</textarea></div><div style='width: 100%; overflow: hidden;'><textarea style='border:solid 1px black; width: 100%; box-sizing: border-box;' name='message' rows='6' readonly='true'>{
+  "timestamp": "2025-09-17T02:31:52.259+00:00",
+  "status": 400,
+  "error": "Bad Request",
+  "path": "/v1/verify/vp-submission/direct-post"
+}</textarea> </div></pre><br/><b> Output validation: </b>EXPECTED vs ACTUAL
+<table width='100%' charset='UTF8'>
+  <tr style='background-color: #d3d3d3;'>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>status</td>
+    <td>400</td>
+    <td>400</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table></div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p><h3 id="m15">io.mosip.testrig.apirig.injiverify.testscripts.SimplePostForAutoGenIdForUrlEncoded#Injiverify_VpSubmission_RandomValue_PresentationDefinitionId_Neg</h3><table class="result"><tr class="param"><th>Testcase Input</th></tr><tr class="param stripe"><td>testCaseName=Injiverify_VpSubmission_RandomValue_PresentationDefinitionId_Neg, endPoint=/v1/verify/vp-submission/direct-post, role=noauth, templateFields=null, input={ &quot;state&quot;:&quot;$ID:CreateNewVerificationRequest_ForNeg_Valid_Sid_requestId$&quot;, &quot;definition_id&quot;:&quot;hbdBYGdy&quot; }, output={ &quot;responseCode&quot;: &quot;200&quot; }, inputTemplate=injiverify/VpSubmission/VpSubmission, outputTemplate=injiverify/responseCode, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, checkOnlyStatusCodeInResponse=true, allowedErrorCodes=null, kycFields=null, description=Submitting the authorization response with random value for presentation definition id, uniqueIdentifier=TC_InjiVerify_VpSubmission_06</td></tr><tr><th>Messages</th></tr><tr><td><div class="Request and Response messages including headers"><b><u>Request: </u></b>(End Point URL: https://injiverify.qa-inji1.mosip.net/v1/verify/vp-submission/direct-post) <pre><div style='padding: 0; margin: 0;'><textarea style='border: solid 1px gray; background-color: lightgray; width: 100%; padding: 0; margin: 0;' name='headers' rows='2' readonly='true'>No headers</textarea></div><div style='width: 100%; overflow: hidden;'><textarea style='border:solid 1px black; width: 100%; box-sizing: border-box;' name='message' rows='6' readonly='true'>{
+  "vp_token": {
+    "@context": [
+      "https://www.w3.org/2018/credentials/v1",
+      "https://w3id.org/security/suites/jws-2020/v1"
+    ],
+    "type": [
+      "VerifiablePresentation"
+    ],
+    "verifiableCredential": [
+      {
+        "issuanceDate": "2025-06-30T08:46:29.323Z",
+        "credentialSubject": {
+          "benefits": [
+            "Critical Surgery",
+            "Full body checkup"
+          ],
+          "gender": "Male",
+          "policyName": "wallet",
+          "dob": "2025-01-01",
+          "policyNumber": "5555",
+          "mobile": "0123456789",
+          "fullName": "wallet",
+          "policyIssuedOn": "2023-04-20",
+          "id": "did:jwk:eyJrdHkiOiJFQyIsInVzZSI6InNpZyIsImNydiI6IlAtMjU2Iiwia2lkIjoiOWpuWTRZZ1Z0NnFVcGVxRkhCZzNZNjRTdGlUX3VnOFdLdVBsckp6bUlRayIsIngiOiJUQjlGa294S0dSdzh4M0FablJjdVJtMEhpRXBQLVVNOHI1N2pOUkZLa3pBIiwieSI6IkZWTHhiaFduREZsVHJlZGFWaHp4UHg1eFluS29iUWp5aHZrU1ZjVlpsTjgiLCJhbGciOiJFUzI1NiJ9",
+          "policyExpiresOn": "2033-04-20",
+          "email": "abcd@gmail.com"
+        },
+        "id": "did:rcw:a20c5836-99cf-4c44-8429-1b64ee24b73c",
+        "proof": {
+          "proofPurpose": "assertionMethod",
+          "verificationMethod": "did:web:api.released.mosip.net:identity-service:02b073b8-aacd-472e-b63f-265bb7ccdd9f#key-0",
+          "proofValue": "z4DcfNGBBL2wnLJZojpsTyoDDBDnXTH6C3H1UkyiYyEu2V8JssXb7ajcRq4yARGrixCSotN7R495TD8jdyW8jtkD6",
+          "type": "Ed25519Signature2020",
+          "created": "2025-06-30T08:46:29Z"
+        },
+        "type": [
+          "VerifiableCredential",
+          "LifeInsuranceCredential"
+        ],
+        "@context": [
+          "https://www.w3.org/2018/credentials/v1",
+          "https://holashchand.github.io/test_project/insurance-context.json",
+          {
+            "LifeInsuranceCredential": {
+              "@id": "InsuranceCredential"
+            }
+          },
+          "https://w3id.org/security/suites/ed25519-2020/v1"
+        ],
+        "issuer": "did:web:api.released.mosip.net:identity-service:02b073b8-aacd-472e-b63f-265bb7ccdd9f",
+        "expirationDate": "2027-06-30T08:46:29.314Z"
+      }
+    ],
+    "id": "urn:uuid:c99eaffb-308e-449c-9eef-5edc36836284",
+    "holder": "did:jwk:eyJrdHkiOiJPS1AiLCJjcnYiOiJFZDI1NTE5IiwieCI6IjZxa1h5RUlJdXl2WHl2UVpCRDYxNWRGQjhvNWZsTVBHSFBkLXFWWHdQeUUiLCJhbGciOiJFZDI1NTE5IiwidXNlIjoic2lnIn0#0",
+    "proof": {
+      "type": "JsonWebSignature2020",
+      "created": "2025-06-30T14:16:52Z",
+      "challenge": "Mi0vDP17DlFcu/8m+OcP9A\u003d\u003d",
+      "domain": "did:web:mosip.github.io:inji-mock-services:openid4vp-service:docs",
+      "jws": "eyJhbGciOiJFZERTQSIsImNyaXQiOlsiYjY0Il0sImI2NCI6ZmFsc2V9..YuE26DnMlkAWSUAkMVdXwntIDN2lgkT-4MesGQLdqR09HaN8QbfLb6TWIzgEPA5ybdD7C_2S2cevlCxJeBRGDw",
+      "proofPurpose": "authentication",
+      "verificationMethod": "did:jwk:eyJrdHkiOiJPS1AiLCJjcnYiOiJFZDI1NTE5IiwieCI6IjZxa1h5RUlJdXl2WHl2UVpCRDYxNWRGQjhvNWZsTVBHSFBkLXFWWHdQeUUiLCJhbGciOiJFZDI1NTE5IiwidXNlIjoic2lnIn0#0"
+    }
+  },
+  "state": "req_b52b8702-7af3-4f75-95f1-b6e869ade8a2",
+  "presentation_submission": {
+    "id": "hbdBYGdy",
+    "definition_id": "hbdBYGdy",
+    "descriptor_map": [
+      {
+        "id": "citizenship_input_1",
+        "format": "ldp_vc",
+        "path": "$.verifiableCredential[2]"
+      }
+    ]
+  }
+}</textarea> </div></pre><br/><b><u>Response: </u></b><pre><div style='padding: 0; margin: 0;'><textarea style='border: solid 1px gray; background-color: lightgray; width: 100%; padding: 0; margin: 0;' name='headers' rows='2' readonly='true'>[Server=nginx, Date=Wed, 17 Sep 2025 02:31:52 GMT, Content-Length=0, Connection=keep-alive, x-envoy-upstream-service-time=140, cache-control=no-store, pragma=no-cache, strict-transport-security=max-age=31536000; includeSubDomains, x-frame-options=SAMEORIGIN]</textarea></div><div style='width: 100%; overflow: hidden;'><textarea style='border:solid 1px black; width: 100%; box-sizing: border-box;' name='message' rows='6' readonly='true'>null</textarea> </div></pre><br/><b> Output validation: </b>EXPECTED vs ACTUAL
+<table width='100%' charset='UTF8'>
+  <tr style='background-color: #d3d3d3;'>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>status</td>
+    <td>200</td>
+    <td>200</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table></div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p><h3 id="m16">io.mosip.testrig.apirig.injiverify.testscripts.SimplePostForAutoGenIdForUrlEncoded#Injiverify_VpSubmission_RandomValue_VpToken_Neg</h3><table class="result"><tr class="param"><th>Testcase Input</th></tr><tr class="param stripe"><td>testCaseName=Injiverify_VpSubmission_RandomValue_VpToken_Neg, endPoint=/v1/verify/vp-submission/direct-post, role=noauth, templateFields=null, input={ &quot;state&quot;:&quot;$ID:CreateNewVerificationRequest_ForNeg_Valid_Sid_requestId$&quot;, &quot;definition_id&quot;:&quot;$PRESENTATIONDEFINITIONID$&quot;, &quot;vp_token&quot;: &quot;bdhgyga&quot; }, output={ &quot;responseCode&quot;: &quot;200&quot; }, inputTemplate=injiverify/VpSubmission/VpSubmissionNeg, outputTemplate=injiverify/responseCode, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, checkOnlyStatusCodeInResponse=true, allowedErrorCodes=null, kycFields=null, description=Submitting the authorization response with random value for vp token, uniqueIdentifier=TC_InjiVerify_VpSubmission_03</td></tr><tr><th>Messages</th></tr><tr><td><div class="Request and Response messages including headers"><b><u>Request: </u></b>(End Point URL: https://injiverify.qa-inji1.mosip.net/v1/verify/vp-submission/direct-post) <pre><div style='padding: 0; margin: 0;'><textarea style='border: solid 1px gray; background-color: lightgray; width: 100%; padding: 0; margin: 0;' name='headers' rows='2' readonly='true'>No headers</textarea></div><div style='width: 100%; overflow: hidden;'><textarea style='border:solid 1px black; width: 100%; box-sizing: border-box;' name='message' rows='6' readonly='true'>{
+  "vp_token": "bdhgyga",
+  "state": "req_b52b8702-7af3-4f75-95f1-b6e869ade8a2",
+  "presentation_submission": {
+    "id": "a30e3b91-fb77-4d22-95fa-871689c322e2",
+    "definition_id": "32f54163-7166-48f1-93d8-ff217bdb0653",
+    "descriptor_map": [
+      {
+        "id": "citizenship_input_1",
+        "format": "ldp_vc",
+        "path": "$.verifiableCredential[2]"
+      }
+    ]
+  }
+}</textarea> </div></pre><br/><b><u>Response: </u></b><pre><div style='padding: 0; margin: 0;'><textarea style='border: solid 1px gray; background-color: lightgray; width: 100%; padding: 0; margin: 0;' name='headers' rows='2' readonly='true'>[Server=nginx, Date=Wed, 17 Sep 2025 02:31:52 GMT, Content-Length=0, Connection=keep-alive, x-envoy-upstream-service-time=155, cache-control=no-store, pragma=no-cache, strict-transport-security=max-age=31536000; includeSubDomains, x-frame-options=SAMEORIGIN]</textarea></div><div style='width: 100%; overflow: hidden;'><textarea style='border:solid 1px black; width: 100%; box-sizing: border-box;' name='message' rows='6' readonly='true'>null</textarea> </div></pre><br/><b> Output validation: </b>EXPECTED vs ACTUAL
+<table width='100%' charset='UTF8'>
+  <tr style='background-color: #d3d3d3;'>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>status</td>
+    <td>200</td>
+    <td>200</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table></div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p><h3 id="m17">io.mosip.testrig.apirig.injiverify.testscripts.SimplePostForAutoGenIdForUrlEncoded#Injiverify_VpSubmission_Random_State_Neg</h3><table class="result"><tr class="param"><th>Testcase Input</th></tr><tr class="param stripe"><td>testCaseName=Injiverify_VpSubmission_Random_State_Neg, endPoint=/v1/verify/vp-submission/direct-post, role=noauth, templateFields=null, input={ &quot;state&quot;:&quot;hdbhgshaJ&quot;, &quot;definition_id&quot;:&quot;$PRESENTATIONDEFINITIONID$&quot; }, output={ &quot;responseCode&quot;: &quot;404&quot; }, inputTemplate=injiverify/VpSubmission/VpSubmission, outputTemplate=injiverify/responseCode, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, checkOnlyStatusCodeInResponse=true, allowedErrorCodes=null, kycFields=null, description=Submitting the authorization response with random value for state, uniqueIdentifier=TC_InjiVerify_VpSubmission_02</td></tr><tr><th>Messages</th></tr><tr><td><div class="Request and Response messages including headers"><b><u>Request: </u></b>(End Point URL: https://injiverify.qa-inji1.mosip.net/v1/verify/vp-submission/direct-post) <pre><div style='padding: 0; margin: 0;'><textarea style='border: solid 1px gray; background-color: lightgray; width: 100%; padding: 0; margin: 0;' name='headers' rows='2' readonly='true'>No headers</textarea></div><div style='width: 100%; overflow: hidden;'><textarea style='border:solid 1px black; width: 100%; box-sizing: border-box;' name='message' rows='6' readonly='true'>{
+  "vp_token": {
+    "@context": [
+      "https://www.w3.org/2018/credentials/v1",
+      "https://w3id.org/security/suites/jws-2020/v1"
+    ],
+    "type": [
+      "VerifiablePresentation"
+    ],
+    "verifiableCredential": [
+      {
+        "issuanceDate": "2025-06-30T08:46:29.323Z",
+        "credentialSubject": {
+          "benefits": [
+            "Critical Surgery",
+            "Full body checkup"
+          ],
+          "gender": "Male",
+          "policyName": "wallet",
+          "dob": "2025-01-01",
+          "policyNumber": "5555",
+          "mobile": "0123456789",
+          "fullName": "wallet",
+          "policyIssuedOn": "2023-04-20",
+          "id": "did:jwk:eyJrdHkiOiJFQyIsInVzZSI6InNpZyIsImNydiI6IlAtMjU2Iiwia2lkIjoiOWpuWTRZZ1Z0NnFVcGVxRkhCZzNZNjRTdGlUX3VnOFdLdVBsckp6bUlRayIsIngiOiJUQjlGa294S0dSdzh4M0FablJjdVJtMEhpRXBQLVVNOHI1N2pOUkZLa3pBIiwieSI6IkZWTHhiaFduREZsVHJlZGFWaHp4UHg1eFluS29iUWp5aHZrU1ZjVlpsTjgiLCJhbGciOiJFUzI1NiJ9",
+          "policyExpiresOn": "2033-04-20",
+          "email": "abcd@gmail.com"
+        },
+        "id": "did:rcw:a20c5836-99cf-4c44-8429-1b64ee24b73c",
+        "proof": {
+          "proofPurpose": "assertionMethod",
+          "verificationMethod": "did:web:api.released.mosip.net:identity-service:02b073b8-aacd-472e-b63f-265bb7ccdd9f#key-0",
+          "proofValue": "z4DcfNGBBL2wnLJZojpsTyoDDBDnXTH6C3H1UkyiYyEu2V8JssXb7ajcRq4yARGrixCSotN7R495TD8jdyW8jtkD6",
+          "type": "Ed25519Signature2020",
+          "created": "2025-06-30T08:46:29Z"
+        },
+        "type": [
+          "VerifiableCredential",
+          "LifeInsuranceCredential"
+        ],
+        "@context": [
+          "https://www.w3.org/2018/credentials/v1",
+          "https://holashchand.github.io/test_project/insurance-context.json",
+          {
+            "LifeInsuranceCredential": {
+              "@id": "InsuranceCredential"
+            }
+          },
+          "https://w3id.org/security/suites/ed25519-2020/v1"
+        ],
+        "issuer": "did:web:api.released.mosip.net:identity-service:02b073b8-aacd-472e-b63f-265bb7ccdd9f",
+        "expirationDate": "2027-06-30T08:46:29.314Z"
+      }
+    ],
+    "id": "urn:uuid:c99eaffb-308e-449c-9eef-5edc36836284",
+    "holder": "did:jwk:eyJrdHkiOiJPS1AiLCJjcnYiOiJFZDI1NTE5IiwieCI6IjZxa1h5RUlJdXl2WHl2UVpCRDYxNWRGQjhvNWZsTVBHSFBkLXFWWHdQeUUiLCJhbGciOiJFZDI1NTE5IiwidXNlIjoic2lnIn0#0",
+    "proof": {
+      "type": "JsonWebSignature2020",
+      "created": "2025-06-30T14:16:52Z",
+      "challenge": "Mi0vDP17DlFcu/8m+OcP9A\u003d\u003d",
+      "domain": "did:web:mosip.github.io:inji-mock-services:openid4vp-service:docs",
+      "jws": "eyJhbGciOiJFZERTQSIsImNyaXQiOlsiYjY0Il0sImI2NCI6ZmFsc2V9..YuE26DnMlkAWSUAkMVdXwntIDN2lgkT-4MesGQLdqR09HaN8QbfLb6TWIzgEPA5ybdD7C_2S2cevlCxJeBRGDw",
+      "proofPurpose": "authentication",
+      "verificationMethod": "did:jwk:eyJrdHkiOiJPS1AiLCJjcnYiOiJFZDI1NTE5IiwieCI6IjZxa1h5RUlJdXl2WHl2UVpCRDYxNWRGQjhvNWZsTVBHSFBkLXFWWHdQeUUiLCJhbGciOiJFZDI1NTE5IiwidXNlIjoic2lnIn0#0"
+    }
+  },
+  "state": "hdbhgshaJ",
+  "presentation_submission": {
+    "id": "32f54163-7166-48f1-93d8-ff217bdb0653",
+    "definition_id": "32f54163-7166-48f1-93d8-ff217bdb0653",
+    "descriptor_map": [
+      {
+        "id": "citizenship_input_1",
+        "format": "ldp_vc",
+        "path": "$.verifiableCredential[2]"
+      }
+    ]
+  }
+}</textarea> </div></pre><br/><b><u>Response: </u></b><pre><div style='padding: 0; margin: 0;'><textarea style='border: solid 1px gray; background-color: lightgray; width: 100%; padding: 0; margin: 0;' name='headers' rows='2' readonly='true'>[Server=nginx, Date=Wed, 17 Sep 2025 02:31:51 GMT, Content-Length=0, Connection=keep-alive, x-envoy-upstream-service-time=134, cache-control=no-store, pragma=no-cache, strict-transport-security=max-age=31536000; includeSubDomains, x-frame-options=SAMEORIGIN]</textarea></div><div style='width: 100%; overflow: hidden;'><textarea style='border:solid 1px black; width: 100%; box-sizing: border-box;' name='message' rows='6' readonly='true'>null</textarea> </div></pre><br/><b> Output validation: </b>EXPECTED vs ACTUAL
+<table width='100%' charset='UTF8'>
+  <tr style='background-color: #d3d3d3;'>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>status</td>
+    <td>404</td>
+    <td>404</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table></div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p><h3 id="m18">io.mosip.testrig.apirig.injiverify.testscripts.SimplePostForAutoGenIdForUrlEncoded#Injiverify_VpSubmission_Without_PresentationDefinitionId_Neg</h3><table class="result"><tr class="param"><th>Testcase Input</th></tr><tr class="param stripe"><td>testCaseName=Injiverify_VpSubmission_Without_PresentationDefinitionId_Neg, endPoint=/v1/verify/vp-submission/direct-post, role=noauth, templateFields=null, input={ &quot;state&quot;:&quot;$ID:CreateNewVerificationRequest_ForNeg_Valid_Sid_requestId$&quot;, &quot;definition_id&quot;:&quot;$REMOVE$&quot; }, output={ &quot;responseCode&quot;: &quot;400&quot; }, inputTemplate=injiverify/VpSubmission/VpSubmission, outputTemplate=injiverify/responseCode, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, checkOnlyStatusCodeInResponse=true, allowedErrorCodes=null, kycFields=null, description=Submitting the authorization response without presentation definition id, uniqueIdentifier=TC_InjiVerify_VpSubmission_08</td></tr><tr><th>Messages</th></tr><tr><td><div class="Request and Response messages including headers"><b><u>Request: </u></b>(End Point URL: https://injiverify.qa-inji1.mosip.net/v1/verify/vp-submission/direct-post) <pre><div style='padding: 0; margin: 0;'><textarea style='border: solid 1px gray; background-color: lightgray; width: 100%; padding: 0; margin: 0;' name='headers' rows='2' readonly='true'>No headers</textarea></div><div style='width: 100%; overflow: hidden;'><textarea style='border:solid 1px black; width: 100%; box-sizing: border-box;' name='message' rows='6' readonly='true'>{
+  "vp_token": {
+    "holder": "did:jwk:eyJrdHkiOiJPS1AiLCJjcnYiOiJFZDI1NTE5IiwieCI6IjZxa1h5RUlJdXl2WHl2UVpCRDYxNWRGQjhvNWZsTVBHSFBkLXFWWHdQeUUiLCJhbGciOiJFZDI1NTE5IiwidXNlIjoic2lnIn0#0",
+    "id": "urn:uuid:c99eaffb-308e-449c-9eef-5edc36836284",
+    "proof": {
+      "created": "2025-06-30T14:16:52Z",
+      "domain": "did:web:mosip.github.io:inji-mock-services:openid4vp-service:docs",
+      "jws": "eyJhbGciOiJFZERTQSIsImNyaXQiOlsiYjY0Il0sImI2NCI6ZmFsc2V9..YuE26DnMlkAWSUAkMVdXwntIDN2lgkT-4MesGQLdqR09HaN8QbfLb6TWIzgEPA5ybdD7C_2S2cevlCxJeBRGDw",
+      "challenge": "Mi0vDP17DlFcu/8m+OcP9A\u003d\u003d",
+      "proofPurpose": "authentication",
+      "type": "JsonWebSignature2020",
+      "verificationMethod": "did:jwk:eyJrdHkiOiJPS1AiLCJjcnYiOiJFZDI1NTE5IiwieCI6IjZxa1h5RUlJdXl2WHl2UVpCRDYxNWRGQjhvNWZsTVBHSFBkLXFWWHdQeUUiLCJhbGciOiJFZDI1NTE5IiwidXNlIjoic2lnIn0#0"
+    },
+    "type": [
+      "VerifiablePresentation"
+    ],
+    "@context": [
+      "https://www.w3.org/2018/credentials/v1",
+      "https://w3id.org/security/suites/jws-2020/v1"
+    ],
+    "verifiableCredential": [
+      {
+        "issuanceDate": "2025-06-30T08:46:29.323Z",
+        "credentialSubject": {
+          "benefits": [
+            "Critical Surgery",
+            "Full body checkup"
+          ],
+          "gender": "Male",
+          "policyName": "wallet",
+          "dob": "2025-01-01",
+          "policyNumber": "5555",
+          "mobile": "0123456789",
+          "fullName": "wallet",
+          "policyIssuedOn": "2023-04-20",
+          "id": "did:jwk:eyJrdHkiOiJFQyIsInVzZSI6InNpZyIsImNydiI6IlAtMjU2Iiwia2lkIjoiOWpuWTRZZ1Z0NnFVcGVxRkhCZzNZNjRTdGlUX3VnOFdLdVBsckp6bUlRayIsIngiOiJUQjlGa294S0dSdzh4M0FablJjdVJtMEhpRXBQLVVNOHI1N2pOUkZLa3pBIiwieSI6IkZWTHhiaFduREZsVHJlZGFWaHp4UHg1eFluS29iUWp5aHZrU1ZjVlpsTjgiLCJhbGciOiJFUzI1NiJ9",
+          "policyExpiresOn": "2033-04-20",
+          "email": "abcd@gmail.com"
+        },
+        "id": "did:rcw:a20c5836-99cf-4c44-8429-1b64ee24b73c",
+        "proof": {
+          "proofValue": "z4DcfNGBBL2wnLJZojpsTyoDDBDnXTH6C3H1UkyiYyEu2V8JssXb7ajcRq4yARGrixCSotN7R495TD8jdyW8jtkD6",
+          "created": "2025-06-30T08:46:29Z",
+          "proofPurpose": "assertionMethod",
+          "verificationMethod": "did:web:api.released.mosip.net:identity-service:02b073b8-aacd-472e-b63f-265bb7ccdd9f#key-0",
+          "type": "Ed25519Signature2020"
+        },
+        "type": [
+          "VerifiableCredential",
+          "LifeInsuranceCredential"
+        ],
+        "@context": [
+          "https://www.w3.org/2018/credentials/v1",
+          "https://holashchand.github.io/test_project/insurance-context.json",
+          {
+            "LifeInsuranceCredential": {
+              "@id": "InsuranceCredential"
+            }
+          },
+          "https://w3id.org/security/suites/ed25519-2020/v1"
+        ],
+        "issuer": "did:web:api.released.mosip.net:identity-service:02b073b8-aacd-472e-b63f-265bb7ccdd9f",
+        "expirationDate": "2027-06-30T08:46:29.314Z"
+      }
+    ]
+  },
+  "state": "req_b52b8702-7af3-4f75-95f1-b6e869ade8a2",
+  "presentation_submission": {
+    "descriptor_map": [
+      {
+        "path": "$.verifiableCredential[2]",
+        "format": "ldp_vc",
+        "id": "citizenship_input_1"
+      }
+    ]
+  }
+}</textarea> </div></pre><br/><b><u>Response: </u></b><pre><div style='padding: 0; margin: 0;'><textarea style='border: solid 1px gray; background-color: lightgray; width: 100%; padding: 0; margin: 0;' name='headers' rows='2' readonly='true'>[Server=nginx, Date=Wed, 17 Sep 2025 02:31:52 GMT, Content-Type=text/plain;charset=UTF-8, Content-Length=41, Connection=keep-alive, x-envoy-upstream-service-time=16, cache-control=no-store, pragma=no-cache, strict-transport-security=max-age=31536000; includeSubDomains, x-frame-options=SAMEORIGIN]</textarea></div><div style='width: 100%; overflow: hidden;'><textarea style='border:solid 1px black; width: 100%; box-sizing: border-box;' name='message' rows='6' readonly='true'>Presentation Submission ID cannot be null</textarea> </div></pre><br/><b> Output validation: </b>EXPECTED vs ACTUAL
+<table width='100%' charset='UTF8'>
+  <tr style='background-color: #d3d3d3;'>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>status</td>
+    <td>400</td>
+    <td>400</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table></div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p><h3 id="m19">io.mosip.testrig.apirig.injiverify.testscripts.SimplePostForAutoGenIdForUrlEncoded#Injiverify_VpSubmission_Without_State_Neg</h3><table class="result"><tr class="param"><th>Testcase Input</th></tr><tr class="param stripe"><td>testCaseName=Injiverify_VpSubmission_Without_State_Neg, endPoint=/v1/verify/vp-submission/direct-post, role=noauth, templateFields=null, input={ &quot;state&quot;:&quot;$REMOVE$&quot;, &quot;definition_id&quot;:&quot;$PRESENTATIONDEFINITIONID$&quot; }, output={ &quot;responseCode&quot;: &quot;400&quot; }, inputTemplate=injiverify/VpSubmission/VpSubmission, outputTemplate=injiverify/responseCode, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, checkOnlyStatusCodeInResponse=true, allowedErrorCodes=null, kycFields=null, description=Submitting the authorization response without state, uniqueIdentifier=TC_InjiVerify_VpSubmission_09</td></tr><tr><th>Messages</th></tr><tr><td><div class="Request and Response messages including headers"><b><u>Request: </u></b>(End Point URL: https://injiverify.qa-inji1.mosip.net/v1/verify/vp-submission/direct-post) <pre><div style='padding: 0; margin: 0;'><textarea style='border: solid 1px gray; background-color: lightgray; width: 100%; padding: 0; margin: 0;' name='headers' rows='2' readonly='true'>No headers</textarea></div><div style='width: 100%; overflow: hidden;'><textarea style='border:solid 1px black; width: 100%; box-sizing: border-box;' name='message' rows='6' readonly='true'>{
+  "vp_token": {
+    "holder": "did:jwk:eyJrdHkiOiJPS1AiLCJjcnYiOiJFZDI1NTE5IiwieCI6IjZxa1h5RUlJdXl2WHl2UVpCRDYxNWRGQjhvNWZsTVBHSFBkLXFWWHdQeUUiLCJhbGciOiJFZDI1NTE5IiwidXNlIjoic2lnIn0#0",
+    "id": "urn:uuid:c99eaffb-308e-449c-9eef-5edc36836284",
+    "proof": {
+      "created": "2025-06-30T14:16:52Z",
+      "domain": "did:web:mosip.github.io:inji-mock-services:openid4vp-service:docs",
+      "jws": "eyJhbGciOiJFZERTQSIsImNyaXQiOlsiYjY0Il0sImI2NCI6ZmFsc2V9..YuE26DnMlkAWSUAkMVdXwntIDN2lgkT-4MesGQLdqR09HaN8QbfLb6TWIzgEPA5ybdD7C_2S2cevlCxJeBRGDw",
+      "challenge": "Mi0vDP17DlFcu/8m+OcP9A\u003d\u003d",
+      "proofPurpose": "authentication",
+      "type": "JsonWebSignature2020",
+      "verificationMethod": "did:jwk:eyJrdHkiOiJPS1AiLCJjcnYiOiJFZDI1NTE5IiwieCI6IjZxa1h5RUlJdXl2WHl2UVpCRDYxNWRGQjhvNWZsTVBHSFBkLXFWWHdQeUUiLCJhbGciOiJFZDI1NTE5IiwidXNlIjoic2lnIn0#0"
+    },
+    "type": [
+      "VerifiablePresentation"
+    ],
+    "@context": [
+      "https://www.w3.org/2018/credentials/v1",
+      "https://w3id.org/security/suites/jws-2020/v1"
+    ],
+    "verifiableCredential": [
+      {
+        "issuanceDate": "2025-06-30T08:46:29.323Z",
+        "credentialSubject": {
+          "benefits": [
+            "Critical Surgery",
+            "Full body checkup"
+          ],
+          "gender": "Male",
+          "policyName": "wallet",
+          "dob": "2025-01-01",
+          "policyNumber": "5555",
+          "mobile": "0123456789",
+          "fullName": "wallet",
+          "policyIssuedOn": "2023-04-20",
+          "id": "did:jwk:eyJrdHkiOiJFQyIsInVzZSI6InNpZyIsImNydiI6IlAtMjU2Iiwia2lkIjoiOWpuWTRZZ1Z0NnFVcGVxRkhCZzNZNjRTdGlUX3VnOFdLdVBsckp6bUlRayIsIngiOiJUQjlGa294S0dSdzh4M0FablJjdVJtMEhpRXBQLVVNOHI1N2pOUkZLa3pBIiwieSI6IkZWTHhiaFduREZsVHJlZGFWaHp4UHg1eFluS29iUWp5aHZrU1ZjVlpsTjgiLCJhbGciOiJFUzI1NiJ9",
+          "policyExpiresOn": "2033-04-20",
+          "email": "abcd@gmail.com"
+        },
+        "id": "did:rcw:a20c5836-99cf-4c44-8429-1b64ee24b73c",
+        "proof": {
+          "proofValue": "z4DcfNGBBL2wnLJZojpsTyoDDBDnXTH6C3H1UkyiYyEu2V8JssXb7ajcRq4yARGrixCSotN7R495TD8jdyW8jtkD6",
+          "created": "2025-06-30T08:46:29Z",
+          "proofPurpose": "assertionMethod",
+          "verificationMethod": "did:web:api.released.mosip.net:identity-service:02b073b8-aacd-472e-b63f-265bb7ccdd9f#key-0",
+          "type": "Ed25519Signature2020"
+        },
+        "type": [
+          "VerifiableCredential",
+          "LifeInsuranceCredential"
+        ],
+        "@context": [
+          "https://www.w3.org/2018/credentials/v1",
+          "https://holashchand.github.io/test_project/insurance-context.json",
+          {
+            "LifeInsuranceCredential": {
+              "@id": "InsuranceCredential"
+            }
+          },
+          "https://w3id.org/security/suites/ed25519-2020/v1"
+        ],
+        "issuer": "did:web:api.released.mosip.net:identity-service:02b073b8-aacd-472e-b63f-265bb7ccdd9f",
+        "expirationDate": "2027-06-30T08:46:29.314Z"
+      }
+    ]
+  },
+  "presentation_submission": {
+    "descriptor_map": [
+      {
+        "path": "$.verifiableCredential[2]",
+        "format": "ldp_vc",
+        "id": "citizenship_input_1"
+      }
+    ],
+    "definition_id": "32f54163-7166-48f1-93d8-ff217bdb0653",
+    "id": "32f54163-7166-48f1-93d8-ff217bdb0653"
+  }
+}</textarea> </div></pre><br/><b><u>Response: </u></b><pre><div style='padding: 0; margin: 0;'><textarea style='border: solid 1px gray; background-color: lightgray; width: 100%; padding: 0; margin: 0;' name='headers' rows='2' readonly='true'>[Server=nginx, Date=Wed, 17 Sep 2025 02:31:52 GMT, Content-Type=application/json, Transfer-Encoding=chunked, Connection=keep-alive, x-envoy-upstream-service-time=10, cache-control=no-store, pragma=no-cache, strict-transport-security=max-age=31536000; includeSubDomains, x-frame-options=SAMEORIGIN]</textarea></div><div style='width: 100%; overflow: hidden;'><textarea style='border:solid 1px black; width: 100%; box-sizing: border-box;' name='message' rows='6' readonly='true'>{
+  "timestamp": "2025-09-17T02:31:52.679+00:00",
+  "status": 400,
+  "error": "Bad Request",
+  "path": "/v1/verify/vp-submission/direct-post"
+}</textarea> </div></pre><br/><b> Output validation: </b>EXPECTED vs ACTUAL
+<table width='100%' charset='UTF8'>
+  <tr style='background-color: #d3d3d3;'>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>status</td>
+    <td>400</td>
+    <td>400</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table></div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p><h3 id="m20">io.mosip.testrig.apirig.injiverify.testscripts.SimplePostForAutoGenIdForUrlEncoded#Injiverify_VpSubmission_Without_VpToken_Neg</h3><table class="result"><tr class="param"><th>Testcase Input</th></tr><tr class="param stripe"><td>testCaseName=Injiverify_VpSubmission_Without_VpToken_Neg, endPoint=/v1/verify/vp-submission/direct-post, role=noauth, templateFields=null, input={ &quot;state&quot;:&quot;$ID:CreateNewVerificationRequest_ForNeg_Valid_Sid_requestId$&quot;, &quot;definition_id&quot;:&quot;$PRESENTATIONDEFINITIONID$&quot;, &quot;vp_token&quot;: &quot;$REMOVE$&quot; }, output={ &quot;responseCode&quot;: &quot;400&quot; }, inputTemplate=injiverify/VpSubmission/VpSubmissionNeg, outputTemplate=injiverify/responseCode, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, checkOnlyStatusCodeInResponse=true, allowedErrorCodes=null, kycFields=null, description=Submitting the authorization response without vp token, uniqueIdentifier=TC_InjiVerify_VpSubmission_10</td></tr><tr><th>Messages</th></tr><tr><td><div class="Request and Response messages including headers"><b><u>Request: </u></b>(End Point URL: https://injiverify.qa-inji1.mosip.net/v1/verify/vp-submission/direct-post) <pre><div style='padding: 0; margin: 0;'><textarea style='border: solid 1px gray; background-color: lightgray; width: 100%; padding: 0; margin: 0;' name='headers' rows='2' readonly='true'>No headers</textarea></div><div style='width: 100%; overflow: hidden;'><textarea style='border:solid 1px black; width: 100%; box-sizing: border-box;' name='message' rows='6' readonly='true'>{
+  "state": "req_b52b8702-7af3-4f75-95f1-b6e869ade8a2",
+  "presentation_submission": {
+    "descriptor_map": [
+      {
+        "path": "$.verifiableCredential[2]",
+        "format": "ldp_vc",
+        "id": "citizenship_input_1"
+      }
+    ],
+    "definition_id": "32f54163-7166-48f1-93d8-ff217bdb0653",
+    "id": "a30e3b91-fb77-4d22-95fa-871689c322e2"
+  }
+}</textarea> </div></pre><br/><b><u>Response: </u></b><pre><div style='padding: 0; margin: 0;'><textarea style='border: solid 1px gray; background-color: lightgray; width: 100%; padding: 0; margin: 0;' name='headers' rows='2' readonly='true'>[Server=nginx, Date=Wed, 17 Sep 2025 02:31:52 GMT, Content-Type=application/json, Transfer-Encoding=chunked, Connection=keep-alive, x-envoy-upstream-service-time=19, cache-control=no-store, pragma=no-cache, strict-transport-security=max-age=31536000; includeSubDomains, x-frame-options=SAMEORIGIN]</textarea></div><div style='width: 100%; overflow: hidden;'><textarea style='border:solid 1px black; width: 100%; box-sizing: border-box;' name='message' rows='6' readonly='true'>{
+  "timestamp": "2025-09-17T02:31:52.738+00:00",
+  "status": 400,
+  "error": "Bad Request",
+  "path": "/v1/verify/vp-submission/direct-post"
+}</textarea> </div></pre><br/><b> Output validation: </b>EXPECTED vs ACTUAL
+<table width='100%' charset='UTF8'>
+  <tr style='background-color: #d3d3d3;'>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>status</td>
+    <td>400</td>
+    <td>400</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table></div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p><h3 id="m21">io.mosip.testrig.apirig.injiverify.testscripts.GetWithParam#Injiverify_GetVpRequestStatus_Active_All_Valid_Smoke</h3><table class="result"><tr class="param"><th>Testcase Input</th></tr><tr class="param stripe"><td>testCaseName=Injiverify_GetVpRequestStatus_Active_All_Valid_Smoke, endPoint=/v1/verify/vp-request/{requestId}/status, role=noauth, templateFields=null, input={ &quot;requestId&quot;:&quot;$ID:CreateNewVerificationRequest_ForExpiry_All_Valid_Smoke_Sid_requestId$&quot; }, output={ &quot;status&quot;: &quot;ACTIVE&quot; }, inputTemplate=injiverify/GetVpRequestStatus/GetVpRequestStatus, outputTemplate=injiverify/GetVpRequestStatus/GetVpRequestStatusResult, restMethod=get, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, checkOnlyStatusCodeInResponse=false, allowedErrorCodes=null, kycFields=null, description=Getting the status of VP Request, uniqueIdentifier=TC_InjiVerify_GetVpRequestStatus_04</td></tr><tr><th>Messages</th></tr><tr><td><div class="Request and Response messages including headers"><b><u>Request: </u></b>(End Point URL: https://injiverify.qa-inji1.mosip.net/v1/verify/vp-request/{requestId}/status) <pre><div style='padding: 0; margin: 0;'><textarea style='border: solid 1px gray; background-color: lightgray; width: 100%; padding: 0; margin: 0;' name='headers' rows='2' readonly='true'>No headers</textarea></div><div style='width: 100%; overflow: hidden;'><textarea style='border:solid 1px black; width: 100%; box-sizing: border-box;' name='message' rows='6' readonly='true'>{
+  "requestId": "req_27930261-1954-4d6c-b23c-690eac568142"
+}</textarea> </div></pre><br/><b><u>Response: </u></b><pre><div style='padding: 0; margin: 0;'><textarea style='border: solid 1px gray; background-color: lightgray; width: 100%; padding: 0; margin: 0;' name='headers' rows='2' readonly='true'>[Server=nginx, Date=Wed, 17 Sep 2025 02:33:44 GMT, Content-Type=application/json, Transfer-Encoding=chunked, Connection=keep-alive, content-encoding=gzip, x-envoy-upstream-service-time=55925, cache-control=no-store, pragma=no-cache, strict-transport-security=max-age=31536000; includeSubDomains, x-frame-options=SAMEORIGIN]</textarea></div><div style='width: 100%; overflow: hidden;'><textarea style='border:solid 1px black; width: 100%; box-sizing: border-box;' name='message' rows='6' readonly='true'>{
+  "status": "ACTIVE"
+}</textarea> </div></pre><br/><b> Output validation: </b>EXPECTED vs ACTUAL
+<table width='100%' charset='UTF8'>
+  <tr style='background-color: #d3d3d3;'>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>status</td>
+    <td>ACTIVE</td>
+    <td>ACTIVE</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table></div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p><h3 id="m22">io.mosip.testrig.apirig.injiverify.testscripts.GetWithParam#Injiverify_GetVpRequestStatus_All_Valid_Smoke</h3><table class="result"><tr class="param"><th>Testcase Input</th></tr><tr class="param stripe"><td>testCaseName=Injiverify_GetVpRequestStatus_All_Valid_Smoke, endPoint=/v1/verify/vp-request/{requestId}/status, role=noauth, templateFields=null, input={ &quot;requestId&quot;:&quot;$ID:CreateNewVerificationRequest_All_Valid_Smoke_Sid_requestId$&quot; }, output={ &quot;status&quot;: &quot;VP_SUBMITTED&quot; }, inputTemplate=injiverify/GetVpRequestStatus/GetVpRequestStatus, outputTemplate=injiverify/GetVpRequestStatus/GetVpRequestStatusResult, restMethod=get, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, checkOnlyStatusCodeInResponse=false, allowedErrorCodes=null, kycFields=null, description=Getting the status of VP Request, uniqueIdentifier=TC_InjiVerify_GetVpRequestStatus_01</td></tr><tr><th>Messages</th></tr><tr><td><div class="Request and Response messages including headers"><b><u>Request: </u></b>(End Point URL: https://injiverify.qa-inji1.mosip.net/v1/verify/vp-request/{requestId}/status) <pre><div style='padding: 0; margin: 0;'><textarea style='border: solid 1px gray; background-color: lightgray; width: 100%; padding: 0; margin: 0;' name='headers' rows='2' readonly='true'>No headers</textarea></div><div style='width: 100%; overflow: hidden;'><textarea style='border:solid 1px black; width: 100%; box-sizing: border-box;' name='message' rows='6' readonly='true'>{
+  "requestId": "req_6c53e8fc-99c7-4749-9c7c-edfd32dddd88"
+}</textarea> </div></pre><br/><b><u>Response: </u></b><pre><div style='padding: 0; margin: 0;'><textarea style='border: solid 1px gray; background-color: lightgray; width: 100%; padding: 0; margin: 0;' name='headers' rows='2' readonly='true'>[Server=nginx, Date=Wed, 17 Sep 2025 02:32:48 GMT, Content-Type=application/json, Transfer-Encoding=chunked, Connection=keep-alive, content-encoding=gzip, x-envoy-upstream-service-time=55814, cache-control=no-store, pragma=no-cache, strict-transport-security=max-age=31536000; includeSubDomains, x-frame-options=SAMEORIGIN]</textarea></div><div style='width: 100%; overflow: hidden;'><textarea style='border:solid 1px black; width: 100%; box-sizing: border-box;' name='message' rows='6' readonly='true'>{
+  "status": "VP_SUBMITTED"
+}</textarea> </div></pre><br/><b> Output validation: </b>EXPECTED vs ACTUAL
+<table width='100%' charset='UTF8'>
+  <tr style='background-color: #d3d3d3;'>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>status</td>
+    <td>VP_SUBMITTED</td>
+    <td>VP_SUBMITTED</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table></div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p><h3 id="m23">io.mosip.testrig.apirig.injiverify.testscripts.GetWithParam#Injiverify_GetVpRequestStatus_Expiry_All_Valid_Smoke</h3><table class="result"><tr class="param"><th>Testcase Input</th></tr><tr class="param stripe"><td>testCaseName=Injiverify_GetVpRequestStatus_Expiry_All_Valid_Smoke, endPoint=/v1/verify/vp-request/{requestId}/status, role=noauth, templateFields=null, input={ &quot;requestId&quot;:&quot;$ID:CreateNewVerificationRequest_ForExpiry_All_Valid_Smoke_Sid_requestId$&quot; }, output={ &quot;status&quot;: &quot;EXPIRED&quot; }, inputTemplate=injiverify/GetVpRequestStatus/GetVpRequestStatus, outputTemplate=injiverify/GetVpRequestStatus/GetVpRequestStatusResult, restMethod=get, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, checkOnlyStatusCodeInResponse=false, allowedErrorCodes=null, kycFields=null, description=Getting the status of VP Request, uniqueIdentifier=TC_InjiVerify_GetVpRequestStatus_02</td></tr><tr><th>Messages</th></tr><tr><td><div class="Request and Response messages including headers"><b><u>Request: </u></b>(End Point URL: https://injiverify.qa-inji1.mosip.net/v1/verify/vp-request/{requestId}/status) <pre><div style='padding: 0; margin: 0;'><textarea style='border: solid 1px gray; background-color: lightgray; width: 100%; padding: 0; margin: 0;' name='headers' rows='2' readonly='true'>No headers</textarea></div><div style='width: 100%; overflow: hidden;'><textarea style='border:solid 1px black; width: 100%; box-sizing: border-box;' name='message' rows='6' readonly='true'>{
+  "requestId": "req_27930261-1954-4d6c-b23c-690eac568142"
+}</textarea> </div></pre><br/><b><u>Response: </u></b><pre><div style='padding: 0; margin: 0;'><textarea style='border: solid 1px gray; background-color: lightgray; width: 100%; padding: 0; margin: 0;' name='headers' rows='2' readonly='true'>[Server=nginx, Date=Wed, 17 Sep 2025 02:37:49 GMT, Content-Type=application/json, Transfer-Encoding=chunked, Connection=keep-alive, content-encoding=gzip, x-envoy-upstream-service-time=29, cache-control=no-store, pragma=no-cache, strict-transport-security=max-age=31536000; includeSubDomains, x-frame-options=SAMEORIGIN]</textarea></div><div style='width: 100%; overflow: hidden;'><textarea style='border:solid 1px black; width: 100%; box-sizing: border-box;' name='message' rows='6' readonly='true'>{
+  "status": "EXPIRED"
+}</textarea> </div></pre><br/><b> Output validation: </b>EXPECTED vs ACTUAL
+<table width='100%' charset='UTF8'>
+  <tr style='background-color: #d3d3d3;'>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>status</td>
+    <td>EXPIRED</td>
+    <td>EXPIRED</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table></div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p><h3 id="m24">io.mosip.testrig.apirig.injiverify.testscripts.GetWithParam#Injiverify_GetVpRequestStatus_Invalid_RequestId_Neg</h3><table class="result"><tr class="param"><th>Testcase Input</th></tr><tr class="param stripe"><td>testCaseName=Injiverify_GetVpRequestStatus_Invalid_RequestId_Neg, endPoint=/v1/verify/vp-request/{requestId}/status, role=noauth, templateFields=null, input={ &quot;requestId&quot;:&quot;bsdgyshuaHAGYAuaA&quot; }, output={ &quot;errorCode&quot;: &quot;NO_AUTH_REQUEST&quot; }, inputTemplate=injiverify/GetVpRequestStatus/GetVpRequestStatus, outputTemplate=injiverify/error2, restMethod=get, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, checkOnlyStatusCodeInResponse=false, allowedErrorCodes=null, kycFields=null, description=Getting the status of VP Request with invalid request id, uniqueIdentifier=TC_InjiVerify_GetVpRequestStatus_03</td></tr><tr><th>Messages</th></tr><tr><td><div class="Request and Response messages including headers"><b><u>Request: </u></b>(End Point URL: https://injiverify.qa-inji1.mosip.net/v1/verify/vp-request/{requestId}/status) <pre><div style='padding: 0; margin: 0;'><textarea style='border: solid 1px gray; background-color: lightgray; width: 100%; padding: 0; margin: 0;' name='headers' rows='2' readonly='true'>No headers</textarea></div><div style='width: 100%; overflow: hidden;'><textarea style='border:solid 1px black; width: 100%; box-sizing: border-box;' name='message' rows='6' readonly='true'>{
+  "requestId": "bsdgyshuaHAGYAuaA"
+}</textarea> </div></pre><br/><b><u>Response: </u></b><pre><div style='padding: 0; margin: 0;'><textarea style='border: solid 1px gray; background-color: lightgray; width: 100%; padding: 0; margin: 0;' name='headers' rows='2' readonly='true'>[Server=nginx, Date=Wed, 17 Sep 2025 02:37:49 GMT, Content-Type=application/json, Transfer-Encoding=chunked, Connection=keep-alive, content-encoding=gzip, x-envoy-upstream-service-time=34, cache-control=no-store, pragma=no-cache, strict-transport-security=max-age=31536000; includeSubDomains, x-frame-options=SAMEORIGIN]</textarea></div><div style='width: 100%; overflow: hidden;'><textarea style='border:solid 1px black; width: 100%; box-sizing: border-box;' name='message' rows='6' readonly='true'>{
+  "errorCode": "NO_AUTH_REQUEST"
+}</textarea> </div></pre><br/><b> Output validation: </b>EXPECTED vs ACTUAL
+<table width='100%' charset='UTF8'>
+  <tr style='background-color: #d3d3d3;'>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>errorCode</td>
+    <td>NO_AUTH_REQUEST</td>
+    <td>NO_AUTH_REQUEST</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table></div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p><h3 id="m25">io.mosip.testrig.apirig.injiverify.testscripts.GetWithParam#Injiverify_GetVpTokenForRequest_All_Valid_Smoke</h3><table class="result"><tr class="param"><th>Testcase Input</th></tr><tr class="param stripe"><td>testCaseName=Injiverify_GetVpTokenForRequest_All_Valid_Smoke, endPoint=/v1/verify/vp-result/{transactionId}, role=noauth, templateFields=null, input={ &quot;transactionId&quot;:&quot;$ID:CreateNewVerificationRequest_All_Valid_Smoke_Sid_transactionId$&quot; }, output={ &quot;transactionId&quot;: &quot;$ID:CreateNewVerificationRequest_All_Valid_Smoke_Sid_transactionId$&quot;, &quot;vpResultStatus&quot;: &quot;SUCCESS&quot; }, inputTemplate=injiverify/GetVpTokenForRequest/GetVpTokenForRequest, outputTemplate=injiverify/GetVpTokenForRequest/GetVpTokenForRequestResult, restMethod=get, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, checkOnlyStatusCodeInResponse=false, allowedErrorCodes=null, kycFields=null, description=Getting the VP token for the Request, uniqueIdentifier=TC_InjiVerify_GetVpTokenForRequest_01</td></tr><tr><th>Messages</th></tr><tr><td><div class="Request and Response messages including headers"><b><u>Request: </u></b>(End Point URL: https://injiverify.qa-inji1.mosip.net/v1/verify/vp-result/{transactionId}) <pre><div style='padding: 0; margin: 0;'><textarea style='border: solid 1px gray; background-color: lightgray; width: 100%; padding: 0; margin: 0;' name='headers' rows='2' readonly='true'>No headers</textarea></div><div style='width: 100%; overflow: hidden;'><textarea style='border:solid 1px black; width: 100%; box-sizing: border-box;' name='message' rows='6' readonly='true'>{
+  "transactionId": "txn_3ba9442c-6140-490c-8874-189f46c18aaf"
+}</textarea> </div></pre><br/><b><u>Response: </u></b><pre><div style='padding: 0; margin: 0;'><textarea style='border: solid 1px gray; background-color: lightgray; width: 100%; padding: 0; margin: 0;' name='headers' rows='2' readonly='true'>[Server=nginx, Date=Wed, 17 Sep 2025 02:37:53 GMT, Content-Type=application/json, Transfer-Encoding=chunked, Connection=keep-alive, content-encoding=gzip, x-envoy-upstream-service-time=4087, cache-control=no-store, pragma=no-cache, strict-transport-security=max-age=31536000; includeSubDomains, x-frame-options=SAMEORIGIN]</textarea></div><div style='width: 100%; overflow: hidden;'><textarea style='border:solid 1px black; width: 100%; box-sizing: border-box;' name='message' rows='6' readonly='true'>{
+  "transactionId": "txn_3ba9442c-6140-490c-8874-189f46c18aaf",
+  "vpResultStatus": "SUCCESS",
+  "vcResults": [
+    {
+      "vc": "{\"issuanceDate\":\"2025-06-30T08:46:29.323Z\",\"credentialSubject\":{\"benefits\":[\"Critical Surgery\",\"Full body checkup\"],\"gender\":\"Male\",\"policyName\":\"wallet\",\"dob\":\"2025-01-01\",\"policyNumber\":\"5555\",\"mobile\":\"0123456789\",\"fullName\":\"wallet\",\"policyIssuedOn\":\"2023-04-20\",\"id\":\"did:jwk:eyJrdHkiOiJFQyIsInVzZSI6InNpZyIsImNydiI6IlAtMjU2Iiwia2lkIjoiOWpuWTRZZ1Z0NnFVcGVxRkhCZzNZNjRTdGlUX3VnOFdLdVBsckp6bUlRayIsIngiOiJUQjlGa294S0dSdzh4M0FablJjdVJtMEhpRXBQLVVNOHI1N2pOUkZLa3pBIiwieSI6IkZWTHhiaFduREZsVHJlZGFWaHp4UHg1eFluS29iUWp5aHZrU1ZjVlpsTjgiLCJhbGciOiJFUzI1NiJ9\",\"policyExpiresOn\":\"2033-04-20\",\"email\":\"abcd@gmail.com\"},\"id\":\"did:rcw:a20c5836-99cf-4c44-8429-1b64ee24b73c\",\"proof\":{\"proofValue\":\"z4DcfNGBBL2wnLJZojpsTyoDDBDnXTH6C3H1UkyiYyEu2V8JssXb7ajcRq4yARGrixCSotN7R495TD8jdyW8jtkD6\",\"created\":\"2025-06-30T08:46:29Z\",\"proofPurpose\":\"assertionMethod\",\"verificationMethod\":\"did:web:api.released.mosip.net:identity-service:02b073b8-aacd-472e-b63f-265bb7ccdd9f#key-0\",\"type\":\"Ed25519Signature2020\"},\"type\":[\"VerifiableCredential\",\"LifeInsuranceCredential\"],\"@context\":[\"https://www.w3.org/2018/credentials/v1\",\"https://holashchand.github.io/test_project/insurance-context.json\",{\"LifeInsuranceCredential\":{\"@id\":\"InsuranceCredential\"}},\"https://w3id.org/security/suites/ed25519-2020/v1\"],\"issuer\":\"did:web:api.released.mosip.net:identity-service:02b073b8-aacd-472e-b63f-265bb7ccdd9f\",\"expirationDate\":\"2027-06-30T08:46:29.314Z\"}",
+      "verificationStatus": "SUCCESS"
+    }
+  ]
+}</textarea> </div></pre><br/><b> Output validation: </b>EXPECTED vs ACTUAL
+<table width='100%' charset='UTF8'>
+  <tr style='background-color: #d3d3d3;'>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>vpResultStatus</td>
+    <td>SUCCESS</td>
+    <td>SUCCESS</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>transactionId</td>
+    <td>txn_3ba9442c-6140-490c-8874-189f46c18aaf</td>
+    <td>txn_3ba9442c-6140-490c-8874-189f46c18aaf</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table></div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p><h3 id="m26">io.mosip.testrig.apirig.injiverify.testscripts.GetWithParam#Injiverify_GetVpTokenForRequest_Invalid_TransactionId_Neg</h3><table class="result"><tr class="param"><th>Testcase Input</th></tr><tr class="param stripe"><td>testCaseName=Injiverify_GetVpTokenForRequest_Invalid_TransactionId_Neg, endPoint=/v1/verify/vp-result/{transactionId}, role=noauth, templateFields=null, input={ &quot;transactionId&quot;:&quot;hgyghvgftA&quot; }, output={ &quot;errorCode&quot;: &quot;INVALID_TRANSACTION_ID&quot; }, inputTemplate=injiverify/GetVpTokenForRequest/GetVpTokenForRequest, outputTemplate=injiverify/error2, restMethod=get, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, checkOnlyStatusCodeInResponse=false, allowedErrorCodes=null, kycFields=null, description=Getting the VP token for the Request with inavlid transaction id, uniqueIdentifier=TC_InjiVerify_GetVpTokenForRequest_02</td></tr><tr><th>Messages</th></tr><tr><td><div class="Request and Response messages including headers"><b><u>Request: </u></b>(End Point URL: https://injiverify.qa-inji1.mosip.net/v1/verify/vp-result/{transactionId}) <pre><div style='padding: 0; margin: 0;'><textarea style='border: solid 1px gray; background-color: lightgray; width: 100%; padding: 0; margin: 0;' name='headers' rows='2' readonly='true'>No headers</textarea></div><div style='width: 100%; overflow: hidden;'><textarea style='border:solid 1px black; width: 100%; box-sizing: border-box;' name='message' rows='6' readonly='true'>{
+  "transactionId": "hgyghvgftA"
+}</textarea> </div></pre><br/><b><u>Response: </u></b><pre><div style='padding: 0; margin: 0;'><textarea style='border: solid 1px gray; background-color: lightgray; width: 100%; padding: 0; margin: 0;' name='headers' rows='2' readonly='true'>[Server=nginx, Date=Wed, 17 Sep 2025 02:37:53 GMT, Content-Type=application/json, Transfer-Encoding=chunked, Connection=keep-alive, content-encoding=gzip, x-envoy-upstream-service-time=59, cache-control=no-store, pragma=no-cache, strict-transport-security=max-age=31536000; includeSubDomains, x-frame-options=SAMEORIGIN]</textarea></div><div style='width: 100%; overflow: hidden;'><textarea style='border:solid 1px black; width: 100%; box-sizing: border-box;' name='message' rows='6' readonly='true'>{
+  "errorCode": "INVALID_TRANSACTION_ID"
+}</textarea> </div></pre><br/><b> Output validation: </b>EXPECTED vs ACTUAL
+<table width='100%' charset='UTF8'>
+  <tr style='background-color: #d3d3d3;'>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>errorCode</td>
+    <td>INVALID_TRANSACTION_ID</td>
+    <td>INVALID_TRANSACTION_ID</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table></div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p><h3 id="m27">io.mosip.testrig.apirig.injiverify.testscripts.SimplePost#Injiverify_VcVerification_All_Valid_Smoke</h3><table class="result"><tr class="param"><th>Testcase Input</th></tr><tr class="param stripe"><td>testCaseName=Injiverify_VcVerification_All_Valid_Smoke, endPoint=/v1/verify/vc-verification, role=noauth, templateFields=null, input={ }, output={ &quot;verificationStatus&quot;: &quot;SUCCESS&quot; }, inputTemplate=injiverify/VcVerification/VcVerification, outputTemplate=injiverify/VcVerification/VcVerificationResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, checkOnlyStatusCodeInResponse=false, allowedErrorCodes=null, kycFields=null, description=Submitting the authorization response, uniqueIdentifier=TC_InjiVerify_VcVerification_01</td></tr><tr><th>Messages</th></tr><tr><td><div class="Request and Response messages including headers"><b><u>Request: </u></b>(End Point URL: https://injiverify.qa-inji1.mosip.net/v1/verify/vc-verification) <pre><div style='padding: 0; margin: 0;'><textarea style='border: solid 1px gray; background-color: lightgray; width: 100%; padding: 0; margin: 0;' name='headers' rows='2' readonly='true'>No headers</textarea></div><div style='width: 100%; overflow: hidden;'><textarea style='border:solid 1px black; width: 100%; box-sizing: border-box;' name='message' rows='6' readonly='true'>{
+  "issuanceDate": "2025-04-07T11:29:07.348Z",
+  "credentialSubject": {
+    "RuralPropertyName": "Test Farm",
+    "LegalReserveArea": 400.3,
+    "Municipality": "Saint John of Alliance, State: Goias",
+    "RegistrationDate": "2024-10-25T16:40:31Z",
+    "NumberOfCAR": "GO-5220009-75F5.A618.6575.4003.BC3B.3901.93D4.E5C0",
+    "Latitude": "14°10\u002713.25\" S",
+    "FiscalModules": 16.6739,
+    "NetArea": 3400,
+    "Longitude": "47°22\u002710.38\" W",
+    "TotalArea": 1167.1764,
+    "HolderName": "Test name",
+    "TotalDeclaredArea": 1167.1764,
+    "PermanentPreservationArea": 250.2,
+    "NativeVegetationRemnant": 650.4,
+    "AdministrativeEasementArea": 67.8901,
+    "CPF": "931.877.970-40",
+    "ProtocolCode": "GO-5220009-6C3F.E6F7.FB51.C627.CC38.D58A.2A48.FCC8",
+    "ConsolidatedArea": 2700.5,
+    "RestrictedUseArea": 150.1
+  },
+  "id": "https://mosip.io/credential/0ae8fe22-17cd-4a28-842c-d3533157b847",
+  "type": [
+    "VerifiableCredential",
+    "RegistrationReceiptCredential"
+  ],
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1",
+    "https://piyush7034.github.io/my-files/registration-receipt.json",
+    "https://w3id.org/security/suites/ed25519-2020/v1"
+  ],
+  "issuer": "did:web:likhitharl.github.io:vc:qa-inji1",
+  "expirationDate": "2027-07-26T11:29:07.348Z",
+  "proof": {
+    "type": "Ed25519Signature2020",
+    "created": "2025-04-07T11:29:07Z",
+    "proofPurpose": "assertionMethod",
+    "verificationMethod": "did:web:likhitharl.github.io:vc:qa-inji1#key-0",
+    "proofValue": "z21Gq4LBEaKnfv763rdZmnv2Bdpars8FbJXdWFTGuMQi2aPJzEH3SgVT9cdRz6djZnC54aDkghhxCsP9e3sffnbRd"
+  }
+}</textarea> </div></pre><br/><b><u>Response: </u></b><pre><div style='padding: 0; margin: 0;'><textarea style='border: solid 1px gray; background-color: lightgray; width: 100%; padding: 0; margin: 0;' name='headers' rows='2' readonly='true'>[Server=nginx, Date=Wed, 17 Sep 2025 02:37:55 GMT, Content-Type=application/json, Transfer-Encoding=chunked, Connection=keep-alive, content-encoding=gzip, x-envoy-upstream-service-time=1332, cache-control=no-store, pragma=no-cache, strict-transport-security=max-age=31536000; includeSubDomains, x-frame-options=SAMEORIGIN]</textarea></div><div style='width: 100%; overflow: hidden;'><textarea style='border:solid 1px black; width: 100%; box-sizing: border-box;' name='message' rows='6' readonly='true'>{
+  "verificationStatus": "SUCCESS"
+}</textarea> </div></pre><br/><b> Output validation: </b>EXPECTED vs ACTUAL
+<table width='100%' charset='UTF8'>
+  <tr style='background-color: #d3d3d3;'>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>verificationStatus</td>
+    <td>SUCCESS</td>
+    <td>SUCCESS</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table></div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p><h3 id="m28">io.mosip.testrig.apirig.injiverify.testscripts.SimplePost#Injiverify_VcVerification_WithoutVC_Neg</h3><table class="result"><tr class="param"><th>Testcase Input</th></tr><tr class="param stripe"><td>testCaseName=Injiverify_VcVerification_WithoutVC_Neg, endPoint=/v1/verify/vc-verification, role=noauth, templateFields=null, input={ }, output={ &quot;verificationStatus&quot;: &quot;INVALID&quot; }, inputTemplate=injiverify/VcVerification/VcVerificationNeg, outputTemplate=injiverify/VcVerification/VcVerificationResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, checkOnlyStatusCodeInResponse=false, allowedErrorCodes=null, kycFields=null, description=Submitting the authorization response, uniqueIdentifier=TC_InjiVerify_VcVerification_02</td></tr><tr><th>Messages</th></tr><tr><td><div class="Request and Response messages including headers"><b><u>Request: </u></b>(End Point URL: https://injiverify.qa-inji1.mosip.net/v1/verify/vc-verification) <pre><div style='padding: 0; margin: 0;'><textarea style='border: solid 1px gray; background-color: lightgray; width: 100%; padding: 0; margin: 0;' name='headers' rows='2' readonly='true'>No headers</textarea></div><div style='width: 100%; overflow: hidden;'><textarea style='border:solid 1px black; width: 100%; box-sizing: border-box;' name='message' rows='6' readonly='true'>No request body</textarea> </div></pre><br/><b><u>Response: </u></b><pre><div style='padding: 0; margin: 0;'><textarea style='border: solid 1px gray; background-color: lightgray; width: 100%; padding: 0; margin: 0;' name='headers' rows='2' readonly='true'>[Server=nginx, Date=Wed, 17 Sep 2025 02:37:55 GMT, Content-Type=application/json, Transfer-Encoding=chunked, Connection=keep-alive, content-encoding=gzip, x-envoy-upstream-service-time=9, cache-control=no-store, pragma=no-cache, strict-transport-security=max-age=31536000; includeSubDomains, x-frame-options=SAMEORIGIN]</textarea></div><div style='width: 100%; overflow: hidden;'><textarea style='border:solid 1px black; width: 100%; box-sizing: border-box;' name='message' rows='6' readonly='true'>{
+  "verificationStatus": "INVALID"
+}</textarea> </div></pre><br/><b> Output validation: </b>EXPECTED vs ACTUAL
+<table width='100%' charset='UTF8'>
+  <tr style='background-color: #d3d3d3;'>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>verificationStatus</td>
+    <td>INVALID</td>
+    <td>INVALID</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table></div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p></body></html>

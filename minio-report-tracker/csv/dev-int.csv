@@ -1,5 +1,6 @@
-Date,Module,T,P,S,F,I,KI,, ,Date,Module,T,P,S,F,I,KI,, ,Date,Module,T,P,S,F,I,KI
-22-September-2025,partner,509,295,159,43,0,12,,,19-September-2025,adminui,16,16,0,0,0,0,,,18-September-2025,dsl,197,0,0,197,0,0
-22-September-2025,dsl,197,6,0,191,0,0,,,19-September-2025,pmpui,15,4,9,2,0,0,,,18-September-2025,adminui,16,16,0,0,0,0
-22-September-2025,adminui,16,16,0,0,0,0,,,,,,,,,,,,,18-September-2025,pmpui,15,4,9,2,0,0
-22-September-2025,pmpui,15,4,9,2,0,0,,,,,,,,,,,,,,,,,,,,
+Date,Module,T,P,S,F,I,KI,, ,Date,Module,T,P,S,F,I,KI,, ,Date,Module,T,P,S,F,I,KI,, ,Date,Module,T,P,S,F,I,KI
+23-September-2025,partner,509,306,159,32,0,12,,,22-September-2025,partner,509,295,159,43,0,12,,,19-September-2025,adminui,16,16,0,0,0,0,,,18-September-2025,dsl,197,0,0,197,0,0
+23-September-2025,dsl,197,69,0,128,0,0,,,22-September-2025,dsl,197,6,0,191,0,0,,,19-September-2025,pmpui,15,4,9,2,0,0,,,18-September-2025,adminui,16,16,0,0,0,0
+23-September-2025,adminui,16,4,0,12,0,0,,,22-September-2025,adminui,16,16,0,0,0,0,,,,,,,,,,,,,18-September-2025,pmpui,15,4,9,2,0,0
+23-September-2025,residentui,25,4,5,16,0,0,,,22-September-2025,pmpui,15,4,9,2,0,0,,,,,,,,,,,,,,,,,,,,
+23-September-2025,pmpui,15,6,7,2,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,

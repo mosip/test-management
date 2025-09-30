@@ -1,14 +1,14 @@
 Date,Module,T,P,S,F,I,KI,, ,Date,Module,T,P,S,F,I,KI
-29-September-2025,idrepo,414,336,0,0,78,0,,,26-September-2025,dsl,204,34,0,144,0,26
-29-September-2025,masterdata-ara,945,930,0,0,15,0,,,26-September-2025,adminui,16,16,0,0,0,0
-29-September-2025,masterdata-eng,945,945,0,0,0,0,,,26-September-2025,residentui,25,2,5,18,0,0
-29-September-2025,masterdata-fra,945,930,0,0,15,0,,,26-September-2025,pmpui,15,5,8,2,0,0
-29-September-2025,masterdata-hin,945,930,0,0,15,0,,,,,,,,,,
-29-September-2025,masterdata-kan,945,930,0,0,15,0,,,,,,,,,,
-29-September-2025,masterdata-tam,945,930,0,0,15,0,,,,,,,,,,
-29-September-2025,partner,1068,1002,23,43,0,0,,,,,,,,,,
-29-September-2025,prereg,288,283,0,3,2,0,,,,,,,,,,
-29-September-2025,dsl,204,32,0,146,0,26,,,,,,,,,,
-29-September-2025,adminui,16,16,0,0,0,0,,,,,,,,,,
-29-September-2025,residentui,25,2,5,18,0,0,,,,,,,,,,
-29-September-2025,pmpui,15,5,8,2,0,0,,,,,,,,,,
+30-September-2025,idrepo,414,336,0,0,78,0,,,29-September-2025,idrepo,414,336,0,0,78,0
+30-September-2025,masterdata-ara,945,930,0,0,15,0,,,29-September-2025,masterdata-ara,945,930,0,0,15,0
+30-September-2025,masterdata-eng,945,945,0,0,0,0,,,29-September-2025,masterdata-eng,945,945,0,0,0,0
+30-September-2025,masterdata-fra,945,930,0,0,15,0,,,29-September-2025,masterdata-fra,945,930,0,0,15,0
+30-September-2025,masterdata-hin,945,930,0,0,15,0,,,29-September-2025,masterdata-hin,945,930,0,0,15,0
+30-September-2025,masterdata-kan,945,930,0,0,15,0,,,29-September-2025,masterdata-kan,945,930,0,0,15,0
+30-September-2025,masterdata-tam,945,930,0,0,15,0,,,29-September-2025,masterdata-tam,945,930,0,0,15,0
+30-September-2025,partner,1068,926,78,64,0,0,,,29-September-2025,partner,1068,1002,23,43,0,0
+30-September-2025,prereg,288,283,0,3,2,0,,,29-September-2025,prereg,288,283,0,3,2,0
+30-September-2025,dsl,204,31,0,147,0,26,,,29-September-2025,dsl,204,32,0,146,0,26
+30-September-2025,adminui,16,16,0,0,0,0,,,29-September-2025,adminui,16,16,0,0,0,0
+30-September-2025,residentui,25,2,5,18,0,0,,,29-September-2025,residentui,25,2,5,18,0,0
+30-September-2025,pmpui,15,5,8,2,0,0,,,29-September-2025,pmpui,15,5,8,2,0,0

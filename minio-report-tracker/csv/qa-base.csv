@@ -1,14 +1,14 @@
 Date,Module,T,P,S,F,I,KI,, ,Date,Module,T,P,S,F,I,KI,, ,Date,Module,T,P,S,F,I,KI,, ,Date,Module,T,P,S,F,I,KI
-01-October-2025,auth,610,577,0,12,5,16,,,30-September-2025,idrepo,414,316,0,0,78,20,,,29-September-2025,idrepo,414,316,0,0,78,20,,,26-September-2025,adminui,16,16,0,0,0,0
-01-October-2025,idrepo,414,316,0,0,78,20,,,30-September-2025,masterdata-ara,945,894,0,2,15,34,,,29-September-2025,masterdata-ara,945,894,0,2,15,34,,,26-September-2025,residentui,25,2,5,18,0,0
-01-October-2025,masterdata-ara,945,894,0,2,15,34,,,30-September-2025,masterdata-eng,945,922,0,1,0,22,,,29-September-2025,masterdata-eng,945,922,0,1,0,22,,,,,,,,,,
-01-October-2025,masterdata-eng,945,922,0,1,0,22,,,30-September-2025,masterdata-fra,945,906,0,1,15,23,,,29-September-2025,masterdata-fra,945,906,0,1,15,23,,,,,,,,,,
-01-October-2025,masterdata-fra,945,906,0,1,15,23,,,30-September-2025,masterdata-hin,945,785,0,111,15,34,,,29-September-2025,masterdata-hin,945,785,0,111,15,34,,,,,,,,,,
-01-October-2025,masterdata-hin,945,785,0,111,15,34,,,30-September-2025,masterdata-kan,945,785,0,111,15,34,,,29-September-2025,masterdata-kan,945,785,0,111,15,34,,,,,,,,,,
-01-October-2025,masterdata-kan,945,785,0,111,15,34,,,30-September-2025,masterdata-tam,945,785,0,111,15,34,,,29-September-2025,masterdata-tam,945,785,0,111,15,34,,,,,,,,,,
-01-October-2025,masterdata-tam,945,785,0,111,15,34,,,30-September-2025,partner,509,329,134,34,0,12,,,29-September-2025,partner,509,329,134,34,0,12,,,,,,,,,,
-01-October-2025,partner,509,329,134,34,0,12,,,30-September-2025,prereg,288,97,163,17,2,9,,,29-September-2025,prereg,288,97,163,17,2,9,,,,,,,,,,
-01-October-2025,prereg,288,97,163,17,2,9,,,30-September-2025,adminui,16,16,0,0,0,0,,,29-September-2025,adminui,16,16,0,0,0,0,,,,,,,,,,
-01-October-2025,resident,1142,1089,0,41,0,12,,,30-September-2025,residentui,25,2,5,18,0,0,,,29-September-2025,residentui,25,2,5,18,0,0,,,,,,,,,,
-01-October-2025,adminui,16,16,0,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-01-October-2025,residentui,25,15,5,5,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+02-October-2025,auth,610,578,0,11,5,16,,,01-October-2025,auth,610,577,0,12,5,16,,,30-September-2025,idrepo,414,316,0,0,78,20,,,29-September-2025,idrepo,414,316,0,0,78,20
+02-October-2025,idrepo,414,316,0,0,78,20,,,01-October-2025,idrepo,414,316,0,0,78,20,,,30-September-2025,masterdata-ara,945,894,0,2,15,34,,,29-September-2025,masterdata-ara,945,894,0,2,15,34
+02-October-2025,masterdata-ara,945,894,0,2,15,34,,,01-October-2025,masterdata-ara,945,894,0,2,15,34,,,30-September-2025,masterdata-eng,945,922,0,1,0,22,,,29-September-2025,masterdata-eng,945,922,0,1,0,22
+02-October-2025,masterdata-eng,945,922,0,1,0,22,,,01-October-2025,masterdata-eng,945,922,0,1,0,22,,,30-September-2025,masterdata-fra,945,906,0,1,15,23,,,29-September-2025,masterdata-fra,945,906,0,1,15,23
+02-October-2025,masterdata-fra,945,906,0,1,15,23,,,01-October-2025,masterdata-fra,945,906,0,1,15,23,,,30-September-2025,masterdata-hin,945,785,0,111,15,34,,,29-September-2025,masterdata-hin,945,785,0,111,15,34
+02-October-2025,masterdata-hin,945,785,0,111,15,34,,,01-October-2025,masterdata-hin,945,785,0,111,15,34,,,30-September-2025,masterdata-kan,945,785,0,111,15,34,,,29-September-2025,masterdata-kan,945,785,0,111,15,34
+02-October-2025,masterdata-kan,945,785,0,111,15,34,,,01-October-2025,masterdata-kan,945,785,0,111,15,34,,,30-September-2025,masterdata-tam,945,785,0,111,15,34,,,29-September-2025,masterdata-tam,945,785,0,111,15,34
+02-October-2025,masterdata-tam,945,785,0,111,15,34,,,01-October-2025,masterdata-tam,945,785,0,111,15,34,,,30-September-2025,partner,509,329,134,34,0,12,,,29-September-2025,partner,509,329,134,34,0,12
+02-October-2025,partner,509,329,134,34,0,12,,,01-October-2025,partner,509,329,134,34,0,12,,,30-September-2025,prereg,288,97,163,17,2,9,,,29-September-2025,prereg,288,97,163,17,2,9
+02-October-2025,prereg,288,97,163,17,2,9,,,01-October-2025,prereg,288,97,163,17,2,9,,,30-September-2025,adminui,16,16,0,0,0,0,,,29-September-2025,adminui,16,16,0,0,0,0
+02-October-2025,resident,1142,1085,2,43,0,12,,,01-October-2025,resident,1142,1089,0,41,0,12,,,30-September-2025,residentui,25,2,5,18,0,0,,,29-September-2025,residentui,25,2,5,18,0,0
+02-October-2025,adminui,16,16,0,0,0,0,,,01-October-2025,adminui,16,16,0,0,0,0,,,,,,,,,,,,,,,,,,,,
+02-October-2025,residentui,25,16,5,4,0,0,,,01-October-2025,residentui,25,15,5,5,0,0,,,,,,,,,,,,,,,,,,,,

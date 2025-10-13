@@ -1,10 +1,10 @@
-Date,Module,T,P,S,F,I,KI,, ,Date,Module,T,P,S,F,I,KI,, ,Date,Module,T,P,S,F,I,KI
-10-October-2025,auth,612,585,0,6,5,16,,,09-October-2025,auth,612,591,0,0,5,16,,,08-October-2025,auth,612,591,0,0,5,16
-10-October-2025,idrepo,414,316,0,0,78,20,,,09-October-2025,idrepo,414,316,0,0,78,20,,,08-October-2025,idrepo,414,316,0,0,78,20
-10-October-2025,masterdata-ara,945,895,0,0,15,35,,,09-October-2025,masterdata-ara,945,895,0,0,15,35,,,08-October-2025,masterdata-ara,945,895,0,0,15,35
-10-October-2025,masterdata-eng,945,923,0,0,0,22,,,09-October-2025,masterdata-eng,945,923,0,0,0,22,,,08-October-2025,masterdata-eng,945,923,0,0,0,22
-10-October-2025,masterdata-fra,945,907,0,0,15,23,,,09-October-2025,masterdata-fra,945,907,0,0,15,23,,,08-October-2025,masterdata-fra,945,907,0,0,15,23
-10-October-2025,partner,509,495,0,0,2,12,,,09-October-2025,partner,509,495,0,0,2,12,,,08-October-2025,partner,509,332,134,29,2,12
-10-October-2025,prereg,288,277,0,0,2,9,,,09-October-2025,prereg,288,277,0,0,2,9,,,08-October-2025,prereg,288,277,0,0,2,9
-10-October-2025,resident,1142,847,47,236,0,12,,,09-October-2025,resident,1142,1127,2,1,0,12,,,08-October-2025,resident,1142,1127,2,1,0,12
-10-October-2025,dsl,204,16,0,149,12,27,,,,,,,,,,,,,,,,,,,,
+Date,Module,T,P,S,F,I,KI,, ,Date,Module,T,P,S,F,I,KI
+13-October-2025,auth,612,583,0,8,5,16,,,10-October-2025,dsl,204,16,0,149,12,27
+13-October-2025,idrepo,414,316,0,0,78,20,,,,,,,,,,
+13-October-2025,masterdata-ara,945,895,0,0,15,35,,,,,,,,,,
+13-October-2025,masterdata-eng,945,923,0,0,0,22,,,,,,,,,,
+13-October-2025,masterdata-fra,945,907,0,0,15,23,,,,,,,,,,
+13-October-2025,partner,509,495,0,0,2,12,,,,,,,,,,
+13-October-2025,prereg,288,277,0,0,2,9,,,,,,,,,,
+13-October-2025,resident,1142,1121,6,3,0,12,,,,,,,,,,
+13-October-2025,dsl,204,108,0,57,12,27,,,,,,,,,,

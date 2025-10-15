@@ -1,10 +1,10 @@
-Date,Module,T,P,S,F,I,KI,, ,Date,Module,T,P,S,F,I,KI
-14-October-2025,auth,612,261,283,52,0,16,,,13-October-2025,auth,612,583,0,8,5,16
-14-October-2025,idrepo,414,316,0,0,78,20,,,13-October-2025,idrepo,414,316,0,0,78,20
-14-October-2025,masterdata-ara,945,895,0,0,15,35,,,13-October-2025,masterdata-ara,945,895,0,0,15,35
-14-October-2025,masterdata-eng,945,923,0,0,0,22,,,13-October-2025,masterdata-eng,945,923,0,0,0,22
-14-October-2025,masterdata-fra,945,907,0,0,15,23,,,13-October-2025,masterdata-fra,945,907,0,0,15,23
-14-October-2025,partner,509,495,0,0,2,12,,,13-October-2025,partner,509,495,0,0,2,12
-14-October-2025,prereg,288,277,0,0,2,9,,,13-October-2025,prereg,288,277,0,0,2,9
-14-October-2025,resident,1142,1121,2,7,0,12,,,13-October-2025,resident,1142,1121,6,3,0,12
-14-October-2025,dsl,204,100,0,65,12,27,,,13-October-2025,dsl,204,108,0,57,12,27
+Date,Module,T,P,S,F,I,KI,, ,Date,Module,T,P,S,F,I,KI,, ,Date,Module,T,P,S,F,I,KI
+15-October-2025,auth,612,591,0,0,5,16,,,14-October-2025,auth,612,261,283,52,0,16,,,13-October-2025,auth,612,583,0,8,5,16
+15-October-2025,idrepo,414,316,0,0,78,20,,,14-October-2025,idrepo,414,316,0,0,78,20,,,13-October-2025,idrepo,414,316,0,0,78,20
+15-October-2025,masterdata-ara,945,895,0,0,15,35,,,14-October-2025,masterdata-ara,945,895,0,0,15,35,,,13-October-2025,masterdata-ara,945,895,0,0,15,35
+15-October-2025,masterdata-eng,945,923,0,0,0,22,,,14-October-2025,masterdata-eng,945,923,0,0,0,22,,,13-October-2025,masterdata-eng,945,923,0,0,0,22
+15-October-2025,masterdata-fra,945,907,0,0,15,23,,,14-October-2025,masterdata-fra,945,907,0,0,15,23,,,13-October-2025,masterdata-fra,945,907,0,0,15,23
+15-October-2025,partner,509,495,0,0,2,12,,,14-October-2025,partner,509,495,0,0,2,12,,,13-October-2025,partner,509,495,0,0,2,12
+15-October-2025,prereg,288,277,0,0,2,9,,,14-October-2025,prereg,288,277,0,0,2,9,,,13-October-2025,prereg,288,277,0,0,2,9
+15-October-2025,resident,1142,1127,2,1,0,12,,,14-October-2025,resident,1142,1121,2,7,0,12,,,13-October-2025,resident,1142,1121,6,3,0,12
+,,,,,,,,,,14-October-2025,dsl,204,100,0,65,12,27,,,13-October-2025,dsl,204,108,0,57,12,27

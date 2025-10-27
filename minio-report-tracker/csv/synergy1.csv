@@ -1,10 +1,10 @@
-Date,Module,T,P,S,F,I,KI,, ,Date,Module,T,P,S,F,I,KI,, ,Date,Module,T,P,S,F,I,KI,, ,Date,Module,T,P,S,F,I,KI,, ,Date,Module,T,P,S,F,I,KI
-24-October-2025,auth,323,258,4,57,3,1,,,23-October-2025,auth,323,258,4,57,3,1,,,22-October-2025,auth,323,258,4,57,3,1,,,21-October-2025,auth,323,258,4,57,3,1,,,20-October-2025,auth,323,258,4,57,3,1
-24-October-2025,esignet,398,117,231,23,27,0,,,23-October-2025,esignet,398,117,231,23,27,0,,,22-October-2025,esignet,398,117,231,23,27,0,,,21-October-2025,esignet,398,117,231,23,27,0,,,20-October-2025,esignet,398,117,231,23,27,0
-24-October-2025,idrepo,152,101,0,0,51,0,,,23-October-2025,idrepo,152,101,0,0,51,0,,,22-October-2025,idrepo,152,101,0,0,51,0,,,21-October-2025,idrepo,152,101,0,0,51,0,,,20-October-2025,idrepo,152,101,0,0,51,0
-24-October-2025,injiverify,27,27,0,0,0,0,,,23-October-2025,injiverify,27,27,0,0,0,0,,,22-October-2025,injiverify,27,27,0,0,0,0,,,21-October-2025,injiverify,27,27,0,0,0,0,,,20-October-2025,injiverify,27,27,0,0,0,0
-24-October-2025,masterdata-eng,248,245,0,0,0,3,,,23-October-2025,masterdata-eng,248,245,0,0,0,3,,,22-October-2025,masterdata-eng,248,245,0,0,0,3,,,21-October-2025,masterdata-eng,248,245,0,0,0,3,,,20-October-2025,masterdata-eng,248,245,0,0,0,3
-24-October-2025,mimoto,64,18,28,6,10,2,,,23-October-2025,mimoto,64,18,28,6,10,2,,,22-October-2025,mimoto,64,18,28,6,10,2,,,21-October-2025,mimoto,64,27,18,7,10,2,,,20-October-2025,mimoto,64,27,18,7,10,2
-24-October-2025,partner,94,45,24,25,0,0,,,23-October-2025,partner,94,45,24,25,0,0,,,22-October-2025,partner,94,45,24,25,0,0,,,21-October-2025,partner,94,45,24,25,0,0,,,20-October-2025,partner,94,45,24,25,0,0
-24-October-2025,prereg,104,3,70,30,0,1,,,23-October-2025,prereg,104,3,70,30,0,1,,,22-October-2025,prereg,104,3,70,30,0,1,,,21-October-2025,prereg,104,3,70,30,0,1,,,20-October-2025,prereg,104,3,70,30,0,1
-24-October-2025,resident,375,341,2,26,0,6,,,23-October-2025,resident,375,341,2,26,0,6,,,22-October-2025,resident,375,338,4,27,0,6,,,21-October-2025,resident,375,341,2,26,0,6,,,20-October-2025,resident,375,341,2,26,0,6
+Date,Module,T,P,S,F,I,KI,, ,Date,Module,T,P,S,F,I,KI,, ,Date,Module,T,P,S,F,I,KI,, ,Date,Module,T,P,S,F,I,KI
+27-October-2025,auth,323,258,4,57,3,1,,,24-October-2025,auth,323,258,4,57,3,1,,,23-October-2025,auth,323,258,4,57,3,1,,,22-October-2025,idrepo,152,101,0,0,51,0
+27-October-2025,esignet,398,117,231,23,27,0,,,24-October-2025,esignet,398,117,231,23,27,0,,,23-October-2025,esignet,398,117,231,23,27,0,,,,,,,,,,
+27-October-2025,idrepo,152,101,0,0,51,0,,,24-October-2025,idrepo,152,101,0,0,51,0,,,23-October-2025,idrepo,152,101,0,0,51,0,,,,,,,,,,
+27-October-2025,injiverify,27,27,0,0,0,0,,,24-October-2025,injiverify,27,27,0,0,0,0,,,23-October-2025,injiverify,27,27,0,0,0,0,,,,,,,,,,
+27-October-2025,masterdata-eng,248,245,0,0,0,3,,,24-October-2025,masterdata-eng,248,245,0,0,0,3,,,23-October-2025,masterdata-eng,248,245,0,0,0,3,,,,,,,,,,
+27-October-2025,mimoto,64,19,28,5,10,2,,,24-October-2025,mimoto,64,18,28,6,10,2,,,23-October-2025,mimoto,64,18,28,6,10,2,,,,,,,,,,
+27-October-2025,partner,94,45,24,25,0,0,,,24-October-2025,partner,94,45,24,25,0,0,,,23-October-2025,partner,94,45,24,25,0,0,,,,,,,,,,
+27-October-2025,prereg,104,3,70,30,0,1,,,24-October-2025,prereg,104,3,70,30,0,1,,,23-October-2025,prereg,104,3,70,30,0,1,,,,,,,,,,
+27-October-2025,resident,375,341,2,26,0,6,,,24-October-2025,resident,375,341,2,26,0,6,,,23-October-2025,resident,375,341,2,26,0,6,,,,,,,,,,

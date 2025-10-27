@@ -2,7 +2,7 @@ name: Update CSV, XLSX, and Google Sheet via MinIO
 
 on:
   schedule:
-    - cron: '15 4 * * 1-5'  # 9:45 AM IST, Mon–Fri
+    - cron: '50 3 * * 1-5'  # 9:20 AM IST, Mon–Fri
   workflow_dispatch:
 
 jobs:
@@ -56,6 +56,7 @@ jobs:
           mc alias set "${{ secrets.MINIO_QACOUNTRY_NAME }}" "${{ secrets.MINIO_QACOUNTRY_URL }}" "${{ secrets.MINIO_QACOUNTRY_USER }}" "${{ secrets.MINIO_QACOUNTRY_PASSWORD }}" --api S3v2
           mc alias set "${{ secrets.MINIO_QA1JAVA21_NAME }}"      "${{ secrets.MINIO_QA1JAVA21_URL }}"      "${{ secrets.MINIO_QA1JAVA21_USER }}"      "${{ secrets.MINIO_QA1JAVA21_PASSWORD }}" --api S3v2
           mc alias set "${{ secrets.MINIO_QATEST1_NAME }}" "${{ secrets.MINIO_QATEST1_URL }}" "${{ secrets.MINIO_QATEST1_USER }}" "${{ secrets.MINIO_QATEST1_PASSWORD }}" --api S3v2
+          mc alias set "${{ secrets.MINIO_SYNERGY1_NAME }}" "${{ secrets.MINIO_SYNERGY1_URL }}" "${{ secrets.MINIO_SYNERGY1_USER }}" "${{ secrets.MINIO_SYNERGY1_PASSWORD }}" --api S3v2
 
       - name: Remove old CSVs from Git folder
         run: |

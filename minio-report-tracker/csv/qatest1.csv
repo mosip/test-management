@@ -1,10 +1,10 @@
 Date,Module,T,P,S,F,I,KI,, ,Date,Module,T,P,S,F,I,KI
-27-October-2025,auth,612,591,0,0,5,16,,,24-October-2025,dsl,204,156,0,9,12,27
-27-October-2025,idrepo,414,316,0,0,78,20,,,,,,,,,,
-27-October-2025,masterdata-ara,945,895,0,0,15,35,,,,,,,,,,
-27-October-2025,masterdata-eng,945,923,0,0,0,22,,,,,,,,,,
-27-October-2025,masterdata-fra,945,907,0,0,15,23,,,,,,,,,,
-27-October-2025,partner,509,332,134,29,2,12,,,,,,,,,,
-27-October-2025,prereg,288,277,0,0,2,9,,,,,,,,,,
-27-October-2025,resident,1142,1126,2,2,0,12,,,,,,,,,,
-27-October-2025,dsl,204,106,0,59,12,27,,,,,,,,,,
+28-October-2025,auth,612,591,0,0,5,16,,,27-October-2025,auth,612,591,0,0,5,16
+28-October-2025,idrepo,414,316,0,0,78,20,,,27-October-2025,idrepo,414,316,0,0,78,20
+28-October-2025,masterdata-ara,945,895,0,0,15,35,,,27-October-2025,masterdata-ara,945,895,0,0,15,35
+28-October-2025,masterdata-eng,945,923,0,0,0,22,,,27-October-2025,masterdata-eng,945,923,0,0,0,22
+28-October-2025,masterdata-fra,945,907,0,0,15,23,,,27-October-2025,masterdata-fra,945,907,0,0,15,23
+28-October-2025,partner,509,332,134,29,2,12,,,27-October-2025,partner,509,332,134,29,2,12
+28-October-2025,prereg,288,277,0,0,2,9,,,27-October-2025,prereg,288,277,0,0,2,9
+28-October-2025,resident,1142,1127,2,1,0,12,,,27-October-2025,resident,1142,1126,2,2,0,12
+28-October-2025,dsl,204,105,0,60,12,27,,,27-October-2025,dsl,204,106,0,59,12,27

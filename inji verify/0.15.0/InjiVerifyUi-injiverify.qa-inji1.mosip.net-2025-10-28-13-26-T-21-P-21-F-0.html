@@ -1,0 +1,3863 @@
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='UTF-8' /> 
+	<meta name='description' content='' />
+	<meta name='robots' content='noodp, noydir' />
+	<meta name='viewport' content='width=device-width, initial-scale=1' />
+	<meta id="timeStampFormat" name="timeStampFormat" content='MMM d, yyyy hh:mm:ss a'/>
+	
+        <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css' />
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+        <link href='http://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@ff53917fbbdb5ef820abbbe4d199a6942dc771ff/v3html/css/extent.css' type='text/css' rel='stylesheet' />
+	
+	<title>Automation Report</title>
+
+	<style type='text/css'>
+		/* json-tree */
+		.jstBracket,.jstComma,.jstValue{white-space:pre-wrap}.jstValue{font-size:10px;font-weight:400;font-family:"Lucida Console",Monaco,monospace}.jstProperty{color:#666;word-wrap:break-word}.jstBool{color:#2525CC}.jstNum{color:#D036D0}.jstNull{color:gray}.jstStr{color:#2DB669}.jstFold:after{content:' -';cursor:pointer}.jstExpand{white-space:normal}.jstExpand:after{content:' +';cursor:pointer}.jstFolded{white-space:normal!important}.jstHiddenBlock{display:none}
+			
+	</style>
+	
+	<script type="text/javascript">
+		/*! json-tree - v0.2.2 - 2017-09-25, MIT LICENSE */
+		var JSONTree=function(){var n={"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#x27;","/":"&#x2F;"},t=0,r=0;this.create=function(n,t){return r+=1,N(u(n,0,!1),{class:"jstValue"})};var e=function(t){return t.replace(/[&<>'"]/g,function(t){return n[t]})},s=function(){return r+"_"+t++},u=function(n,t,r){if(null===n)return f(r?t:0);switch(typeof n){case"boolean":return l(n,r?t:0);case"number":return i(n,r?t:0);case"string":return o(n,r?t:0);default:return n instanceof Array?a(n,t,r):c(n,t,r)}},c=function(n,t,r){var e=s(),u=Object.keys(n).map(function(r){return j(r,n[r],t+1,!0)}).join(m()),c=[g("{",r?t:0,e),N(u,{id:e}),p("}",t)].join("\n");return N(c,{})},a=function(n,t,r){var e=s(),c=n.map(function(n){return u(n,t+1,!0)}).join(m());return[g("[",r?t:0,e),N(c,{id:e}),p("]",t)].join("\n")},o=function(n,t){var r=e(JSON.stringify(n));return N(v(r,t),{class:"jstStr"})},i=function(n,t){return N(v(n,t),{class:"jstNum"})},l=function(n,t){return N(v(n,t),{class:"jstBool"})},f=function(n){return N(v("null",n),{class:"jstNull"})},j=function(n,t,r){var s=v(e(JSON.stringify(n))+": ",r),c=N(u(t,r,!1),{});return N(s+c,{class:"jstProperty"})},m=function(){return N(",\n",{class:"jstComma"})},N=function(n,t){return d("span",t,n)},d=function(n,t,r){return"<"+n+Object.keys(t).map(function(n){return" "+n+'="'+t[n]+'"'}).join("")+">"+r+"</"+n+">"},g=function(n,t,r){return N(v(n,t),{class:"jstBracket"})+N("",{class:"jstFold",onclick:"JSONTree.toggle('"+r+"')"})};this.toggle=function(n){var t=document.getElementById(n),r=t.parentNode,e=t.previousElementSibling;""===t.className?(t.className="jstHiddenBlock",r.className="jstFolded",e.className="jstExpand"):(t.className="",r.className="",e.className="jstFold")};var p=function(n,t){return N(v(n,t),{})},v=function(n,t){return Array(2*t+1).join(" ")+n};return this}();
+	</script>
+</head>
+	<body class='extent dark default hide-overflow '>
+		<div id='theme-selector' alt='Click to toggle theme. To enable by default, use theme configuration.' title='Click to toggle theme. To enable by default, use theme configuration.'>
+			<span><i class='material-icons'>desktop_windows</i></span>
+		</div>
+<nav>
+	<div class="nav-wrapper">
+        <a href="#!" class="brand-logo black"><img src="http://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@ff53917fbbdb5ef820abbbe4d199a6942dc771ff/commons/img/logo.png"></a>
+		<!-- slideout menu -->
+		<ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
+			<li class='waves-effect active'><a href='#!' view='test-view' onclick="configureView(0);chartsView('test');"><i class='material-icons'>dashboard</i></a></li>
+			<li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></a></li>
+		</ul>
+		<!-- report name -->
+		<span class='report-name'>injiverify.qa-inji1.mosip.net</span>
+		<!-- report headline -->
+		<span class='report-headline'></span>
+		<!-- nav-right -->
+		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
+			<a href='#!'>
+			<span class='label blue darken-3 suite-start-time'>Oct 28, 2025 01:13:06 PM</span>
+			</a>
+		</ul>
+	</div>
+</nav>		<!-- container -->
+		<div class='container'>
+<div id='test-view' class='view'>
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- test toggle -->
+			<div class='chip transparent'>
+				<a class='dropdown-button tests-toggle' data-activates='tests-toggle' data-constrainwidth='true' data-beloworigin='true' data-hover='true' href='#'>
+				<i class='material-icons'>warning</i> Status
+				</a>
+				<ul id='tests-toggle' class='dropdown-content'>
+										<li status='pass'><a href='#!'>Pass <i class='material-icons green-text'>check_circle</i></a></li>
+					<li class='divider'></li>
+					<li status='clear' clear='true'><a href='#!'>Clear Filters <i class='material-icons'>clear</i></a></li>
+				</ul>
+			</div>
+			<!-- test toggle -->
+			<!-- category toggle -->
+			<!-- category toggle -->
+			<!-- clear filters -->
+			<div class='chip transparent hide'>
+				<a class='' id='clear-filters' alt='Clear Filters' title='Clear Filters'>
+				<i class='material-icons'>close</i> Clear
+				</a>
+			</div>
+			<!-- clear filters -->
+			<!-- enable dashboard -->
+			<div id='toggle-test-view-charts' class='chip transparent'>
+				<a class='pink-text' id='enable-dashboard' alt='Enable Dashboard' title='Enable Dashboard'>
+				<i class='material-icons'>track_changes</i> Dashboard
+				</a>
+			</div>
+			<!-- enable dashboard -->
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+				<i class='material-icons'>search</i> Search
+				</a>
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+
+<div id='test-view-charts' class='subview-full'>
+    <div id='charts-row' class='row nm-v nm-h'>
+        <div class='col s12 m12 l12 np-h'>
+            <div class='card-panel nm-v'>
+                <div class='left panel-name'>Tests</div>
+                <div class='chart-box' style="max-height:94px;">
+                    <canvas id='parent-analysis' width='90' height='70'></canvas>
+                </div>
+                <div class='block text-small'>
+                    <span class='tooltipped' data-position='top' data-tooltip='$100%'>
+                    <span class='strong'>21</span> tests passed</span>
+                </div>
+                <div class='block text-small'>
+                    <span class='strong tooltipped' data-position='top' data-tooltip='0%'>
+                    0</span> tests failed, 
+                    <span class='strong tooltipped' data-position='top' data-tooltip='0%'>
+                    0</span> skipped
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="timeline-chart" class="row nm-v nm-h">
+        <div class="col s12 m12 l12 np-h">
+            <div class="card-panel">
+                <div class='left panel-name'>Timeline (seconds)</div>
+                <div class="chart-box" style="width:98%;max-height:145px;">
+                    <canvas id="timeline" height="120"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>	
+	<div class='subview-left left'>
+		<div class='view-summary'>
+			<ul id='test-collection' class='test-collection'>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='4'>
+					<div class='test-heading'>
+						<span class='test-name'>Verify the Inji Verify homepage</span>
+						<span class='test-time'>Oct 28, 2025 01:13:06 PM</span>
+						<span class='test-status right pass'>Pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Oct 28, 2025 01:13:06 PM</span>
+	<span class='label end-time'>Oct 28, 2025 01:13:18 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>00 00 12.251</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='info'>			
+				<td class='status info' title='Info' alt='Info'><i class='material-icons'> info_outline </i></td>
+				<td class='timestamp'>1:13:06 PM</td>
+				<td class='step-details'>
+						Scenario Started: Verify the Inji Verify homepage
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:13:17 PM</td>
+				<td class='step-details'>
+						Successfully retrieved the page title: https://injiverify.qa-inji1.mosip.net/
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:13:17 PM</td>
+				<td class='step-details'>
+						Page title validation successful. Expected: Inji Verify, Actual: Inji Verify
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:13:18 PM</td>
+				<td class='step-details'>
+						Successfully clicked on BLE tab and verified it is active.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:13:18 PM</td>
+				<td class='step-details'>
+						Information message verification successful. Expected: Coming soon, Actual: Coming soon
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:13:18 PM</td>
+				<td class='step-details'>
+						✅ Scenario Passed: Verify the Inji Verify homepage
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='22'>
+					<div class='test-heading'>
+						<span class='test-name'>Verify upload qr code with png</span>
+						<span class='test-time'>Oct 28, 2025 01:13:28 PM</span>
+						<span class='test-status right pass'>Pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Oct 28, 2025 01:13:28 PM</span>
+	<span class='label end-time'>Oct 28, 2025 01:14:38 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>00 01 09.178</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='info'>			
+				<td class='status info' title='Info' alt='Info'><i class='material-icons'> info_outline </i></td>
+				<td class='timestamp'>1:13:28 PM</td>
+				<td class='step-details'>
+						Scenario Started: Verify upload qr code with png
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:13:38 PM</td>
+				<td class='step-details'>
+						Successfully opened Inji web in a new tab.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:13:42 PM</td>
+				<td class='step-details'>
+						Successfully clicked on the Continue button.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:13:42 PM</td>
+				<td class='step-details'>
+						Successfully navigated to the home page after clicking the Continue button.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:13:49 PM</td>
+				<td class='step-details'>
+						Searched issuers with: StayProtected Insurance
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:13:49 PM</td>
+				<td class='step-details'>
+						Successfully clicked on StayProtected Insurance credentials button.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:13:50 PM</td>
+				<td class='step-details'>
+						Successfully clicked on health insurance by e-signet button.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:13:51 PM</td>
+				<td class='step-details'>
+						Successfully clicked on validity dropdown.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:13:51 PM</td>
+				<td class='step-details'>
+						Successfully clicked on no limit.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:13:54 PM</td>
+				<td class='step-details'>
+						Successfully clicked on proceed.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:13:57 PM</td>
+				<td class='step-details'>
+						User successfully entered the policy number: 859987008
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:13:58 PM</td>
+				<td class='step-details'>
+						User successfully entered the full name: Warner Schmidt DDS
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:14:00 PM</td>
+				<td class='step-details'>
+						User successfully entered the date of birth: 07-05-1980
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:14:01 PM</td>
+				<td class='step-details'>
+						Successfully clicked on login button.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:14:10 PM</td>
+				<td class='step-details'>
+						Successfully verified Download Success text is displayed.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:14:21 PM</td>
+				<td class='step-details'>
+						PDF file 'InsuranceCredential.pdf' exists on BrowserStack.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:14:21 PM</td>
+				<td class='step-details'>
+						PDF file 'InsuranceCredential.pdf' downloaded and contains content.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:14:21 PM</td>
+				<td class='step-details'>
+						Successfully switched to the Inji Verify tab.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:14:21 PM</td>
+				<td class='step-details'>
+						Successfully retrieved the page title: https://injiverify.qa-inji1.mosip.net/
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:14:21 PM</td>
+				<td class='step-details'>
+						Page title validation successful. Expected: Inji Verify, Actual: Inji Verify
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:14:22 PM</td>
+				<td class='step-details'>
+						Upload QR Code tab is visible successfully.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:14:22 PM</td>
+				<td class='step-details'>
+						Upload QR Code Step 2 label verification successful. Expected: Verify document, Actual: Verify document
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:14:22 PM</td>
+				<td class='step-details'>
+						Upload QR Code Step 3 label verification successful. Expected: View result, Actual: View result
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:14:23 PM</td>
+				<td class='step-details'>
+						Upload button is successfully visible.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:14:23 PM</td>
+				<td class='step-details'>
+						PDF document has 1 pages.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:14:24 PM</td>
+				<td class='step-details'>
+						Successfully converted page 1 to PNG, JPG, and JPEG.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:14:24 PM</td>
+				<td class='step-details'>
+						PDF to image conversion completed successfully.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:14:24 PM</td>
+				<td class='step-details'>
+						Successfully uploaded the QR code file (PNG).
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:14:26 PM</td>
+				<td class='step-details'>
+						Step 2 description (after) is successfully visible.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:14:27 PM</td>
+				<td class='step-details'>
+						Step 3 description (after) is successfully visible.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:14:28 PM</td>
+				<td class='step-details'>
+						Policy Issued On value is successfully visible.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:14:29 PM</td>
+				<td class='step-details'>
+						Policy Expires On value is successfully visible.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:14:29 PM</td>
+				<td class='step-details'>
+						Full Name value is successfully visible.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:14:29 PM</td>
+				<td class='step-details'>
+						Tick icon is successfully visible on successful verification.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:14:29 PM</td>
+				<td class='step-details'>
+						Successfully verified the congratulations message: Congratulations, the given credential is valid!
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:14:29 PM</td>
+				<td class='step-details'>
+						Verify Another QR Code button is successfully visible.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:14:29 PM</td>
+				<td class='step-details'>
+						Clicked on 'Verify Another QR Code' button successfully.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:14:30 PM</td>
+				<td class='step-details'>
+						Upload QR Code Step 2 label verification successful. Expected: Verify document, Actual: Verify document
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:14:30 PM</td>
+				<td class='step-details'>
+						Upload QR Code Step 3 label verification successful. Expected: View result, Actual: View result
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:14:30 PM</td>
+				<td class='step-details'>
+						Upload button is successfully visible.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:14:31 PM</td>
+				<td class='step-details'>
+						Successfully uploaded the QR code file (PNG).
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:14:33 PM</td>
+				<td class='step-details'>
+						Step 2 description (after) is successfully visible.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:14:33 PM</td>
+				<td class='step-details'>
+						Step 3 description (after) is successfully visible.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:14:35 PM</td>
+				<td class='step-details'>
+						Tick icon is successfully visible on successful verification.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:14:35 PM</td>
+				<td class='step-details'>
+						Successfully verified the congratulations message: Congratulations, the given credential is valid!
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:14:35 PM</td>
+				<td class='step-details'>
+						Verify Another QR Code button is successfully visible.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:14:35 PM</td>
+				<td class='step-details'>
+						Clicked on 'Verify Another QR Code' button successfully.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:14:36 PM</td>
+				<td class='step-details'>
+						Successfully uploaded another QR code file (PNG).
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:14:38 PM</td>
+				<td class='step-details'>
+						Valid QR code message verified successfully: Congratulations, the given credential is valid!
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:14:38 PM</td>
+				<td class='step-details'>
+						✅ Scenario Passed: Verify upload qr code with png
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='162'>
+					<div class='test-heading'>
+						<span class='test-name'>Verify upload qr code with PDF</span>
+						<span class='test-time'>Oct 28, 2025 01:14:47 PM</span>
+						<span class='test-status right pass'>Pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Oct 28, 2025 01:14:47 PM</span>
+	<span class='label end-time'>Oct 28, 2025 01:15:48 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>00 01 01.038</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='info'>			
+				<td class='status info' title='Info' alt='Info'><i class='material-icons'> info_outline </i></td>
+				<td class='timestamp'>1:14:47 PM</td>
+				<td class='step-details'>
+						Scenario Started: Verify upload qr code with PDF
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:14:56 PM</td>
+				<td class='step-details'>
+						Successfully opened Inji web in a new tab.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:14:59 PM</td>
+				<td class='step-details'>
+						Successfully clicked on the Continue button.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:14:59 PM</td>
+				<td class='step-details'>
+						Successfully navigated to the home page after clicking the Continue button.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:15:05 PM</td>
+				<td class='step-details'>
+						Searched issuers with: StayProtected Insurance
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:15:05 PM</td>
+				<td class='step-details'>
+						Successfully clicked on StayProtected Insurance credentials button.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:15:06 PM</td>
+				<td class='step-details'>
+						Successfully clicked on health insurance by e-signet button.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:15:07 PM</td>
+				<td class='step-details'>
+						Successfully clicked on validity dropdown.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:15:07 PM</td>
+				<td class='step-details'>
+						Successfully clicked on no limit.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:15:10 PM</td>
+				<td class='step-details'>
+						Successfully clicked on proceed.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:15:13 PM</td>
+				<td class='step-details'>
+						User successfully entered the policy number: 859987008
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:15:13 PM</td>
+				<td class='step-details'>
+						User successfully entered the full name: Warner Schmidt DDS
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:15:16 PM</td>
+				<td class='step-details'>
+						User successfully entered the date of birth: 07-05-1980
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:15:16 PM</td>
+				<td class='step-details'>
+						Successfully clicked on login button.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:15:25 PM</td>
+				<td class='step-details'>
+						Successfully verified Download Success text is displayed.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:15:35 PM</td>
+				<td class='step-details'>
+						PDF file 'InsuranceCredential.pdf' exists on BrowserStack.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:15:36 PM</td>
+				<td class='step-details'>
+						PDF file 'InsuranceCredential.pdf' downloaded and contains content.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:15:36 PM</td>
+				<td class='step-details'>
+						Successfully switched to the Inji Verify tab.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:15:36 PM</td>
+				<td class='step-details'>
+						Successfully retrieved the page title: https://injiverify.qa-inji1.mosip.net/
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:15:36 PM</td>
+				<td class='step-details'>
+						Page title validation successful. Expected: Inji Verify, Actual: Inji Verify
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:15:36 PM</td>
+				<td class='step-details'>
+						Upload QR Code tab is visible successfully.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:15:36 PM</td>
+				<td class='step-details'>
+						Upload QR Code Step 2 label verification successful. Expected: Verify document, Actual: Verify document
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:15:36 PM</td>
+				<td class='step-details'>
+						Upload QR Code Step 3 label verification successful. Expected: View result, Actual: View result
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:15:37 PM</td>
+				<td class='step-details'>
+						Upload button is successfully visible.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:15:37 PM</td>
+				<td class='step-details'>
+						PDF document has 1 pages.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:15:37 PM</td>
+				<td class='step-details'>
+						Successfully converted page 1 to PNG, JPG, and JPEG.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:15:37 PM</td>
+				<td class='step-details'>
+						PDF to image conversion completed successfully.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:15:38 PM</td>
+				<td class='step-details'>
+						Successfully uploaded the QR code file in PDF format.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:15:41 PM</td>
+				<td class='step-details'>
+						Step 2 description (after) is successfully visible.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:15:41 PM</td>
+				<td class='step-details'>
+						Step 3 description (after) is successfully visible.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:15:41 PM</td>
+				<td class='step-details'>
+						Tick icon is successfully visible on successful verification.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:15:41 PM</td>
+				<td class='step-details'>
+						Successfully verified the congratulations message: Congratulations, the given credential is valid!
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:15:41 PM</td>
+				<td class='step-details'>
+						Verify Another QR Code button is successfully visible.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:15:41 PM</td>
+				<td class='step-details'>
+						Clicked on 'Verify Another QR Code' button successfully.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:15:42 PM</td>
+				<td class='step-details'>
+						Upload QR Code Step 2 label verification successful. Expected: Verify document, Actual: Verify document
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:15:42 PM</td>
+				<td class='step-details'>
+						Upload QR Code Step 3 label verification successful. Expected: View result, Actual: View result
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:15:42 PM</td>
+				<td class='step-details'>
+						Upload button is successfully visible.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:15:43 PM</td>
+				<td class='step-details'>
+						Successfully uploaded the QR code file in PDF format.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:15:44 PM</td>
+				<td class='step-details'>
+						Step 2 description (after) is successfully visible.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:15:44 PM</td>
+				<td class='step-details'>
+						Step 3 description (after) is successfully visible.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:15:45 PM</td>
+				<td class='step-details'>
+						Tick icon is successfully visible on successful verification.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:15:45 PM</td>
+				<td class='step-details'>
+						Successfully verified the congratulations message: Congratulations, the given credential is valid!
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:15:45 PM</td>
+				<td class='step-details'>
+						Verify Another QR Code button is successfully visible.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:15:45 PM</td>
+				<td class='step-details'>
+						Clicked on 'Verify Another QR Code' button successfully.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:15:46 PM</td>
+				<td class='step-details'>
+						Successfully uploaded another QR code file in PDF format.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:15:48 PM</td>
+				<td class='step-details'>
+						Valid QR code message verified successfully: Congratulations, the given credential is valid!
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:15:48 PM</td>
+				<td class='step-details'>
+						✅ Scenario Passed: Verify upload qr code with PDF
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='293'>
+					<div class='test-heading'>
+						<span class='test-name'>Verify upload qr code with jpg</span>
+						<span class='test-time'>Oct 28, 2025 01:15:59 PM</span>
+						<span class='test-status right pass'>Pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Oct 28, 2025 01:15:59 PM</span>
+	<span class='label end-time'>Oct 28, 2025 01:17:04 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>00 01 05.522</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='info'>			
+				<td class='status info' title='Info' alt='Info'><i class='material-icons'> info_outline </i></td>
+				<td class='timestamp'>1:15:59 PM</td>
+				<td class='step-details'>
+						Scenario Started: Verify upload qr code with jpg
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:16:09 PM</td>
+				<td class='step-details'>
+						Successfully opened Inji web in a new tab.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:16:12 PM</td>
+				<td class='step-details'>
+						Successfully clicked on the Continue button.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:16:12 PM</td>
+				<td class='step-details'>
+						Successfully navigated to the home page after clicking the Continue button.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:16:19 PM</td>
+				<td class='step-details'>
+						Searched issuers with: StayProtected Insurance
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:16:20 PM</td>
+				<td class='step-details'>
+						Successfully clicked on StayProtected Insurance credentials button.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:16:21 PM</td>
+				<td class='step-details'>
+						Successfully clicked on health insurance by e-signet button.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:16:21 PM</td>
+				<td class='step-details'>
+						Successfully clicked on validity dropdown.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:16:21 PM</td>
+				<td class='step-details'>
+						Successfully clicked on no limit.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:16:24 PM</td>
+				<td class='step-details'>
+						Successfully clicked on proceed.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:16:28 PM</td>
+				<td class='step-details'>
+						User successfully entered the policy number: 859987008
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:16:28 PM</td>
+				<td class='step-details'>
+						User successfully entered the full name: Warner Schmidt DDS
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:16:30 PM</td>
+				<td class='step-details'>
+						User successfully entered the date of birth: 07-05-1980
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:16:31 PM</td>
+				<td class='step-details'>
+						Successfully clicked on login button.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:16:40 PM</td>
+				<td class='step-details'>
+						Successfully verified Download Success text is displayed.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:16:50 PM</td>
+				<td class='step-details'>
+						PDF file 'InsuranceCredential.pdf' exists on BrowserStack.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:16:51 PM</td>
+				<td class='step-details'>
+						PDF file 'InsuranceCredential.pdf' downloaded and contains content.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:16:51 PM</td>
+				<td class='step-details'>
+						Successfully switched to the Inji Verify tab.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:16:51 PM</td>
+				<td class='step-details'>
+						Successfully retrieved the page title: https://injiverify.qa-inji1.mosip.net/
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:16:51 PM</td>
+				<td class='step-details'>
+						Page title validation successful. Expected: Inji Verify, Actual: Inji Verify
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:16:51 PM</td>
+				<td class='step-details'>
+						Upload QR Code tab is visible successfully.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:16:51 PM</td>
+				<td class='step-details'>
+						Upload QR Code Step 2 label verification successful. Expected: Verify document, Actual: Verify document
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:16:52 PM</td>
+				<td class='step-details'>
+						Upload QR Code Step 3 label verification successful. Expected: View result, Actual: View result
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:16:52 PM</td>
+				<td class='step-details'>
+						Upload button is successfully visible.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:16:52 PM</td>
+				<td class='step-details'>
+						PDF document has 1 pages.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:16:53 PM</td>
+				<td class='step-details'>
+						Successfully converted page 1 to PNG, JPG, and JPEG.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:16:53 PM</td>
+				<td class='step-details'>
+						PDF to image conversion completed successfully.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:16:53 PM</td>
+				<td class='step-details'>
+						Successfully uploaded the QR code file in JPG format.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:16:55 PM</td>
+				<td class='step-details'>
+						Step 2 description (after) is successfully visible.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:16:56 PM</td>
+				<td class='step-details'>
+						Step 3 description (after) is successfully visible.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:16:57 PM</td>
+				<td class='step-details'>
+						Tick icon is successfully visible on successful verification.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:16:57 PM</td>
+				<td class='step-details'>
+						Successfully verified the congratulations message: Congratulations, the given credential is valid!
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:16:57 PM</td>
+				<td class='step-details'>
+						Verify Another QR Code button is successfully visible.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:16:57 PM</td>
+				<td class='step-details'>
+						Clicked on 'Verify Another QR Code' button successfully.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:16:58 PM</td>
+				<td class='step-details'>
+						Upload QR Code Step 2 label verification successful. Expected: Verify document, Actual: Verify document
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:16:58 PM</td>
+				<td class='step-details'>
+						Upload QR Code Step 3 label verification successful. Expected: View result, Actual: View result
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:16:58 PM</td>
+				<td class='step-details'>
+						Upload button is successfully visible.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:16:59 PM</td>
+				<td class='step-details'>
+						Successfully uploaded the QR code file in JPG format.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:17:01 PM</td>
+				<td class='step-details'>
+						Step 2 description (after) is successfully visible.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:17:01 PM</td>
+				<td class='step-details'>
+						Step 3 description (after) is successfully visible.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:17:01 PM</td>
+				<td class='step-details'>
+						Tick icon is successfully visible on successful verification.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:17:02 PM</td>
+				<td class='step-details'>
+						Successfully verified the congratulations message: Congratulations, the given credential is valid!
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:17:02 PM</td>
+				<td class='step-details'>
+						Verify Another QR Code button is successfully visible.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:17:02 PM</td>
+				<td class='step-details'>
+						Clicked on 'Verify Another QR Code' button successfully.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:17:02 PM</td>
+				<td class='step-details'>
+						Successfully uploaded another QR code file in JPG format.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:17:04 PM</td>
+				<td class='step-details'>
+						Valid QR code message verified successfully: Congratulations, the given credential is valid!
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:17:04 PM</td>
+				<td class='step-details'>
+						✅ Scenario Passed: Verify upload qr code with jpg
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='424'>
+					<div class='test-heading'>
+						<span class='test-name'>Verify upload qr code with jpeg</span>
+						<span class='test-time'>Oct 28, 2025 01:17:15 PM</span>
+						<span class='test-status right pass'>Pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Oct 28, 2025 01:17:15 PM</span>
+	<span class='label end-time'>Oct 28, 2025 01:18:18 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>00 01 03.405</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='info'>			
+				<td class='status info' title='Info' alt='Info'><i class='material-icons'> info_outline </i></td>
+				<td class='timestamp'>1:17:15 PM</td>
+				<td class='step-details'>
+						Scenario Started: Verify upload qr code with jpeg
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:17:24 PM</td>
+				<td class='step-details'>
+						Successfully opened Inji web in a new tab.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:17:27 PM</td>
+				<td class='step-details'>
+						Successfully clicked on the Continue button.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:17:27 PM</td>
+				<td class='step-details'>
+						Successfully navigated to the home page after clicking the Continue button.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:17:33 PM</td>
+				<td class='step-details'>
+						Searched issuers with: StayProtected Insurance
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:17:34 PM</td>
+				<td class='step-details'>
+						Successfully clicked on StayProtected Insurance credentials button.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:17:35 PM</td>
+				<td class='step-details'>
+						Successfully clicked on health insurance by e-signet button.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:17:35 PM</td>
+				<td class='step-details'>
+						Successfully clicked on validity dropdown.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:17:36 PM</td>
+				<td class='step-details'>
+						Successfully clicked on no limit.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:17:39 PM</td>
+				<td class='step-details'>
+						Successfully clicked on proceed.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:17:42 PM</td>
+				<td class='step-details'>
+						User successfully entered the policy number: 859987008
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:17:42 PM</td>
+				<td class='step-details'>
+						User successfully entered the full name: Warner Schmidt DDS
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:17:44 PM</td>
+				<td class='step-details'>
+						User successfully entered the date of birth: 07-05-1980
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:17:45 PM</td>
+				<td class='step-details'>
+						Successfully clicked on login button.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:17:54 PM</td>
+				<td class='step-details'>
+						Successfully verified Download Success text is displayed.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:18:04 PM</td>
+				<td class='step-details'>
+						PDF file 'InsuranceCredential.pdf' exists on BrowserStack.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:18:05 PM</td>
+				<td class='step-details'>
+						PDF file 'InsuranceCredential.pdf' downloaded and contains content.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:18:05 PM</td>
+				<td class='step-details'>
+						Successfully switched to the Inji Verify tab.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:18:05 PM</td>
+				<td class='step-details'>
+						Successfully retrieved the page title: https://injiverify.qa-inji1.mosip.net/
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:18:05 PM</td>
+				<td class='step-details'>
+						Page title validation successful. Expected: Inji Verify, Actual: Inji Verify
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:18:05 PM</td>
+				<td class='step-details'>
+						Upload QR Code tab is visible successfully.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:18:05 PM</td>
+				<td class='step-details'>
+						Upload QR Code Step 2 label verification successful. Expected: Verify document, Actual: Verify document
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:18:05 PM</td>
+				<td class='step-details'>
+						Upload QR Code Step 3 label verification successful. Expected: View result, Actual: View result
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:18:06 PM</td>
+				<td class='step-details'>
+						Upload button is successfully visible.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:18:06 PM</td>
+				<td class='step-details'>
+						PDF document has 1 pages.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:18:07 PM</td>
+				<td class='step-details'>
+						Successfully converted page 1 to PNG, JPG, and JPEG.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:18:07 PM</td>
+				<td class='step-details'>
+						PDF to image conversion completed successfully.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:18:07 PM</td>
+				<td class='step-details'>
+						Successfully uploaded the QR code file in JPEG format.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:18:10 PM</td>
+				<td class='step-details'>
+						Step 2 description (after) is successfully visible.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:18:10 PM</td>
+				<td class='step-details'>
+						Step 3 description (after) is successfully visible.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:18:11 PM</td>
+				<td class='step-details'>
+						Tick icon is successfully visible on successful verification.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:18:11 PM</td>
+				<td class='step-details'>
+						Successfully verified the congratulations message: Congratulations, the given credential is valid!
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:18:11 PM</td>
+				<td class='step-details'>
+						Verify Another QR Code button is successfully visible.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:18:12 PM</td>
+				<td class='step-details'>
+						Clicked on 'Verify Another QR Code' button successfully.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:18:12 PM</td>
+				<td class='step-details'>
+						Upload QR Code Step 2 label verification successful. Expected: Verify document, Actual: Verify document
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:18:12 PM</td>
+				<td class='step-details'>
+						Upload QR Code Step 3 label verification successful. Expected: View result, Actual: View result
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:18:12 PM</td>
+				<td class='step-details'>
+						Upload button is successfully visible.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:18:13 PM</td>
+				<td class='step-details'>
+						Successfully uploaded the QR code file in JPEG format.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:18:14 PM</td>
+				<td class='step-details'>
+						Step 2 description (after) is successfully visible.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:18:15 PM</td>
+				<td class='step-details'>
+						Step 3 description (after) is successfully visible.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:18:15 PM</td>
+				<td class='step-details'>
+						Tick icon is successfully visible on successful verification.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:18:15 PM</td>
+				<td class='step-details'>
+						Successfully verified the congratulations message: Congratulations, the given credential is valid!
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:18:15 PM</td>
+				<td class='step-details'>
+						Verify Another QR Code button is successfully visible.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:18:16 PM</td>
+				<td class='step-details'>
+						Clicked on 'Verify Another QR Code' button successfully.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:18:16 PM</td>
+				<td class='step-details'>
+						Successfully uploaded another QR code file in JPEG format.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:18:18 PM</td>
+				<td class='step-details'>
+						Valid QR code message verified successfully: Congratulations, the given credential is valid!
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:18:18 PM</td>
+				<td class='step-details'>
+						✅ Scenario Passed: Verify upload qr code with jpeg
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='554'>
+					<div class='test-heading'>
+						<span class='test-name'>Verify upload qr code for invalid</span>
+						<span class='test-time'>Oct 28, 2025 01:18:29 PM</span>
+						<span class='test-status right pass'>Pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Oct 28, 2025 01:18:29 PM</span>
+	<span class='label end-time'>Oct 28, 2025 01:19:06 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>00 00 37.576</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='info'>			
+				<td class='status info' title='Info' alt='Info'><i class='material-icons'> info_outline </i></td>
+				<td class='timestamp'>1:18:29 PM</td>
+				<td class='step-details'>
+						Scenario Started: Verify upload qr code for invalid
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:18:42 PM</td>
+				<td class='step-details'>
+						Browser refreshed successfully after verification.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:18:44 PM</td>
+				<td class='step-details'>
+						Upload QR Code Step 2 label verification successful. Expected: Verify document, Actual: Verify document
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:18:45 PM</td>
+				<td class='step-details'>
+						Upload QR Code Step 3 label verification successful. Expected: View result, Actual: View result
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:18:46 PM</td>
+				<td class='step-details'>
+						Upload button is successfully visible.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:18:47 PM</td>
+				<td class='step-details'>
+						Successfully uploaded the QR code file in PDF format.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:18:53 PM</td>
+				<td class='step-details'>
+						Clicked on 'Verify Another QR Code' button successfully.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:18:55 PM</td>
+				<td class='step-details'>
+						Successfully uploaded the expired QR code PNG file.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:18:55 PM</td>
+				<td class='step-details'>
+						Expired QR code PNG file uploaded successfully.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:18:57 PM</td>
+				<td class='step-details'>
+						Successfully verified the error message for expired QR code: The given credential is valid but expired!
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:18:57 PM</td>
+				<td class='step-details'>
+						Verify Another QR Code button is successfully visible.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:18:58 PM</td>
+				<td class='step-details'>
+						Clicked on 'Verify Another QR Code' button successfully.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:18:59 PM</td>
+				<td class='step-details'>
+						Successfully uploaded the expired QR code JPG file.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:18:59 PM</td>
+				<td class='step-details'>
+						Expired QR code JPG file uploaded successfully.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:19:01 PM</td>
+				<td class='step-details'>
+						Successfully verified the error message for expired QR code: The given credential is valid but expired!
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:19:01 PM</td>
+				<td class='step-details'>
+						Verify Another QR Code button is successfully visible.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:19:01 PM</td>
+				<td class='step-details'>
+						Clicked on 'Verify Another QR Code' button successfully.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:19:02 PM</td>
+				<td class='step-details'>
+						Successfully uploaded expired QR code (JPEG format).
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:19:03 PM</td>
+				<td class='step-details'>
+						Successfully verified the error message for expired QR code: The given credential is valid but expired!
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:19:03 PM</td>
+				<td class='step-details'>
+						Verify Another QR Code button is successfully visible.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:19:03 PM</td>
+				<td class='step-details'>
+						Clicked on 'Verify Another QR Code' button successfully.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:19:04 PM</td>
+				<td class='step-details'>
+						Successfully uploaded expired QR code (PDF format).
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:19:05 PM</td>
+				<td class='step-details'>
+						Successfully verified the error message for expired QR code: The given credential is valid but expired!
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:19:05 PM</td>
+				<td class='step-details'>
+						Verify Another QR Code button is successfully visible.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:19:06 PM</td>
+				<td class='step-details'>
+						Clicked on 'Verify Another QR Code' button successfully.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:19:06 PM</td>
+				<td class='step-details'>
+						Attempted to upload an unsupported QR code file (HTML).
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:19:06 PM</td>
+				<td class='step-details'>
+						Error message validation successful. Expected: Unsupported file format. Allowed file formats are: png, jpeg, jpg, pdf., Actual: Unsupported file format. Allowed file formats are: png, jpeg, jpg, pdf.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:19:06 PM</td>
+				<td class='step-details'>
+						✅ Scenario Passed: Verify upload qr code for invalid
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='630'>
+					<div class='test-heading'>
+						<span class='test-name'>Verify upload qr code for Valid</span>
+						<span class='test-time'>Oct 28, 2025 01:19:16 PM</span>
+						<span class='test-status right pass'>Pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Oct 28, 2025 01:19:16 PM</span>
+	<span class='label end-time'>Oct 28, 2025 01:19:31 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>00 00 15.322</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='info'>			
+				<td class='status info' title='Info' alt='Info'><i class='material-icons'> info_outline </i></td>
+				<td class='timestamp'>1:19:16 PM</td>
+				<td class='step-details'>
+						Scenario Started: Verify upload qr code for Valid
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:19:27 PM</td>
+				<td class='step-details'>
+						Browser refreshed successfully after verification.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:19:27 PM</td>
+				<td class='step-details'>
+						Upload QR Code Step 2 label verification successful. Expected: Verify document, Actual: Verify document
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:19:27 PM</td>
+				<td class='step-details'>
+						Upload QR Code Step 3 label verification successful. Expected: View result, Actual: View result
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:19:29 PM</td>
+				<td class='step-details'>
+						Upload button is successfully visible.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:19:29 PM</td>
+				<td class='step-details'>
+						Uploaded a QR code file (PDF) downloaded from mobile successfully.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:19:31 PM</td>
+				<td class='step-details'>
+						Valid QR code message verified successfully: Congratulations, the given credential is valid!
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:19:31 PM</td>
+				<td class='step-details'>
+						✅ Scenario Passed: Verify upload qr code for Valid
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='652'>
+					<div class='test-heading'>
+						<span class='test-name'>Verify upload large size QR code</span>
+						<span class='test-time'>Oct 28, 2025 01:19:41 PM</span>
+						<span class='test-status right pass'>Pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Oct 28, 2025 01:19:41 PM</span>
+	<span class='label end-time'>Oct 28, 2025 01:19:53 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>00 00 12.011</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='info'>			
+				<td class='status info' title='Info' alt='Info'><i class='material-icons'> info_outline </i></td>
+				<td class='timestamp'>1:19:41 PM</td>
+				<td class='step-details'>
+						Scenario Started: Verify upload large size QR code
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:19:51 PM</td>
+				<td class='step-details'>
+						Browser refreshed successfully after verification.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:19:51 PM</td>
+				<td class='step-details'>
+						Upload QR Code Step 2 label verification successful. Expected: Verify document, Actual: Verify document
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:19:51 PM</td>
+				<td class='step-details'>
+						Upload QR Code Step 3 label verification successful. Expected: View result, Actual: View result
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:19:52 PM</td>
+				<td class='step-details'>
+						Upload button is successfully visible.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:19:53 PM</td>
+				<td class='step-details'>
+						Successfully verified large size QR code file is not supported and appropriate error is shown.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:19:53 PM</td>
+				<td class='step-details'>
+						Successfully verified large size QR code alert message: 'File size not supported. The file size should be between 10 KB and 5 MB.'
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:19:53 PM</td>
+				<td class='step-details'>
+						✅ Scenario Passed: Verify upload large size QR code
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='674'>
+					<div class='test-heading'>
+						<span class='test-name'>Verify upload blur QR code</span>
+						<span class='test-time'>Oct 28, 2025 01:20:03 PM</span>
+						<span class='test-status right pass'>Pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Oct 28, 2025 01:20:03 PM</span>
+	<span class='label end-time'>Oct 28, 2025 01:20:17 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>00 00 13.376</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='info'>			
+				<td class='status info' title='Info' alt='Info'><i class='material-icons'> info_outline </i></td>
+				<td class='timestamp'>1:20:03 PM</td>
+				<td class='step-details'>
+						Scenario Started: Verify upload blur QR code
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:20:12 PM</td>
+				<td class='step-details'>
+						Browser refreshed successfully after verification.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:20:13 PM</td>
+				<td class='step-details'>
+						Upload QR Code Step 2 label verification successful. Expected: Verify document, Actual: Verify document
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:20:13 PM</td>
+				<td class='step-details'>
+						Upload QR Code Step 3 label verification successful. Expected: View result, Actual: View result
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:20:14 PM</td>
+				<td class='step-details'>
+						Upload button is successfully visible.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:20:16 PM</td>
+				<td class='step-details'>
+						Successfully uploaded blur QR code file.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:20:17 PM</td>
+				<td class='step-details'>
+						Successfully verified MultiFormat alert message for blur QR code.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:20:17 PM</td>
+				<td class='step-details'>
+						✅ Scenario Passed: Verify upload blur QR code
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='696'>
+					<div class='test-heading'>
+						<span class='test-name'>Verify multiple qr code in one image</span>
+						<span class='test-time'>Oct 28, 2025 01:20:27 PM</span>
+						<span class='test-status right pass'>Pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Oct 28, 2025 01:20:27 PM</span>
+	<span class='label end-time'>Oct 28, 2025 01:21:07 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>00 00 39.726</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='info'>			
+				<td class='status info' title='Info' alt='Info'><i class='material-icons'> info_outline </i></td>
+				<td class='timestamp'>1:20:27 PM</td>
+				<td class='step-details'>
+						Scenario Started: Verify multiple qr code in one image
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:21:04 PM</td>
+				<td class='step-details'>
+						Browser refreshed successfully after verification.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:21:04 PM</td>
+				<td class='step-details'>
+						Upload QR Code Step 2 label verification successful. Expected: Verify document, Actual: Verify document
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:21:05 PM</td>
+				<td class='step-details'>
+						Upload QR Code Step 3 label verification successful. Expected: View result, Actual: View result
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:21:05 PM</td>
+				<td class='step-details'>
+						Upload button is successfully visible.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:21:06 PM</td>
+				<td class='step-details'>
+						Successfully uploaded image with multiple QR codes.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:21:07 PM</td>
+				<td class='step-details'>
+						Successfully verified MultiFormat alert message for blur QR code.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:21:07 PM</td>
+				<td class='step-details'>
+						✅ Scenario Passed: Verify multiple qr code in one image
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='718'>
+					<div class='test-heading'>
+						<span class='test-name'>Verify upload invalid pdf</span>
+						<span class='test-time'>Oct 28, 2025 01:21:16 PM</span>
+						<span class='test-status right pass'>Pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Oct 28, 2025 01:21:16 PM</span>
+	<span class='label end-time'>Oct 28, 2025 01:21:28 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>00 00 11.553</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='info'>			
+				<td class='status info' title='Info' alt='Info'><i class='material-icons'> info_outline </i></td>
+				<td class='timestamp'>1:21:16 PM</td>
+				<td class='step-details'>
+						Scenario Started: Verify upload invalid pdf
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:21:25 PM</td>
+				<td class='step-details'>
+						Browser refreshed successfully after verification.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:21:25 PM</td>
+				<td class='step-details'>
+						Upload QR Code Step 2 label verification successful. Expected: Verify document, Actual: Verify document
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:21:25 PM</td>
+				<td class='step-details'>
+						Upload QR Code Step 3 label verification successful. Expected: View result, Actual: View result
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:21:26 PM</td>
+				<td class='step-details'>
+						Upload button is successfully visible.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:21:27 PM</td>
+				<td class='step-details'>
+						Successfully attempted to upload an invalid PDF file.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:21:28 PM</td>
+				<td class='step-details'>
+						Successfully verified MultiFormat alert message for blur QR code.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:21:28 PM</td>
+				<td class='step-details'>
+						✅ Scenario Passed: Verify upload invalid pdf
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='740'>
+					<div class='test-heading'>
+						<span class='test-name'>Verify upload valid SD-Jwt qr code</span>
+						<span class='test-time'>Oct 28, 2025 01:21:38 PM</span>
+						<span class='test-status right pass'>Pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Oct 28, 2025 01:21:38 PM</span>
+	<span class='label end-time'>Oct 28, 2025 01:21:52 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>00 00 14.310</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='info'>			
+				<td class='status info' title='Info' alt='Info'><i class='material-icons'> info_outline </i></td>
+				<td class='timestamp'>1:21:38 PM</td>
+				<td class='step-details'>
+						Scenario Started: Verify upload valid SD-Jwt qr code
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:21:49 PM</td>
+				<td class='step-details'>
+						Browser refreshed successfully after verification.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:21:49 PM</td>
+				<td class='step-details'>
+						Upload QR Code Step 2 label verification successful. Expected: Verify document, Actual: Verify document
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:21:50 PM</td>
+				<td class='step-details'>
+						Upload QR Code Step 3 label verification successful. Expected: View result, Actual: View result
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:21:51 PM</td>
+				<td class='step-details'>
+						Upload button is successfully visible.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:21:51 PM</td>
+				<td class='step-details'>
+						Successfully uploaded SD-Jwt QR code.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:21:52 PM</td>
+				<td class='step-details'>
+						Valid QR code message verified successfully: Congratulations, the given credential is valid!
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:21:52 PM</td>
+				<td class='step-details'>
+						✅ Scenario Passed: Verify upload valid SD-Jwt qr code
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='762'>
+					<div class='test-heading'>
+						<span class='test-name'>Verify valid vc verification status expiry</span>
+						<span class='test-time'>Oct 28, 2025 01:22:02 PM</span>
+						<span class='test-status right pass'>Pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Oct 28, 2025 01:22:02 PM</span>
+	<span class='label end-time'>Oct 28, 2025 01:22:19 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>00 00 16.581</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='info'>			
+				<td class='status info' title='Info' alt='Info'><i class='material-icons'> info_outline </i></td>
+				<td class='timestamp'>1:22:02 PM</td>
+				<td class='step-details'>
+						Scenario Started: Verify valid vc verification status expiry
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:22:13 PM</td>
+				<td class='step-details'>
+						Browser refreshed successfully after verification.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:22:13 PM</td>
+				<td class='step-details'>
+						Upload QR Code Step 2 label verification successful. Expected: Verify document, Actual: Verify document
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:22:15 PM</td>
+				<td class='step-details'>
+						Upload QR Code Step 3 label verification successful. Expected: View result, Actual: View result
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:22:15 PM</td>
+				<td class='step-details'>
+						Upload button is successfully visible.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:22:16 PM</td>
+				<td class='step-details'>
+						Uploaded a QR code file (PDF) downloaded from mobile successfully.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:22:18 PM</td>
+				<td class='step-details'>
+						Valid QR code message verified successfully: Congratulations, the given credential is valid!
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:22:19 PM</td>
+				<td class='step-details'>
+						Upload button is successfully visible.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:22:19 PM</td>
+				<td class='step-details'>
+						✅ Scenario Passed: Verify valid vc verification status expiry
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='787'>
+					<div class='test-heading'>
+						<span class='test-name'>Verify invalid vc verification status expiry</span>
+						<span class='test-time'>Oct 28, 2025 01:22:29 PM</span>
+						<span class='test-status right pass'>Pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Oct 28, 2025 01:22:29 PM</span>
+	<span class='label end-time'>Oct 28, 2025 01:22:55 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>00 00 25.718</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='info'>			
+				<td class='status info' title='Info' alt='Info'><i class='material-icons'> info_outline </i></td>
+				<td class='timestamp'>1:22:29 PM</td>
+				<td class='step-details'>
+						Scenario Started: Verify invalid vc verification status expiry
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:22:48 PM</td>
+				<td class='step-details'>
+						Browser refreshed successfully after verification.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:22:49 PM</td>
+				<td class='step-details'>
+						Upload QR Code Step 2 label verification successful. Expected: Verify document, Actual: Verify document
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:22:49 PM</td>
+				<td class='step-details'>
+						Upload QR Code Step 3 label verification successful. Expected: View result, Actual: View result
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:22:50 PM</td>
+				<td class='step-details'>
+						Upload button is successfully visible.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:22:53 PM</td>
+				<td class='step-details'>
+						Successfully attempted to upload an invalid PDF file.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:22:53 PM</td>
+				<td class='step-details'>
+						Successfully verified MultiFormat alert message for blur QR code.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:22:55 PM</td>
+				<td class='step-details'>
+						Upload button is successfully visible.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:22:55 PM</td>
+				<td class='step-details'>
+						✅ Scenario Passed: Verify invalid vc verification status expiry
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='813'>
+					<div class='test-heading'>
+						<span class='test-name'>Verify the Inji Verify homepage</span>
+						<span class='test-time'>Oct 28, 2025 01:23:05 PM</span>
+						<span class='test-status right pass'>Pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Oct 28, 2025 01:23:05 PM</span>
+	<span class='label end-time'>Oct 28, 2025 01:23:23 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>00 00 17.979</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='info'>			
+				<td class='status info' title='Info' alt='Info'><i class='material-icons'> info_outline </i></td>
+				<td class='timestamp'>1:23:05 PM</td>
+				<td class='step-details'>
+						Scenario Started: Verify the Inji Verify homepage
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:23:14 PM</td>
+				<td class='step-details'>
+						Successfully retrieved the page title: https://injiverify.qa-inji1.mosip.net/
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:23:14 PM</td>
+				<td class='step-details'>
+						Page title validation successful. Expected: Inji Verify, Actual: Inji Verify
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:23:15 PM</td>
+				<td class='step-details'>
+						Header verification successful. Expected: Verify credentials with ease!, Actual: Verify credentials with ease!
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:23:15 PM</td>
+				<td class='step-details'>
+						Sub-header verification successful. Expected: Effortlessly verify credentials with Inji Verify! Just scan the QR code or upload it for instant validation, following the steps below., Actual: Effortlessly verify credentials with Inji Verify! Just scan the QR code or upload it for instant validation, following the steps below.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:23:15 PM</td>
+				<td class='step-details'>
+						Home button is displayed successfully.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:23:15 PM</td>
+				<td class='step-details'>
+						Credentials button is displayed successfully.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:23:15 PM</td>
+				<td class='step-details'>
+						Help button is displayed successfully.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:23:15 PM</td>
+				<td class='step-details'>
+						Expansion button is displayed before expansion successfully.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:23:16 PM</td>
+				<td class='step-details'>
+						Successfully clicked on the Home button.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:23:16 PM</td>
+				<td class='step-details'>
+						Successfully navigated to the home page after clicking the Home button.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:23:17 PM</td>
+				<td class='step-details'>
+						All links under Help are valid and functional.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:23:19 PM</td>
+				<td class='step-details'>
+						Clicked on minimize Help button successfully.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:23:19 PM</td>
+				<td class='step-details'>
+						Help option minimized successfully.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:23:19 PM</td>
+				<td class='step-details'>
+						Upload QR Code tab is visible successfully.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:23:20 PM</td>
+				<td class='step-details'>
+						Scan QR Code tab is visible successfully.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:23:20 PM</td>
+				<td class='step-details'>
+						VP Verification tab is visible successfully.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:23:20 PM</td>
+				<td class='step-details'>
+						BLE tab is visible successfully.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:23:20 PM</td>
+				<td class='step-details'>
+						Copyright text verification successful. Expected: 2024 © MOSIP - All rights reserved., Actual: 2024 © MOSIP - All rights reserved.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:23:20 PM</td>
+				<td class='step-details'>
+						Upload QR Code Step 1 label verification successful. Expected: Upload QR Code, Actual: Upload QR Code
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:23:20 PM</td>
+				<td class='step-details'>
+						Upload QR Code Step 1 description verification successful. Expected: Upload a file that contains a QR code, Actual: Upload a file that contains a QR code
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:23:20 PM</td>
+				<td class='step-details'>
+						Upload QR Code Step 2 label verification successful. Expected: Verify document, Actual: Verify document
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:23:21 PM</td>
+				<td class='step-details'>
+						Upload QR Code Step 2 description verification successful. Expected: Verification for the document or card is in progress., Actual: Verification for the document or card is in progress.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:23:21 PM</td>
+				<td class='step-details'>
+						Upload QR Code Step 3 label verification successful. Expected: View result, Actual: View result
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:23:21 PM</td>
+				<td class='step-details'>
+						Upload QR Code Step 3 label verification successful. Expected: View result, Actual: View result
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:23:21 PM</td>
+				<td class='step-details'>
+						Upload QR Code Step 3 description verification successful. Expected: View the verification result., Actual: View the verification result.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:23:21 PM</td>
+				<td class='step-details'>
+						Scan element is successfully visible on the page.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:23:22 PM</td>
+				<td class='step-details'>
+						Upload button is successfully visible.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:23:23 PM</td>
+				<td class='step-details'>
+						File format constraints text verification successful. Expected: Allowed file formats: PNG/JPEG/JPG/PDF File Size - 10KB to 5MB, Actual: Allowed file formats: PNG/JPEG/JPG/PDF File Size - 10KB to 5MB
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:23:23 PM</td>
+				<td class='step-details'>
+						✅ Scenario Passed: Verify the Inji Verify homepage
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='899'>
+					<div class='test-heading'>
+						<span class='test-name'>Verify the scan qr code</span>
+						<span class='test-time'>Oct 28, 2025 01:23:33 PM</span>
+						<span class='test-status right pass'>Pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Oct 28, 2025 01:23:33 PM</span>
+	<span class='label end-time'>Oct 28, 2025 01:23:51 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>00 00 18.159</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='info'>			
+				<td class='status info' title='Info' alt='Info'><i class='material-icons'> info_outline </i></td>
+				<td class='timestamp'>1:23:33 PM</td>
+				<td class='step-details'>
+						Scenario Started: Verify the scan qr code
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:23:43 PM</td>
+				<td class='step-details'>
+						Successfully retrieved the page title: https://injiverify.qa-inji1.mosip.net/
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:23:44 PM</td>
+				<td class='step-details'>
+						Page title validation successful. Expected: Inji Verify, Actual: Inji Verify
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:23:44 PM</td>
+				<td class='step-details'>
+						Clicked on 'Scan QR' tab successfully.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:23:45 PM</td>
+				<td class='step-details'>
+						Verified Scan QR Code Step 1 label successfully. Expected: Scan QR Code, Actual: Scan QR Code
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:23:45 PM</td>
+				<td class='step-details'>
+						Verified Scan QR Code Step 1 description successfully. Expected: Tap 'Scan' to start scanning the document or card with a QR code, Actual: Tap 'Scan' to start scanning the document or card with a QR code
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:23:45 PM</td>
+				<td class='step-details'>
+						Verified Scan QR Code Step 2 label successfully. Expected: Activate Camera and Position QR Code, Actual: Activate Camera and Position QR Code
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:23:45 PM</td>
+				<td class='step-details'>
+						Verified Scan QR Code Step 2 description successfully. Expected: Activate your device camera and hold the QR code within the frame to initiate verification., Actual: Activate your device camera and hold the QR code within the frame to initiate verification.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:23:45 PM</td>
+				<td class='step-details'>
+						Verified Scan QR Code Step 3 label successfully. Expected: Verification in Progress, Actual: Verification in Progress
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:23:45 PM</td>
+				<td class='step-details'>
+						Verified Scan QR Code Step 3 description successfully. Expected: The QR code verification is in progress., Actual: The QR code verification is in progress.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:23:46 PM</td>
+				<td class='step-details'>
+						Verified Scan QR Code Step 3 label successfully. Expected: Verification in Progress, Actual: Verification in Progress
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:23:46 PM</td>
+				<td class='step-details'>
+						Verified Scan QR Code Step 3 description successfully. Expected: The QR code verification is in progress., Actual: The QR code verification is in progress.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:23:46 PM</td>
+				<td class='step-details'>
+						Successfully verified that the Scan QR Code area is visible.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:23:46 PM</td>
+				<td class='step-details'>
+						Scan QR Code icon is visible.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:23:47 PM</td>
+				<td class='step-details'>
+						Scan QR Code button is visible.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:23:47 PM</td>
+				<td class='step-details'>
+						Scan QR Code button is visible.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:23:47 PM</td>
+				<td class='step-details'>
+						Scan QR Code Step 2 label is correctly displayed after.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:23:47 PM</td>
+				<td class='step-details'>
+						Scan QR Code button is visible.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:23:48 PM</td>
+				<td class='step-details'>
+						Successfully clicked on the Home button.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:23:50 PM</td>
+				<td class='step-details'>
+						Upload button is successfully visible.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:23:50 PM</td>
+				<td class='step-details'>
+						Clicked on 'Scan QR' tab successfully.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:23:50 PM</td>
+				<td class='step-details'>
+						Successfully clicked on the VP verification tab.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:23:50 PM</td>
+				<td class='step-details'>
+						VP verification tab is active after clicking.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:23:51 PM</td>
+				<td class='step-details'>
+						Clicked on 'Scan QR' tab successfully.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:23:51 PM</td>
+				<td class='step-details'>
+						Scan QR Code button is visible.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:23:51 PM</td>
+				<td class='step-details'>
+						✅ Scenario Passed: Verify the scan qr code
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='972'>
+					<div class='test-heading'>
+						<span class='test-name'>Verify the expired scan qr code error message</span>
+						<span class='test-time'>Oct 28, 2025 01:24:01 PM</span>
+						<span class='test-status right pass'>Pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Oct 28, 2025 01:24:01 PM</span>
+	<span class='label end-time'>Oct 28, 2025 01:24:12 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>00 00 10.758</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='info'>			
+				<td class='status info' title='Info' alt='Info'><i class='material-icons'> info_outline </i></td>
+				<td class='timestamp'>1:24:01 PM</td>
+				<td class='step-details'>
+						Scenario Started: Verify the expired scan qr code error message
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:24:10 PM</td>
+				<td class='step-details'>
+						Successfully retrieved the page title: https://injiverify.qa-inji1.mosip.net/
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:24:10 PM</td>
+				<td class='step-details'>
+						Page title validation successful. Expected: Inji Verify, Actual: Inji Verify
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:24:11 PM</td>
+				<td class='step-details'>
+						Clicked on 'Scan QR' tab successfully.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:24:11 PM</td>
+				<td class='step-details'>
+						Successfully verified that the Scan QR Code area is visible.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:24:11 PM</td>
+				<td class='step-details'>
+						Scan QR Code icon is visible.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:24:11 PM</td>
+				<td class='step-details'>
+						Scan QR Code button is visible.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:24:11 PM</td>
+				<td class='step-details'>
+						Scan QR Code button is visible.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:24:12 PM</td>
+				<td class='step-details'>
+						Scan QR Code Step 2 label is correctly displayed after.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:24:12 PM</td>
+				<td class='step-details'>
+						✅ Scenario Passed: Verify the expired scan qr code error message
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='1,002'>
+					<div class='test-heading'>
+						<span class='test-name'>Verify the VP verification panel</span>
+						<span class='test-time'>Oct 28, 2025 01:24:22 PM</span>
+						<span class='test-status right pass'>Pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Oct 28, 2025 01:24:22 PM</span>
+	<span class='label end-time'>Oct 28, 2025 01:24:45 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>00 00 23.120</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='info'>			
+				<td class='status info' title='Info' alt='Info'><i class='material-icons'> info_outline </i></td>
+				<td class='timestamp'>1:24:22 PM</td>
+				<td class='step-details'>
+						Scenario Started: Verify the VP verification panel
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:24:36 PM</td>
+				<td class='step-details'>
+						Successfully retrieved the page title: https://injiverify.qa-inji1.mosip.net/
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:24:36 PM</td>
+				<td class='step-details'>
+						Page title validation successful. Expected: Inji Verify, Actual: Inji Verify
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:24:37 PM</td>
+				<td class='step-details'>
+						Successfully clicked on the VP verification tab.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:24:37 PM</td>
+				<td class='step-details'>
+						VP verification tab is active after clicking.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:24:37 PM</td>
+				<td class='step-details'>
+						Successfully verified VP verification qr code step1 description.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:24:37 PM</td>
+				<td class='step-details'>
+						Successfully verified VP verification qr code step1 label.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:24:37 PM</td>
+				<td class='step-details'>
+						Successfully verified VP verification qr code step2 label.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:24:37 PM</td>
+				<td class='step-details'>
+						Successfully verified VP verification qr code step2 description.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:24:37 PM</td>
+				<td class='step-details'>
+						Successfully verified VP verification qr code step3 label.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:24:38 PM</td>
+				<td class='step-details'>
+						Successfully verified VP verification qr code step3 description.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:24:38 PM</td>
+				<td class='step-details'>
+						Successfully verified VP verification qr code step4 label.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:24:38 PM</td>
+				<td class='step-details'>
+						Successfully verified VP verification qr code step4 description.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:24:39 PM</td>
+				<td class='step-details'>
+						Successfully clicked on Request Verifiable Credentials button.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:24:40 PM</td>
+				<td class='step-details'>
+						Successfully verified Verifiable Credential Selection Panel is displayed with correct text.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:24:40 PM</td>
+				<td class='step-details'>
+						Successfully clicked on the 'Sort By' button.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:24:40 PM</td>
+				<td class='step-details'>
+						Successfully clicked on the 'Sort A to Z' button.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:24:41 PM</td>
+				<td class='step-details'>
+						Successfully clicked on the 'Sort By' button.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:24:41 PM</td>
+				<td class='step-details'>
+						Successfully clicked on the 'Sort Z to A' button.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:24:44 PM</td>
+				<td class='step-details'>
+						Successfully entered credential type: life
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:24:45 PM</td>
+				<td class='step-details'>
+						Successfully clicked on the 'Back' button.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:24:45 PM</td>
+				<td class='step-details'>
+						✅ Scenario Passed: Verify the VP verification panel
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='1,063'>
+					<div class='test-heading'>
+						<span class='test-name'>Verify the VP verification QR code</span>
+						<span class='test-time'>Oct 28, 2025 01:24:55 PM</span>
+						<span class='test-status right pass'>Pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Oct 28, 2025 01:24:55 PM</span>
+	<span class='label end-time'>Oct 28, 2025 01:25:13 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>00 00 18.202</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='info'>			
+				<td class='status info' title='Info' alt='Info'><i class='material-icons'> info_outline </i></td>
+				<td class='timestamp'>1:24:55 PM</td>
+				<td class='step-details'>
+						Scenario Started: Verify the VP verification QR code
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:25:05 PM</td>
+				<td class='step-details'>
+						Successfully retrieved the page title: https://injiverify.qa-inji1.mosip.net/
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:25:05 PM</td>
+				<td class='step-details'>
+						Page title validation successful. Expected: Inji Verify, Actual: Inji Verify
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:25:06 PM</td>
+				<td class='step-details'>
+						Successfully clicked on the VP verification tab.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:25:06 PM</td>
+				<td class='step-details'>
+						VP verification tab is active after clicking.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:25:07 PM</td>
+				<td class='step-details'>
+						Successfully clicked on Request Verifiable Credentials button.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:25:08 PM</td>
+				<td class='step-details'>
+						Successfully verified Verifiable Credential Selection Panel is displayed with correct text.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:25:08 PM</td>
+				<td class='step-details'>
+						Successfully clicked on the 'Generate QR Code' button.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:25:08 PM</td>
+				<td class='step-details'>
+						Successfully verified that the QR code was generated.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:25:08 PM</td>
+				<td class='step-details'>
+						Successfully clicked on the VP verification tab.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:25:08 PM</td>
+				<td class='step-details'>
+						VP verification tab is active after clicking.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:25:10 PM</td>
+				<td class='step-details'>
+						Successfully clicked on Request Verifiable Credentials button.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:25:11 PM</td>
+				<td class='step-details'>
+						Successfully verified Verifiable Credential Selection Panel is displayed with correct text.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:25:11 PM</td>
+				<td class='step-details'>
+						Successfully unchecked the MOSIP ID option.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:25:12 PM</td>
+				<td class='step-details'>
+						Successfully selected the Health Insurance option.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:25:12 PM</td>
+				<td class='step-details'>
+						Successfully selected the Land Registry option.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:25:12 PM</td>
+				<td class='step-details'>
+						Successfully clicked on the 'Generate QR Code' button.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:25:13 PM</td>
+				<td class='step-details'>
+						Successfully verified that the QR code was generated.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:25:13 PM</td>
+				<td class='step-details'>
+						Successfully clicked on the VP verification tab.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:25:13 PM</td>
+				<td class='step-details'>
+						VP verification tab is active after clicking.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:25:13 PM</td>
+				<td class='step-details'>
+						✅ Scenario Passed: Verify the VP verification QR code
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='1,115'>
+					<div class='test-heading'>
+						<span class='test-name'>Verify VP verification same device flow</span>
+						<span class='test-time'>Oct 28, 2025 01:25:23 PM</span>
+						<span class='test-status right pass'>Pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Oct 28, 2025 01:25:23 PM</span>
+	<span class='label end-time'>Oct 28, 2025 01:25:37 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>00 00 14.497</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='info'>			
+				<td class='status info' title='Info' alt='Info'><i class='material-icons'> info_outline </i></td>
+				<td class='timestamp'>1:25:23 PM</td>
+				<td class='step-details'>
+						Scenario Started: Verify VP verification same device flow
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:25:32 PM</td>
+				<td class='step-details'>
+						Successfully retrieved the page title: https://injiverify.qa-inji1.mosip.net/
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:25:32 PM</td>
+				<td class='step-details'>
+						Page title validation successful. Expected: Inji Verify, Actual: Inji Verify
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:25:33 PM</td>
+				<td class='step-details'>
+						Successfully clicked on the right arrow.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:25:33 PM</td>
+				<td class='step-details'>
+						Right arrow is active after clicking.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:25:33 PM</td>
+				<td class='step-details'>
+						Successfully clicked on the VP verification tab.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:25:33 PM</td>
+				<td class='step-details'>
+						VP verification tab is active after clicking.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:25:36 PM</td>
+				<td class='step-details'>
+						Successfully clicked on Request Verifiable Credentials button.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:25:37 PM</td>
+				<td class='step-details'>
+						Successfully clicked on the 'Open Wallet' button.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:25:37 PM</td>
+				<td class='step-details'>
+						Successfully verified that the loading screen is displayed.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:25:37 PM</td>
+				<td class='step-details'>
+						✅ Scenario Passed: Verify VP verification same device flow
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='1,141'>
+					<div class='test-heading'>
+						<span class='test-name'>Verify the VP verification QR code</span>
+						<span class='test-time'>Oct 28, 2025 01:25:47 PM</span>
+						<span class='test-status right pass'>Pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Oct 28, 2025 01:25:47 PM</span>
+	<span class='label end-time'>Oct 28, 2025 01:26:09 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>00 00 21.419</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='info'>			
+				<td class='status info' title='Info' alt='Info'><i class='material-icons'> info_outline </i></td>
+				<td class='timestamp'>1:25:47 PM</td>
+				<td class='step-details'>
+						Scenario Started: Verify the VP verification QR code
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:25:58 PM</td>
+				<td class='step-details'>
+						Successfully retrieved the page title: https://injiverify.qa-inji1.mosip.net/
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:25:58 PM</td>
+				<td class='step-details'>
+						Page title validation successful. Expected: Inji Verify, Actual: Inji Verify
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:25:59 PM</td>
+				<td class='step-details'>
+						Successfully clicked on the VP verification tab.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:25:59 PM</td>
+				<td class='step-details'>
+						VP verification tab is active after clicking.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:26:01 PM</td>
+				<td class='step-details'>
+						Successfully clicked on Request Verifiable Credentials button.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:26:02 PM</td>
+				<td class='step-details'>
+						Successfully verified Verifiable Credential Selection Panel is displayed with correct text.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:26:05 PM</td>
+				<td class='step-details'>
+						Successfully entered credential type: SD JWT
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:26:05 PM</td>
+				<td class='step-details'>
+						Successfully selected the SD JWT VC option.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:26:06 PM</td>
+				<td class='step-details'>
+						Successfully clicked on the 'Generate QR Code' button.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:26:06 PM</td>
+				<td class='step-details'>
+						Successfully verified that the QR code was generated.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:26:07 PM</td>
+				<td class='step-details'>
+						Successfully clicked on the VP verification tab.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:26:07 PM</td>
+				<td class='step-details'>
+						VP verification tab is active after clicking.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:26:08 PM</td>
+				<td class='step-details'>
+						Successfully clicked on Request Verifiable Credentials button.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:26:08 PM</td>
+				<td class='step-details'>
+						Successfully verified Verifiable Credential Selection Panel is displayed with correct text.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:26:08 PM</td>
+				<td class='step-details'>
+						Successfully selected the Health Insurance option.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:26:09 PM</td>
+				<td class='step-details'>
+						Successfully clicked on the 'Generate QR Code' button.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:26:09 PM</td>
+				<td class='step-details'>
+						Successfully verified that the QR code was generated.
+				</td>
+			</tr>
+			<tr class='log' status='pass'>			
+				<td class='status pass' title='Pass' alt='Pass'><i class='material-icons'> check_circle </i></td>
+				<td class='timestamp'>1:26:09 PM</td>
+				<td class='step-details'>
+						✅ Scenario Passed: Verify the VP verification QR code
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	
+	
+	<!-- subview left -->
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<div id='step-filters' class="right sr-filters">
+				<a class="btn-floating waves-effect waves-light green" status="pass" alt="pass" title="pass"><i class="material-icons">check_circle</i></a>
+				<a class="btn-floating waves-effect waves-light red" status="fail" alt="fail" title="fail"><i class="material-icons">cancel</i></a>
+				<a class="btn-floating waves-effect waves-light red darken-4" status="fatal" alt="fatal" title="fatal"><i class="material-icons">cancel</i></a>
+				<a class="btn-floating waves-effect waves-light pink text-lighten-1" status="error" alt="error" title="error"><i class="material-icons">error</i></a>
+				<a class="btn-floating waves-effect waves-light orange" alt="warning" status="warning" title="warning"><i class="material-icons">warning</i></a>
+				<a class="btn-floating waves-effect waves-light teal" status="skip" alt="skip" title="skip"><i class="material-icons">redo</i></a>
+				<a class="btn-floating waves-effect waves-light grey" status="clear" alt="Clear filters" title="Clear filters"><i class="material-icons">clear</i></a>
+			</div>
+			<h5 class='test-name'></h5>
+		</div>
+	</div>
+	<!-- subview right -->
+</div>
+<!-- test view --><div id='dashboard-view' class='view hide'>
+	<div class='card-panel transparent np-v'>
+		<h5>Dashboard</h5>
+
+		<div class='row'>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Tests
+					<div class='panel-lead'>21</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Steps
+					<div class='panel-lead'>0</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Start
+					<div class='panel-lead'>Oct 28, 2025 01:13:06 PM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+			 		End
+			 		<div class='panel-lead'>Oct 28, 2025 01:26:09 PM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Time Taken
+					<div class='panel-lead'>00 13 02.888</div>
+				</div>
+			</div>
+			<div class='col s4'>
+				<div class='card-panel dashboard-environment'>
+					<span class='right label cyan white-text'>Environment</span><p>&nbsp;</p>
+					
+					<table>
+						<tr>
+							<th>Name</th>
+							<th>Value</th>
+						</tr>
+							<tr>
+								<td>Test URL</td>
+								<td>https://injiverify.qa-inji1.mosip.net/</td>
+							</tr>
+							<tr>
+								<td>Dependent URL</td>
+								<td>https://injiweb.qa-inji1.mosip.net/issuers</td>
+							</tr>
+							<tr>
+								<td>Execution Start Time</td>
+								<td>2025-10-28 13:13:06</td>
+							</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- dashboard view -->
+		</div>
+		<!-- container -->
+		<script>
+			var statusGroup = {
+                parentCount: 21,
+				passParent: 21,
+				failParent: 0,
+				fatalParent: 0,
+				errorParent: 0,
+				warningParent: 0,
+				skipParent: 0,
+				childCount: 0,
+				passChild: 0,
+				failChild: 0,
+				fatalChild: 0,
+				errorChild: 0,
+				warningChild: 0,
+				skipChild: 0,
+				infoChild: 0,
+				grandChildCount: 0,
+				passGrandChild: 0,
+				failGrandChild: 0,
+				fatalGrandChild: 0,
+				errorGrandChild: 0,
+				warningGrandChild: 0,
+				skipGrandChild: 0,
+				infoGrandChild: 0,
+			};
+			</script>
+		
+		<script>
+			var timeline = {
+			        "Verify the Inji Verify homepage":12.251,"Verify upload qr code with png":69.178,"Verify upload qr code with PDF":61.038,"Verify upload qr code with jpg":65.522,"Verify upload qr code with jpeg":63.405,"Verify upload qr code for invalid":37.576,"Verify upload qr code for Valid":15.322,"Verify upload large size QR code":12.011,"Verify upload blur QR code":13.376,"Verify multiple qr code in one image":39.726,"Verify upload invalid pdf":11.553,"Verify upload valid SD-Jwt qr code":14.31,"Verify valid vc verification status expiry":16.581,"Verify invalid vc verification status expiry":25.718,"Verify the Inji Verify homepage":17.979,"Verify the scan qr code":18.159,"Verify the expired scan qr code error message":10.758,"Verify the VP verification panel":23.12,"Verify the VP verification QR code":18.202,"Verify VP verification same device flow":14.497,"Verify the VP verification QR code":21.419
+			};
+		</script>
+		
+		  <script src='http://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@ff53917fbbdb5ef820abbbe4d199a6942dc771ff/v3html/js/extent.js' type='text/javascript'></script>
+		
+		
+		<script type='text/javascript'>
+				
+		</script> 
+
+	</body>
+</html>

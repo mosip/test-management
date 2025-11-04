@@ -1,5 +1,11 @@
-Date,Module,T,P,S,F,I,KI
-31-October-2025,dsl,204,0,202,2,0,0
-31-October-2025,adminui,16,16,0,0,0,0
-31-October-2025,residentui,25,2,5,18,0,0
-31-October-2025,pmpui,15,5,8,2,0,0
+Date,Module,T,P,S,F,I,KI,, ,Date,Module,T,P,S,F,I,KI
+04-November-2025,masterdata-ara,945,893,0,2,15,35,,,03-November-2025,masterdata-ara,945,893,0,2,15,35
+04-November-2025,masterdata-eng,945,921,0,2,0,22,,,03-November-2025,masterdata-eng,945,921,0,2,0,22
+04-November-2025,masterdata-fra,945,905,0,2,15,23,,,03-November-2025,masterdata-fra,945,905,0,2,15,23
+04-November-2025,masterdata-hin,945,893,0,2,15,35,,,03-November-2025,masterdata-hin,945,893,0,2,15,35
+04-November-2025,masterdata-kan,945,893,0,2,15,35,,,03-November-2025,masterdata-kan,945,893,0,2,15,35
+04-November-2025,masterdata-tam,945,893,0,2,15,35,,,03-November-2025,masterdata-tam,945,893,0,2,15,35
+04-November-2025,partner,1068,730,233,105,0,0,,,03-November-2025,partner,1068,751,206,111,0,0
+04-November-2025,adminui,16,0,0,16,0,0,,,03-November-2025,dsl,3,0,0,3,0,0
+04-November-2025,residentui,25,1,5,19,0,0,,,,,,,,,,
+04-November-2025,pmpui,15,0,11,4,0,0,,,,,,,,,,

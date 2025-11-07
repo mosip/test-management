@@ -1,10 +1,10 @@
 Date,Module,T,P,S,F,I,KI,, ,Date,Module,T,P,S,F,I,KI,, ,Date,Module,T,P,S,F,I,KI
-06-November-2025,auth,612,591,0,0,5,16,,,05-November-2025,auth,612,589,0,2,5,16,,,04-November-2025,auth,612,591,0,0,5,16
-06-November-2025,idrepo,414,316,0,0,78,20,,,05-November-2025,idrepo,414,316,0,0,78,20,,,04-November-2025,idrepo,414,316,0,0,78,20
-06-November-2025,masterdata-ara,945,895,0,0,15,35,,,05-November-2025,masterdata-ara,945,895,0,0,15,35,,,04-November-2025,masterdata-ara,945,895,0,0,15,35
-06-November-2025,masterdata-eng,945,923,0,0,0,22,,,05-November-2025,masterdata-eng,945,923,0,0,0,22,,,04-November-2025,masterdata-eng,945,923,0,0,0,22
-06-November-2025,masterdata-fra,945,907,0,0,15,23,,,05-November-2025,masterdata-fra,945,907,0,0,15,23,,,04-November-2025,masterdata-fra,945,907,0,0,15,23
-06-November-2025,partner,509,332,134,29,2,12,,,05-November-2025,partner,509,332,134,29,2,12,,,04-November-2025,partner,509,332,134,29,2,12
-06-November-2025,prereg,288,277,0,0,2,9,,,05-November-2025,prereg,288,277,0,0,2,9,,,04-November-2025,prereg,288,277,0,0,2,9
-06-November-2025,resident,1142,586,68,476,0,12,,,05-November-2025,resident,1142,586,68,476,0,12,,,04-November-2025,resident,1142,592,70,468,0,12
-,,,,,,,,,,05-November-2025,dsl,204,104,0,61,12,27,,,04-November-2025,dsl,204,105,0,60,12,27
+07-November-2025,auth,612,591,0,0,5,16,,,06-November-2025,auth,612,591,0,0,5,16,,,05-November-2025,auth,612,589,0,2,5,16
+07-November-2025,idrepo,414,316,0,0,78,20,,,06-November-2025,idrepo,414,316,0,0,78,20,,,05-November-2025,idrepo,414,316,0,0,78,20
+07-November-2025,masterdata-ara,945,895,0,0,15,35,,,06-November-2025,masterdata-ara,945,895,0,0,15,35,,,05-November-2025,masterdata-ara,945,895,0,0,15,35
+07-November-2025,masterdata-eng,945,923,0,0,0,22,,,06-November-2025,masterdata-eng,945,923,0,0,0,22,,,05-November-2025,masterdata-eng,945,923,0,0,0,22
+07-November-2025,masterdata-fra,945,907,0,0,15,23,,,06-November-2025,masterdata-fra,945,907,0,0,15,23,,,05-November-2025,masterdata-fra,945,907,0,0,15,23
+07-November-2025,partner,509,332,134,29,2,12,,,06-November-2025,partner,509,332,134,29,2,12,,,05-November-2025,partner,509,332,134,29,2,12
+07-November-2025,prereg,288,277,0,0,2,9,,,06-November-2025,prereg,288,277,0,0,2,9,,,05-November-2025,prereg,288,277,0,0,2,9
+07-November-2025,resident,1142,590,70,470,0,12,,,06-November-2025,resident,1142,586,68,476,0,12,,,05-November-2025,resident,1142,586,68,476,0,12
+,,,,,,,,,,,,,,,,,,,,05-November-2025,dsl,204,104,0,61,12,27

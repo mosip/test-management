@@ -1,11 +1,10 @@
 Date,Module,T,P,S,F,I,KI,, ,Date,Module,T,P,S,F,I,KI,, ,Date,Module,T,P,S,F,I,KI,, ,Date,Module,T,P,S,F,I,KI
-18-November-2025,auth,610,577,0,12,5,16,,,17-November-2025,masterdata-ara,945,894,0,2,15,34,,,14-November-2025,auth,610,574,0,15,5,16,,,13-November-2025,adminui,16,16,0,0,0,0
-18-November-2025,masterdata-ara,945,894,0,2,15,34,,,17-November-2025,masterdata-eng,945,922,0,1,0,22,,,14-November-2025,idrepo,414,316,0,0,78,20,,,,,,,,,,
-18-November-2025,masterdata-eng,945,922,0,1,0,22,,,17-November-2025,masterdata-fra,945,906,0,1,15,23,,,14-November-2025,masterdata-ara,945,894,0,2,15,34,,,,,,,,,,
-18-November-2025,masterdata-fra,945,906,0,1,15,23,,,17-November-2025,adminui,16,16,0,0,0,0,,,14-November-2025,masterdata-eng,945,922,0,1,0,22,,,,,,,,,,
-18-November-2025,partner,509,329,134,34,0,12,,,17-November-2025,residentui,25,0,5,20,0,0,,,14-November-2025,masterdata-fra,945,906,0,1,15,23,,,,,,,,,,
-18-November-2025,prereg,288,213,4,60,2,9,,,,,,,,,,,,,14-November-2025,partner,509,329,134,34,0,12,,,,,,,,,,
-18-November-2025,resident,1142,587,70,473,0,12,,,,,,,,,,,,,14-November-2025,prereg,288,276,0,1,2,9,,,,,,,,,,
-18-November-2025,adminui,16,16,0,0,0,0,,,,,,,,,,,,,14-November-2025,resident,1142,587,70,473,0,12,,,,,,,,,,
-18-November-2025,residentui,25,4,5,16,0,0,,,,,,,,,,,,,14-November-2025,adminui,16,16,0,0,0,0,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,14-November-2025,residentui,25,4,5,16,0,0,,,,,,,,,,
+19-November-2025,auth,610,577,0,12,5,16,,,18-November-2025,auth,610,577,0,12,5,16,,,17-November-2025,masterdata-ara,945,894,0,2,15,34,,,14-November-2025,masterdata-ara,945,894,0,2,15,34
+19-November-2025,masterdata-ara,945,895,0,1,15,34,,,18-November-2025,masterdata-ara,945,894,0,2,15,34,,,17-November-2025,masterdata-eng,945,922,0,1,0,22,,,14-November-2025,masterdata-eng,945,922,0,1,0,22
+19-November-2025,masterdata-eng,945,923,0,0,0,22,,,18-November-2025,masterdata-eng,945,922,0,1,0,22,,,17-November-2025,masterdata-fra,945,906,0,1,15,23,,,14-November-2025,masterdata-fra,945,906,0,1,15,23
+19-November-2025,masterdata-fra,945,907,0,0,15,23,,,18-November-2025,masterdata-fra,945,906,0,1,15,23,,,17-November-2025,adminui,16,16,0,0,0,0,,,14-November-2025,adminui,16,16,0,0,0,0
+19-November-2025,partner,509,329,134,34,0,12,,,18-November-2025,partner,509,329,134,34,0,12,,,17-November-2025,residentui,25,0,5,20,0,0,,,,,,,,,,
+19-November-2025,prereg,288,213,4,60,2,9,,,18-November-2025,prereg,288,213,4,60,2,9,,,,,,,,,,,,,,,,,,,,
+19-November-2025,resident,1142,585,70,475,0,12,,,18-November-2025,resident,1142,587,70,473,0,12,,,,,,,,,,,,,,,,,,,,
+19-November-2025,adminui,16,16,0,0,0,0,,,18-November-2025,adminui,16,16,0,0,0,0,,,,,,,,,,,,,,,,,,,,
+19-November-2025,residentui,25,4,5,16,0,0,,,18-November-2025,residentui,25,4,5,16,0,0,,,,,,,,,,,,,,,,,,,,

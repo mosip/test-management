@@ -50,13 +50,11 @@ jobs:
           mc alias set "${{ secrets.MINIO_COLLAB_NAME }}"    "${{ secrets.MINIO_COLLAB_URL }}"    "${{ secrets.MINIO_COLLAB_USER }}"    "${{ secrets.MINIO_COLLAB_PASSWORD }}" --api S3v2
           mc alias set "${{ secrets.MINIO_RELEASED_NAME }}"  "${{ secrets.MINIO_RELEASED_URL }}"  "${{ secrets.MINIO_RELEASED_USER }}"  "${{ secrets.MINIO_RELEASED_PASSWORD }}" --api S3v2
           mc alias set "${{ secrets.MINIO_QABASE_NAME }}"    "${{ secrets.MINIO_QABASE_URL }}"    "${{ secrets.MINIO_QABASE_USER }}"    "${{ secrets.MINIO_QABASE_PASSWORD }}" --api S3v2
-          mc alias set "${{ secrets.MINIO_QA1JAVA21_NAME }}"      "${{ secrets.MINIO_QA1JAVA21_URL }}"      "${{ secrets.MINIO_QA1JAVA21_USER }}"      "${{ secrets.MINIO_QA1JAVA21_PASSWORD }}" --api S3v2
-          mc alias set "${{ secrets.MINIO_QATEST1_NAME }}" "${{ secrets.MINIO_QATEST1_URL }}" "${{ secrets.MINIO_QATEST1_USER }}" "${{ secrets.MINIO_QATEST1_PASSWORD }}" --api S3v2
           mc alias set "${{ secrets.MINIO_SYNERGY1_NAME }}" "${{ secrets.MINIO_SYNERGY1_URL }}" "${{ secrets.MINIO_SYNERGY1_USER }}" "${{ secrets.MINIO_SYNERGY1_PASSWORD }}" --api S3v2
           mc alias set "${{ secrets.MINIO_QA11_NAME }}"    "${{ secrets.MINIO_QA11_URL }}"    "${{ secrets.MINIO_QA11_USER }}"    "${{ secrets.MINIO_QA11_PASSWORD }}" --api S3v2
-          mc alias set "${{ secrets.MINIO_DEVUPGRADE_NAME }}"    "${{ secrets.MINIO_DEVUPGRADE_URL }}"    "${{ secrets.MINIO_DEVUPGRADE_USER }}"    "${{ secrets.MINIO_DEVUPGRADE_PASSWORD }}" --api S3v2
+          mc alias set "${{ secrets.MINIO_QA21_NAME }}"    "${{ secrets.MINIO_QA21_URL }}"    "${{ secrets.MINIO_QA21_USER }}"    "${{ secrets.MINIO_QA21_PASSWORD }}" --api S3v2
           mc alias set "${{ secrets.MINIO_DEVINT_NAME }}"    "${{ secrets.MINIO_DEVINT_URL }}"    "${{ secrets.MINIO_DEVINT_USER }}"    "${{ secrets.MINIO_DEVINT_PASSWORD }}" --api S3v2
-          mc alias set "${{ secrets.MINIO_QAGA_NAME }}"    "${{ secrets.MINIO_QAGA_URL }}"    "${{ secrets.MINIO_QAGA_USER }}"    "${{ secrets.MINIO_QAGA_PASSWORD }}" --api S3v2
+          mc alias set "${{ secrets.MINIO_DEV_NAME }}"    "${{ secrets.MINIO_DEV_URL }}"    "${{ secrets.MINIO_DEV_USER }}"    "${{ secrets.MINIO_DEV_PASSWORD }}" --api S3v2
 
 
       - name: Remove old CSVs from Git folder

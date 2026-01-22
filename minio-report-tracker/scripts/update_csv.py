@@ -11,7 +11,7 @@ except Exception:
     # Fallback if zoneinfo/tzdata is unavailable
     IST = timezone(timedelta(hours=5, minutes=30))
 
-MINIO_ALIASES = ["cellbox21", "collab", "released", "qa-base", "qa1-java21", "qatest1", "synergy1", "qa11", "devupgrade", "devint", "qaga"]
+MINIO_ALIASES = ["cellbox21", "collab", "released", "qa-base", "synergy1", "qa11", "dev", "devint", "qa21"]
 MINIO_BUCKETS = ["apitestrig", "automation", "dslreports", "uitestrig"]
 columns = ["Date", "Module", "T", "P", "S", "F", "I", "KI"]
 

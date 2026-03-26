@@ -10,6 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: daily-automation-reports
+    permissions:
+      contents: write
 
     steps:
       - name: Checkout daily-automation-reports branch
@@ -94,4 +96,4 @@ jobs:
           git add minio-report-tracker/csv/*.csv
           git add minio-report-tracker/xlxs/*.xlsx
           git commit -m "Update CSV, XLSX, and Google Sheet reports" --allow-empty || echo "Nothing to commit"
-          git push origin daily-automation-reports
+          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git daily-automation-reports

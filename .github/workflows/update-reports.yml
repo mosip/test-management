@@ -10,6 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: daily-automation-reports
+    permissions:
+      contents: write    
 
     steps:
       - name: Checkout daily-automation-reports branch

@@ -1,9 +1,9 @@
 Date,Module,T,P,S,F,I,KI,, ,Date,Module,T,P,S,F,I,KI,, ,Date,Module,T,P,S,F,I,KI,, ,Date,Module,T,P,S,F,I,KI
-09-April-2026,auth,612,598,0,0,5,9,,,08-April-2026,auth,612,598,0,0,5,9,,,07-April-2026,auth,612,598,0,0,5,9,,,06-April-2026,prereg,288,282,0,0,2,4
-09-April-2026,idrepo,414,336,0,0,78,0,,,08-April-2026,idrepo,414,336,0,0,78,0,,,07-April-2026,idrepo,414,336,0,0,78,0,,,,,,,,,,
-09-April-2026,masterdata-ara,945,929,0,1,15,0,,,08-April-2026,masterdata-ara,945,929,0,1,15,0,,,07-April-2026,masterdata-ara,945,929,0,1,15,0,,,,,,,,,,
-09-April-2026,masterdata-eng,945,944,0,1,0,0,,,08-April-2026,masterdata-eng,945,944,0,1,0,0,,,07-April-2026,masterdata-eng,945,944,0,1,0,0,,,,,,,,,,
-09-April-2026,masterdata-fra,945,929,0,1,15,0,,,08-April-2026,masterdata-fra,945,929,0,1,15,0,,,07-April-2026,masterdata-fra,945,929,0,1,15,0,,,,,,,,,,
-09-April-2026,partner,1617,1611,0,6,0,0,,,08-April-2026,partner,1616,1435,15,166,0,0,,,07-April-2026,partner,1523,1495,15,13,0,0,,,,,,,,,,
-09-April-2026,prereg,288,282,0,0,2,4,,,08-April-2026,prereg,288,282,0,0,2,4,,,07-April-2026,prereg,288,282,0,0,2,4,,,,,,,,,,
-09-April-2026,resident,1142,546,592,4,0,0,,,08-April-2026,resident,1142,546,592,4,0,0,,,07-April-2026,resident,1142,545,592,5,0,0,,,,,,,,,,
+10-April-2026,auth,612,598,0,0,5,9,,,09-April-2026,auth,612,598,0,0,5,9,,,08-April-2026,auth,612,598,0,0,5,9,,,07-April-2026,partner,1614,1571,19,24,0,0
+10-April-2026,idrepo,414,336,0,0,78,0,,,09-April-2026,idrepo,414,336,0,0,78,0,,,08-April-2026,idrepo,414,336,0,0,78,0,,,,,,,,,,
+10-April-2026,masterdata-ara,945,929,0,1,15,0,,,09-April-2026,masterdata-ara,945,929,0,1,15,0,,,08-April-2026,masterdata-ara,945,929,0,1,15,0,,,,,,,,,,
+10-April-2026,masterdata-eng,945,944,0,1,0,0,,,09-April-2026,masterdata-eng,945,944,0,1,0,0,,,08-April-2026,masterdata-eng,945,944,0,1,0,0,,,,,,,,,,
+10-April-2026,masterdata-fra,945,929,0,1,15,0,,,09-April-2026,masterdata-fra,945,929,0,1,15,0,,,08-April-2026,masterdata-fra,945,929,0,1,15,0,,,,,,,,,,
+10-April-2026,partner,1617,1611,0,6,0,0,,,09-April-2026,partner,1617,1611,0,6,0,0,,,08-April-2026,partner,1616,1435,15,166,0,0,,,,,,,,,,
+10-April-2026,prereg,288,282,0,0,2,4,,,09-April-2026,prereg,288,282,0,0,2,4,,,08-April-2026,prereg,288,282,0,0,2,4,,,,,,,,,,
+10-April-2026,resident,1142,546,592,4,0,0,,,09-April-2026,resident,1142,546,592,4,0,0,,,08-April-2026,resident,1142,546,592,4,0,0,,,,,,,,,,

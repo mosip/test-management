@@ -1,0 +1,178 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>TestNG Report</title><style type="text/css">body {font-family: Arial, Helvetica, sans-serif; font-size:13px; color:#111;}table {margin-bottom:20px;border-collapse:collapse;empty-cells:show;width: 100%;}.env-table { margin-bottom:28px; }.summary-block { margin-bottom:22px; }.scenario-block { margin-top:14px; margin-bottom:26px; }#summary, #summary table { table-layout: fixed; }th, td {border:1px solid #bbb; padding:.35em .6em; font-size:13px; vertical-align:middle;}th { background:#f2f2f2; font-weight:700; }td { color:#111; }.summary-title { text-align:center; font-weight:700; padding:6px 0; }.summary-label { background:#efefef; text-align:center; font-weight:600; }.bar { height:30px; text-align:center; vertical-align:middle; font-weight:700; color:#111; }.bar-total { background:#ffffff; }.bar-passed { background:#2fb500; }.bar-ignored { background:#ff9900; }.bar-known { background:#eaff7f; }.bar-skipped { background:#ffd54f; }.bar-failed { background:#e04b4b; }.passedeven td, .passedodd td, .passedeven th, .passedodd th { background-color: #2fb500 !important; }.skippedeven td, .skippedodd td, .skippedeven th, .skippedodd th { background-color: #ffd54f !important; }.failedeven td, .failedodd td, .failedeven th, .failedodd th, .attn, .attn th { background-color: #e04b4b !important; }.passedeven th { background-color: #daf5d8 !important; }.failedeven th { background-color: #f8d7da !important; }.skippedeven th { background-color: #fff7dd !important; }.num { text-align:center; white-space:nowrap; font-weight:600; }.desc { overflow:hidden; text-overflow:ellipsis; word-wrap:break-word; max-height:8em; padding-right:6px; }.result { margin-top:12px; margin-bottom:8px; }.exception-header { text-align:center; font-weight:700; background:#f2f2f2; padding:6px; border:1px solid #bbb; }.stacktrace-box { background:#fff; border:1px solid #ccc; padding:12px; font-family:monospace; font-size:12px; white-space:pre-wrap; overflow:auto; }.totop { font-size:85%; text-align:center; margin-top:8px; margin-bottom:18px; }</style></head><body><table class='env-table'><tr><th colspan='7'>Use Cases Test Report ---- Report Date: Tuesday 24 March 01:49:40 ---- Tested Environment: qa-base.mosip.net</th></tr></table><table class='summary-table' style='border:2px solid #2b2b90;'><colgroup><col style='width:14%'><col style='width:14%'><col style='width:14%'><col style='width:14%'><col style='width:14%'><col style='width:20%'><col style='width:10%'></colgroup><tr><th colspan='7' class='summary-title'>Summary of Test Results</th></tr><tr><td class='summary-label'># Total</td><td class='summary-label'># Passed</td><td class='summary-label'># Ignored</td><td class='summary-label'># Known Issues</td><td class='summary-label'># Skipped</td><td class='summary-label'># Failed</td><td class='summary-label'>Time (HH:MM:SS)</td></tr><tr><td class='bar bar-total num'>14</td><td class='bar bar-passed num'>6</td><td class='bar bar-ignored num'>0</td><td class='bar bar-known num'>0</td><td class='bar bar-skipped num'>0</td><td class='bar bar-failed num'>8</td><td class='time-cell'>01:57:04</td></tr></table><table id='summary' class='summary-block'><colgroup><col style='width:25%'><col style='width:65%'><col style='width:10%'></colgroup><thead><tr><th> Test </th><th> Description </th><th>Time (HH:MM:SS)</th></tr></thead><tbody id="t0"><tr class="failedodd"><th colspan="3">Scenarios &#8212; Failed</th></tr><tr class="failedeven"><td><a href="#m0">adultBiometricCorrection</a></td><td class='desc'>Verify adult biometric correction</td><td class='num'>00:13:11</td></tr><tr class="failedodd"><td><a href="#m1">minorBiometricCorrection</a></td><td class='desc'>Verify minor biometric correction</td><td class='num'>00:14:40</td></tr><tr class="failedeven"><td><a href="#m2">exportPacket</a></td><td class='desc'>Verify exporting of created packet</td><td class='num'>00:02:48</td></tr><tr class="failedeven"><td><a href="#m3">lostUinAdult</a></td><td class='desc'>Verify lost UIN</td><td class='num'>00:03:03</td></tr><tr class="failedeven"><td><a href="#m4">newRegistrationAdultUploadMultipleDoccuments</a></td><td class='desc'>Verify adult new registration using multiple Documents</td><td class='num'>00:11:05</td></tr><tr class="failedeven"><td><a href="#m5">adultPreRegFetching</a></td><td class='desc'>Verify adult pre-reg fetching registration</td><td class='num'>00:08:26</td></tr><tr class="failedodd"><td><a href="#m6">infantPreRegFetching</a></td><td class='desc'>Verify infant pre-reg fetching registration</td><td class='num'>00:08:33</td></tr><tr class="failedeven"><td><a href="#m7">minorPreRegFetching</a></td><td class='desc'>Verify minor pre-reg fetching registration</td><td class='num'>00:09:40</td></tr><tr class="passedodd"><th colspan="3">Scenarios &#8212; Passed</th></tr><tr class="passedeven"><td><a href="#m8">newRegistrationMinorException</a></td><td class='desc'>Verify minor new registration exception</td><td class='num'>00:10:17</td></tr><tr class="passedeven"><td><a href="#m9">updateMyUinInfant</a></td><td class='desc'>Verify infant UIN update</td><td class='num'>00:08:04</td></tr><tr class="passedeven"><td><a href="#m10">updateMyUinMinor</a></td><td class='desc'>Verify minor UIN update</td><td class='num'>00:10:26</td></tr><tr class="passedeven"><td><a href="#m11">updateMyUinUpdateBiometrics</a></td><td class='desc'>Verify biometric update in update my UIN</td><td class='num'>00:03:50</td></tr><tr class="passedeven"><td><a href="#m12">updateMyUinUpdateDemographicDetails</a></td><td class='desc'>Verify demographic update in update my UIN</td><td class='num'>00:07:14</td></tr><tr class="passedeven"><td><a href="#m13">updateMyUinUpdateDocuments</a></td><td class='desc'>Verify documents update in update my UIN</td><td class='num'>00:03:38</td></tr></tbody></table><h3 id="m0">regclient.androidTestCases.BiometricCorrection#adultBiometricCorrection</h3><table class="result"><tr><td colspan="1" class='exception-header'>Exception</td></tr><tr><td><div class='stacktrace-box'>java.lang.AssertionError: Verify if no. of pending approval display expected [true] but found [false]
+	at regclient.androidTestCases.BiometricCorrection.adultBiometricCorrection(BiometricCorrection.java:903)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at regclient.utils.TestRunner.main(TestRunner.java:173)
+... Removed 25 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p><h3 id="m1">regclient.androidTestCases.BiometricCorrection#minorBiometricCorrection</h3><table class="result"><tr><td colspan="1" class='exception-header'>Exception</td></tr><tr><td><div class='stacktrace-box'>java.lang.AssertionError: Verify if no. of pending approval display expected [true] but found [false]
+	at regclient.androidTestCases.BiometricCorrection.minorBiometricCorrection(BiometricCorrection.java:1809)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at regclient.utils.TestRunner.main(TestRunner.java:173)
+... Removed 25 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p><h3 id="m2">regclient.androidTestCases.ExportPacket#exportPacket</h3><table class="result"><tr><td colspan="1" class='exception-header'>Exception</td></tr><tr><td><div class='stacktrace-box'>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Located by By.chained({AppiumBy.accessibilityId: CONTINUE}) (tried for 20 second(s) with 500 milliseconds interval)
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:230)
+	at regclient.page.BasePage.waitForElementToBeVisible(BasePage.java:116)
+	at regclient.page.BasePage.clickOnElement(BasePage.java:98)
+	at regclient.pages.english.PreviewPageEnglish.clickOnContinueButton(PreviewPageEnglish.java:64)
+	at regclient.androidTestCases.ExportPacket.exportPacket(ExportPacket.java:425)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at regclient.utils.TestRunner.main(TestRunner.java:173)
+Caused by: org.openqa.selenium.NoSuchElementException: Can&apos;t locate an element by this strategy: By.chained({AppiumBy.accessibilityId: CONTINUE})
+	at io.appium.java_client.pagefactory.AppiumElementLocator.findElement(AppiumElementLocator.java:166)
+	at io.appium.java_client.pagefactory.interceptors.InterceptorOfASingleElement.call(InterceptorOfASingleElement.java:64)
+	at io.appium.java_client.proxy.Interceptor.intercept(Interceptor.java:78)
+	at org.openqa.selenium.remote.RemoteWebElement$ByteBuddy$tkS1SSNh.isDisplayed(Unknown Source)
+	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:304)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:37)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:290)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:287)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:205)
+	... 28 more
+Caused by: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction@2955af24 (tried for 1 second(s) with 500 milliseconds interval)
+	at org.openqa.selenium.support.ui.FluentWait.timeoutException(FluentWait.java:262)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:230)
+	at io.appium.java_client.pagefactory.AppiumElementLocator.waitFor(AppiumElementLocator.java:135)
+	at io.appium.java_client.pagefactory.AppiumElementLocator.findElement(AppiumElementLocator.java:160)
+	... 36 more
+Caused by: org.openqa.selenium.NoSuchElementException: Cannot locate an element using By.chained({AppiumBy.accessibilityId: CONTINUE})
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: &apos;4.13.0&apos;, revision: &apos;ba948ece5b*&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.4&apos;
+Driver info: driver.version: RemoteWebDriver
+	at io.appium.java_client.pagefactory.bys.builder.ByChained.findElement(ByChained.java:77)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$1.findElement(ElementLocation.java:139)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:359)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:353)
+	at io.appium.java_client.pagefactory.bys.ContentMappedBy.findElement(ContentMappedBy.java:53)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$1.findElement(ElementLocation.java:139)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:359)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:353)
+	at io.appium.java_client.pagefactory.AppiumElementLocator.lambda$findElement$1(AppiumElementLocator.java:160)
+	at io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction.apply(AppiumElementLocator.java:217)
+	at io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction.apply(AppiumElementLocator.java:210)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:205)
+	... 38 more
+... Removed 22 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p><h3 id="m3">regclient.androidTestCases.LostUin#lostUinAdult</h3><table class="result"><tr><td colspan="1" class='exception-header'>Exception</td></tr><tr><td><div class='stacktrace-box'>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Located by By.chained({AppiumBy.accessibilityId: CONTINUE}) (tried for 20 second(s) with 500 milliseconds interval)
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:230)
+	at regclient.page.BasePage.waitForElementToBeVisible(BasePage.java:116)
+	at regclient.page.BasePage.clickOnElement(BasePage.java:98)
+	at regclient.pages.english.PreviewPageEnglish.clickOnContinueButton(PreviewPageEnglish.java:64)
+	at regclient.androidTestCases.LostUin.lostUinAdult(LostUin.java:423)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at regclient.utils.TestRunner.main(TestRunner.java:173)
+Caused by: org.openqa.selenium.NoSuchElementException: Can&apos;t locate an element by this strategy: By.chained({AppiumBy.accessibilityId: CONTINUE})
+	at io.appium.java_client.pagefactory.AppiumElementLocator.findElement(AppiumElementLocator.java:166)
+	at io.appium.java_client.pagefactory.interceptors.InterceptorOfASingleElement.call(InterceptorOfASingleElement.java:64)
+	at io.appium.java_client.proxy.Interceptor.intercept(Interceptor.java:78)
+	at org.openqa.selenium.remote.RemoteWebElement$ByteBuddy$KZlRmjMR.isDisplayed(Unknown Source)
+	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:304)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:37)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:290)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:287)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:205)
+	... 28 more
+Caused by: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction@2612b00d (tried for 1 second(s) with 500 milliseconds interval)
+	at org.openqa.selenium.support.ui.FluentWait.timeoutException(FluentWait.java:262)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:230)
+	at io.appium.java_client.pagefactory.AppiumElementLocator.waitFor(AppiumElementLocator.java:135)
+	at io.appium.java_client.pagefactory.AppiumElementLocator.findElement(AppiumElementLocator.java:160)
+	... 36 more
+Caused by: org.openqa.selenium.NoSuchElementException: Cannot locate an element using By.chained({AppiumBy.accessibilityId: CONTINUE})
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: &apos;4.13.0&apos;, revision: &apos;ba948ece5b*&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.4&apos;
+Driver info: driver.version: RemoteWebDriver
+	at io.appium.java_client.pagefactory.bys.builder.ByChained.findElement(ByChained.java:77)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$1.findElement(ElementLocation.java:139)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:359)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:353)
+	at io.appium.java_client.pagefactory.bys.ContentMappedBy.findElement(ContentMappedBy.java:53)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$1.findElement(ElementLocation.java:139)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:359)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:353)
+	at io.appium.java_client.pagefactory.AppiumElementLocator.lambda$findElement$1(AppiumElementLocator.java:160)
+	at io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction.apply(AppiumElementLocator.java:217)
+	at io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction.apply(AppiumElementLocator.java:210)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:205)
+	... 38 more
+... Removed 22 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p><h3 id="m4">regclient.androidTestCases.NewRegistrationAdultUploadMultipleDoccuments#newRegistrationAdultUploadMultipleDoccuments</h3><table class="result"><tr><td colspan="1" class='exception-header'>Exception</td></tr><tr><td><div class='stacktrace-box'>org.openqa.selenium.NoSuchElementException: Element not visible after scrolling: Located by By.chained({AppiumBy.accessibilityId: Iris})
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: &apos;4.13.0&apos;, revision: &apos;ba948ece5b*&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.4&apos;
+Driver info: driver.version: unknown
+	at regclient.page.BasePage.scrollUntilElementVisible(BasePage.java:991)
+	at regclient.pages.english.BiometricDetailsPageEnglish.clickOnIrisScan(BiometricDetailsPageEnglish.java:93)
+	at regclient.androidTestCases.NewRegistrationAdultUploadMultipleDoccuments.newRegistrationAdultUploadMultipleDoccuments(NewRegistrationAdultUploadMultipleDoccuments.java:507)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at regclient.utils.TestRunner.main(TestRunner.java:173)
+... Removed 22 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p><h3 id="m5">regclient.androidTestCases.PreRegFetchingPacket#adultPreRegFetching</h3><table class="result"><tr><td colspan="1" class='exception-header'>Exception</td></tr><tr><td><div class='stacktrace-box'>org.openqa.selenium.NoSuchElementException: An element could not be located on the page using the given search parameters.
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: &apos;4.13.0&apos;, revision: &apos;ba948ece5b*&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.4&apos;
+Driver info: io.appium.java_client.android.AndroidDriver
+Command: [d850a326-459d-4bb9-97a1-fceb55704ed4, findElement {using=xpath, value=//android.view.View[contains(@content-desc,&apos;41783497290819&apos;)]}]
+Capabilities {appium:adbExecTimeout: 300000, appium:app: D:/ARC/qa-base/apk-output/a..., appium:appActivity: io.mosip.registration_clien..., appium:appPackage: io.mosip.registration_client, appium:appWaitForLaunch: false, appium:autoGrantPermissions: true, appium:automationName: UiAutomator2, appium:databaseEnabled: false, appium:desired: {adbExecTimeout: 300000, app: D:/ARC/qa-base/apk-output/a..., appActivity: io.mosip.registration_clien..., appPackage: io.mosip.registration_client, appWaitForLaunch: false, autoGrantPermissions: true, automationName: UiAutomator2, dontStopAppOnReset: true, newCommandTimeout: 7600, noReset: true, noSign: true, platformName: ANDROID, shouldTerminateApp: true, udid: M01JPG1004392102744, uiautomator2ServerInstallTimeout: 200000, uiautomator2ServerLaunchTimeout: 200000}, appium:deviceApiLevel: 34, appium:deviceManufacturer: HMD Global, appium:deviceModel: Nokia T10, appium:deviceName: M01JPG1004392102744, appium:deviceScreenDensity: 200, appium:deviceScreenSize: 800x1280, appium:deviceUDID: M01JPG1004392102744, appium:dontStopAppOnReset: true, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:newCommandTimeout: 7600, appium:noReset: true, appium:noSign: true, appium:pixelRatio: 1.25, appium:platformVersion: 14, appium:shouldTerminateApp: true, appium:statBarHeight: 30, appium:takesScreenshot: true, appium:udid: M01JPG1004392102744, appium:uiautomator2ServerInstallTimeout: 200000, appium:uiautomator2ServerLaunchTimeout: 200000, appium:viewportRect: {height: 1250, left: 0, top: 30, width: 800}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
+Session ID: d850a326-459d-4bb9-97a1-fceb55704ed4
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
+	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:250)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:602)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:359)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:353)
+	at regclient.pages.english.ManageApplicationsPageEnglish.isSearchAIDDisplayed(ManageApplicationsPageEnglish.java:109)
+	at regclient.androidTestCases.PreRegFetchingPacket.adultPreRegFetching(PreRegFetchingPacket.java:573)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at regclient.utils.TestRunner.main(TestRunner.java:173)
+... Removed 25 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p><h3 id="m6">regclient.androidTestCases.PreRegFetchingPacket#infantPreRegFetching</h3><table class="result"><tr><td colspan="1" class='exception-header'>Exception</td></tr><tr><td><div class='stacktrace-box'>org.openqa.selenium.NoSuchElementException: An element could not be located on the page using the given search parameters.
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: &apos;4.13.0&apos;, revision: &apos;ba948ece5b*&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.4&apos;
+Driver info: io.appium.java_client.android.AndroidDriver
+Command: [bbcb7b19-7112-4774-a433-4899fad29b48, findElement {using=xpath, value=//android.view.View[contains(@content-desc,&apos;42603504623194&apos;)]}]
+Capabilities {appium:adbExecTimeout: 300000, appium:app: D:/ARC/qa-base/apk-output/a..., appium:appActivity: io.mosip.registration_clien..., appium:appPackage: io.mosip.registration_client, appium:appWaitForLaunch: false, appium:autoGrantPermissions: true, appium:automationName: UiAutomator2, appium:databaseEnabled: false, appium:desired: {adbExecTimeout: 300000, app: D:/ARC/qa-base/apk-output/a..., appActivity: io.mosip.registration_clien..., appPackage: io.mosip.registration_client, appWaitForLaunch: false, autoGrantPermissions: true, automationName: UiAutomator2, dontStopAppOnReset: true, newCommandTimeout: 7600, noReset: true, noSign: true, platformName: ANDROID, shouldTerminateApp: true, udid: M01JPG1004392102744, uiautomator2ServerInstallTimeout: 200000, uiautomator2ServerLaunchTimeout: 200000}, appium:deviceApiLevel: 34, appium:deviceManufacturer: HMD Global, appium:deviceModel: Nokia T10, appium:deviceName: M01JPG1004392102744, appium:deviceScreenDensity: 200, appium:deviceScreenSize: 800x1280, appium:deviceUDID: M01JPG1004392102744, appium:dontStopAppOnReset: true, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:newCommandTimeout: 7600, appium:noReset: true, appium:noSign: true, appium:pixelRatio: 1.25, appium:platformVersion: 14, appium:shouldTerminateApp: true, appium:statBarHeight: 30, appium:takesScreenshot: true, appium:udid: M01JPG1004392102744, appium:uiautomator2ServerInstallTimeout: 200000, appium:uiautomator2ServerLaunchTimeout: 200000, appium:viewportRect: {height: 1250, left: 0, top: 30, width: 800}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
+Session ID: bbcb7b19-7112-4774-a433-4899fad29b48
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
+	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:250)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:602)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:359)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:353)
+	at regclient.pages.english.ManageApplicationsPageEnglish.isSearchAIDDisplayed(ManageApplicationsPageEnglish.java:109)
+	at regclient.androidTestCases.PreRegFetchingPacket.infantPreRegFetching(PreRegFetchingPacket.java:1661)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at regclient.utils.TestRunner.main(TestRunner.java:173)
+... Removed 25 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p><h3 id="m7">regclient.androidTestCases.PreRegFetchingPacket#minorPreRegFetching</h3><table class="result"><tr><td colspan="1" class='exception-header'>Exception</td></tr><tr><td><div class='stacktrace-box'>org.openqa.selenium.NoSuchElementException: An element could not be located on the page using the given search parameters.
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: &apos;4.13.0&apos;, revision: &apos;ba948ece5b*&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.4&apos;
+Driver info: io.appium.java_client.android.AndroidDriver
+Command: [49525b21-59c3-4b1e-8fbf-d2996d2b25f9, findElement {using=xpath, value=//android.view.View[contains(@content-desc,&apos;30862394372481&apos;)]}]
+Capabilities {appium:adbExecTimeout: 300000, appium:app: D:/ARC/qa-base/apk-output/a..., appium:appActivity: io.mosip.registration_clien..., appium:appPackage: io.mosip.registration_client, appium:appWaitForLaunch: false, appium:autoGrantPermissions: true, appium:automationName: UiAutomator2, appium:databaseEnabled: false, appium:desired: {adbExecTimeout: 300000, app: D:/ARC/qa-base/apk-output/a..., appActivity: io.mosip.registration_clien..., appPackage: io.mosip.registration_client, appWaitForLaunch: false, autoGrantPermissions: true, automationName: UiAutomator2, dontStopAppOnReset: true, newCommandTimeout: 7600, noReset: true, noSign: true, platformName: ANDROID, shouldTerminateApp: true, udid: M01JPG1004392102744, uiautomator2ServerInstallTimeout: 200000, uiautomator2ServerLaunchTimeout: 200000}, appium:deviceApiLevel: 34, appium:deviceManufacturer: HMD Global, appium:deviceModel: Nokia T10, appium:deviceName: M01JPG1004392102744, appium:deviceScreenDensity: 200, appium:deviceScreenSize: 800x1280, appium:deviceUDID: M01JPG1004392102744, appium:dontStopAppOnReset: true, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:newCommandTimeout: 7600, appium:noReset: true, appium:noSign: true, appium:pixelRatio: 1.25, appium:platformVersion: 14, appium:shouldTerminateApp: true, appium:statBarHeight: 30, appium:takesScreenshot: true, appium:udid: M01JPG1004392102744, appium:uiautomator2ServerInstallTimeout: 200000, appium:uiautomator2ServerLaunchTimeout: 200000, appium:viewportRect: {height: 1250, left: 0, top: 30, width: 800}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
+Session ID: 49525b21-59c3-4b1e-8fbf-d2996d2b25f9
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
+	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:250)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:602)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:359)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:353)
+	at regclient.pages.english.ManageApplicationsPageEnglish.isSearchAIDDisplayed(ManageApplicationsPageEnglish.java:109)
+	at regclient.androidTestCases.PreRegFetchingPacket.minorPreRegFetching(PreRegFetchingPacket.java:1153)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at regclient.utils.TestRunner.main(TestRunner.java:173)
+... Removed 25 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p></body></html>

@@ -58,6 +58,7 @@ jobs:
           mc alias set "${{ secrets.MINIO_DEV_NAME }}"    "${{ secrets.MINIO_DEV_URL }}"    "${{ secrets.MINIO_DEV_USER }}"    "${{ secrets.MINIO_DEV_PASSWORD }}" --api S3v2
           mc alias set "${{ secrets.MINIO_DEV01_NAME }}"    "${{ secrets.MINIO_DEV01_URL }}"    "${{ secrets.MINIO_DEV01_USER }}"    "${{ secrets.MINIO_DEV01_PASSWORD }}" --api S3v2
           mc alias set "${{ secrets.MINIO_DEV11_NAME }}"    "${{ secrets.MINIO_DEV11_URL }}"    "${{ secrets.MINIO_DEV11_USER }}"    "${{ secrets.MINIO_DEV11_PASSWORD }}" --api S3v2
+          mc alias set "${{ secrets.MINIO_QAJ21_NAME }}"    "${{ secrets.MINIO_QAJ21_URL }}"    "${{ secrets.MINIO_QAJ21_USER }}"    "${{ secrets.MINIO_QAJ21_PASSWORD }}" --api S3v2
 
 
       - name: Remove old CSVs from Git folder

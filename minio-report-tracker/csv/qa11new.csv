@@ -1,10 +1,2 @@
-Date,Module,T,P,S,F,I,KI,, ,Date,Module,T,P,S,F,I,KI,, ,Date,Module,T,P,S,F,I,KI,, ,Date,Module,T,P,S,F,I,KI,, ,Date,Module,T,P,S,F,I,KI
-17-April-2026,auth,612,552,2,44,5,9,,,16-April-2026,auth,612,591,0,7,5,9,,,15-April-2026,auth,612,590,0,8,5,9,,,14-April-2026,dsl,230,189,0,8,0,0,,,13-April-2026,dsl,230,189,0,8,0,0
-17-April-2026,idrepo,414,316,0,0,78,20,,,16-April-2026,idrepo,414,316,0,0,78,20,,,15-April-2026,idrepo,414,316,0,0,78,20,,,,,,,,,,,,,,,,,,,,
-17-April-2026,masterdata-ara,945,894,0,1,15,35,,,16-April-2026,masterdata-ara,945,894,0,1,15,35,,,15-April-2026,masterdata-ara,945,894,0,1,15,35,,,,,,,,,,,,,,,,,,,,
-17-April-2026,masterdata-eng,945,922,0,1,0,22,,,16-April-2026,masterdata-eng,945,922,0,1,0,22,,,15-April-2026,masterdata-eng,945,922,0,1,0,22,,,,,,,,,,,,,,,,,,,,
-17-April-2026,masterdata-fra,945,906,0,1,15,23,,,16-April-2026,masterdata-fra,945,906,0,1,15,23,,,15-April-2026,masterdata-fra,945,906,0,1,15,23,,,,,,,,,,,,,,,,,,,,
-17-April-2026,prereg,288,277,0,0,2,9,,,16-April-2026,partner,511,497,0,0,2,12,,,15-April-2026,partner,511,497,0,0,2,12,,,,,,,,,,,,,,,,,,,,
-17-April-2026,resident,1142,1124,3,3,0,12,,,16-April-2026,prereg,288,277,0,0,2,9,,,15-April-2026,prereg,288,277,0,0,2,9,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,16-April-2026,resident,1142,1126,3,1,0,12,,,15-April-2026,resident,1142,1126,3,1,0,12,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,16-April-2026,dsl,230,154,0,43,0,0,,,15-April-2026,dsl,230,189,0,8,0,0,,,,,,,,,,,,,,,,,,,,
+Date,Module,T,P,S,F,I,KI
+18-March-2026,adminui,16,16,0,0,0,0

@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>TestNG Report</title><style type="text/css">body {font-family: Arial, Helvetica, sans-serif; font-size:13px; color:#111;}table {margin-bottom:20px;border-collapse:collapse;empty-cells:show;width: 100%;}.env-table { margin-bottom:28px; }.summary-block { margin-bottom:22px; }.scenario-block { margin-top:14px; margin-bottom:26px; }#summary, #summary table { table-layout: fixed; }th, td {border:1px solid #bbb; padding:.35em .6em; font-size:13px; vertical-align:middle;}th { background:#f2f2f2; font-weight:700; }td { color:#111; }.summary-title { text-align:center; font-weight:700; padding:6px 0; }.summary-label { background:#efefef; text-align:center; font-weight:600; }.bar { height:30px; text-align:center; vertical-align:middle; font-weight:700; color:#111; }.bar-total { background:#ffffff; }.bar-passed { background:#2fb500; }.bar-ignored { background:#ff9900; }.bar-known { background:#eaff7f; }.bar-skipped { background:#ffd54f; }.bar-failed { background:#e04b4b; }.passedeven td, .passedodd td, .passedeven th, .passedodd th { background-color: #2fb500 !important; }.skippedeven td, .skippedodd td, .skippedeven th, .skippedodd th { background-color: #ffd54f !important; }.failedeven td, .failedodd td, .failedeven th, .failedodd th, .attn, .attn th { background-color: #e04b4b !important; }.passedeven th { background-color: #daf5d8 !important; }.failedeven th { background-color: #f8d7da !important; }.skippedeven th { background-color: #fff7dd !important; }.num { text-align:center; white-space:nowrap; font-weight:600; }.desc { overflow:hidden; text-overflow:ellipsis; word-wrap:break-word; max-height:8em; padding-right:6px; }.result { margin-top:12px; margin-bottom:8px; }.exception-header { text-align:center; font-weight:700; background:#f2f2f2; padding:6px; border:1px solid #bbb; }.stacktrace-box { background:#fff; border:1px solid #ccc; padding:12px; font-family:monospace; font-size:12px; white-space:pre-wrap; overflow:auto; }.totop { font-size:85%; text-align:center; margin-top:8px; margin-bottom:18px; }</style></head><body><table class='env-table'><tr><th colspan='7'>Use Cases Test Report ---- Report Date: Thursday 26 March 03:30:27 ---- Tested Environment: qa-base.mosip.net</th></tr></table><table class='summary-table' style='border:2px solid #2b2b90;'><colgroup><col style='width:14%'><col style='width:14%'><col style='width:14%'><col style='width:14%'><col style='width:14%'><col style='width:20%'><col style='width:10%'></colgroup><tr><th colspan='7' class='summary-title'>Summary of Test Results</th></tr><tr><td class='summary-label'># Total</td><td class='summary-label'># Passed</td><td class='summary-label'># Ignored</td><td class='summary-label'># Known Issues</td><td class='summary-label'># Skipped</td><td class='summary-label'># Failed</td><td class='summary-label'>Time (HH:MM:SS)</td></tr><tr><td class='bar bar-total num'>10</td><td class='bar bar-passed num'>4</td><td class='bar bar-ignored num'>0</td><td class='bar bar-known num'>1</td><td class='bar bar-skipped num'>3</td><td class='bar bar-failed num'>2</td><td class='time-cell'>00:38:13</td></tr></table><table id='summary' class='summary-block'><colgroup><col style='width:25%'><col style='width:65%'><col style='width:10%'></colgroup><thead><tr><th> Test </th><th> Description </th><th>Time (HH:MM:SS)</th></tr></thead><tbody id="t0"><tr class="failedodd"><th colspan="3">Scenarios &#8212; Failed</th></tr><tr class="failedeven"><td><a href="#m0">updateOperatorBiometrics</a></td><td class='desc'>Verify operator biometric update functionality</td><td class='num'>00:02:56</td></tr><tr class="failedeven"><td><a href="#m1">resetPassword</a></td><td class='desc'>Verify reset password</td><td class='num'>00:03:52</td></tr><tr class="skippedodd"><th colspan="3">Scenarios &#8212; Known Issues</th></tr><tr class="skippedeven"><td><a href="#m2">adultPreRegFetching</a></td><td class='desc'>Verify adult pre-reg fetching registration</td><td class='num'>00:00:00</td></tr><tr class="skippedodd"><th colspan="3">Scenarios &#8212; Skipped</th></tr><tr class="skippedeven"><td><a href="#m3">infantPreRegFetching</a></td><td class='desc'>Verify infant pre-reg fetching registration</td><td class='num'>00:00:00</td></tr><tr class="skippedodd"><td><a href="#m4">minorPreRegFetching</a></td><td class='desc'>Verify minor pre-reg fetching registration</td><td class='num'>00:00:00</td></tr><tr class="skippedeven"><td><a href="#m5">resetToDefaultPassword</a></td><td class='desc'>Reset to default password</td><td class='num'>00:00:00</td></tr><tr class="passedodd"><th colspan="3">Scenarios &#8212; Passed</th></tr><tr class="passedeven"><td><a href="#m6">exportPacket</a></td><td class='desc'>Verify exporting of created packet</td><td class='num'>00:04:39</td></tr><tr class="passedeven"><td><a href="#m7">onboardingTest</a></td><td class='desc'>Verify operator onboarding process</td><td class='num'>00:02:35</td></tr><tr class="passedodd"><td><a href="#m8">userloginTest</a></td><td class='desc'>Verify user login with valid credentials</td><td class='num'>00:02:51</td></tr><tr class="passedeven"><td><a href="#m9">newRegistrationAdultUploadMultipleDoccuments</a></td><td class='desc'>Verify adult new registration using multiple Documents</td><td class='num'>00:20:22</td></tr></tbody></table><h3 id="m0">regclient.androidTestCases.LoginTest#updateOperatorBiometrics</h3><table class="result"><tr><td colspan="1" class='exception-header'>Exception</td></tr><tr><td><div class='stacktrace-box'>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Located by By.chained({AppiumBy.accessibilityId: VÉRIFIER ET ENREGISTRER}) (tried for 20 second(s) with 500 milliseconds interval)
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:230)
+	at regclient.page.BasePage.waitForElementToBeVisible(BasePage.java:116)
+	at regclient.page.BasePage.clickOnElement(BasePage.java:98)
+	at regclient.pages.french.UpdateOperatorBiometricspageFrench.clickOnVerifyAndSaveButton(UpdateOperatorBiometricspageFrench.java:364)
+	at regclient.androidTestCases.LoginTest.updateOperatorBiometrics(LoginTest.java:728)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at regclient.utils.TestRunner.main(TestRunner.java:173)
+Caused by: org.openqa.selenium.NoSuchElementException: Can&apos;t locate an element by this strategy: By.chained({AppiumBy.accessibilityId: VÉRIFIER ET ENREGISTRER})
+	at io.appium.java_client.pagefactory.AppiumElementLocator.findElement(AppiumElementLocator.java:166)
+	at io.appium.java_client.pagefactory.interceptors.InterceptorOfASingleElement.call(InterceptorOfASingleElement.java:64)
+	at io.appium.java_client.proxy.Interceptor.intercept(Interceptor.java:78)
+	at org.openqa.selenium.remote.RemoteWebElement$ByteBuddy$cLXNi4Q2.isDisplayed(Unknown Source)
+	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:304)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:37)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:290)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:287)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:205)
+	... 28 more
+Caused by: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction@51934730 (tried for 1 second(s) with 500 milliseconds interval)
+	at org.openqa.selenium.support.ui.FluentWait.timeoutException(FluentWait.java:262)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:230)
+	at io.appium.java_client.pagefactory.AppiumElementLocator.waitFor(AppiumElementLocator.java:135)
+	at io.appium.java_client.pagefactory.AppiumElementLocator.findElement(AppiumElementLocator.java:160)
+	... 36 more
+Caused by: org.openqa.selenium.NoSuchElementException: Cannot locate an element using By.chained({AppiumBy.accessibilityId: VÉRIFIER ET ENREGISTRER})
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: &apos;4.13.0&apos;, revision: &apos;ba948ece5b*&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.4&apos;
+Driver info: driver.version: RemoteWebDriver
+	at io.appium.java_client.pagefactory.bys.builder.ByChained.findElement(ByChained.java:77)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$1.findElement(ElementLocation.java:139)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:359)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:353)
+	at io.appium.java_client.pagefactory.bys.ContentMappedBy.findElement(ContentMappedBy.java:53)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$1.findElement(ElementLocation.java:139)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:359)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:353)
+	at io.appium.java_client.pagefactory.AppiumElementLocator.lambda$findElement$1(AppiumElementLocator.java:160)
+	at io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction.apply(AppiumElementLocator.java:217)
+	at io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction.apply(AppiumElementLocator.java:210)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:205)
+	... 38 more
+... Removed 22 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p><h3 id="m1">regclient.androidTestCases.ResetPassword#resetPassword</h3><table class="result"><tr><td colspan="1" class='exception-header'>Exception</td></tr><tr><td><div class='stacktrace-box'>java.lang.RuntimeException: Element not found after 5 attempts
+	at regclient.page.BasePage.retryFindElement(BasePage.java:305)
+	at regclient.page.KeycloakPage.openKeycloakWebView(KeycloakPage.java:75)
+	at regclient.page.KeycloakPage.openKeycloakPage(KeycloakPage.java:169)
+	at regclient.androidTestCases.ResetPassword.resetPassword(ResetPassword.java:189)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at regclient.utils.TestRunner.main(TestRunner.java:173)
+... Removed 22 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p><h3 id="m2">regclient.androidTestCases.PreRegFetchingPacket#infantPreRegFetching</h3><table class="result"><tr><td colspan="1" class='exception-header'>Exception</td></tr><tr><td><div class='stacktrace-box'>java.lang.NullPointerException: Cannot invoke &quot;io.appium.java_client.AppiumDriver.quit()&quot; because &quot;this.driver&quot; is null
+	at regclient.BaseTest.AndroidBaseTest.teardown(AndroidBaseTest.java:52)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at regclient.utils.TestRunner.main(TestRunner.java:173)
+... Removed 27 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p><h3 id="m3">regclient.androidTestCases.PreRegFetchingPacket#minorPreRegFetching</h3><table class="result"><tr><td colspan="1" class='exception-header'>Exception</td></tr><tr><td><div class='stacktrace-box'>java.lang.NullPointerException: Cannot invoke &quot;io.appium.java_client.AppiumDriver.quit()&quot; because &quot;this.driver&quot; is null
+	at regclient.BaseTest.AndroidBaseTest.teardown(AndroidBaseTest.java:52)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at regclient.utils.TestRunner.main(TestRunner.java:173)
+... Removed 27 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p><h3 id="m4">regclient.androidTestCases.ResetPassword#resetToDefaultPassword</h3><table class="result"><tr><td colspan="1" class='exception-header'>Exception</td></tr><tr><td><div class='stacktrace-box'>java.lang.Throwable: Method regclient.androidTestCases.ResetPassword.resetToDefaultPassword() on instance regclient.androidTestCases.ResetPassword@10c4eb9a depends on not successfully finished methods 
+[regclient.androidTestCases.ResetPassword.resetPassword() on instance regclient.androidTestCases.ResetPassword@10c4eb9a]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at regclient.utils.TestRunner.main(TestRunner.java:173)
+... Removed 15 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p><h3 id="m5">regclient.androidTestCases.PreRegFetchingPacket#adultPreRegFetching</h3><table class="result"><tr><td colspan="1" class='exception-header'>Exception</td></tr><tr><td><div class='stacktrace-box'>org.testng.SkipException: Skipping due to Known Issue: RCF-1393
+	at regclient.BaseTest.AndroidBaseTest.setup(AndroidBaseTest.java:35)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at regclient.utils.TestRunner.main(TestRunner.java:173)
+... Removed 26 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p></body></html>

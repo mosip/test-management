@@ -1,10 +1,10 @@
 Date,Module,T,P,S,F,I,KI,, ,Date,Module,T,P,S,F,I,KI,, ,Date,Module,T,P,S,F,I,KI,, ,Date,Module,T,P,S,F,I,KI,, ,Date,Module,T,P,S,F,I,KI
-23-April-2026,auth,612,598,0,0,5,9,,,22-April-2026,auth,612,597,0,1,5,9,,,21-April-2026,auth,612,592,0,6,5,9,,,20-April-2026,auth,612,597,0,1,5,9,,,17-April-2026,auth,612,598,0,0,5,9
-23-April-2026,idrepo,414,336,0,0,78,0,,,22-April-2026,idrepo,414,336,0,0,78,0,,,21-April-2026,idrepo,414,336,0,0,78,0,,,20-April-2026,idrepo,414,336,0,0,78,0,,,17-April-2026,idrepo,414,336,0,0,78,0
-23-April-2026,masterdata-ara,945,929,0,1,15,0,,,22-April-2026,masterdata-ara,945,929,0,1,15,0,,,21-April-2026,masterdata-ara,945,929,0,1,15,0,,,20-April-2026,masterdata-ara,945,929,0,1,15,0,,,17-April-2026,masterdata-ara,945,929,0,1,15,0
-23-April-2026,masterdata-eng,945,944,0,1,0,0,,,22-April-2026,masterdata-eng,945,944,0,1,0,0,,,21-April-2026,masterdata-eng,945,944,0,1,0,0,,,20-April-2026,masterdata-eng,945,944,0,1,0,0,,,17-April-2026,masterdata-eng,945,944,0,1,0,0
-23-April-2026,masterdata-fra,945,929,0,1,15,0,,,22-April-2026,masterdata-fra,945,929,0,1,15,0,,,21-April-2026,masterdata-fra,945,929,0,1,15,0,,,20-April-2026,masterdata-fra,945,929,0,1,15,0,,,17-April-2026,masterdata-fra,945,929,0,1,15,0
-23-April-2026,partner,509,350,116,31,0,12,,,22-April-2026,partner,509,350,116,31,0,12,,,21-April-2026,partner,509,350,116,31,0,12,,,20-April-2026,partner,509,350,116,31,0,12,,,17-April-2026,partner,509,350,116,31,0,12
-23-April-2026,prereg,288,282,0,0,2,4,,,22-April-2026,prereg,288,282,0,0,2,4,,,21-April-2026,prereg,288,282,0,0,2,4,,,20-April-2026,prereg,288,282,0,0,2,4,,,17-April-2026,prereg,288,282,0,0,2,4
-23-April-2026,resident,1142,1142,0,0,0,0,,,22-April-2026,resident,1142,1142,0,0,0,0,,,21-April-2026,resident,1142,1141,0,1,0,0,,,20-April-2026,resident,1142,1142,0,0,0,0,,,17-April-2026,resident,1142,1141,0,1,0,0
-23-April-2026,dsl,230,201,0,1,0,0,,,22-April-2026,dsl,230,200,0,2,0,0,,,21-April-2026,dsl,230,173,20,9,0,0,,,20-April-2026,dsl,230,186,3,13,0,0,,,17-April-2026,dsl,230,191,0,11,0,0
+24-April-2026,masterdata-ara,945,929,0,1,15,0,,,23-April-2026,auth,612,598,0,0,5,9,,,22-April-2026,auth,612,597,0,1,5,9,,,21-April-2026,auth,612,592,0,6,5,9,,,20-April-2026,auth,612,597,0,1,5,9
+24-April-2026,masterdata-eng,945,944,0,1,0,0,,,23-April-2026,idrepo,414,336,0,0,78,0,,,22-April-2026,idrepo,414,336,0,0,78,0,,,21-April-2026,idrepo,414,336,0,0,78,0,,,20-April-2026,idrepo,414,336,0,0,78,0
+24-April-2026,masterdata-fra,945,929,0,1,15,0,,,23-April-2026,masterdata-ara,945,929,0,1,15,0,,,22-April-2026,masterdata-ara,945,929,0,1,15,0,,,21-April-2026,masterdata-ara,945,929,0,1,15,0,,,20-April-2026,masterdata-ara,945,929,0,1,15,0
+24-April-2026,partner,509,350,116,31,0,12,,,23-April-2026,masterdata-eng,945,944,0,1,0,0,,,22-April-2026,masterdata-eng,945,944,0,1,0,0,,,21-April-2026,masterdata-eng,945,944,0,1,0,0,,,20-April-2026,masterdata-eng,945,944,0,1,0,0
+24-April-2026,prereg,288,282,0,0,2,4,,,23-April-2026,masterdata-fra,945,929,0,1,15,0,,,22-April-2026,masterdata-fra,945,929,0,1,15,0,,,21-April-2026,masterdata-fra,945,929,0,1,15,0,,,20-April-2026,masterdata-fra,945,929,0,1,15,0
+24-April-2026,dsl,230,25,79,98,0,0,,,23-April-2026,partner,509,350,116,31,0,12,,,22-April-2026,partner,509,350,116,31,0,12,,,21-April-2026,partner,509,350,116,31,0,12,,,20-April-2026,partner,509,350,116,31,0,12
+,,,,,,,,,,23-April-2026,prereg,288,282,0,0,2,4,,,22-April-2026,prereg,288,282,0,0,2,4,,,21-April-2026,prereg,288,282,0,0,2,4,,,20-April-2026,prereg,288,282,0,0,2,4
+,,,,,,,,,,23-April-2026,resident,1142,1142,0,0,0,0,,,22-April-2026,resident,1142,1142,0,0,0,0,,,21-April-2026,resident,1142,1141,0,1,0,0,,,20-April-2026,resident,1142,1142,0,0,0,0
+,,,,,,,,,,23-April-2026,dsl,230,201,0,1,0,0,,,22-April-2026,dsl,230,200,0,2,0,0,,,21-April-2026,dsl,230,173,20,9,0,0,,,20-April-2026,dsl,230,186,3,13,0,0

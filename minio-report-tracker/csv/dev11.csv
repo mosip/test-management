@@ -1,2 +1,7 @@
-Date,Module,T,P,S,F,I,KI,, ,Date,Module,T,P,S,F,I,KI,, ,Date,Module,T,P,S,F,I,KI,, ,Date,Module,T,P,S,F,I,KI,, ,Date,Module,T,P,S,F,I,KI
-24-April-2026,dsl,209,25,72,82,0,30,,,23-April-2026,dsl,209,124,14,41,0,30,,,22-April-2026,dsl,209,104,38,37,0,30,,,21-April-2026,dsl,209,27,68,84,0,30,,,20-April-2026,dsl,209,117,16,46,0,30
+Date,Module,T,P,S,F,I,KI
+01-May-2026,auth,612,354,152,92,5,9
+01-May-2026,masterdata-ara,945,895,0,0,15,35
+01-May-2026,masterdata-eng,945,923,0,0,0,22
+01-May-2026,masterdata-fra,945,907,0,0,15,23
+01-May-2026,partner,511,497,0,0,2,12
+01-May-2026,dsl,209,109,27,43,0,30

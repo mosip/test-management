@@ -1,8 +1,7 @@
-Date,Module,T,P,S,F,I,KI,, ,Date,Module,T,P,S,F,I,KI,, ,Date,Module,T,P,S,F,I,KI,, ,Date,Module,T,P,S,F,I,KI
-15-May-2026,masterdata-ara,945,930,0,0,15,0,,,14-May-2026,masterdata-ara,945,930,0,0,15,0,,,13-May-2026,idrepo,414,305,52,57,0,0,,,12-May-2026,partner,1789,1729,1,59,0,0
-15-May-2026,masterdata-eng,945,945,0,0,0,0,,,14-May-2026,masterdata-eng,945,945,0,0,0,0,,,13-May-2026,masterdata-ara,945,930,0,0,15,0,,,,,,,,,,
-15-May-2026,masterdata-fra,945,930,0,0,15,0,,,14-May-2026,masterdata-fra,945,930,0,0,15,0,,,13-May-2026,masterdata-eng,945,945,0,0,0,0,,,,,,,,,,
-15-May-2026,partner,1800,1795,0,5,0,0,,,14-May-2026,partner,1800,1770,0,30,0,0,,,13-May-2026,masterdata-fra,945,930,0,0,15,0,,,,,,,,,,
-15-May-2026,prereg,288,281,0,1,2,4,,,14-May-2026,prereg,288,281,0,1,2,4,,,13-May-2026,partner,1789,1729,1,59,0,0,,,,,,,,,,
-15-May-2026,resident,1157,206,211,740,0,0,,,14-May-2026,resident,1157,208,211,738,0,0,,,13-May-2026,prereg,288,281,0,1,2,4,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,13-May-2026,resident,1157,207,211,739,0,0,,,,,,,,,,
+Date,Module,T,P,S,F,I,KI,, ,Date,Module,T,P,S,F,I,KI
+18-May-2026,masterdata-ara,945,930,0,0,15,0,,,15-May-2026,partner,1800,1795,0,5,0,0
+18-May-2026,masterdata-eng,945,945,0,0,0,0,,,,,,,,,,
+18-May-2026,masterdata-fra,945,930,0,0,15,0,,,,,,,,,,
+18-May-2026,partner,1800,1795,0,5,0,0,,,,,,,,,,
+18-May-2026,prereg,288,281,0,1,2,4,,,,,,,,,,
+18-May-2026,resident,1157,206,211,740,0,0,,,,,,,,,,

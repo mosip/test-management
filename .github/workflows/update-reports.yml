@@ -2,23 +2,39 @@ name: Update CSV, XLSX, and Google Sheet via MinIO
 
 on:
   schedule:
-    - cron: '50 3 * * 1-5'  # 9:20 AM IST, Mon–Fri
+    - cron: '50 3 * * 1-5'
   workflow_dispatch:
 
 jobs:
-  update:
+
+  # Runs once per env in MINIO_ENVS in parallel — connects to MinIO via WireGuard and generates a CSV
+  per-env:
+    name: "env: ${{ matrix.env }}"
     runs-on: ubuntu-latest
     environment:
       name: daily-automation-reports
-    permissions:
-      contents: write
+
+    strategy:
+      fail-fast: false
+      matrix:
+        env: ${{ fromJson(vars.MINIO_ENVS) }}
+
+    env:
+      MINIO_URL:      ${{ secrets[format('MINIO_{0}_URL',      matrix.env)] }}
+      MINIO_USER:     ${{ secrets[format('MINIO_{0}_USER',     matrix.env)] }}
+      MINIO_PASSWORD: ${{ secrets[format('MINIO_{0}_PASSWORD', matrix.env)] }}
 
     steps:
-      - name: Checkout daily-automation-reports branch
+      - name: Checkout repo
         uses: actions/checkout@v4
         with:
           ref: daily-automation-reports
-          fetch-depth: 0
+
+      - name: Reset per-env collected files
+        run: |
+          mkdir -p minio-report-tracker/csv minio-report-tracker/status
+          rm -f minio-report-tracker/csv/*.csv
+          rm -f minio-report-tracker/status/*.json
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -27,75 +43,290 @@ jobs:
 
       - name: Install Python dependencies
         run: |
-          pip install pandas matplotlib openpyxl gspread oauth2client gspread-formatting google-api-python-client google-auth
+          pip install pandas matplotlib openpyxl gspread oauth2client \
+                      gspread-formatting google-api-python-client google-auth
 
       - name: Install WireGuard
         run: sudo apt-get install -y wireguard
 
-      - name: Configure and start WireGuard
+      - name: Configure WireGuard
         run: |
           echo "${{ secrets.WIREGUARD_CONF }}" | sudo tee /etc/wireguard/wg0.conf > /dev/null
           sudo chmod 600 /etc/wireguard/wg0.conf
           sudo wg-quick up wg0
-          sudo wg show wg0
 
-      - name: Install MinIO Client (mc)
+      - name: Verify WireGuard tunnel
+        if: github.event_name == 'workflow_dispatch'
         run: |
-          curl -L https://dl.min.io/client/mc/release/linux-amd64/archive/mc.RELEASE.2022-07-29T19-17-16Z -o mc
+          echo "=== WireGuard interface state ==="
+          sudo wg show
+          echo ""
+          echo "=== Routing table (first 30 lines) ==="
+          ip route show | head -30
+
+      - name: Install MinIO Client
+        run: |
+          curl -fsSL \
+            https://dl.min.io/client/mc/release/linux-amd64/archive/mc.RELEASE.2022-07-29T19-17-16Z \
+            -o mc
           chmod +x mc
           sudo mv mc /usr/local/bin/
-          mc --version
 
-      - name: Configure MinIO Aliases from Secrets
+      - name: Configure MinIO Alias
+        id: configure_minio
         run: |
-          mc alias set "${{ secrets.MINIO_CELLBOX21_NAME }}" "${{ secrets.MINIO_CELLBOX21_URL }}" "${{ secrets.MINIO_CELLBOX21_USER }}" "${{ secrets.MINIO_CELLBOX21_PASSWORD }}" --api S3v2
-          mc alias set "${{ secrets.MINIO_COLLAB_NAME }}"    "${{ secrets.MINIO_COLLAB_URL }}"    "${{ secrets.MINIO_COLLAB_USER }}"    "${{ secrets.MINIO_COLLAB_PASSWORD }}" --api S3v2
-          mc alias set "${{ secrets.MINIO_RELEASED_NAME }}"  "${{ secrets.MINIO_RELEASED_URL }}"  "${{ secrets.MINIO_RELEASED_USER }}"  "${{ secrets.MINIO_RELEASED_PASSWORD }}" --api S3v2
-          mc alias set "${{ secrets.MINIO_QABASE_NAME }}"    "${{ secrets.MINIO_QABASE_URL }}"    "${{ secrets.MINIO_QABASE_USER }}"    "${{ secrets.MINIO_QABASE_PASSWORD }}" --api S3v2
-          mc alias set "${{ secrets.MINIO_SYNERGY1_NAME }}" "${{ secrets.MINIO_SYNERGY1_URL }}" "${{ secrets.MINIO_SYNERGY1_USER }}" "${{ secrets.MINIO_SYNERGY1_PASSWORD }}" --api S3v2
-          mc alias set "${{ secrets.MINIO_QA11NEW_NAME }}"    "${{ secrets.MINIO_QA11NEW_URL }}"    "${{ secrets.MINIO_QA11NEW_USER }}"    "${{ secrets.MINIO_QA11NEW_PASSWORD }}" --api S3v2
-          mc alias set "${{ secrets.MINIO_QA11_NAME }}"    "${{ secrets.MINIO_QA11_URL }}"    "${{ secrets.MINIO_QA11_USER }}"    "${{ secrets.MINIO_QA11_PASSWORD }}" --api S3v2
-          mc alias set "${{ secrets.MINIO_QA21_NAME }}"    "${{ secrets.MINIO_QA21_URL }}"    "${{ secrets.MINIO_QA21_USER }}"    "${{ secrets.MINIO_QA21_PASSWORD }}" --api S3v2
-          mc alias set "${{ secrets.MINIO_DEV_NAME }}"    "${{ secrets.MINIO_DEV_URL }}"    "${{ secrets.MINIO_DEV_USER }}"    "${{ secrets.MINIO_DEV_PASSWORD }}" --api S3v2
-          mc alias set "${{ secrets.MINIO_DEV01_NAME }}"    "${{ secrets.MINIO_DEV01_URL }}"    "${{ secrets.MINIO_DEV01_USER }}"    "${{ secrets.MINIO_DEV01_PASSWORD }}" --api S3v2
-          mc alias set "${{ secrets.MINIO_DEV11_NAME }}"    "${{ secrets.MINIO_DEV11_URL }}"    "${{ secrets.MINIO_DEV11_USER }}"    "${{ secrets.MINIO_DEV11_PASSWORD }}" --api S3v2
-          mc alias set "${{ secrets.MINIO_QAJ21_NAME }}"    "${{ secrets.MINIO_QAJ21_URL }}"    "${{ secrets.MINIO_QAJ21_USER }}"    "${{ secrets.MINIO_QAJ21_PASSWORD }}" --api S3v2
+          ALIAS="${{ matrix.env }}"
+          echo "Configuring mc alias '$ALIAS' -> $MINIO_URL"
 
+          if [ -z "$MINIO_URL" ] || [ -z "$MINIO_USER" ] || [ -z "$MINIO_PASSWORD" ]; then
+            echo "One or more MinIO secrets are empty for env '$ALIAS'."
+            echo "Expected secrets: MINIO_${ALIAS^^}_URL / _USER / _PASSWORD"
+            exit 1
+          fi
 
-      - name: Remove old CSVs from Git folder
+          mc alias set "$ALIAS" "$MINIO_URL" "$MINIO_USER" "$MINIO_PASSWORD" --api S3v2
+          echo "Alias '$ALIAS' configured."
+
+      - name: Debug MinIO raw listings
+        if: github.event_name == 'workflow_dispatch'
         run: |
-          rm -f minio-report-tracker/csv/*.csv || true
-          git rm -f minio-report-tracker/csv/*.csv || echo "No old CSV files to remove"
-      
-      - name: Run CSV generation script
-        run: python minio-report-tracker/scripts/update_csv.py
+          ALIAS="${{ matrix.env }}"
+          echo "== $ALIAS/dslreports/full =="
+          timeout 15s mc ls --json "$ALIAS/dslreports/full/" || true
+          echo ""
+          echo "== $ALIAS/uitestrig root =="
+          timeout 15s mc ls --json "$ALIAS/uitestrig/" || true
+          echo ""
+          echo "== $ALIAS/apitestrig root =="
+          timeout 15s mc ls --json "$ALIAS/apitestrig/" || true
+          echo ""
+          echo "== $ALIAS/automation root =="
+          timeout 15s mc ls --json "$ALIAS/automation/" || true
 
-      - name: Move new CSVs to Git folder
+      - name: Run CSV generation
+        id: run_csv_generation
+        run: |
+          export MINIO_ENV="${{ matrix.env }}"
+          python minio-report-tracker/scripts/update_csv.py
+
+      - name: Debug generated outputs
+        if: github.event_name == 'workflow_dispatch'
+        run: |
+          echo "== ../csv =="
+          ls -la ../csv || echo "(directory does not exist)"
+          echo ""
+          echo "== ../status =="
+          ls -la ../status || echo "(directory does not exist)"
+          echo ""
+          echo "== status payload =="
+          cat "../status/status_${{ matrix.env }}.json" || echo "(file not found)"
+
+      - name: Collect generated CSV and status files
+        if: always()
+        run: |
+          mkdir -p minio-report-tracker/csv minio-report-tracker/status
+
+          CSV_SRC="../csv/${{ matrix.env }}.csv"
+          if [ -f "$CSV_SRC" ]; then
+            cp "$CSV_SRC" "minio-report-tracker/csv/${{ matrix.env }}.csv"
+            echo "CSV collected."
+          else
+            echo "No CSV found at $CSV_SRC — MinIO scan may have returned no data."
+          fi
+
+          STATUS_SRC="../status/status_${{ matrix.env }}.json"
+          if [ -f "$STATUS_SRC" ]; then
+            cp "$STATUS_SRC" "minio-report-tracker/status/status_${{ matrix.env }}.json"
+            echo "Status file collected."
+          else
+            echo "No status file found at $STATUS_SRC."
+          fi
+
+      - name: Normalize per-env status
+        if: always()
+        run: |
+          CSV_FILE="minio-report-tracker/csv/${{ matrix.env }}.csv"
+          STATUS_FILE="minio-report-tracker/status/status_${{ matrix.env }}.json"
+          mkdir -p minio-report-tracker/status
+
+          if [ -f "$CSV_FILE" ]; then
+            printf '{"success":["%s"],"failed":[]}\n' "${{ matrix.env }}" > "$STATUS_FILE"
+          else
+            printf '{"success":[],"failed":["%s"]}\n' "${{ matrix.env }}" > "$STATUS_FILE"
+          fi
+          echo "Status written: $(cat "$STATUS_FILE")"
+
+      - name: Debug collected files
+        if: github.event_name == 'workflow_dispatch'
+        run: |
+          echo "== minio-report-tracker/csv =="
+          ls -la minio-report-tracker/csv || echo "No CSV files"
+          echo ""
+          echo "== minio-report-tracker/status =="
+          ls -la minio-report-tracker/status || echo "No status files"
+
+      - name: Upload CSV artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: csv-${{ matrix.env }}
+          path: minio-report-tracker/csv/${{ matrix.env }}.csv
+          if-no-files-found: ignore
+
+      - name: Upload status artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: status-${{ matrix.env }}
+          path: minio-report-tracker/status/status_${{ matrix.env }}.json
+          if-no-files-found: error
+
+  # Waits for all per-env jobs, merges CSVs, generates XLSX, updates Google Sheet, and notifies Slack on failure
+  summary:
+    name: Summary
+    needs: per-env
+    runs-on: ubuntu-latest
+    if: always()
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          ref: daily-automation-reports
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Python dependencies
+        run: |
+          pip install pandas matplotlib openpyxl gspread oauth2client \
+                      gspread-formatting google-api-python-client google-auth
+
+      - name: Reset collected report folders
+        run: |
+          rm -rf artifacts
+          mkdir -p artifacts minio-report-tracker/csv minio-report-tracker/xlxs status
+          rm -f minio-report-tracker/csv/*.csv
+          rm -f minio-report-tracker/xlxs/*.xlsx
+          rm -f status/*.json
+
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+
+      - name: Collect CSVs from artifacts
         run: |
           mkdir -p minio-report-tracker/csv
-          mv ../csv/*.csv minio-report-tracker/csv/
+          find artifacts -name "*.csv" -exec cp {} minio-report-tracker/csv/ \;
 
-      - name: Remove old XLSX files from Git folder
+      - name: Collect status files from artifacts
         run: |
-          rm -f minio-report-tracker/xlxs/*.xlsx || true
-          git rm -f minio-report-tracker/xlxs/*.xlsx || echo "No old XLSX files to remove"
+          mkdir -p status
+          find artifacts -name "*.json" -exec cp {} status/ \;
 
-      - name: Run XLSX generation script
+      - name: Debug aggregate inputs
+        if: github.event_name == 'workflow_dispatch'
+        run: |
+          echo "=== Downloaded artifact tree ==="
+          find artifacts -maxdepth 3 -type f | sort || true
+          echo ""
+          echo "=== Collected CSVs ==="
+          ls -la minio-report-tracker/csv || true
+          echo ""
+          echo "=== Collected status files ==="
+          ls -la status || true
+
+      - name: Generate workflow summary
+        run: |
+          echo "## MinIO Environment Summary" >> $GITHUB_STEP_SUMMARY
+
+          FAILED=""
+          SUCCESS=""
+
+          for file in status/*.json; do
+            ENV_NAME=$(basename "$file" | sed 's/status_//' | sed 's/.json//')
+            if python -c "import json,sys; data=json.load(open(sys.argv[1])); raise SystemExit(0 if sys.argv[2] in data.get('success',[]) else 1)" "$file" "$ENV_NAME"
+            then
+              echo "OK $ENV_NAME" >> $GITHUB_STEP_SUMMARY
+              SUCCESS="$SUCCESS $ENV_NAME"
+            else
+              echo "FAILED $ENV_NAME" >> $GITHUB_STEP_SUMMARY
+              FAILED="$FAILED $ENV_NAME"
+            fi
+          done
+
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Failed Environments" >> $GITHUB_STEP_SUMMARY
+          echo "${FAILED:-'(none)'}" >> $GITHUB_STEP_SUMMARY
+          echo "### Successful Environments" >> $GITHUB_STEP_SUMMARY
+          echo "${SUCCESS:-'(none)'}" >> $GITHUB_STEP_SUMMARY
+
+          echo "FAILED_ENVS=${FAILED# }" >> $GITHUB_ENV
+          echo "SUCCESS_ENVS=${SUCCESS# }" >> $GITHUB_ENV
+
+      - name: Generate XLSX
+        if: ${{ env.SUCCESS_ENVS != '' }}
         run: python minio-report-tracker/scripts/generate_xlsx.py
 
-      - name: Ensure XLSX folder exists
-        run: mkdir -p minio-report-tracker/xlxs
-        
-      - name: Run Google Sheet Update Script
+      - name: Update Google Sheet
+        if: ${{ env.SUCCESS_ENVS != '' }}
         run: |
           echo '${{ secrets.GSHEETCREDS }}' > creds.json
           python minio-report-tracker/scripts/update_sheet.py
 
-      - name: Commit and push updates
+      - name: Notify Slack on failure
+        if: ${{ env.FAILED_ENVS != '' }}
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         run: |
-          git config --global user.name "github-actions"
-          git config --global user.email "github-actions@github.com"
-          git add minio-report-tracker/csv/*.csv
-          git add minio-report-tracker/xlxs/*.xlsx
-          git commit -m "Update CSV, XLSX, and Google Sheet reports" --allow-empty || echo "Nothing to commit"
-          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git daily-automation-reports
+          RUN_URL="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          DATE=$(date +'%d %b %Y')
+
+          FAILED_TEXT=$(echo "$FAILED_ENVS" | tr ' ' '\n' | sed '/^$/d' | sed 's/^/:x: `/' | sed 's/$/`/')
+          SUCCESS_TEXT=$(echo "$SUCCESS_ENVS" | tr ' ' '\n' | sed '/^$/d' | sed 's/^/:white_check_mark: `/' | sed 's/$/`/')
+
+          PAYLOAD=$(jq -n \
+            --arg date "$DATE" \
+            --arg failed "$FAILED_TEXT" \
+            --arg passed "$SUCCESS_TEXT" \
+            --arg url "$RUN_URL" \
+            '{
+              blocks: [
+                {
+                  type: "header",
+                  text: { type: "plain_text", text: ("MinIO Report — " + $date), emoji: true }
+                },
+                {
+                  type: "section",
+                  fields: [
+                    { type: "mrkdwn", text: ("*:white_check_mark: Passed*\n" + $passed) },
+                    { type: "mrkdwn", text: ("*:x: Failed*\n" + $failed) }
+                  ]
+                },
+                { type: "divider" },
+                {
+                  type: "actions",
+                  elements: [
+                    {
+                      type: "button",
+                      text: { type: "plain_text", text: "View Run", emoji: true },
+                      url: $url,
+                      style: "primary"
+                    }
+                  ]
+                }
+              ]
+            }')
+
+          curl -fsSL -X POST -H 'Content-type: application/json' \
+               --data "$PAYLOAD" "$SLACK_WEBHOOK_URL"
+
+      - name: Fail if no environment succeeded
+        run: |
+          if [ -z "$SUCCESS_ENVS" ]; then
+            echo "No environments produced a CSV. Check the per-env logs above."
+            exit 1
+          fi

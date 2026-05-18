@@ -186,6 +186,9 @@ def update_sheet(service, spreadsheet, sheet_name, csv_path):
     aligned_data_block = [csv_data_map.get(m, [None] * NUM_DATA_COLS) for m in master_module_list]
 
     sheet_headers = existing_data[0] if existing_data else []
+    existing_date_headers = [header.strip() for header in sheet_headers if header and header.strip()]
+    print(f"  -> Existing date/header row values: {existing_date_headers}")
+    print(f"  -> Comparing CSV date '{date_label}' against sheet headers.")
     target_col = sheet_headers.index(date_label) if date_label in sheet_headers else -1
 
     if target_col == -1:
@@ -217,7 +220,7 @@ def update_sheet(service, spreadsheet, sheet_name, csv_path):
             service.spreadsheets().batchUpdate(spreadsheetId=SPREADSHEET_ID, body={"requests": [insert_req]}).execute()
 
     else:
-        print(f"  -> Date '{date_label}' found. Updating columns in place.")
+        print(f"  -> Date '{date_label}' found at column {col_to_a1(target_col)}. Updating columns in place.")
 
     update_body = {"valueInputOption": "USER_ENTERED", "data": [{"range": f"'{sheet.title}'!{col_to_a1(target_col)}1", "values": [[date_label]]}, {"range": f"'{sheet.title}'!{col_to_a1(target_col)}2", "values": [csv_headers + ["PO"]]}, {"range": f"'{sheet.title}'!{col_to_a1(target_col)}{START_ROW_INDEX + 1}", "values": [row + [None] for row in aligned_data_block]}]}
     print(f"  -> Writing data to sheet '{sheet.title}' starting at column {col_to_a1(target_col)}.")

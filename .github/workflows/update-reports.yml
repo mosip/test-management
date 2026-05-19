@@ -160,10 +160,17 @@ jobs:
           fi
 
           if [ -f "$CSV_FILE" ]; then
-            jq -n --arg env "${{ matrix.env }}" '{"success":[$env],"failed":[],"reason":""}' > "$STATUS_FILE"
+            if [ -f "$STATUS_FILE" ]; then
+              jq --arg env "${{ matrix.env }}" '.success = [$env] | .failed = []' "$STATUS_FILE" > /tmp/norm_tmp.json && mv /tmp/norm_tmp.json "$STATUS_FILE"
+            else
+              jq -n --arg env "${{ matrix.env }}" '{"success":[$env],"failed":[],"reason":""}' > "$STATUS_FILE"
+            fi
           else
-            jq -n --arg env "${{ matrix.env }}" --arg reason "$REASON" \
-              '{"success":[],"failed":[$env],"reason":$reason}' > "$STATUS_FILE"
+            if [ -f "$STATUS_FILE" ]; then
+              jq --arg env "${{ matrix.env }}" --arg reason "$REASON" '.success = [] | .failed = [$env] | .reason = $reason' "$STATUS_FILE" > /tmp/norm_tmp.json && mv /tmp/norm_tmp.json "$STATUS_FILE"
+            else
+              jq -n --arg env "${{ matrix.env }}" --arg reason "$REASON" '{"success":[],"failed":[$env],"reason":$reason}' > "$STATUS_FILE"
+            fi
           fi
           echo "Status written: $(cat "$STATUS_FILE")"
       - name: Debug collected files
@@ -197,6 +204,8 @@ jobs:
     needs: per-env
     runs-on: ubuntu-latest
     if: always()
+    environment:
+      name: daily-automation-reports
 
     steps:
       - name: Checkout repo
@@ -256,17 +265,27 @@ jobs:
           FAILED=""
           SUCCESS=""
 
-          for file in status/*.json; do
-            ENV_NAME=$(basename "$file" | sed 's/status_//' | sed 's/.json//')
-            if python -c "import json,sys; data=json.load(open(sys.argv[1])); raise SystemExit(0 if sys.argv[2] in data.get('success',[]) else 1)" "$file" "$ENV_NAME"
-            then
-              echo "OK $ENV_NAME" >> $GITHUB_STEP_SUMMARY
-              SUCCESS="$SUCCESS $ENV_NAME"
-            else
-              echo "FAILED $ENV_NAME" >> $GITHUB_STEP_SUMMARY
-              FAILED="$FAILED $ENV_NAME"
-            fi
-          done
+          shopt -s nullglob
+          status_files=(status/*.json)
+          shopt -u nullglob
+
+          if [ ${#status_files[@]} -eq 0 ]; then
+            echo "No status files found — all environments may have failed to upload." >> $GITHUB_STEP_SUMMARY
+            echo "FAILED_ENVS=" >> $GITHUB_ENV
+            echo "SUCCESS_ENVS=" >> $GITHUB_ENV
+          else
+            for file in "${status_files[@]}"; do
+              ENV_NAME=$(basename "$file" | sed 's/status_//' | sed 's/.json//')
+              if python -c "import json,sys; data=json.load(open(sys.argv[1])); raise SystemExit(0 if sys.argv[2] in data.get('success',[]) else 1)" "$file" "$ENV_NAME"
+              then
+                echo "OK $ENV_NAME" >> $GITHUB_STEP_SUMMARY
+                SUCCESS="$SUCCESS $ENV_NAME"
+              else
+                echo "FAILED $ENV_NAME" >> $GITHUB_STEP_SUMMARY
+                FAILED="$FAILED $ENV_NAME"
+              fi
+            done
+          fi
 
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "### Failed Environments" >> $GITHUB_STEP_SUMMARY

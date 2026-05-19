@@ -1,5 +1,5 @@
-import json
 import os
+import json
 import re
 import subprocess
 from datetime import datetime, timedelta, timezone
@@ -8,7 +8,6 @@ import pandas as pd
 
 try:
     from zoneinfo import ZoneInfo
-
     IST = ZoneInfo("Asia/Kolkata")
 except Exception:
     IST = timezone(timedelta(hours=5, minutes=30))
@@ -28,9 +27,9 @@ else:
 MINIO_BUCKETS = ["apitestrig", "automation", "dslreports", "uitestrig"]
 columns = ["Date", "Module", "T", "P", "S", "F", "I", "KI"]
 
-failed_aliases = []
+failed_aliases     = []
 successful_aliases = []
-failure_reasons = {}
+failure_reasons    = {}
 
 
 def log(alias, message):
@@ -47,22 +46,30 @@ def date_key_from_minio_ts(ts: str) -> str:
         dt = datetime.fromisoformat(ts_norm)
     except ValueError:
         dt = datetime.strptime(ts_norm[:19], "%Y-%m-%dT%H:%M:%S").replace(tzinfo=timezone.utc)
-    dt_ist = dt.astimezone(IST)
-    return format_date_str(dt_ist)
+    return format_date_str(dt.astimezone(IST))
 
 
-def run_mc_json_lines(alias, command):
-    output = subprocess.getoutput(command)
-    lines = output.splitlines()
+def run_mc_json_lines(alias, command, timeout=15):
+    """
+    Run an mc command and return parsed JSON lines.
+    Capped at `timeout` seconds so an unreachable server never hangs the job.
+    """
+    try:
+        result = subprocess.run(
+            command, shell=True, capture_output=True, text=True, timeout=timeout
+        )
+        output = result.stdout
+    except subprocess.TimeoutExpired:
+        log(alias, f"mc command timed out after {timeout}s: {command}")
+        return []
+
     entries = []
-
-    for line in lines:
+    for line in output.splitlines():
         try:
             entries.append(json.loads(line))
         except json.JSONDecodeError:
             if line.strip():
                 log(alias, f"Skipping non-JSON mc output: {line[:200]}")
-
     return entries
 
 
@@ -75,10 +82,10 @@ def append_row(all_data_by_date, date_key, module, row):
 for alias in MINIO_ALIASES:
     try:
         log(alias, "Starting MinIO scan")
-        csv_filename = f"{alias}.csv"
+        csv_filename   = f"{alias}.csv"
         all_data_by_date = {}
-        matched_rows = 0
-        bucket_stats = {bucket: 0 for bucket in MINIO_BUCKETS}
+        matched_rows   = 0
+        bucket_stats   = {bucket: 0 for bucket in MINIO_BUCKETS}
 
         for bucket in MINIO_BUCKETS:
             folders = []
@@ -89,69 +96,52 @@ for alias in MINIO_ALIASES:
 
                 for info in entries:
                     try:
-                        fn = info["key"]
+                        fn       = info["key"]
                         if fn.startswith("ExtentReport-"):
                             continue
-                        ts = info["lastModified"]
-                        date_key = date_key_from_minio_ts(ts)
+                        date_key = date_key_from_minio_ts(info["lastModified"])
                     except (KeyError, ValueError):
                         continue
 
                     if not re.search(r"report_T-\d+_P-\d+(?:_KI-\d+)?(?:_I-\d+)?_S-\d+_F-\d+", fn):
                         continue
-
-                    match = re.search(r"report_T-(\d+)_P-(\d+)(?:_KI-(\d+))?(?:_I-(\d+))?_S-(\d+)_F-(\d+)", fn)
-                    if not match:
+                    m = re.search(r"report_T-(\d+)_P-(\d+)(?:_KI-(\d+))?(?:_I-(\d+))?_S-(\d+)_F-(\d+)", fn)
+                    if not m:
                         continue
 
-                    t_val, p_val, ki_val, i_val, s_val, f_val = match.groups()
-                    i_val = i_val or "0"
-                    ki_val = ki_val or "0"
-
-                    append_row(
-                        all_data_by_date,
-                        date_key,
-                        "dsl",
-                        [date_key, "dsl", t_val, p_val, s_val, f_val, i_val, ki_val],
-                    )
+                    t_val, p_val, ki_val, i_val, s_val, f_val = m.groups()
+                    append_row(all_data_by_date, date_key, "dsl",
+                               [date_key, "dsl", t_val, p_val, s_val, f_val,
+                                i_val or "0", ki_val or "0"])
                     matched_rows += 1
                     bucket_stats[bucket] += 1
-
                 continue
 
             if bucket == "uitestrig":
-                root_entries = run_mc_json_lines(alias, f"mc ls --json {alias}/{bucket}/")
-                log(alias, f"uitestrig root entries scanned: {len(root_entries)}")
+                entries = run_mc_json_lines(alias, f"mc ls --json {alias}/{bucket}/")
+                log(alias, f"uitestrig root entries scanned: {len(entries)}")
 
-                for info in root_entries:
+                for info in entries:
                     try:
-                        fn = info["key"]
-                        ts = info["lastModified"]
-                        date_key = date_key_from_minio_ts(ts)
+                        fn       = info["key"]
+                        date_key = date_key_from_minio_ts(info["lastModified"])
                     except (KeyError, ValueError):
                         continue
 
                     if not re.search(r"-report_T-\d+_P-\d+_S-\d+_F-\d+\.html$", fn):
                         continue
-
                     mod_match = re.match(r"(ADMINUI|RESIDENT)-api-", fn)
                     if not mod_match:
                         continue
 
                     mod_raw = mod_match.group(1).lower()
-                    module = "residentui" if mod_raw == "resident" else mod_raw
-
-                    match = re.search(r"report_T-(\d+)_P-(\d+)_S-(\d+)_F-(\d+)", fn)
-                    if not match:
+                    module  = "residentui" if mod_raw == "resident" else mod_raw
+                    m = re.search(r"report_T-(\d+)_P-(\d+)_S-(\d+)_F-(\d+)", fn)
+                    if not m:
                         continue
-
-                    t_val, p_val, s_val, f_val = match.groups()
-                    append_row(
-                        all_data_by_date,
-                        date_key,
-                        module,
-                        [date_key, module, t_val, p_val, s_val, f_val, "0", "0"],
-                    )
+                    t_val, p_val, s_val, f_val = m.groups()
+                    append_row(all_data_by_date, date_key, module,
+                               [date_key, module, t_val, p_val, s_val, f_val, "0", "0"])
                     matched_rows += 1
                     bucket_stats[bucket] += 1
 
@@ -168,79 +158,56 @@ for alias in MINIO_ALIASES:
 
             for folder in folders:
                 if bucket == "uitestrig" and folder.lower() == "pmpui":
-                    folder_entries = run_mc_json_lines(alias, f"mc ls --json {alias}/{bucket}/{folder}/")
-                    for info in folder_entries:
+                    for info in run_mc_json_lines(alias, f"mc ls --json {alias}/{bucket}/{folder}/"):
                         try:
-                            fn = info["key"]
-                            ts = info["lastModified"]
-                            date_key = date_key_from_minio_ts(ts)
+                            fn       = info["key"]
+                            date_key = date_key_from_minio_ts(info["lastModified"])
                         except (KeyError, ValueError):
                             continue
-
                         if not re.search(r"PMPUI-.*-report_T-\d+_P-\d+_S-\d+_F-\d+", fn):
                             continue
-
-                        match = re.search(r"report_T-(\d+)_P-(\d+)_S-(\d+)_F-(\d+)", fn)
-                        if not match:
+                        m = re.search(r"report_T-(\d+)_P-(\d+)_S-(\d+)_F-(\d+)", fn)
+                        if not m:
                             continue
-
-                        t_val, p_val, s_val, f_val = match.groups()
-                        append_row(
-                            all_data_by_date,
-                            date_key,
-                            "pmpui",
-                            [date_key, "pmpui", t_val, p_val, s_val, f_val, "0", "0"],
-                        )
+                        t_val, p_val, s_val, f_val = m.groups()
+                        append_row(all_data_by_date, date_key, "pmpui",
+                                   [date_key, "pmpui", t_val, p_val, s_val, f_val, "0", "0"])
                         matched_rows += 1
                         bucket_stats[bucket] += 1
                     continue
 
-                folder_entries = run_mc_json_lines(alias, f"mc ls --json {alias}/{bucket}/{folder}/")
-                for info in folder_entries:
+                for info in run_mc_json_lines(alias, f"mc ls --json {alias}/{bucket}/{folder}/"):
                     try:
-                        fn = info["key"]
-                        ts = info["lastModified"]
-                        date_key = date_key_from_minio_ts(ts)
+                        fn       = info["key"]
+                        date_key = date_key_from_minio_ts(info["lastModified"])
                     except (KeyError, ValueError):
                         continue
-
                     if "error-report" in fn:
                         continue
                     if not re.search(r"(full-)?report_T-\d+_P-\d+_S-\d+_F-", fn):
                         continue
-
-                    match = re.search(r"report_T-(\d+)_P-(\d+)_S-(\d+)_F-(\d+)(?:_I-(\d+))?(?:_KI-(\d+))?", fn)
-                    if not match:
+                    m = re.search(r"report_T-(\d+)_P-(\d+)_S-(\d+)_F-(\d+)(?:_I-(\d+))?(?:_KI-(\d+))?", fn)
+                    if not m:
                         continue
-
-                    t_val, p_val, s_val, f_val, i_val, ki_val = match.groups()
-                    i_val = i_val or "0"
-                    ki_val = ki_val or "0"
+                    t_val, p_val, s_val, f_val, i_val, ki_val = m.groups()
 
                     if folder == "masterdata":
-                        lang = re.search(r"masterdata-([a-z]{3})", fn)
+                        lang   = re.search(r"masterdata-([a-z]{3})", fn)
                         module = f"{folder}-{lang.group(1)}" if lang else folder
                     else:
                         module = folder
 
-                    append_row(
-                        all_data_by_date,
-                        date_key,
-                        module,
-                        [date_key, module, t_val, p_val, s_val, f_val, i_val, ki_val],
-                    )
+                    append_row(all_data_by_date, date_key, module,
+                               [date_key, module, t_val, p_val, s_val, f_val,
+                                i_val or "0", ki_val or "0"])
                     matched_rows += 1
                     bucket_stats[bucket] += 1
 
-        sorted_dates = sorted(
-            all_data_by_date.keys(),
-            key=lambda value: datetime.strptime(value, "%d-%B-%Y"),
-            reverse=True,
-        )
+        sorted_dates  = sorted(all_data_by_date.keys(),
+                               key=lambda v: datetime.strptime(v, "%d-%B-%Y"), reverse=True)
         weekdays_only = []
         for date_str in sorted_dates:
-            dt = datetime.strptime(date_str, "%d-%B-%Y")
-            if dt.weekday() < 5:
+            if datetime.strptime(date_str, "%d-%B-%Y").weekday() < 5:
                 weekdays_only.append(date_str)
             if len(weekdays_only) == 5:
                 break
@@ -250,33 +217,26 @@ for alias in MINIO_ALIASES:
         log(alias, f"Available date buckets (IST): {sorted_dates[:10]}")
         log(alias, f"Selected latest 5 working days: {weekdays_only}")
 
-        dfs = []
-        for date_key in weekdays_only:
-            dfs.append(pd.DataFrame(all_data_by_date[date_key], columns=columns))
+        dfs = [pd.DataFrame(all_data_by_date[d], columns=columns) for d in weekdays_only]
 
         if not dfs:
-            reason = (
-                "No usable report data found after parsing MinIO objects and applying the latest 5 working days filter."
-            )
+            reason = "No usable report data found after parsing MinIO objects and applying the latest 5 working days filter."
             log(alias, reason)
-            failure_reasons[alias] = {
-                "reason": reason,
-                "available_dates": sorted_dates[:10],
-                "bucket_stats": bucket_stats,
-            }
+            failure_reasons[alias] = {"reason": reason,
+                                      "available_dates": sorted_dates[:10],
+                                      "bucket_stats": bucket_stats}
             failed_aliases.append(alias)
             continue
 
         max_len = max(len(df) for df in dfs)
-        for index in range(len(dfs)):
-            dfs[index] = dfs[index].reindex(range(max_len))
-            if index < len(dfs) - 1:
-                dfs[index][""] = ""
-                dfs[index][" "] = ""
+        for i in range(len(dfs)):
+            dfs[i] = dfs[i].reindex(range(max_len))
+            if i < len(dfs) - 1:
+                dfs[i][""]  = ""
+                dfs[i][" "] = ""
 
         os.makedirs("../csv", exist_ok=True)
-        final_df = pd.concat(dfs, axis=1)
-        final_df.to_csv(f"../csv/{csv_filename}", index=False)
+        pd.concat(dfs, axis=1).to_csv(f"../csv/{csv_filename}", index=False)
         successful_aliases.append(alias)
         log(alias, f"CSV written to ../csv/{csv_filename}")
 
@@ -289,12 +249,8 @@ for alias in MINIO_ALIASES:
 
 os.makedirs("../status", exist_ok=True)
 
-status = {
-    "success": successful_aliases,
-    "failed": failed_aliases,
-    "details": failure_reasons,
-}
-
 alias_name = env_name if env_name else "all"
 with open(f"../status/status_{alias_name}.json", "w", encoding="utf-8") as handle:
-    json.dump(status, handle, indent=2)
+    json.dump({"success": successful_aliases,
+               "failed":  failed_aliases,
+               "details": failure_reasons}, handle, indent=2)

@@ -79,8 +79,9 @@ jobs:
           echo "Configuring mc alias '$ALIAS' -> $MINIO_URL"
 
           if [ -z "$MINIO_URL" ] || [ -z "$MINIO_USER" ] || [ -z "$MINIO_PASSWORD" ]; then
-            echo "One or more MinIO secrets are empty for env '$ALIAS'."
-            echo "Expected secrets: MINIO_${ALIAS^^}_URL / _USER / _PASSWORD"
+            REASON="One or more MinIO secrets are empty for env '$ALIAS'. Expected: MINIO_${ALIAS^^}_URL / _USER / _PASSWORD"
+            echo "$REASON"
+            echo "$REASON" > /tmp/step_failure_reason.txt
             exit 1
           fi
 
@@ -147,15 +148,24 @@ jobs:
         run: |
           CSV_FILE="minio-report-tracker/csv/${{ matrix.env }}.csv"
           STATUS_FILE="minio-report-tracker/status/status_${{ matrix.env }}.json"
+          ORIG_STATUS="../status/status_${{ matrix.env }}.json"
           mkdir -p minio-report-tracker/status
 
+          REASON=""
+          if [ -f "$ORIG_STATUS" ]; then
+            REASON=$(jq -r --arg env "${{ matrix.env }}" '.details[$env].reason // ""' "$ORIG_STATUS" 2>/dev/null || echo "")
+          fi
+          if [ -z "$REASON" ] && [ -f "/tmp/step_failure_reason.txt" ]; then
+            REASON=$(cat /tmp/step_failure_reason.txt)
+          fi
+
           if [ -f "$CSV_FILE" ]; then
-            printf '{"success":["%s"],"failed":[]}\n' "${{ matrix.env }}" > "$STATUS_FILE"
+            jq -n --arg env "${{ matrix.env }}" '{"success":[$env],"failed":[],"reason":""}' > "$STATUS_FILE"
           else
-            printf '{"success":[],"failed":["%s"]}\n' "${{ matrix.env }}" > "$STATUS_FILE"
+            jq -n --arg env "${{ matrix.env }}" --arg reason "$REASON" \
+              '{"success":[],"failed":[$env],"reason":$reason}' > "$STATUS_FILE"
           fi
           echo "Status written: $(cat "$STATUS_FILE")"
-
       - name: Debug collected files
         if: github.event_name == 'workflow_dispatch'
         run: |

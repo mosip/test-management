@@ -282,7 +282,7 @@ jobs:
         run: python minio-report-tracker/scripts/generate_xlsx.py
 
       - name: Update Google Sheet
-        if: ${{ env.SUCCESS_ENVS != '' }}
+        if: always()
         run: |
           echo '${{ secrets.GSHEETCREDS }}' > creds.json
           python minio-report-tracker/scripts/update_sheet.py

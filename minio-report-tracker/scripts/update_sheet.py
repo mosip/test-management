@@ -172,39 +172,93 @@ def apply_new_conditional_formatting(service, sheet_id, sheet_gid, target_col, m
 
 def add_failure_note(service, spreadsheet, sheet_name, reason):
     """
-    For an env that failed entirely, adds the failure reason as a hover note
-    on the date cell position (row 1, START_COL) in that env's sheet.
-    Also writes today's IST date as the cell value so it's clear which run failed.
+    For an env that failed entirely, inserts a full date block (same structure
+    as a successful update) with empty data rows and the failure reason as a
+    hover note on the date header cell.
     """
-    print(f"\n--- Adding failure note to sheet '{sheet_name}' ---")
+    today = datetime.now(tz=IST).strftime("%d-%B-%Y")
+    print(f"\n--- Adding failure block to sheet '{sheet_name}' for {today} ---")
+
     try:
         sheet = spreadsheet.worksheet(sheet_name)
     except gspread.exceptions.WorksheetNotFound:
-        print(f"  Sheet '{sheet_name}' not found, skipping.")
-        return
+        print(f"  Sheet '{sheet_name}' not found. Creating it.")
+        sheet = spreadsheet.add_worksheet(title=sheet_name, rows="100", cols="50")
 
-    today = datetime.now(tz=IST).strftime("%d-%B-%Y")
+    existing_data      = sheet.get_all_values()
+    master_module_list = [row[0] for row in existing_data[START_ROW_INDEX:] if row and row[0]] \
+                         if len(existing_data) > START_ROW_INDEX else []
+    max_rows   = max(len(master_module_list), 1)
+    sheet_headers = existing_data[0] if existing_data else []
+
+    # Find or insert the date column
+    target_col = sheet_headers.index(today) if today in sheet_headers else -1
+
+    if target_col == -1:
+        target_col = START_COL
+        if len(sheet_headers) > START_COL and sheet_headers[START_COL]:
+            bake_reqs, delete_reqs = create_bake_and_delete_requests(
+                service, SPREADSHEET_ID, sheet.id, sheet.title, START_COL, max_rows
+            )
+            if bake_reqs:
+                service.spreadsheets().batchUpdate(
+                    spreadsheetId=SPREADSHEET_ID, body={"requests": bake_reqs}
+                ).execute()
+                time.sleep(3)
+            insert_req = {"insertDimension": {
+                "range": {"sheetId": sheet.id, "dimension": "COLUMNS",
+                          "startIndex": START_COL, "endIndex": START_COL + BLOCK_WIDTH},
+                "inheritFromBefore": False
+            }}
+            service.spreadsheets().batchUpdate(
+                spreadsheetId=SPREADSHEET_ID,
+                body={"requests": delete_reqs + [insert_req]}
+            ).execute()
+        else:
+            insert_req = {"insertDimension": {
+                "range": {"sheetId": sheet.id, "dimension": "COLUMNS",
+                          "startIndex": START_COL, "endIndex": START_COL + BLOCK_WIDTH},
+                "inheritFromBefore": False
+            }}
+            service.spreadsheets().batchUpdate(
+                spreadsheetId=SPREADSHEET_ID, body={"requests": [insert_req]}
+            ).execute()
+
+    # Write date header, column headers, empty data rows
+    empty_rows = [[None] * NUM_DATA_COLS + [None] for _ in range(max_rows)]
+    update_body = {
+        "valueInputOption": "USER_ENTERED",
+        "data": [
+            {"range": f"'{sheet.title}'!{col_to_a1(target_col)}1",
+             "values": [[today]]},
+            {"range": f"'{sheet.title}'!{col_to_a1(target_col)}2",
+             "values": [["T", "P", "S", "F", "I", "KI", "PO"]]},
+            {"range": f"'{sheet.title}'!{col_to_a1(target_col)}{START_ROW_INDEX + 1}",
+             "values": empty_rows}
+        ]
+    }
+    service.spreadsheets().values().batchUpdate(
+        spreadsheetId=SPREADSHEET_ID, body=update_body
+    ).execute()
+
+    # Apply the same borders, merge, and grey header as a normal update
+    apply_new_conditional_formatting(service, SPREADSHEET_ID, sheet.id, target_col, max_rows)
+
+    # Add failure reason as hover note on the date header cell
     note_text = f"Run: {today}\nStatus: FAILED\n\nReason:\n{reason}"
-
-    requests = [{
-        "updateCells": {
-            "range": {
-                "sheetId":          sheet.id,
-                "startRowIndex":    0,
-                "endRowIndex":      1,
-                "startColumnIndex": START_COL,
-                "endColumnIndex":   START_COL + 1
-            },
-            "rows":   [{"values": [{"note": note_text}]}],
-            "fields": "note"
-        }
-    }]
-
     service.spreadsheets().batchUpdate(
         spreadsheetId=SPREADSHEET_ID,
-        body={"requests": requests}
+        body={"requests": [{
+            "updateCells": {
+                "range": {"sheetId": sheet.id,
+                          "startRowIndex": 0, "endRowIndex": 1,
+                          "startColumnIndex": target_col, "endColumnIndex": target_col + 1},
+                "rows":   [{"values": [{"note": note_text}]}],
+                "fields": "note"
+            }
+        }]}
     ).execute()
-    print(f"  Failure note added at {col_to_a1(START_COL)}1 in sheet '{sheet_name}'.")
+    print(f"  Failure block added to '{sheet_name}' at column {col_to_a1(target_col)}.")
 
 
 def update_sheet(service, spreadsheet, sheet_name, csv_path):

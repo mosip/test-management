@@ -1,0 +1,1915 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Automation Report</title>
+<link rel="apple-touch-icon" href="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@b00a2d0486596e73dd7326beacf352c639623a0e/commons/img/logo.png">
+<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@b00a2d0486596e73dd7326beacf352c639623a0e/commons/img/logo.png">
+<link href="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@ce8b10435bcbae260c334c0d0c6b61d2c19b6168/spark/css/spark-style.css" rel="stylesheet" />
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@7cc78ce/spark/js/jsontree.js"></script>
+<style type="text/css"></style></head><body class="spa -report dark">
+  <div class="app">
+    <div class="layout">
+<div class="header navbar">
+<div class="vheader">
+<div class="nav-logo">
+<a href="#">
+<div class="logo" style="background-image: url('https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@b00a2d0486596e73dd7326beacf352c639623a0e/commons/img/logo.png')"></div>
+</a>
+</div>
+<ul class="nav-left">
+<li class="search-box">
+<a class="search-toggle" href="#">
+<i class="search-icon fa fa-search"></i>
+<i class="search-icon-close fa fa-close"></i>
+</a>
+</li>
+<li class="search-input"><input id="search-tests" class="form-control" type="text" placeholder="Search..."></li>
+</ul>
+<ul class="nav-right">
+<li class="m-r-10">
+<a href="#"><span class="badge badge-primary">Test Execution Report ---- Esignet UI Test ---- Report Date: 2026-05-07 ---- Tested Environment: esqa2 ---- Branch Name is: release-1.4.x & Commit Id is: 98e8c1ca</span></a>
+</li>
+<li class="m-r-10">
+<a href="#"><span class="badge badge-primary">May 7, 2026 11:25:14 PM</span></a>
+</li>
+</ul>
+</div>
+</div><div class="side-nav">
+<div class="side-nav-inner">
+<ul class="side-nav-menu">
+<li class="nav-item dropdown" onclick="toggleView('test-view')">
+<a id="nav-test" class="dropdown-toggle" href="#">
+<span class="ico"><i class="fa fa-list"></i></span>
+</a>
+</li>
+<li class="nav-item dropdown" onclick="toggleView('dashboard-view')">
+<a id="nav-dashboard" class="dropdown-toggle" href="#">
+<span class="ico"><i class="fa fa-bar-chart"></i></span>
+</a>
+</li>
+</ul>
+</div>
+</div>      <div class="vcontainer">
+        <div class="main-content">
+<div class="test-wrapper row view test-view">
+  <div class="test-list">
+    <div class="test-list-tools">
+<ul class="tools pull-left">
+<li><a href="#"><span class="font-size-14">Tests</span></a></li>
+</ul>
+<ul class="tools text-right">
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-exclamation-circle"></i></a>
+<ul id="status-toggle" class="dropdown-menu dropdown-md p-v-0">
+<a class="dropdown-item" status="pass" href="#"><span>Pass</span><span class="status success"></span></a>
+<a class="dropdown-item" status="skip" href="#"><span>Skip</span><span class="status warning"></span></a>
+<div class="dropdown-divider"></div>
+<a status="clear" class="dropdown-item" href="#"><span>Clear</span><span class="pull-right"><i class="fa fa-close"></i></span></a>
+</ul>
+</li>
+</ul>
+</div>    <div class="test-list-wrapper scrollable">
+      <ul class="test-list-item">
+        <li class="test-item"  status="pass" test-id="1"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Verify user is completing registration process [chrome | en]</p>
+            <p class="text-sm">
+              <span>11:25:41 PM</span> / <span>00:01:46:148</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">Verify user is completing registration process [chrome | en]</h5>
+<span class='badge badge-success'>05.07.2026 11:25:41 PM</span>
+<span class='badge badge-danger'>05.07.2026 11:27:27 PM</span>
+<span class='badge badge-default'>00:01:46:148</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
+<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:25:41 PM</td>
+        <td>
+          Scenario Started: Verify user is completing registration process | Browser: chrome | Language: en
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:25:50 PM</td>
+        <td>
+          Click on Lang Selection Option<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (a3e3787febcbd62137db5983ee29ce8ee61f6ab1)] -> id: language-select-button]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:26:00 PM</td>
+        <td>
+          Click on Registraion Button<details><summary>Locator Details</summary><pre>Proxy element for: DefaultElementLocator 'By.id: register-button'</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:26:13 PM</td>
+        <td>
+          Entered Identifier Value - Verified visibility<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (a3e3787febcbd62137db5983ee29ce8ee61f6ab1)] -> id: phone]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:26:13 PM</td>
+        <td>
+          Entered Identifier Value - Entered text: '6793321278'<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (a3e3787febcbd62137db5983ee29ce8ee61f6ab1)] -> id: phone]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:26:13 PM</td>
+        <td>
+          Click on continue Button<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (a3e3787febcbd62137db5983ee29ce8ee61f6ab1)] -> id: form-submit-button]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:26:15 PM</td>
+        <td>
+          Click verify OTP Button<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (a3e3787febcbd62137db5983ee29ce8ee61f6ab1)] -> id: verify-otp-button]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:26:35 PM</td>
+        <td>
+          Click on Continue Button In Sucess Screen<details><summary>Locator Details</summary><pre>Proxy element for: DefaultElementLocator 'By.id: mobile-number-verified-continue-button'</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:26:47 PM</td>
+        <td>
+          click on upload photo section<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (a3e3787febcbd62137db5983ee29ce8ee61f6ab1)] -> xpath: //div[@class='alternate-icon-div']]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:27:09 PM</td>
+        <td>
+          click on capture button<details><summary>Locator Details</summary><pre>Proxy element for: DefaultElementLocator 'By.xpath: //button[contains(@id,'capture-button')]'</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:27:22 PM</td>
+        <td>
+          Click on Setup Account continue button<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (a3e3787febcbd62137db5983ee29ce8ee61f6ab1)] -> id: form-submit-button]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:27:22 PM</td>
+        <td>
+          Check if Account Created Successfully Message Displayed - Verified visibility<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (a3e3787febcbd62137db5983ee29ce8ee61f6ab1)] -> xpath: //div[@class='text-center text-lg font-semibold']]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:27:22 PM</td>
+        <td>
+          <a href='https://automate.browserstack.com/builds/f14cc124e983418645ed0403a0a337783a0a4dcb/sessions/a3e3787febcbd62137db5983ee29ce8ee61f6ab1?auth_token=b6c06cd61bc82537ecacb807b6e5d3873299033242c1c049ed2ae80e97021144' target='_blank'>View on BrowserStack</a>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:27:22 PM</td>
+        <td>
+          <a href='https://automate.browserstack.com/sessions/a3e3787febcbd62137db5983ee29ce8ee61f6ab1/video?token=TXd1VjlTa3QwMU9DY05DaVBxUWF5dzd5by9jSUN0Q2NNVXpXMnFVTytIR2habVllWEMzbU5Zbm1ZZWVULzlGRlFWNUZlRzRFcGtRMkUvSWoyL3VaalE9PS0tUmg2SjVqL1MzanpGUkEyMXhINlcrUT09--5320f7a99dcbd531658a467ca4228487db28747a&source=rest_api&diff=-1' target='_blank'>Click here to view only Video</a>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:27:27 PM</td>
+        <td>
+          ✅ Scenario Passed: Verify user is completing registration process
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="2"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Verify the forget password options for phoneNumber [chrome | en]</p>
+            <p class="text-sm">
+              <span>11:27:30 PM</span> / <span>00:00:28:695</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">Verify the forget password options for phoneNumber [chrome | en]</h5>
+<span class='badge badge-success'>05.07.2026 11:27:30 PM</span>
+<span class='badge badge-danger'>05.07.2026 11:27:59 PM</span>
+<span class='badge badge-default'>00:00:28:695</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=2</span>
+<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:27:30 PM</td>
+        <td>
+          Scenario Started: Verify the forget password options for phoneNumber | Browser: chrome | Language: en
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:27:47 PM</td>
+        <td>
+          click on reset password button<details><summary>Locator Details</summary><pre>Proxy element for: DefaultElementLocator 'By.id: reset-password-button'</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:27:57 PM</td>
+        <td>
+          click on language dropdown<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (c50dd76e7e6f992327f7c61e22e97b2cf7417cce)] -> id: language-select-button]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:27:58 PM</td>
+        <td>
+          check prefix of phone number is displayed - Verified visibility<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (c50dd76e7e6f992327f7c61e22e97b2cf7417cce)] -> xpath: //input[@class='input_box prefix-button']]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:27:58 PM</td>
+        <td>
+          check country code is displayed - Verified visibility<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (c50dd76e7e6f992327f7c61e22e97b2cf7417cce)] -> xpath: //input[@class='input_box prefix-button']]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:27:58 PM</td>
+        <td>
+          check forgot password heading displayed  - Verified visibility<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (c50dd76e7e6f992327f7c61e22e97b2cf7417cce)] -> xpath: //div[@class='text-center text-[26px] font-semibold tracking-normal']]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:27:58 PM</td>
+        <td>
+          check forgot password sub heading is displayed - Verified visibility<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (c50dd76e7e6f992327f7c61e22e97b2cf7417cce)] -> xpath: //div[@class='text-center text-gray-500']]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:27:59 PM</td>
+        <td>
+          check username label - Verified visibility<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (c50dd76e7e6f992327f7c61e22e97b2cf7417cce)] -> xpath: //div[@class='label-div-display']]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:27:59 PM</td>
+        <td>
+          ℹ️ Step Status: UNDEFINED
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:27:59 PM</td>
+        <td>
+          <a href='https://automate.browserstack.com/builds/f14cc124e983418645ed0403a0a337783a0a4dcb/sessions/c50dd76e7e6f992327f7c61e22e97b2cf7417cce?auth_token=418630580300b878057c74d505f133ab5d7b94d476c575168dffc5937095e98e' target='_blank'>View on BrowserStack</a>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:27:59 PM</td>
+        <td>
+          <a href='https://automate.browserstack.com/sessions/c50dd76e7e6f992327f7c61e22e97b2cf7417cce/video?token=TGZ5T3BMazh1WG5zL0FTZzd0QzVWamNBN0ZBTTMySzBhWDg1S2xZaXJ3SjFrNWovb2h4NDdzUWlvU2s0S1Y1b0VmSzVJR2VucGdOb0Z4RDJkTUFBZ2c9PS0teHZ3dWtnNUpUREFuakIwelR6Ylo4UT09--981cb561e5ce39f2d30601987d86bb81204e1c39&source=rest_api&diff=-1' target='_blank'>Click here to view only Video</a>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:27:59 PM</td>
+        <td>
+          ✅ Scenario Passed: Verify the forget password options for phoneNumber
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="3"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Verify the forget password options for fullName [chrome | en]</p>
+            <p class="text-sm">
+              <span>11:28:01 PM</span> / <span>00:00:42:617</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">Verify the forget password options for fullName [chrome | en]</h5>
+<span class='badge badge-success'>05.07.2026 11:28:01 PM</span>
+<span class='badge badge-danger'>05.07.2026 11:28:43 PM</span>
+<span class='badge badge-default'>00:00:42:617</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=3</span>
+<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:28:01 PM</td>
+        <td>
+          Scenario Started: Verify the forget password options for fullName | Browser: chrome | Language: en
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:28:17 PM</td>
+        <td>
+          click on reset password button<details><summary>Locator Details</summary><pre>Proxy element for: DefaultElementLocator 'By.id: reset-password-button'</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:28:28 PM</td>
+        <td>
+          click on language dropdown<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (57f34bd4400b6a460d8ffca84d186a28f9e6566b)] -> id: language-select-button]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:28:28 PM</td>
+        <td>
+          Entered Full Name - Verified visibility<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (57f34bd4400b6a460d8ffca84d186a28f9e6566b)] -> id: fullName_eng]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:28:28 PM</td>
+        <td>
+          Entered Full Name - Entered text: '0'<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (57f34bd4400b6a460d8ffca84d186a28f9e6566b)] -> id: fullName_eng]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:28:28 PM</td>
+        <td>
+          click outside the phone number field<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (57f34bd4400b6a460d8ffca84d186a28f9e6566b)] -> xpath: //div[@class='text-center text-[26px] font-semibold tracking-normal']]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:28:28 PM</td>
+        <td>
+          check error displayed - Verified visibility<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (57f34bd4400b6a460d8ffca84d186a28f9e6566b)] -> xpath: //span[@class='error-text']]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:28:29 PM</td>
+        <td>
+          Entered Full Name - Verified visibility<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (57f34bd4400b6a460d8ffca84d186a28f9e6566b)] -> id: fullName_eng]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:28:29 PM</td>
+        <td>
+          Entered Full Name - Entered text: 'យ᧼1'<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (57f34bd4400b6a460d8ffca84d186a28f9e6566b)] -> id: fullName_eng]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:28:29 PM</td>
+        <td>
+          click outside the phone number field<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (57f34bd4400b6a460d8ffca84d186a28f9e6566b)] -> xpath: //div[@class='text-center text-[26px] font-semibold tracking-normal']]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:28:29 PM</td>
+        <td>
+          check error displayed - Verified visibility<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (57f34bd4400b6a460d8ffca84d186a28f9e6566b)] -> xpath: //span[@class='error-text']]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:28:29 PM</td>
+        <td>
+          Entered Full Name - Verified visibility<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (57f34bd4400b6a460d8ffca84d186a28f9e6566b)] -> id: fullName_eng]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:28:29 PM</td>
+        <td>
+          Entered Full Name - Entered text: '!@#$%^'<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (57f34bd4400b6a460d8ffca84d186a28f9e6566b)] -> id: fullName_eng]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:28:30 PM</td>
+        <td>
+          click outside the phone number field<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (57f34bd4400b6a460d8ffca84d186a28f9e6566b)] -> xpath: //div[@class='text-center text-[26px] font-semibold tracking-normal']]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:28:30 PM</td>
+        <td>
+          check error displayed - Verified visibility<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (57f34bd4400b6a460d8ffca84d186a28f9e6566b)] -> xpath: //span[@class='error-text']]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:28:30 PM</td>
+        <td>
+          Entered Full Name - Verified visibility<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (57f34bd4400b6a460d8ffca84d186a28f9e6566b)] -> id: fullName_eng]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:28:30 PM</td>
+        <td>
+          Entered Full Name - Entered text: '៪ៜ៽៞៊ឪ᧤᧶័'<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (57f34bd4400b6a460d8ffca84d186a28f9e6566b)] -> id: fullName_eng]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:28:30 PM</td>
+        <td>
+          click outside the phone number field<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (57f34bd4400b6a460d8ffca84d186a28f9e6566b)] -> xpath: //div[@class='text-center text-[26px] font-semibold tracking-normal']]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:28:31 PM</td>
+        <td>
+          check error displayed - Verified visibility<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (57f34bd4400b6a460d8ffca84d186a28f9e6566b)] -> xpath: //span[@class='error-text']]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:28:31 PM</td>
+        <td>
+          Entered Full Name - Verified visibility<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (57f34bd4400b6a460d8ffca84d186a28f9e6566b)] -> id: fullName_eng]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:28:31 PM</td>
+        <td>
+          Entered Full Name - Entered text: '᧽᧹៻ំោ᧤᧯᧤᧨᧬ៗ៙៙ឬយ᧳ឞ᧱᧸឵᧶៉ឥ៭ច៚᧣ៈ᧴᧬ឿ᧷᧫᧼᧭រ᧹ឧ᧬ឲយៅ᧴៪᧦៶᧨᧭᧠ម'<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (57f34bd4400b6a460d8ffca84d186a28f9e6566b)] -> id: fullName_eng]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:28:31 PM</td>
+        <td>
+          click outside the phone number field<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (57f34bd4400b6a460d8ffca84d186a28f9e6566b)] -> xpath: //div[@class='text-center text-[26px] font-semibold tracking-normal']]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:28:31 PM</td>
+        <td>
+          check error displayed - Verified visibility<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (57f34bd4400b6a460d8ffca84d186a28f9e6566b)] -> xpath: //span[@class='error-text']]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:28:31 PM</td>
+        <td>
+          Entered Full Name - Verified visibility<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (57f34bd4400b6a460d8ffca84d186a28f9e6566b)] -> id: fullName_eng]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:28:32 PM</td>
+        <td>
+          Entered Full Name - Entered text: 'TugZwYCCZBKivSpyAvMGVnAlAEJ'<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (57f34bd4400b6a460d8ffca84d186a28f9e6566b)] -> id: fullName_eng]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:28:32 PM</td>
+        <td>
+          click outside the phone number field<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (57f34bd4400b6a460d8ffca84d186a28f9e6566b)] -> xpath: //div[@class='text-center text-[26px] font-semibold tracking-normal']]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:28:42 PM</td>
+        <td>
+          check continue button disabled - Verified Button<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (57f34bd4400b6a460d8ffca84d186a28f9e6566b)] -> id: form-submit-button]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:28:42 PM</td>
+        <td>
+          Entered Identifier Value - Verified visibility<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (57f34bd4400b6a460d8ffca84d186a28f9e6566b)] -> id: phone]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:28:42 PM</td>
+        <td>
+          Entered Identifier Value - Entered text: '6793321278'<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (57f34bd4400b6a460d8ffca84d186a28f9e6566b)] -> id: phone]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:28:43 PM</td>
+        <td>
+          check continue button enabled - Verified Button<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (57f34bd4400b6a460d8ffca84d186a28f9e6566b)] -> id: form-submit-button]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:28:43 PM</td>
+        <td>
+          click on continue button<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (57f34bd4400b6a460d8ffca84d186a28f9e6566b)] -> id: form-submit-button]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:28:43 PM</td>
+        <td>
+          <a href='https://automate.browserstack.com/builds/f14cc124e983418645ed0403a0a337783a0a4dcb/sessions/57f34bd4400b6a460d8ffca84d186a28f9e6566b?auth_token=1d46bb43cdc91b75a14aa7aba0edaa0d8699443b15df302bf37deff023d169f3' target='_blank'>View on BrowserStack</a>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:28:43 PM</td>
+        <td>
+          <a href='https://automate.browserstack.com/sessions/57f34bd4400b6a460d8ffca84d186a28f9e6566b/video?token=UGtsdWg5UUVZbmM0Vk40QTdwWm85eHh0OGFqYmRNcWo2RmRLQ1U4dW9qd0NBZTh5Z1NFbVEvZ3FqUHZuTUFWcCtWRGVtUXlpUU9mdEVJZjd3MDFSVXc9PS0tdVdnWmMwRTFsSTdzSTFKMzk2SXRmQT09--e030def75e31f3095c75430f16bb9f6759bb36d3&source=rest_api&diff=-1' target='_blank'>Click here to view only Video</a>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:28:43 PM</td>
+        <td>
+          ✅ Scenario Passed: Verify the forget password options for fullName
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="skip" test-id="4"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Verify the forget password options for otp</p>
+            <p class="text-sm">
+              <span>11:28:45 PM</span> / <span>00:00:00:000</span>
+              <span class="badge skip-bg log float-right">Skip</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-skip">Verify the forget password options for otp</h5>
+<span class='badge badge-success'>05.07.2026 11:28:45 PM</span>
+<span class='badge badge-danger'>05.07.2026 11:28:45 PM</span>
+<span class='badge badge-default'>00:00:00:000</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=4</span>
+<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log skip-bg">Skip</span></td>
+        <td>11:28:45 PM</td>
+        <td>
+          🟠 Skipped due to Known Issue → <a href='https://mosip.atlassian.net/browse/ES-2853' target='_blank'>ES-2853</a>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="skip" test-id="5"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Verify the reset password options</p>
+            <p class="text-sm">
+              <span>11:28:45 PM</span> / <span>00:00:00:000</span>
+              <span class="badge skip-bg log float-right">Skip</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-skip">Verify the reset password options</h5>
+<span class='badge badge-success'>05.07.2026 11:28:45 PM</span>
+<span class='badge badge-danger'>05.07.2026 11:28:45 PM</span>
+<span class='badge badge-default'>00:00:00:000</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=5</span>
+<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log skip-bg">Skip</span></td>
+        <td>11:28:45 PM</td>
+        <td>
+          🟠 Skipped due to Known Issue → <a href='https://mosip.atlassian.net/browse/ES-2853' target='_blank'>ES-2853</a>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="6"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Verify the notification when OTP requested for forgot password [chrome | en]</p>
+            <p class="text-sm">
+              <span>11:28:45 PM</span> / <span>00:00:41:088</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">Verify the notification when OTP requested for forgot password [chrome | en]</h5>
+<span class='badge badge-success'>05.07.2026 11:28:45 PM</span>
+<span class='badge badge-danger'>05.07.2026 11:29:26 PM</span>
+<span class='badge badge-default'>00:00:41:088</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=6</span>
+<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:28:45 PM</td>
+        <td>
+          Scenario Started: Verify the notification when OTP requested for forgot password | Browser: chrome | Language: en
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:29:01 PM</td>
+        <td>
+          click on reset password button<details><summary>Locator Details</summary><pre>Proxy element for: DefaultElementLocator 'By.id: reset-password-button'</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:29:12 PM</td>
+        <td>
+          click on language dropdown<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (ea054b2e2f64ad479c5d04fd95388839b2ffa57d)] -> id: language-select-button]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:29:12 PM</td>
+        <td>
+          Entered Full Name - Verified visibility<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (ea054b2e2f64ad479c5d04fd95388839b2ffa57d)] -> id: fullName_eng]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:29:12 PM</td>
+        <td>
+          Entered Full Name - Entered text: 'TugZwYCCZBKivSpyAvMGVnAlAEJ'<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (ea054b2e2f64ad479c5d04fd95388839b2ffa57d)] -> id: fullName_eng]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:29:12 PM</td>
+        <td>
+          Entered Identifier Value - Verified visibility<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (ea054b2e2f64ad479c5d04fd95388839b2ffa57d)] -> id: phone]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:29:12 PM</td>
+        <td>
+          Entered Identifier Value - Entered text: '6793321278'<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (ea054b2e2f64ad479c5d04fd95388839b2ffa57d)] -> id: phone]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:29:13 PM</td>
+        <td>
+          click on continue button<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (ea054b2e2f64ad479c5d04fd95388839b2ffa57d)] -> id: form-submit-button]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:29:14 PM</td>
+        <td>
+          Click verify OTP Button<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (ea054b2e2f64ad479c5d04fd95388839b2ffa57d)] -> id: verify-otp-button]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:29:24 PM</td>
+        <td>
+          Entered new pasword - Verified visibility<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (ea054b2e2f64ad479c5d04fd95388839b2ffa57d)] -> id: newPassword]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:29:25 PM</td>
+        <td>
+          Entered new pasword - Entered text: 'Fr3$#zF##NW9xy3v2%#G'<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (ea054b2e2f64ad479c5d04fd95388839b2ffa57d)] -> id: newPassword]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:29:25 PM</td>
+        <td>
+          Entered confirm password - Verified visibility<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (ea054b2e2f64ad479c5d04fd95388839b2ffa57d)] -> id: confirmNewPassword]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:29:25 PM</td>
+        <td>
+          Entered confirm password - Entered text: 'Fr3$#zF##NW9xy3v2%#G'<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (ea054b2e2f64ad479c5d04fd95388839b2ffa57d)] -> id: confirmNewPassword]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:29:26 PM</td>
+        <td>
+          click on reset button<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (ea054b2e2f64ad479c5d04fd95388839b2ffa57d)] -> id: reset-password-button]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:29:26 PM</td>
+        <td>
+          <a href='https://automate.browserstack.com/builds/f14cc124e983418645ed0403a0a337783a0a4dcb/sessions/ea054b2e2f64ad479c5d04fd95388839b2ffa57d?auth_token=f2b88818d8d356082e88c415c24af8ded53557f517b638a1ffd626a3e8d780e9' target='_blank'>View on BrowserStack</a>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:29:26 PM</td>
+        <td>
+          <a href='https://automate.browserstack.com/sessions/ea054b2e2f64ad479c5d04fd95388839b2ffa57d/video?token=bzFVQWZFVzRuMUY2aU9OV3B5ajRqU01wbFo4dktVVENOUjhqajI0V1pKelRJSnJJREZhVWtVWjRNdlVvSWI4RFdxMjM2elFSOCt1ZENWdU1USG9CTnc9PS0tVU9FdnA2OW42NXJnemhtL05UWVdYUT09--8aa068f9e88164bddfc1a0170b7cdc6bc9a3c736&source=rest_api&diff=-1' target='_blank'>Click here to view only Video</a>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:29:26 PM</td>
+        <td>
+          ✅ Scenario Passed: Verify the notification when OTP requested for forgot password
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="7"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Verify the attempts of resend otp [chrome | en]</p>
+            <p class="text-sm">
+              <span>11:29:28 PM</span> / <span>00:04:34:050</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">Verify the attempts of resend otp [chrome | en]</h5>
+<span class='badge badge-success'>05.07.2026 11:29:28 PM</span>
+<span class='badge badge-danger'>05.07.2026 11:34:02 PM</span>
+<span class='badge badge-default'>00:04:34:050</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=7</span>
+<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:29:28 PM</td>
+        <td>
+          Scenario Started: Verify the attempts of resend otp | Browser: chrome | Language: en
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:29:44 PM</td>
+        <td>
+          click on reset password button<details><summary>Locator Details</summary><pre>Proxy element for: DefaultElementLocator 'By.id: reset-password-button'</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:29:55 PM</td>
+        <td>
+          click on language dropdown<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (fb99e9f6c7fd87b504c62a380ddb434babe6de0d)] -> id: language-select-button]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:29:55 PM</td>
+        <td>
+          Entered Full Name - Verified visibility<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (fb99e9f6c7fd87b504c62a380ddb434babe6de0d)] -> id: fullName_eng]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:29:55 PM</td>
+        <td>
+          Entered Full Name - Entered text: 'TugZwYCCZBKivSpyAvMGVnAlAEJ'<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (fb99e9f6c7fd87b504c62a380ddb434babe6de0d)] -> id: fullName_eng]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:29:55 PM</td>
+        <td>
+          Entered Identifier Value - Verified visibility<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (fb99e9f6c7fd87b504c62a380ddb434babe6de0d)] -> id: phone]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:29:55 PM</td>
+        <td>
+          Entered Identifier Value - Entered text: '6793321278'<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (fb99e9f6c7fd87b504c62a380ddb434babe6de0d)] -> id: phone]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:29:56 PM</td>
+        <td>
+          click on continue button<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (fb99e9f6c7fd87b504c62a380ddb434babe6de0d)] -> id: form-submit-button]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:30:57 PM</td>
+        <td>
+          check resend button enabled - Verified Button<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (fb99e9f6c7fd87b504c62a380ddb434babe6de0d)] -> id: resend-otp-button]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:30:57 PM</td>
+        <td>
+          click on resend otp button<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (fb99e9f6c7fd87b504c62a380ddb434babe6de0d)] -> id: resend-otp-button]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:30:57 PM</td>
+        <td>
+          get the remaining atteptes text - Verified Text<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (fb99e9f6c7fd87b504c62a380ddb434babe6de0d)] -> xpath: //div[@class='w-max rounded-md bg-[#FFF7E5] p-2 px-8 text-center text-sm font-semibold text-[#8B6105]']]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:31:59 PM</td>
+        <td>
+          check resend button enabled - Verified Button<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (fb99e9f6c7fd87b504c62a380ddb434babe6de0d)] -> id: resend-otp-button]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:31:59 PM</td>
+        <td>
+          click on resend otp button<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (fb99e9f6c7fd87b504c62a380ddb434babe6de0d)] -> id: resend-otp-button]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:31:59 PM</td>
+        <td>
+          get the remaining atteptes text - Verified Text<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (fb99e9f6c7fd87b504c62a380ddb434babe6de0d)] -> xpath: //div[@class='w-max rounded-md bg-[#FFF7E5] p-2 px-8 text-center text-sm font-semibold text-[#8B6105]']]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:33:01 PM</td>
+        <td>
+          check resend button enabled - Verified Button<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (fb99e9f6c7fd87b504c62a380ddb434babe6de0d)] -> id: resend-otp-button]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:33:01 PM</td>
+        <td>
+          click on resend otp button<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (fb99e9f6c7fd87b504c62a380ddb434babe6de0d)] -> id: resend-otp-button]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:33:01 PM</td>
+        <td>
+          get the remaining atteptes text - Verified Text<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (fb99e9f6c7fd87b504c62a380ddb434babe6de0d)] -> xpath: //div[@class='w-max rounded-md bg-[#FFF7E5] p-2 px-8 text-center text-sm font-semibold text-[#8B6105]']]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:34:01 PM</td>
+        <td>
+          Check if Verify OTP button is Enabled - Verified Button<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (fb99e9f6c7fd87b504c62a380ddb434babe6de0d)] -> id: verify-otp-button]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:34:02 PM</td>
+        <td>
+          <a href='https://automate.browserstack.com/builds/f14cc124e983418645ed0403a0a337783a0a4dcb/sessions/fb99e9f6c7fd87b504c62a380ddb434babe6de0d?auth_token=56b2a7b95a429b0261abe0a8c69e4638399c6f2dd172e584838f34224f0a3b4a' target='_blank'>View on BrowserStack</a>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:34:02 PM</td>
+        <td>
+          <a href='https://automate.browserstack.com/sessions/fb99e9f6c7fd87b504c62a380ddb434babe6de0d/video?token=RkV1ZTVtTmRZZWt2bnh4MHNET2R1VmZ1UmtCT2tGREg0SXNhUEp4NDd6YkI2bjBMN3lBQm8wRDhUZ0ZnTXlpaEZuQjRrcDYwQXVDQzUyUERTZ01IalE9PS0tWVU0VVVWUUJxWEVtbXpPTTk3dW4zUT09--b874d316960daa7c145b6f0f65f275d3ff154b78&source=rest_api&diff=-1' target='_blank'>Click here to view only Video</a>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:34:02 PM</td>
+        <td>
+          ✅ Scenario Passed: Verify the attempts of resend otp
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="8"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Navigate directly using sign-up URL [chrome | en]</p>
+            <p class="text-sm">
+              <span>11:34:03 PM</span> / <span>00:00:28:274</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">Navigate directly using sign-up URL [chrome | en]</h5>
+<span class='badge badge-success'>05.07.2026 11:34:03 PM</span>
+<span class='badge badge-danger'>05.07.2026 11:34:31 PM</span>
+<span class='badge badge-default'>00:00:28:274</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=8</span>
+<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:34:03 PM</td>
+        <td>
+          Scenario Started: Navigate directly using sign-up URL | Browser: chrome | Language: en
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:34:10 PM</td>
+        <td>
+          Check if Reset Password Button Displayed - Verified visibility<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (7ac8724ae2c27a24084b2b4c0cbf95844de4e078)] -> id: reset-password-button]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:34:20 PM</td>
+        <td>
+          click on reset password button<details><summary>Locator Details</summary><pre>Proxy element for: DefaultElementLocator 'By.id: reset-password-button'</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:34:31 PM</td>
+        <td>
+          click on language dropdown<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (7ac8724ae2c27a24084b2b4c0cbf95844de4e078)] -> id: language-select-button]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:34:31 PM</td>
+        <td>
+          check is on forgot password page - Verified visibility<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (7ac8724ae2c27a24084b2b4c0cbf95844de4e078)] -> xpath: //div[@class='text-center text-[26px] font-semibold tracking-normal']]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:34:31 PM</td>
+        <td>
+          <a href='https://automate.browserstack.com/builds/f14cc124e983418645ed0403a0a337783a0a4dcb/sessions/7ac8724ae2c27a24084b2b4c0cbf95844de4e078?auth_token=72722389b5bc8dd317929b7aff18b5f002986b2c21d782ee1a74b2fffcaa6a09' target='_blank'>View on BrowserStack</a>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:34:31 PM</td>
+        <td>
+          <a href='https://automate.browserstack.com/sessions/7ac8724ae2c27a24084b2b4c0cbf95844de4e078/video?token=YnNrL3dxZkN4cnZpOURHK25ueU56cXBoVElrYkkveFRNNkpjclo3OVlneEhBMDVTemVNeTNOL0k3WXc4TWVPSG55OWpVbmRiNENuTDA1ZEFmZVVqaWc9PS0tVE80QlRPdUNWOVUrVTR0ekJ5UUlSdz09--2a82f72cd212a2e69b4a50ad21a6f766c859358d&source=rest_api&diff=-1' target='_blank'>Click here to view only Video</a>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:34:31 PM</td>
+        <td>
+          ✅ Scenario Passed: Navigate directly using sign-up URL
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="9"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Verify the Login options page [chrome | en]</p>
+            <p class="text-sm">
+              <span>11:34:33 PM</span> / <span>00:00:28:111</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">Verify the Login options page [chrome | en]</h5>
+<span class='badge badge-success'>05.07.2026 11:34:33 PM</span>
+<span class='badge badge-danger'>05.07.2026 11:35:01 PM</span>
+<span class='badge badge-default'>00:00:28:111</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=9</span>
+<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:34:33 PM</td>
+        <td>
+          Scenario Started: Verify the Login options page | Browser: chrome | Language: en
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:34:50 PM</td>
+        <td>
+          Click on Sign with esignet option <details><summary>Locator Details</summary><pre>Proxy element for: DefaultElementLocator 'By.id: sign-in-with-esignet'</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:35:01 PM</td>
+        <td>
+          Check if the logo is displayed - Verified visibility<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (c3acf940930c420fd645de054b51204da9454dbe)] -> xpath: //img[@class='brand-logo']]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:35:01 PM</td>
+        <td>
+          <a href='https://automate.browserstack.com/builds/f14cc124e983418645ed0403a0a337783a0a4dcb/sessions/c3acf940930c420fd645de054b51204da9454dbe?auth_token=2096c823abefb111c87994abe1e12d377731325fb5cadabb7a87059e73e54038' target='_blank'>View on BrowserStack</a>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:35:01 PM</td>
+        <td>
+          <a href='https://automate.browserstack.com/sessions/c3acf940930c420fd645de054b51204da9454dbe/video?token=bEJybWdQQmh4dzdpV2t2MjRoVE96Mm1DUWxMeTFUb1pRa0lqWnZLbzlJS1hVUVd6NUpOK3MvT3MvQlNxRTBlUVluQmdsNUdqZW54TkJubnpTRXNKK2c9PS0tRm9NamV0SkIwM21XeXkwazI5QXJSZz09--84131b40727761be2990cf1836eb83c0fa521d54&source=rest_api&diff=-1' target='_blank'>Click here to view only Video</a>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:35:01 PM</td>
+        <td>
+          ✅ Scenario Passed: Verify the Login options page
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="skip" test-id="10"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Verify the Registration process and Login Flow</p>
+            <p class="text-sm">
+              <span>11:35:03 PM</span> / <span>00:00:00:000</span>
+              <span class="badge skip-bg log float-right">Skip</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-skip">Verify the Registration process and Login Flow</h5>
+<span class='badge badge-success'>05.07.2026 11:35:03 PM</span>
+<span class='badge badge-danger'>05.07.2026 11:35:03 PM</span>
+<span class='badge badge-default'>00:00:00:000</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=10</span>
+<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log skip-bg">Skip</span></td>
+        <td>11:35:03 PM</td>
+        <td>
+          🟠 Skipped due to Known Issue → <a href='https://mosip.atlassian.net/browse/ES-2850' target='_blank'>ES-2850</a>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="skip" test-id="11"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Verify welcome message when full name is not consented</p>
+            <p class="text-sm">
+              <span>11:35:03 PM</span> / <span>00:00:00:000</span>
+              <span class="badge skip-bg log float-right">Skip</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-skip">Verify welcome message when full name is not consented</h5>
+<span class='badge badge-success'>05.07.2026 11:35:03 PM</span>
+<span class='badge badge-danger'>05.07.2026 11:35:03 PM</span>
+<span class='badge badge-default'>00:00:00:000</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=11</span>
+<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log skip-bg">Skip</span></td>
+        <td>11:35:03 PM</td>
+        <td>
+          🟠 Skipped due to Known Issue → <a href='https://mosip.atlassian.net/browse/ES-2850' target='_blank'>ES-2850</a>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="skip" test-id="12"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Verifying the testCases that validates mobile number field</p>
+            <p class="text-sm">
+              <span>11:35:03 PM</span> / <span>00:00:00:001</span>
+              <span class="badge skip-bg log float-right">Skip</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-skip">Verifying the testCases that validates mobile number field</h5>
+<span class='badge badge-success'>05.07.2026 11:35:03 PM</span>
+<span class='badge badge-danger'>05.07.2026 11:35:03 PM</span>
+<span class='badge badge-default'>00:00:00:001</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=12</span>
+<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log skip-bg">Skip</span></td>
+        <td>11:35:03 PM</td>
+        <td>
+          🟠 Skipped due to Known Issue → <a href='https://mosip.atlassian.net/browse/ES-2850' target='_blank'>ES-2850</a>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="skip" test-id="13"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Signup and Mobile Number Registration</p>
+            <p class="text-sm">
+              <span>11:35:03 PM</span> / <span>00:00:00:001</span>
+              <span class="badge skip-bg log float-right">Skip</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-skip">Signup and Mobile Number Registration</h5>
+<span class='badge badge-success'>05.07.2026 11:35:03 PM</span>
+<span class='badge badge-danger'>05.07.2026 11:35:03 PM</span>
+<span class='badge badge-default'>00:00:00:001</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=13</span>
+<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log skip-bg">Skip</span></td>
+        <td>11:35:03 PM</td>
+        <td>
+          🟠 Skipped due to Known Issue → <a href='https://mosip.atlassian.net/browse/ES-2687' target='_blank'>ES-2687</a>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="skip" test-id="14"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">OTP input acceptance and Verify button state</p>
+            <p class="text-sm">
+              <span>11:35:03 PM</span> / <span>00:00:00:000</span>
+              <span class="badge skip-bg log float-right">Skip</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-skip">OTP input acceptance and Verify button state</h5>
+<span class='badge badge-success'>05.07.2026 11:35:03 PM</span>
+<span class='badge badge-danger'>05.07.2026 11:35:03 PM</span>
+<span class='badge badge-default'>00:00:00:000</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=14</span>
+<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log skip-bg">Skip</span></td>
+        <td>11:35:03 PM</td>
+        <td>
+          🟠 Skipped due to Known Issue → <a href='https://mosip.atlassian.net/browse/ES-2853' target='_blank'>ES-2853</a>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="skip" test-id="15"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Completing Registration Process</p>
+            <p class="text-sm">
+              <span>11:35:03 PM</span> / <span>00:00:00:000</span>
+              <span class="badge skip-bg log float-right">Skip</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-skip">Completing Registration Process</h5>
+<span class='badge badge-success'>05.07.2026 11:35:03 PM</span>
+<span class='badge badge-danger'>05.07.2026 11:35:03 PM</span>
+<span class='badge badge-default'>00:00:00:000</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=15</span>
+<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log skip-bg">Skip</span></td>
+        <td>11:35:03 PM</td>
+        <td>
+          🟠 Skipped due to Known Issue → <a href='https://mosip.atlassian.net/browse/ES-2853' target='_blank'>ES-2853</a>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="16"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Verify sign-up portal by navigating directly through sign-up URL [chrome | en]</p>
+            <p class="text-sm">
+              <span>11:35:03 PM</span> / <span>00:01:59:535</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">Verify sign-up portal by navigating directly through sign-up URL [chrome | en]</h5>
+<span class='badge badge-success'>05.07.2026 11:35:03 PM</span>
+<span class='badge badge-danger'>05.07.2026 11:37:03 PM</span>
+<span class='badge badge-default'>00:01:59:535</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=16</span>
+<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:35:03 PM</td>
+        <td>
+          Scenario Started: Verify sign-up portal by navigating directly through sign-up URL | Browser: chrome | Language: en
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:35:09 PM</td>
+        <td>
+          Check if Header SignUp Error Screen is Displayed - Verified visibility<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (d47f90ee15b2b1ca4cce91b6e00164261831a050)] -> xpath: //h1[@class='text-center text-2xl']]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:35:09 PM</td>
+        <td>
+          Check if Message In SignUp Error Screen is Displayed - Verified visibility<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (d47f90ee15b2b1ca4cce91b6e00164261831a050)] -> xpath: //p[@class='text-center text-gray-500']]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:35:10 PM</td>
+        <td>
+          Check if Reset Password Button Displayed - Verified visibility<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (d47f90ee15b2b1ca4cce91b6e00164261831a050)] -> id: reset-password-button]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:35:10 PM</td>
+        <td>
+          Check if Register Button is Displayed - Verified visibility<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (d47f90ee15b2b1ca4cce91b6e00164261831a050)] -> id: register-button]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:35:10 PM</td>
+        <td>
+          Click on Lang Selection Option<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (d47f90ee15b2b1ca4cce91b6e00164261831a050)] -> id: language-select-button]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:35:21 PM</td>
+        <td>
+          Click on Registraion Button<details><summary>Locator Details</summary><pre>Proxy element for: DefaultElementLocator 'By.id: register-button'</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:35:31 PM</td>
+        <td>
+          Check if Registration screen displayed - Verified visibility<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (d47f90ee15b2b1ca4cce91b6e00164261831a050)] -> xpath: //div[@class='grow px-3 text-center font-semibold tracking-normal xs:px-2']]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:35:31 PM</td>
+        <td>
+          Entered Identifier Value - Verified visibility<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (d47f90ee15b2b1ca4cce91b6e00164261831a050)] -> id: phone]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:35:31 PM</td>
+        <td>
+          Entered Identifier Value - Entered text: '626337102'<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (d47f90ee15b2b1ca4cce91b6e00164261831a050)] -> id: phone]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:35:32 PM</td>
+        <td>
+          Click on continue Button<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (d47f90ee15b2b1ca4cce91b6e00164261831a050)] -> id: form-submit-button]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:35:32 PM</td>
+        <td>
+          Check if OTP Screen is visible - Verified visibility<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (d47f90ee15b2b1ca4cce91b6e00164261831a050)] -> id: verify-otp-button]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:35:35 PM</td>
+        <td>
+          Click verify OTP Button<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (d47f90ee15b2b1ca4cce91b6e00164261831a050)] -> id: verify-otp-button]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:35:55 PM</td>
+        <td>
+          Click on Continue Button In Sucess Screen<details><summary>Locator Details</summary><pre>Proxy element for: DefaultElementLocator 'By.id: mobile-number-verified-continue-button'</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:36:07 PM</td>
+        <td>
+          click on upload photo section<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (d47f90ee15b2b1ca4cce91b6e00164261831a050)] -> xpath: //div[@class='alternate-icon-div']]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:36:28 PM</td>
+        <td>
+          click on capture button<details><summary>Locator Details</summary><pre>Proxy element for: DefaultElementLocator 'By.xpath: //button[contains(@id,'capture-button')]'</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:36:41 PM</td>
+        <td>
+          Click on Setup Account continue button<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (d47f90ee15b2b1ca4cce91b6e00164261831a050)] -> id: form-submit-button]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:36:41 PM</td>
+        <td>
+          Check if Account Created Successfully Message Displayed - Verified visibility<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (d47f90ee15b2b1ca4cce91b6e00164261831a050)] -> xpath: //div[@class='text-center text-lg font-semibold']]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:36:42 PM</td>
+        <td>
+          Check if Okay Button Displayed - Verified visibility<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (d47f90ee15b2b1ca4cce91b6e00164261831a050)] -> id: success-continue-button]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:36:52 PM</td>
+        <td>
+          Click on Okay button on Success screen<details><summary>Locator Details</summary><pre>Proxy element for: DefaultElementLocator 'By.id: success-continue-button'</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:37:02 PM</td>
+        <td>
+          Check if Registration screen displayed - Verified visibility<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (d47f90ee15b2b1ca4cce91b6e00164261831a050)] -> xpath: //div[@class='grow px-3 text-center font-semibold tracking-normal xs:px-2']]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:37:03 PM</td>
+        <td>
+          <a href='https://automate.browserstack.com/builds/f14cc124e983418645ed0403a0a337783a0a4dcb/sessions/d47f90ee15b2b1ca4cce91b6e00164261831a050?auth_token=a1eeb553d0356c76546b2ca5852bae15444fff838586d29952fcc2c49bdbfade' target='_blank'>View on BrowserStack</a>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:37:03 PM</td>
+        <td>
+          <a href='https://automate.browserstack.com/sessions/d47f90ee15b2b1ca4cce91b6e00164261831a050/video?token=QnVHZHF3Kzl3Q2RJMmx1bGxVb0I0eUUzSGgwRnRCN25uRjE4TjllQUdwSndLblgzd1U2ejRKQ1dLOGJmZGNnQm5TU0ZFZXVzUFk4eTFXekRYMUU5M3c9PS0tbU0zZjN0bkVkVWVjV1h3MHZGbndndz09--9af5f8fc80f1b81d8f0ba56e63940e8d87d732cc&source=rest_api&diff=-1' target='_blank'>Click here to view only Video</a>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:37:03 PM</td>
+        <td>
+          ✅ Scenario Passed: Verify sign-up portal by navigating directly through sign-up URL
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="17"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Verify the notification when OTP requested [chrome | en]</p>
+            <p class="text-sm">
+              <span>11:37:04 PM</span> / <span>00:01:38:878</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">Verify the notification when OTP requested [chrome | en]</h5>
+<span class='badge badge-success'>05.07.2026 11:37:04 PM</span>
+<span class='badge badge-danger'>05.07.2026 11:38:43 PM</span>
+<span class='badge badge-default'>00:01:38:878</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=17</span>
+<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:37:04 PM</td>
+        <td>
+          Scenario Started: Verify the notification when OTP requested | Browser: chrome | Language: en
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:37:11 PM</td>
+        <td>
+          Click on Lang Selection Option<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (0fc204074bfa73eb4a3ec1c6d13f864073b08948)] -> id: language-select-button]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:37:22 PM</td>
+        <td>
+          Click on Registraion Button<details><summary>Locator Details</summary><pre>Proxy element for: DefaultElementLocator 'By.id: register-button'</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:37:32 PM</td>
+        <td>
+          Entered Identifier Value - Verified visibility<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (0fc204074bfa73eb4a3ec1c6d13f864073b08948)] -> id: phone]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:37:32 PM</td>
+        <td>
+          Entered Identifier Value - Entered text: '383664184'<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (0fc204074bfa73eb4a3ec1c6d13f864073b08948)] -> id: phone]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:37:33 PM</td>
+        <td>
+          Click on continue Button<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (0fc204074bfa73eb4a3ec1c6d13f864073b08948)] -> id: form-submit-button]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:37:45 PM</td>
+        <td>
+          Click verify OTP Button<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (0fc204074bfa73eb4a3ec1c6d13f864073b08948)] -> id: verify-otp-button]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:37:56 PM</td>
+        <td>
+          Click on Continue Button In Sucess Screen<details><summary>Locator Details</summary><pre>Proxy element for: DefaultElementLocator 'By.id: mobile-number-verified-continue-button'</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:38:08 PM</td>
+        <td>
+          click on upload photo section<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (0fc204074bfa73eb4a3ec1c6d13f864073b08948)] -> xpath: //div[@class='alternate-icon-div']]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:38:29 PM</td>
+        <td>
+          click on capture button<details><summary>Locator Details</summary><pre>Proxy element for: DefaultElementLocator 'By.xpath: //button[contains(@id,'capture-button')]'</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:38:43 PM</td>
+        <td>
+          Click on Setup Account continue button<details><summary>Locator Details</summary><pre>[[RemoteWebDriver: chrome on windows (0fc204074bfa73eb4a3ec1c6d13f864073b08948)] -> id: form-submit-button]</pre></details>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:38:43 PM</td>
+        <td>
+          <a href='https://automate.browserstack.com/builds/f14cc124e983418645ed0403a0a337783a0a4dcb/sessions/0fc204074bfa73eb4a3ec1c6d13f864073b08948?auth_token=f57482feed9d549b2aaaed8640ee67aac93107bb74d5247168d0dc973c1f38b9' target='_blank'>View on BrowserStack</a>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:38:43 PM</td>
+        <td>
+          <a href='https://automate.browserstack.com/sessions/0fc204074bfa73eb4a3ec1c6d13f864073b08948/video?token=NVU0bnJscXBnYlhPcWNZOW9yTVpBam81K2Rid3llVlE4ZTVLZG5rcXJmd1J6NWltY2FQeEVteTVjR2dhZy9kUWliZXZsMG41aXovcW4yblVaREhzOHc9PS0tNTJoR2FPbU4wc2FrVkd4MFRYbU12Zz09--a7d857f3e300627e3f7c7c9bb3c466a460d75914&source=rest_api&diff=-1' target='_blank'>Click here to view only Video</a>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:38:43 PM</td>
+        <td>
+          ✅ Scenario Passed: Verify the notification when OTP requested
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+<div class="test-content scrollable">
+<div class="test-content-tools">
+<ul><li><a class="back-to-test" href="#"><i class="fa fa-arrow-left"></i></a></li></ul>
+</div>
+<div class="test-content-detail"><div class="detail-body"></div></div>
+</div></div>
+<div class="container-fluid p-4 view dashboard-view">
+<div class="row">
+<div class="col-md-3">
+<div class="card"><div class="card-body">
+<p class="m-b-0">Started</p>
+<h3>May 7, 2026 11:25:14 PM</h3>
+</div></div>
+</div>
+<div class="col-md-3">
+<div class="card"><div class="card-body">
+<p class="m-b-0">Ended</p>
+<h3>May 7, 2026 11:38:45 PM</h3>
+</div></div>
+</div>
+<div class="col-md-3">
+<div class="card"><div class="card-body">
+<p class="m-b-0 text-pass">Tests Passed</p>
+<h3>9</h3>
+</div></div>
+</div>
+<div class="col-md-3">
+<div class="card"><div class="card-body">
+<p class="m-b-0 text-fail">Tests Failed</p>
+<h3>0</h3>
+</div></div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-6">
+<div class="card">
+<div class="card-header">
+<h6 class="card-title">Tests</h6>
+</div>
+<div class="card-body">
+<div class="">
+<canvas id='parent-analysis' width='115' height='90'></canvas>
+</div>
+</div>
+<div class="card-footer">
+<div><small data-tooltip='52%'>
+<b>9</b> tests passed
+</small>
+</div>
+<div>
+<small data-tooltip='0%'><b>0</b> tests failed,
+<b>8</b> skipped, <b data-tooltip='0%'>0</b> others
+</small>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-6">
+<div class="card">
+<div class="card-header">
+<h6 class="card-title">Log events</h6>
+</div>
+<div class="card-body">
+<div class="">
+<canvas id='events-analysis' width='115' height='90'></canvas>
+</div>
+</div>
+<div class="card-footer">
+<div><small data-tooltip='5%'><b>9</b> events passed</small></div>
+<div>
+<small data-tooltip='0%'><b>0</b> events failed,
+<b data-tooltip='%'>150</b> others
+</small>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><div class="col-md-12">
+<div class="card"><div class="card-header"><p>Timeline</p></div>
+<div class="card-body pt-0"><div>
+<canvas id="timeline" height="120"></canvas>
+</div></div>
+</div>
+</div></div>
+<script>
+var timeline = {
+"Verify user is completing registration process [chrome | en]":106.148,"Verify the forget password options for phoneNumber [chrome | en]":28.695,"Verify the forget password options for fullName [chrome | en]":42.617,"Verify the forget password options for otp":0,"Verify the reset password options":0,"Verify the notification when OTP requested for forgot password [chrome | en]":41.088,"Verify the attempts of resend otp [chrome | en]":274.05,"Navigate directly using sign-up URL [chrome | en]":28.274,"Verify the Login options page [chrome | en]":28.111,"Verify the Registration process and Login Flow":0,"Verify welcome message when full name is not consented":0,"Verifying the testCases that validates mobile number field":0.001,"Signup and Mobile Number Registration":0.001,"OTP input acceptance and Verify button state":0,"Completing Registration Process":0,"Verify sign-up portal by navigating directly through sign-up URL [chrome | en]":119.535,"Verify the notification when OTP requested [chrome | en]":98.878
+};
+</script>
+<div class="row">
+<div class="col-lg-6 col-md-12 sysenv-container">
+<div class="card">
+<div class="card-header"><p>System/Environment</p></div>
+<div class="card-body pb-0 pt-0"><table class="table table-sm table-bordered">
+<thead><tr class="bg-gray"><th>Name</th><th>Value</th></tr></thead>
+<tbody>
+<tr>
+<td>Git Branch</td>
+<td>release-1.4.x</td>
+</tr>
+<tr>
+<td>Git Commit ID</td>
+<td>98e8c1ca</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+</div>
+<script>
+var statusGroup = {
+parentCount: 5,
+passParent: 9,
+failParent: 0,
+warningParent: 0,
+skipParent: 8,
+childCount: 5,
+passChild: 0,
+failChild: 0,
+warningChild: 0,
+skipChild: 0,
+infoChild: 0,
+grandChildCount: 5,
+passGrandChild: 0,
+failGrandChild: 0,
+warningGrandChild: 0,
+skipGrandChild: 0,
+infoGrandChild: 0,
+eventsCount: 5,
+passEvents: 9,
+failEvents: 0,
+warningEvents: 0,
+skipEvents: 8,
+infoEvents: 142
+};
+</script>        </div>
+      </div>
+    </div>
+  </div>
+<script src="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@c05cd28cde1617b9d0c05a831daff6cb97fd9fd5/spark/js/spark-script.js"></script>
+<script type="text/javascript"></script></body>
+</html>

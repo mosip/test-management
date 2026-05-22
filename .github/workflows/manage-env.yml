@@ -54,14 +54,18 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.MANAGE_ENV_TOKEN }}
         run: |
-          CURRENT=$(gh api \
+          RAW=$(gh api \
             -H "Accept: application/vnd.github+json" \
             /repos/${{ github.repository }}/actions/variables/MINIO_ENVS \
             --jq '.value')
+
+          # Compact to a single line so it writes cleanly to GITHUB_OUTPUT
+          CURRENT=$(echo "$RAW" | jq -c '.')
           echo "Current MINIO_ENVS: $CURRENT"
           echo "current=$CURRENT" >> $GITHUB_OUTPUT
 
       - name: Add environment
+        id: add_env
         if: inputs.action == 'add'
         env:
           GH_TOKEN: ${{ secrets.MANAGE_ENV_TOKEN }}
@@ -77,12 +81,12 @@ jobs:
             echo "ENV_STATUS=updated" >> $GITHUB_ENV
           else
             UPDATED=$(echo "$CURRENT" | jq --arg env "$ENV" '. + [$env]')
-            echo "Updated MINIO_ENVS: $UPDATED"
+            echo "Updated MINIO_ENVS: $(echo "$UPDATED" | jq -c '.')"
             gh api \
               -X PATCH \
               -H "Accept: application/vnd.github+json" \
               /repos/${{ github.repository }}/actions/variables/MINIO_ENVS \
-              -f value="$UPDATED"
+              -f value="$(echo "$UPDATED" | jq -c '.')"
             echo "ENV_STATUS=added" >> $GITHUB_ENV
           fi
 
@@ -123,6 +127,7 @@ jobs:
           fi
 
       - name: Remove environment
+        id: remove_env
         if: inputs.action == 'remove'
         env:
           GH_TOKEN: ${{ secrets.MANAGE_ENV_TOKEN }}
@@ -138,13 +143,13 @@ jobs:
           fi
 
           UPDATED=$(echo "$CURRENT" | jq --arg env "$ENV" 'map(select(. != $env))')
-          echo "Updated MINIO_ENVS: $UPDATED"
+          echo "Updated MINIO_ENVS: $(echo "$UPDATED" | jq -c '.')"
 
           gh api \
             -X PATCH \
             -H "Accept: application/vnd.github+json" \
             /repos/${{ github.repository }}/actions/variables/MINIO_ENVS \
-            -f value="$UPDATED"
+            -f value="$(echo "$UPDATED" | jq -c '.')"
 
           for SUFFIX in URL USER PASSWORD; do
             SECRET_NAME="MINIO_${ENV_UPPER}_${SUFFIX}"
@@ -165,6 +170,8 @@ jobs:
         if: always()
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          ADD_OUTCOME:    ${{ steps.add_env.outcome }}
+          REMOVE_OUTCOME: ${{ steps.remove_env.outcome }}
         run: |
           ACTION="${{ inputs.action }}"
           ENV="${{ inputs.env_name }}"
@@ -172,7 +179,18 @@ jobs:
           ACTOR="${{ github.actor }}"
           DATE=$(date +'%d %b %Y %H:%M IST')
 
+          # Determine if the action step actually succeeded
           if [ "$ACTION" = "add" ]; then
+            STEP_OUTCOME="$ADD_OUTCOME"
+          else
+            STEP_OUTCOME="$REMOVE_OUTCOME"
+          fi
+
+          if [ "$STEP_OUTCOME" != "success" ]; then
+            ICON=":warning:"
+            TITLE="MinIO Env Change Failed"
+            DETAIL="Action \`$ACTION\` for \`$ENV\` failed. Check the run for details."
+          elif [ "$ACTION" = "add" ]; then
             if [ "${ENV_STATUS:-added}" = "updated" ]; then
               ICON=":arrows_counterclockwise:"
               TITLE="MinIO Env Secrets Rotated"

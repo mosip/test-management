@@ -33,17 +33,20 @@ jobs:
 
     steps:
       - name: Validate inputs
+        env:
+          ACTION:        ${{ inputs.action }}
+          ENV_NAME:      ${{ inputs.env_name }}
+          MINIO_URL:     ${{ inputs.minio_url }}
+          MINIO_USER:    ${{ inputs.minio_user }}
+          MINIO_PASSWORD: ${{ inputs.minio_password }}
         run: |
-          ENV="${{ inputs.env_name }}"
-          ACTION="${{ inputs.action }}"
-
-          if [[ ! "$ENV" =~ ^[a-z0-9_-]+$ ]]; then
-            echo "Invalid env name '$ENV'. Use lowercase letters, numbers, hyphens, underscores only."
+          if [[ ! "$ENV_NAME" =~ ^[a-z0-9_-]+$ ]]; then
+            echo "Invalid env name '$ENV_NAME'. Use lowercase letters, numbers, hyphens, underscores only."
             exit 1
           fi
 
           if [ "$ACTION" = "add" ]; then
-            if [ -z "${{ inputs.minio_url }}" ] || [ -z "${{ inputs.minio_user }}" ] || [ -z "${{ inputs.minio_password }}" ]; then
+            if [ -z "$MINIO_URL" ] || [ -z "$MINIO_USER" ] || [ -z "$MINIO_PASSWORD" ]; then
               echo "minio_url, minio_user, and minio_password are all required for action=add."
               exit 1
             fi
@@ -59,7 +62,6 @@ jobs:
             /repos/${{ github.repository }}/actions/variables/MINIO_ENVS \
             --jq '.value')
 
-          # Compact to a single line so it writes cleanly to GITHUB_OUTPUT
           CURRENT=$(echo "$RAW" | jq -c '.')
           echo "Current MINIO_ENVS: $CURRENT"
           echo "current=$CURRENT" >> $GITHUB_OUTPUT
@@ -68,11 +70,15 @@ jobs:
         id: add_env
         if: inputs.action == 'add'
         env:
-          GH_TOKEN: ${{ secrets.MANAGE_ENV_TOKEN }}
+          GH_TOKEN:      ${{ secrets.MANAGE_ENV_TOKEN }}
+          ENV_NAME:      ${{ inputs.env_name }}
+          CURRENT:       ${{ steps.read_envs.outputs.current }}
+          MINIO_URL:     ${{ inputs.minio_url }}
+          MINIO_USER:    ${{ inputs.minio_user }}
+          MINIO_PASSWORD: ${{ inputs.minio_password }}
         run: |
-          ENV="${{ inputs.env_name }}"
-          CURRENT='${{ steps.read_envs.outputs.current }}'
-          ENV_UPPER=$(echo "$ENV" | tr '[:lower:]' '[:upper:]')
+          ENV="$ENV_NAME"
+          ENV_UPPER=$(echo "$ENV" | tr '[:lower:]' '[:upper:]' | tr '-' '_')
 
           EXISTS=$(echo "$CURRENT" | jq --arg env "$ENV" 'map(select(. == $env)) | length')
 
@@ -90,7 +96,7 @@ jobs:
             echo "ENV_STATUS=added" >> $GITHUB_ENV
           fi
 
-          pip install PyNaCl -q
+          pip install PyNaCl==1.5.0 -q
 
           KEY_DATA=$(gh api \
             -H "Accept: application/vnd.github+json" \
@@ -111,9 +117,9 @@ jobs:
             echo "Secret $SECRET_NAME set."
           }
 
-          encrypt_and_set "MINIO_${ENV_UPPER}_URL"      "${{ inputs.minio_url }}"
-          encrypt_and_set "MINIO_${ENV_UPPER}_USER"     "${{ inputs.minio_user }}"
-          encrypt_and_set "MINIO_${ENV_UPPER}_PASSWORD" "${{ inputs.minio_password }}"
+          encrypt_and_set "MINIO_${ENV_UPPER}_URL"      "$MINIO_URL"
+          encrypt_and_set "MINIO_${ENV_UPPER}_USER"     "$MINIO_USER"
+          encrypt_and_set "MINIO_${ENV_UPPER}_PASSWORD" "$MINIO_PASSWORD"
 
           echo "## Manage MinIO Environment" >> $GITHUB_STEP_SUMMARY
           if [ "$ENV_STATUS" = "added" ]; then
@@ -130,11 +136,12 @@ jobs:
         id: remove_env
         if: inputs.action == 'remove'
         env:
-          GH_TOKEN: ${{ secrets.MANAGE_ENV_TOKEN }}
+          GH_TOKEN:  ${{ secrets.MANAGE_ENV_TOKEN }}
+          ENV_NAME:  ${{ inputs.env_name }}
+          CURRENT:   ${{ steps.read_envs.outputs.current }}
         run: |
-          ENV="${{ inputs.env_name }}"
-          CURRENT='${{ steps.read_envs.outputs.current }}'
-          ENV_UPPER=$(echo "$ENV" | tr '[:lower:]' '[:upper:]')
+          ENV="$ENV_NAME"
+          ENV_UPPER=$(echo "$ENV" | tr '[:lower:]' '[:upper:]' | tr '-' '_')
 
           EXISTS=$(echo "$CURRENT" | jq --arg env "$ENV" 'map(select(. == $env)) | length')
           if [ "$EXISTS" -eq 0 ]; then
@@ -176,16 +183,16 @@ jobs:
         if: always()
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-          ADD_OUTCOME:    ${{ steps.add_env.outcome }}
-          REMOVE_OUTCOME: ${{ steps.remove_env.outcome }}
+          ADD_OUTCOME:       ${{ steps.add_env.outcome }}
+          REMOVE_OUTCOME:    ${{ steps.remove_env.outcome }}
+          ACTION:            ${{ inputs.action }}
+          ENV_NAME:          ${{ inputs.env_name }}
+          ACTOR_NAME:        ${{ github.actor }}
+          RUN_URL:           ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: |
-          ACTION="${{ inputs.action }}"
-          ENV="${{ inputs.env_name }}"
-          RUN_URL="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
-          ACTOR="${{ github.actor }}"
+          ENV="$ENV_NAME"
           DATE=$(date +'%d %b %Y %H:%M IST')
 
-          # Determine if the action step actually succeeded
           if [ "$ACTION" = "add" ]; then
             STEP_OUTCOME="$ADD_OUTCOME"
           else
@@ -219,7 +226,7 @@ jobs:
           PAYLOAD=$(jq -n \
             --arg title "$ICON $TITLE" \
             --arg detail "$DETAIL" \
-            --arg actor "Triggered by: $ACTOR" \
+            --arg actor "Triggered by: $ACTOR_NAME" \
             --arg date "$DATE" \
             --arg url "$RUN_URL" \
             '{

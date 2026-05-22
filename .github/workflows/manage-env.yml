@@ -58,7 +58,6 @@ jobs:
             -H "Accept: application/vnd.github+json" \
             /repos/${{ github.repository }}/actions/variables/MINIO_ENVS \
             --jq '.value')
-
           echo "Current MINIO_ENVS: $CURRENT"
           echo "current=$CURRENT" >> $GITHUB_OUTPUT
 
@@ -71,14 +70,12 @@ jobs:
           CURRENT='${{ steps.read_envs.outputs.current }}'
           ENV_UPPER=$(echo "$ENV" | tr '[:lower:]' '[:upper:]')
 
-          # Check if env already exists — if so, skip variable update and only rotate secrets
           EXISTS=$(echo "$CURRENT" | jq --arg env "$ENV" 'map(select(. == $env)) | length')
 
           if [ "$EXISTS" -gt 0 ]; then
             echo "::warning::Environment '$ENV' already exists in MINIO_ENVS — variable unchanged. Secrets will be updated."
             echo "ENV_STATUS=updated" >> $GITHUB_ENV
           else
-            # Add env to the list and update the variable
             UPDATED=$(echo "$CURRENT" | jq --arg env "$ENV" '. + [$env]')
             echo "Updated MINIO_ENVS: $UPDATED"
             gh api \
@@ -89,61 +86,80 @@ jobs:
             echo "ENV_STATUS=added" >> $GITHUB_ENV
           fi
 
-          # Get repo public key for secret encryption
+          pip install PyNaCl -q
+
           KEY_DATA=$(gh api \
             -H "Accept: application/vnd.github+json" \
             /repos/${{ github.repository }}/actions/secrets/public-key)
           KEY_ID=$(echo "$KEY_DATA" | jq -r '.key_id')
           KEY=$(echo "$KEY_DATA" | jq -r '.key')
 
-          # Encrypt and create each secret using Python (libsodium via PyNaCl)
-          pip install PyNaCl -q
-
           encrypt_and_set() {
             SECRET_NAME=$1
             SECRET_VALUE=$2
-
-            ENCRYPTED=$(python3 - "$KEY" "$SECRET_VALUE" << 'PYEOF'
-import sys, base64
-from nacl import encoding, public
-
-key   = base64.b64decode(sys.argv[1])
-value = sys.argv[2].encode()
-box   = public.SealedBox(public.PublicKey(key))
-print(base64.b64encode(box.encrypt(value)).decode())
-PYEOF
-)
+            ENCRYPTED=$(python3 -c "import sys,base64;from nacl import public;k=base64.b64decode(sys.argv[1]);v=sys.argv[2].encode();print(base64.b64encode(public.SealedBox(public.PublicKey(k)).encrypt(v)).decode())" "$KEY" "$SECRET_VALUE")
             gh api \
               -X PUT \
               -H "Accept: application/vnd.github+json" \
               /repos/${{ github.repository }}/actions/secrets/$SECRET_NAME \
               -f encrypted_value="$ENCRYPTED" \
               -f key_id="$KEY_ID"
-
-            echo "Secret $SECRET_NAME created."
+            echo "Secret $SECRET_NAME set."
           }
 
           encrypt_and_set "MINIO_${ENV_UPPER}_URL"      "${{ inputs.minio_url }}"
           encrypt_and_set "MINIO_${ENV_UPPER}_USER"     "${{ inputs.minio_user }}"
           encrypt_and_set "MINIO_${ENV_UPPER}_PASSWORD" "${{ inputs.minio_password }}"
 
-          if [ "$ENV_STATUS" = "added" ]; then
-            echo "Environment '$ENV' added to MINIO_ENVS and secrets created."
-            echo "MINIO_ENVS is now: $UPDATED"
-          else
-            echo "Environment '$ENV' already existed — MINIO_ENVS unchanged. Secrets rotated."
-          fi
-
           echo "## Manage MinIO Environment" >> $GITHUB_STEP_SUMMARY
           if [ "$ENV_STATUS" = "added" ]; then
             echo "**Action:** Add" >> $GITHUB_STEP_SUMMARY
-            echo "**Environment:** \`$ENV\`" >> $GITHUB_STEP_SUMMARY
+            echo "**Environment:** $ENV" >> $GITHUB_STEP_SUMMARY
             echo "**Result:** Added to MINIO_ENVS and secrets created." >> $GITHUB_STEP_SUMMARY
           else
             echo "**Action:** Add (secret rotation)" >> $GITHUB_STEP_SUMMARY
-            echo "**Environment:** \`$ENV\`" >> $GITHUB_STEP_SUMMARY
-            echo "**Result:** \`$ENV\` already existed in MINIO_ENVS — variable was not modified. Secrets MINIO_${ENV_UPPER}_URL / _USER / _PASSWORD have been replaced." >> $GITHUB_STEP_SUMMARY
+            echo "**Environment:** $ENV" >> $GITHUB_STEP_SUMMARY
+            echo "**Result:** $ENV already existed — MINIO_ENVS unchanged. Secrets MINIO_${ENV_UPPER}_URL / _USER / _PASSWORD replaced." >> $GITHUB_STEP_SUMMARY
           fi
+
+      - name: Remove environment
+        if: inputs.action == 'remove'
+        env:
+          GH_TOKEN: ${{ secrets.MANAGE_ENV_TOKEN }}
+        run: |
+          ENV="${{ inputs.env_name }}"
+          CURRENT='${{ steps.read_envs.outputs.current }}'
+          ENV_UPPER=$(echo "$ENV" | tr '[:lower:]' '[:upper:]')
+
+          EXISTS=$(echo "$CURRENT" | jq --arg env "$ENV" 'map(select(. == $env)) | length')
+          if [ "$EXISTS" -eq 0 ]; then
+            echo "Environment '$ENV' not found in MINIO_ENVS. Nothing to do."
+            exit 1
+          fi
+
+          UPDATED=$(echo "$CURRENT" | jq --arg env "$ENV" 'map(select(. != $env))')
+          echo "Updated MINIO_ENVS: $UPDATED"
+
+          gh api \
+            -X PATCH \
+            -H "Accept: application/vnd.github+json" \
+            /repos/${{ github.repository }}/actions/variables/MINIO_ENVS \
+            -f value="$UPDATED"
+
+          for SUFFIX in URL USER PASSWORD; do
+            SECRET_NAME="MINIO_${ENV_UPPER}_${SUFFIX}"
+            gh api \
+              -X DELETE \
+              -H "Accept: application/vnd.github+json" \
+              /repos/${{ github.repository }}/actions/secrets/$SECRET_NAME \
+              && echo "Secret $SECRET_NAME deleted." \
+              || echo "Secret $SECRET_NAME not found, skipping."
+          done
+
+          echo "## Manage MinIO Environment" >> $GITHUB_STEP_SUMMARY
+          echo "**Action:** Remove" >> $GITHUB_STEP_SUMMARY
+          echo "**Environment:** $ENV" >> $GITHUB_STEP_SUMMARY
+          echo "**Result:** Removed from MINIO_ENVS and secrets deleted." >> $GITHUB_STEP_SUMMARY
 
       - name: Notify Slack
         if: always()
@@ -212,44 +228,3 @@ PYEOF
 
           curl -fsSL -X POST -H 'Content-type: application/json' \
                --data "$PAYLOAD" "$SLACK_WEBHOOK_URL"
-
-      - name: Remove environment
-        if: inputs.action == 'remove'
-        env:
-          GH_TOKEN: ${{ secrets.MANAGE_ENV_TOKEN }}
-        run: |
-          ENV="${{ inputs.env_name }}"
-          CURRENT='${{ steps.read_envs.outputs.current }}'
-          ENV_UPPER=$(echo "$ENV" | tr '[:lower:]' '[:upper:]')
-
-          # Check env exists
-          EXISTS=$(echo "$CURRENT" | jq --arg env "$ENV" 'map(select(. == $env)) | length')
-          if [ "$EXISTS" -eq 0 ]; then
-            echo "Environment '$ENV' not found in MINIO_ENVS. Nothing to do."
-            exit 1
-          fi
-
-          # Remove env from the list
-          UPDATED=$(echo "$CURRENT" | jq --arg env "$ENV" 'map(select(. != $env))')
-          echo "Updated MINIO_ENVS: $UPDATED"
-
-          # Update the variable
-          gh api \
-            -X PATCH \
-            -H "Accept: application/vnd.github+json" \
-            /repos/${{ github.repository }}/actions/variables/MINIO_ENVS \
-            -f value="$UPDATED"
-
-          # Delete the 3 secrets
-          for SUFFIX in URL USER PASSWORD; do
-            SECRET_NAME="MINIO_${ENV_UPPER}_${SUFFIX}"
-            gh api \
-              -X DELETE \
-              -H "Accept: application/vnd.github+json" \
-              /repos/${{ github.repository }}/actions/secrets/$SECRET_NAME \
-              && echo "Secret $SECRET_NAME deleted." \
-              || echo "Secret $SECRET_NAME not found, skipping."
-          done
-
-          echo "Environment '$ENV' removed successfully."
-          echo "MINIO_ENVS is now: $UPDATED"

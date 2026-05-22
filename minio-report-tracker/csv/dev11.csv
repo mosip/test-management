@@ -1,8 +1,9 @@
-Date,Module,T,P,S,F,I,KI,, ,Date,Module,T,P,S,F,I,KI,, ,Date,Module,T,P,S,F,I,KI,, ,Date,Module,T,P,S,F,I,KI
-21-May-2026,auth,612,44,487,68,5,8,,,20-May-2026,auth,612,44,487,68,5,8,,,19-May-2026,auth,612,44,486,68,5,9,,,18-May-2026,idrepo,414,385,0,9,0,20
-21-May-2026,idrepo,414,385,0,9,0,20,,,20-May-2026,idrepo,414,385,0,9,0,20,,,19-May-2026,idrepo,414,385,0,9,0,20,,,,,,,,,,
-21-May-2026,masterdata-ara,945,894,0,1,15,35,,,20-May-2026,masterdata-ara,945,894,0,1,15,35,,,19-May-2026,masterdata-ara,945,894,0,1,15,35,,,,,,,,,,
-21-May-2026,masterdata-eng,945,922,0,1,0,22,,,20-May-2026,masterdata-eng,945,922,0,1,0,22,,,19-May-2026,masterdata-eng,945,922,0,1,0,22,,,,,,,,,,
-21-May-2026,masterdata-fra,945,906,0,1,15,23,,,20-May-2026,masterdata-fra,945,906,0,1,15,23,,,19-May-2026,masterdata-fra,945,906,0,1,15,23,,,,,,,,,,
-21-May-2026,partner,511,351,118,28,2,12,,,20-May-2026,partner,511,351,118,28,2,12,,,19-May-2026,partner,511,351,118,28,2,12,,,,,,,,,,
-21-May-2026,prereg,288,277,0,0,2,9,,,20-May-2026,prereg,288,277,0,0,2,9,,,19-May-2026,prereg,288,277,0,0,2,9,,,,,,,,,,
+Date,Module,T,P,S,F,I,KI,, ,Date,Module,T,P,S,F,I,KI,, ,Date,Module,T,P,S,F,I,KI
+22-May-2026,auth,612,40,487,72,5,8,,,21-May-2026,auth,612,44,487,68,5,8,,,20-May-2026,auth,612,44,487,68,5,8
+22-May-2026,idrepo,414,81,247,66,0,20,,,21-May-2026,idrepo,414,385,0,9,0,20,,,20-May-2026,idrepo,414,385,0,9,0,20
+22-May-2026,masterdata-ara,945,894,0,1,15,35,,,21-May-2026,masterdata-ara,945,894,0,1,15,35,,,20-May-2026,masterdata-ara,945,894,0,1,15,35
+22-May-2026,masterdata-eng,945,922,0,1,0,22,,,21-May-2026,masterdata-eng,945,922,0,1,0,22,,,20-May-2026,masterdata-eng,945,922,0,1,0,22
+22-May-2026,masterdata-fra,945,906,0,1,15,23,,,21-May-2026,masterdata-fra,945,906,0,1,15,23,,,20-May-2026,masterdata-fra,945,906,0,1,15,23
+22-May-2026,partner,511,351,118,28,2,12,,,21-May-2026,partner,511,351,118,28,2,12,,,20-May-2026,partner,511,351,118,28,2,12
+22-May-2026,prereg,288,98,163,16,2,9,,,21-May-2026,prereg,288,277,0,0,2,9,,,20-May-2026,prereg,288,277,0,0,2,9
+22-May-2026,resident,1142,162,500,468,0,12,,,,,,,,,,,,,,,,,,,,

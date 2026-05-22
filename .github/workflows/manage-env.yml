@@ -139,7 +139,13 @@ jobs:
           EXISTS=$(echo "$CURRENT" | jq --arg env "$ENV" 'map(select(. == $env)) | length')
           if [ "$EXISTS" -eq 0 ]; then
             echo "Environment '$ENV' not found in MINIO_ENVS. Nothing to do."
-            exit 1
+            echo "ENV_STATUS=not_found" >> $GITHUB_ENV
+
+            echo "## Manage MinIO Environment" >> $GITHUB_STEP_SUMMARY
+            echo "**Action:** Remove" >> $GITHUB_STEP_SUMMARY
+            echo "**Environment:** $ENV" >> $GITHUB_STEP_SUMMARY
+            echo "**Result:** Environment '$ENV' not found in MINIO_ENVS. Nothing to do." >> $GITHUB_STEP_SUMMARY
+            exit 0
           fi
 
           UPDATED=$(echo "$CURRENT" | jq --arg env "$ENV" 'map(select(. != $env))')
@@ -186,7 +192,11 @@ jobs:
             STEP_OUTCOME="$REMOVE_OUTCOME"
           fi
 
-          if [ "$STEP_OUTCOME" != "success" ]; then
+          if [ "${ENV_STATUS:-}" = "not_found" ]; then
+            ICON=":information_source:"
+            TITLE="MinIO Env Not Found"
+            DETAIL="Environment \`$ENV\` was not found in MINIO_ENVS. No changes were made."
+          elif [ "$STEP_OUTCOME" != "success" ]; then
             ICON=":warning:"
             TITLE="MinIO Env Change Failed"
             DETAIL="Action \`$ACTION\` for \`$ENV\` failed. Check the run for details."

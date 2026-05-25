@@ -55,7 +55,7 @@ jobs:
       - name: Read current MINIO_ENVS
         id: read_envs
         env:
-          GH_TOKEN: ${{ secrets.MANAGE_ENV_TOKEN }}
+          GH_TOKEN: ${{ secrets.ACTION_PAT }}
         run: |
           RAW=$(gh api \
             -H "Accept: application/vnd.github+json" \
@@ -70,7 +70,7 @@ jobs:
         id: add_env
         if: inputs.action == 'add'
         env:
-          GH_TOKEN:      ${{ secrets.MANAGE_ENV_TOKEN }}
+          GH_TOKEN:      ${{ secrets.ACTION_PAT }}
           ENV_NAME:      ${{ inputs.env_name }}
           CURRENT:       ${{ steps.read_envs.outputs.current }}
           MINIO_URL:     ${{ inputs.minio_url }}
@@ -136,7 +136,7 @@ jobs:
         id: remove_env
         if: inputs.action == 'remove'
         env:
-          GH_TOKEN:  ${{ secrets.MANAGE_ENV_TOKEN }}
+          GH_TOKEN:  ${{ secrets.ACTION_PAT }}
           ENV_NAME:  ${{ inputs.env_name }}
           CURRENT:   ${{ steps.read_envs.outputs.current }}
         run: |
@@ -182,7 +182,7 @@ jobs:
       - name: Notify Slack
         if: always()
         env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          SLACK_WEBHOOK_URL: ${{ secrets.TEST_AUTOMATION_SLACK_WEBHOOK }}
           ADD_OUTCOME:       ${{ steps.add_env.outcome }}
           REMOVE_OUTCOME:    ${{ steps.remove_env.outcome }}
           ACTION:            ${{ inputs.action }}

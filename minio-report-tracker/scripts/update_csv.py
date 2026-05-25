@@ -49,19 +49,12 @@ def date_key_from_minio_ts(ts: str) -> str:
     return format_date_str(dt.astimezone(IST))
 
 
-def run_mc_json_lines(alias, command, timeout=15):
-    """
-    Run an mc command and return parsed JSON lines.
-    Capped at `timeout` seconds so an unreachable server never hangs the job.
-    """
-    try:
-        result = subprocess.run(
-            command, shell=True, capture_output=True, text=True, timeout=timeout
-        )
-        output = result.stdout
-    except subprocess.TimeoutExpired:
-        log(alias, f"mc command timed out after {timeout}s: {command}")
-        return []
+# Remove timeout parameter and exception handler
+def run_mc_json_lines(alias, command):
+    result = subprocess.run(
+        command, shell=True, capture_output=True, text=True
+    )
+    output = result.stdout
 
     entries = []
     for line in output.splitlines():

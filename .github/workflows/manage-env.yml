@@ -1,0 +1,265 @@
+name: Manage MinIO Environment
+
+on:
+  workflow_dispatch:
+    inputs:
+      action:
+        description: 'Action to perform'
+        required: true
+        type: choice
+        options:
+          - add
+          - remove
+      env_name:
+        description: 'Environment name (e.g. qa22) — must be lowercase'
+        required: true
+        type: string
+      minio_url:
+        description: 'MinIO URL (required for add)'
+        required: false
+        type: string
+      minio_user:
+        description: 'MinIO username (required for add)'
+        required: false
+        type: string
+      minio_password:
+        description: 'MinIO password (required for add)'
+        required: false
+        type: string
+
+jobs:
+  manage-env:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Validate inputs
+        env:
+          ACTION:        ${{ inputs.action }}
+          ENV_NAME:      ${{ inputs.env_name }}
+          MINIO_URL:     ${{ inputs.minio_url }}
+          MINIO_USER:    ${{ inputs.minio_user }}
+          MINIO_PASSWORD: ${{ inputs.minio_password }}
+        run: |
+          if [[ ! "$ENV_NAME" =~ ^[a-z0-9_-]+$ ]]; then
+            echo "Invalid env name '$ENV_NAME'. Use lowercase letters, numbers, hyphens, underscores only."
+            exit 1
+          fi
+
+          if [ "$ACTION" = "add" ]; then
+            if [ -z "$MINIO_URL" ] || [ -z "$MINIO_USER" ] || [ -z "$MINIO_PASSWORD" ]; then
+              echo "minio_url, minio_user, and minio_password are all required for action=add."
+              exit 1
+            fi
+          fi
+
+      - name: Read current MINIO_ENVS
+        id: read_envs
+        env:
+          GH_TOKEN: ${{ secrets.ACTION_PAT }}
+        run: |
+          RAW=$(gh api \
+            -H "Accept: application/vnd.github+json" \
+            /repos/${{ github.repository }}/actions/variables/MINIO_ENVS \
+            --jq '.value')
+
+          CURRENT=$(echo "$RAW" | jq -c '.')
+          echo "Current MINIO_ENVS: $CURRENT"
+          echo "current=$CURRENT" >> $GITHUB_OUTPUT
+
+      - name: Add environment
+        id: add_env
+        if: inputs.action == 'add'
+        env:
+          GH_TOKEN:      ${{ secrets.ACTION_PAT }}
+          ENV_NAME:      ${{ inputs.env_name }}
+          CURRENT:       ${{ steps.read_envs.outputs.current }}
+          MINIO_URL:     ${{ inputs.minio_url }}
+          MINIO_USER:    ${{ inputs.minio_user }}
+          MINIO_PASSWORD: ${{ inputs.minio_password }}
+        run: |
+          ENV="$ENV_NAME"
+          ENV_UPPER=$(echo "$ENV" | tr '[:lower:]' '[:upper:]' | tr '-' '_')
+
+          EXISTS=$(echo "$CURRENT" | jq --arg env "$ENV" 'map(select(. == $env)) | length')
+
+          if [ "$EXISTS" -gt 0 ]; then
+            echo "::warning::Environment '$ENV' already exists in MINIO_ENVS — variable unchanged. Secrets will be updated."
+            echo "ENV_STATUS=updated" >> $GITHUB_ENV
+          else
+            UPDATED=$(echo "$CURRENT" | jq --arg env "$ENV" '. + [$env]')
+            echo "Updated MINIO_ENVS: $(echo "$UPDATED" | jq -c '.')"
+            gh api \
+              -X PATCH \
+              -H "Accept: application/vnd.github+json" \
+              /repos/${{ github.repository }}/actions/variables/MINIO_ENVS \
+              -f value="$(echo "$UPDATED" | jq -c '.')"
+            echo "ENV_STATUS=added" >> $GITHUB_ENV
+          fi
+
+          pip install PyNaCl==1.5.0 -q
+
+          KEY_DATA=$(gh api \
+            -H "Accept: application/vnd.github+json" \
+            /repos/${{ github.repository }}/actions/secrets/public-key)
+          KEY_ID=$(echo "$KEY_DATA" | jq -r '.key_id')
+          KEY=$(echo "$KEY_DATA" | jq -r '.key')
+
+          encrypt_and_set() {
+            SECRET_NAME=$1
+            SECRET_VALUE=$2
+            ENCRYPTED=$(python3 -c "import sys,base64;from nacl import public;k=base64.b64decode(sys.argv[1]);v=sys.argv[2].encode();print(base64.b64encode(public.SealedBox(public.PublicKey(k)).encrypt(v)).decode())" "$KEY" "$SECRET_VALUE")
+            gh api \
+              -X PUT \
+              -H "Accept: application/vnd.github+json" \
+              /repos/${{ github.repository }}/actions/secrets/$SECRET_NAME \
+              -f encrypted_value="$ENCRYPTED" \
+              -f key_id="$KEY_ID"
+            echo "Secret $SECRET_NAME set."
+          }
+
+          encrypt_and_set "MINIO_${ENV_UPPER}_URL"      "$MINIO_URL"
+          encrypt_and_set "MINIO_${ENV_UPPER}_USER"     "$MINIO_USER"
+          encrypt_and_set "MINIO_${ENV_UPPER}_PASSWORD" "$MINIO_PASSWORD"
+
+          echo "## Manage MinIO Environment" >> $GITHUB_STEP_SUMMARY
+          if [ "$ENV_STATUS" = "added" ]; then
+            echo "**Action:** Add" >> $GITHUB_STEP_SUMMARY
+            echo "**Environment:** $ENV" >> $GITHUB_STEP_SUMMARY
+            echo "**Result:** Added to MINIO_ENVS and secrets created." >> $GITHUB_STEP_SUMMARY
+          else
+            echo "**Action:** Add (secret rotation)" >> $GITHUB_STEP_SUMMARY
+            echo "**Environment:** $ENV" >> $GITHUB_STEP_SUMMARY
+            echo "**Result:** $ENV already existed — MINIO_ENVS unchanged. Secrets MINIO_${ENV_UPPER}_URL / _USER / _PASSWORD replaced." >> $GITHUB_STEP_SUMMARY
+          fi
+
+      - name: Remove environment
+        id: remove_env
+        if: inputs.action == 'remove'
+        env:
+          GH_TOKEN:  ${{ secrets.ACTION_PAT }}
+          ENV_NAME:  ${{ inputs.env_name }}
+          CURRENT:   ${{ steps.read_envs.outputs.current }}
+        run: |
+          ENV="$ENV_NAME"
+          ENV_UPPER=$(echo "$ENV" | tr '[:lower:]' '[:upper:]' | tr '-' '_')
+
+          EXISTS=$(echo "$CURRENT" | jq --arg env "$ENV" 'map(select(. == $env)) | length')
+          if [ "$EXISTS" -eq 0 ]; then
+            echo "Environment '$ENV' not found in MINIO_ENVS. Nothing to do."
+            echo "ENV_STATUS=not_found" >> $GITHUB_ENV
+
+            echo "## Manage MinIO Environment" >> $GITHUB_STEP_SUMMARY
+            echo "**Action:** Remove" >> $GITHUB_STEP_SUMMARY
+            echo "**Environment:** $ENV" >> $GITHUB_STEP_SUMMARY
+            echo "**Result:** Environment '$ENV' not found in MINIO_ENVS. Nothing to do." >> $GITHUB_STEP_SUMMARY
+            exit 0
+          fi
+
+          UPDATED=$(echo "$CURRENT" | jq --arg env "$ENV" 'map(select(. != $env))')
+          echo "Updated MINIO_ENVS: $(echo "$UPDATED" | jq -c '.')"
+
+          gh api \
+            -X PATCH \
+            -H "Accept: application/vnd.github+json" \
+            /repos/${{ github.repository }}/actions/variables/MINIO_ENVS \
+            -f value="$(echo "$UPDATED" | jq -c '.')"
+
+          for SUFFIX in URL USER PASSWORD; do
+            SECRET_NAME="MINIO_${ENV_UPPER}_${SUFFIX}"
+            gh api \
+              -X DELETE \
+              -H "Accept: application/vnd.github+json" \
+              /repos/${{ github.repository }}/actions/secrets/$SECRET_NAME \
+              && echo "Secret $SECRET_NAME deleted." \
+              || echo "Secret $SECRET_NAME not found, skipping."
+          done
+
+          echo "## Manage MinIO Environment" >> $GITHUB_STEP_SUMMARY
+          echo "**Action:** Remove" >> $GITHUB_STEP_SUMMARY
+          echo "**Environment:** $ENV" >> $GITHUB_STEP_SUMMARY
+          echo "**Result:** Removed from MINIO_ENVS and secrets deleted." >> $GITHUB_STEP_SUMMARY
+
+      - name: Notify Slack
+        if: always()
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.TEST_AUTOMATION_SLACK_WEBHOOK }}
+          ADD_OUTCOME:       ${{ steps.add_env.outcome }}
+          REMOVE_OUTCOME:    ${{ steps.remove_env.outcome }}
+          ACTION:            ${{ inputs.action }}
+          ENV_NAME:          ${{ inputs.env_name }}
+          ACTOR_NAME:        ${{ github.actor }}
+          RUN_URL:           ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          ENV="$ENV_NAME"
+          DATE=$(date +'%d %b %Y %H:%M IST')
+
+          if [ "$ACTION" = "add" ]; then
+            STEP_OUTCOME="$ADD_OUTCOME"
+          else
+            STEP_OUTCOME="$REMOVE_OUTCOME"
+          fi
+
+          if [ "${ENV_STATUS:-}" = "not_found" ]; then
+            ICON=":information_source:"
+            TITLE="MinIO Env Not Found"
+            DETAIL="Environment \`$ENV\` was not found in MINIO_ENVS. No changes were made."
+          elif [ "$STEP_OUTCOME" != "success" ]; then
+            ICON=":warning:"
+            TITLE="MinIO Env Change Failed"
+            DETAIL="Action \`$ACTION\` for \`$ENV\` failed. Check the run for details."
+          elif [ "$ACTION" = "add" ]; then
+            if [ "${ENV_STATUS:-added}" = "updated" ]; then
+              ICON=":arrows_counterclockwise:"
+              TITLE="MinIO Env Secrets Rotated"
+              DETAIL="\`$ENV\` already existed — MINIO_ENVS unchanged. Secrets have been replaced."
+            else
+              ICON=":white_check_mark:"
+              TITLE="MinIO Env Added"
+              DETAIL="\`$ENV\` has been added to MINIO_ENVS and its secrets created."
+            fi
+          else
+            ICON=":x:"
+            TITLE="MinIO Env Removed"
+            DETAIL="\`$ENV\` has been removed from MINIO_ENVS and its secrets deleted."
+          fi
+
+          PAYLOAD=$(jq -n \
+            --arg title "$ICON $TITLE" \
+            --arg detail "$DETAIL" \
+            --arg actor "Triggered by: $ACTOR_NAME" \
+            --arg date "$DATE" \
+            --arg url "$RUN_URL" \
+            '{
+              blocks: [
+                {
+                  type: "header",
+                  text: { type: "plain_text", text: $title, emoji: true }
+                },
+                {
+                  type: "section",
+                  text: { type: "mrkdwn", text: $detail }
+                },
+                {
+                  type: "context",
+                  elements: [
+                    { type: "mrkdwn", text: $actor },
+                    { type: "mrkdwn", text: $date }
+                  ]
+                },
+                { type: "divider" },
+                {
+                  type: "actions",
+                  elements: [
+                    {
+                      type: "button",
+                      text: { type: "plain_text", text: "View Run", emoji: true },
+                      url: $url,
+                      style: "primary"
+                    }
+                  ]
+                }
+              ]
+            }')
+
+          curl -fsSL -X POST -H 'Content-type: application/json' \
+               --data "$PAYLOAD" "$SLACK_WEBHOOK_URL"

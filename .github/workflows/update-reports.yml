@@ -309,7 +309,7 @@ jobs:
       - name: Notify Slack on failure
         if: ${{ env.FAILED_ENVS != '' }}
         env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          SLACK_WEBHOOK_URL: ${{ secrets.TEST_AUTOMATION_SLACK_WEBHOOK }}
         run: |
           RUN_URL="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
           DATE=$(date +'%d %b %Y')

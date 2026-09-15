@@ -65,12 +65,18 @@ jobs:
           ip route show | head -30
 
       - name: Install MinIO Client
+        env:
+          # dl.min.io no longer serves community mc builds (410 Gone); use the GitHub release asset.
+          MC_VERSION: RELEASE.2025-08-13T08-35-41Z
+          MC_SHA256: 01f866e9c5f9b87c2b09116fa5d7c06695b106242d829a8bb32990c00312e891
         run: |
           curl -fsSL \
-            https://dl.min.io/client/mc/release/linux-amd64/archive/mc.RELEASE.2022-07-29T19-17-16Z \
+            "https://github.com/minio/mc/releases/download/${MC_VERSION}/mc.linux-amd64.${MC_VERSION}" \
             -o mc
+          echo "${MC_SHA256}  mc" | sha256sum -c -
           chmod +x mc
           sudo mv mc /usr/local/bin/
+          mc --version
 
       - name: Configure MinIO Alias
         id: configure_minio

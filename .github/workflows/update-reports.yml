@@ -1,21 +1,36 @@
 name: Update CSV, XLSX, and Google Sheet via MinIO
 
+# GitHub creates this schedule hours after 09:00 IST (recent runs start
+# around 16:00 IST). The run that lands before 09:30 IST is the host
+# crontab documented in minio-report-tracker/scripts/trigger_morning_sheet.sh.
 on:
   schedule:
-    - cron: '50 3 * * 1-5'
+    - cron: '0 9 * * 1-5'
+      timezone: Asia/Kolkata
   workflow_dispatch:
+
+# One shared WireGuard peer. Overlapping runs steal the tunnel from each other.
+concurrency:
+  group: minio-daily-sheet
+  cancel-in-progress: false
 
 jobs:
 
-  # Runs once per env in MINIO_ENVS in parallel — connects to MinIO via WireGuard and generates a CSV
+  # One job per name in the MINIO_ENVS variable. Keep every sheet tab in that
+  # variable; a trigger only updates the envs listed at the moment it starts.
+  # max-parallel is 1 because every job loads the same WireGuard config.
+  # Parallel jobs fight over that one peer, stall for 10-18 minutes, and the
+  # ones that get cancelled never write their sheet tab.
   per-env:
     name: "env: ${{ matrix.env }}"
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     environment:
       name: daily-automation-reports
 
     strategy:
       fail-fast: false
+      max-parallel: 1
       matrix:
         env: ${{ fromJson(vars.MINIO_ENVS) }}
 
@@ -28,7 +43,8 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
         with:
-          ref: daily-automation-reports
+          sparse-checkout: minio-report-tracker
+          sparse-checkout-cone-mode: true
 
       - name: Reset per-env collected files
         run: |
@@ -112,6 +128,8 @@ jobs:
 
       - name: Run CSV generation
         id: run_csv_generation
+        env:
+          PYTHONUNBUFFERED: "1"
         run: |
           export MINIO_ENV="${{ matrix.env }}"
           python minio-report-tracker/scripts/update_csv.py
@@ -204,6 +222,27 @@ jobs:
           path: minio-report-tracker/status/status_${{ matrix.env }}.json
           if-no-files-found: error
 
+      # Write this tab as soon as the scan finishes. Summary used to be the
+      # only writer, so one stalled env blocked every other tab in the run.
+      - name: Update this environment sheet tab
+        if: always()
+        env:
+          PYTHONUNBUFFERED: "1"
+        run: |
+          mkdir -p status
+          STATUS_FILE="minio-report-tracker/status/status_${{ matrix.env }}.json"
+          CSV_FILE="minio-report-tracker/csv/${{ matrix.env }}.csv"
+          if [ -f "$STATUS_FILE" ]; then
+            cp "$STATUS_FILE" "status/status_${{ matrix.env }}.json"
+          fi
+          if [ ! -f "$STATUS_FILE" ] && [ ! -f "$CSV_FILE" ]; then
+            echo "No CSV or status for ${{ matrix.env }}; skipping sheet update."
+            exit 0
+          fi
+          echo '${{ secrets.GSHEETCREDS }}' > creds.json
+          python minio-report-tracker/scripts/update_sheet.py
+          rm -f creds.json
+
   # Waits for all per-env jobs, merges CSVs, generates XLSX, updates Google Sheet, and notifies Slack on failure
   summary:
     name: Summary
@@ -217,7 +256,8 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
         with:
-          ref: daily-automation-reports
+          sparse-checkout: minio-report-tracker
+          sparse-checkout-cone-mode: true
 
       - name: Setup Python
         uses: actions/setup-python@v5

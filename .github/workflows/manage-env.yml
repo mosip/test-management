@@ -1,4 +1,4 @@
-name: Manage MinIO Environment
+name: Env Manager
 
 on:
   workflow_dispatch:
@@ -11,7 +11,7 @@ on:
           - add
           - remove
       env_name:
-        description: 'Environment name (e.g. qa22) — must be lowercase'
+        description: 'Environment name (e.g. qa22, 131ga, qa-1.3) — must be lowercase'
         required: true
         type: string
       minio_url:
@@ -27,11 +27,28 @@ on:
         required: false
         type: string
 
+env:
+  # update-reports.yml runs under this environment, and an environment secret
+  # takes precedence over a repo secret of the same name. MinIO secrets must
+  # be managed here, or a rotation is shadowed and a removal leaves them behind.
+  SECRETS_ENVIRONMENT: daily-automation-reports
+
 jobs:
   manage-env:
     runs-on: ubuntu-latest
 
     steps:
+      # Inputs are not secrets, so GitHub prints them in every step's env block.
+      # Mask the credentials before any step receives them as env.
+      - name: Mask credentials
+        run: |
+          for KEY in minio_user minio_password; do
+            VALUE=$(jq -r --arg k "$KEY" '.inputs[$k] // ""' "$GITHUB_EVENT_PATH")
+            if [ -n "$VALUE" ]; then
+              echo "::add-mask::$VALUE"
+            fi
+          done
+
       - name: Validate inputs
         env:
           ACTION:        ${{ inputs.action }}
@@ -40,8 +57,8 @@ jobs:
           MINIO_USER:    ${{ inputs.minio_user }}
           MINIO_PASSWORD: ${{ inputs.minio_password }}
         run: |
-          if [[ ! "$ENV_NAME" =~ ^[a-z0-9_-]+$ ]]; then
-            echo "Invalid env name '$ENV_NAME'. Use lowercase letters, numbers, hyphens, underscores only."
+          if [[ ! "$ENV_NAME" =~ ^[a-z0-9_-][a-z0-9._-]*$ ]]; then
+            echo "Invalid env name '$ENV_NAME'. Use lowercase letters, numbers, dots, hyphens, underscores only, not starting with a dot."
             exit 1
           fi
 
@@ -78,7 +95,15 @@ jobs:
           MINIO_PASSWORD: ${{ inputs.minio_password }}
         run: |
           ENV="$ENV_NAME"
-          ENV_UPPER=$(echo "$ENV" | tr '[:lower:]' '[:upper:]' | tr '-' '_')
+          # Same secret-name mapping as update-reports.yml: uppercase, anything outside A-Z0-9 becomes "_"
+          ENV_UPPER=$(printf '%s' "$ENV" | tr '[:lower:]' '[:upper:]' | tr -c 'A-Z0-9' '_')
+
+          CLASH=$(echo "$CURRENT" | jq -r --arg env "$ENV" --arg key "$ENV_UPPER" \
+            'map(select(type == "string" and . != $env and (ascii_upcase | gsub("[^A-Z0-9]"; "_")) == $key)) | join(", ")')
+          if [ -n "$CLASH" ]; then
+            echo "::error::'$ENV' would share the MINIO_${ENV_UPPER}_* secrets with $CLASH. Pick a different name."
+            exit 1
+          fi
 
           EXISTS=$(echo "$CURRENT" | jq --arg env "$ENV" 'map(select(. == $env)) | length')
 
@@ -100,7 +125,7 @@ jobs:
 
           KEY_DATA=$(gh api \
             -H "Accept: application/vnd.github+json" \
-            /repos/${{ github.repository }}/actions/secrets/public-key)
+            /repos/${{ github.repository }}/environments/$SECRETS_ENVIRONMENT/secrets/public-key)
           KEY_ID=$(echo "$KEY_DATA" | jq -r '.key_id')
           KEY=$(echo "$KEY_DATA" | jq -r '.key')
 
@@ -111,10 +136,10 @@ jobs:
             gh api \
               -X PUT \
               -H "Accept: application/vnd.github+json" \
-              /repos/${{ github.repository }}/actions/secrets/$SECRET_NAME \
+              /repos/${{ github.repository }}/environments/$SECRETS_ENVIRONMENT/secrets/$SECRET_NAME \
               -f encrypted_value="$ENCRYPTED" \
               -f key_id="$KEY_ID"
-            echo "Secret $SECRET_NAME set."
+            echo "Secret $SECRET_NAME set in environment $SECRETS_ENVIRONMENT."
           }
 
           encrypt_and_set "MINIO_${ENV_UPPER}_URL"      "$MINIO_URL"
@@ -125,11 +150,11 @@ jobs:
           if [ "$ENV_STATUS" = "added" ]; then
             echo "**Action:** Add" >> $GITHUB_STEP_SUMMARY
             echo "**Environment:** $ENV" >> $GITHUB_STEP_SUMMARY
-            echo "**Result:** Added to MINIO_ENVS and secrets created." >> $GITHUB_STEP_SUMMARY
+            echo "**Result:** Added to MINIO_ENVS and secrets created in environment $SECRETS_ENVIRONMENT." >> $GITHUB_STEP_SUMMARY
           else
             echo "**Action:** Add (secret rotation)" >> $GITHUB_STEP_SUMMARY
             echo "**Environment:** $ENV" >> $GITHUB_STEP_SUMMARY
-            echo "**Result:** $ENV already existed — MINIO_ENVS unchanged. Secrets MINIO_${ENV_UPPER}_URL / _USER / _PASSWORD replaced." >> $GITHUB_STEP_SUMMARY
+            echo "**Result:** $ENV already existed — MINIO_ENVS unchanged. Secrets MINIO_${ENV_UPPER}_URL / _USER / _PASSWORD replaced in environment $SECRETS_ENVIRONMENT." >> $GITHUB_STEP_SUMMARY
           fi
 
       - name: Remove environment
@@ -141,43 +166,80 @@ jobs:
           CURRENT:   ${{ steps.read_envs.outputs.current }}
         run: |
           ENV="$ENV_NAME"
-          ENV_UPPER=$(echo "$ENV" | tr '[:lower:]' '[:upper:]' | tr '-' '_')
+          ENV_UPPER=$(printf '%s' "$ENV" | tr '[:lower:]' '[:upper:]' | tr -c 'A-Z0-9' '_')
 
           EXISTS=$(echo "$CURRENT" | jq --arg env "$ENV" 'map(select(. == $env)) | length')
           if [ "$EXISTS" -eq 0 ]; then
-            echo "Environment '$ENV' not found in MINIO_ENVS. Nothing to do."
-            echo "ENV_STATUS=not_found" >> $GITHUB_ENV
+            # Still clear its secrets: earlier removals left them in the environment.
+            echo "Environment '$ENV' not found in MINIO_ENVS — variable unchanged. Checking for leftover secrets."
+            LISTED=false
+          else
+            UPDATED=$(echo "$CURRENT" | jq --arg env "$ENV" 'map(select(. != $env))')
+            echo "Updated MINIO_ENVS: $(echo "$UPDATED" | jq -c '.')"
 
-            echo "## Manage MinIO Environment" >> $GITHUB_STEP_SUMMARY
-            echo "**Action:** Remove" >> $GITHUB_STEP_SUMMARY
-            echo "**Environment:** $ENV" >> $GITHUB_STEP_SUMMARY
-            echo "**Result:** Environment '$ENV' not found in MINIO_ENVS. Nothing to do." >> $GITHUB_STEP_SUMMARY
-            exit 0
+            gh api \
+              -X PATCH \
+              -H "Accept: application/vnd.github+json" \
+              /repos/${{ github.repository }}/actions/variables/MINIO_ENVS \
+              -f value="$(echo "$UPDATED" | jq -c '.')"
+            LISTED=true
           fi
 
-          UPDATED=$(echo "$CURRENT" | jq --arg env "$ENV" 'map(select(. != $env))')
-          echo "Updated MINIO_ENVS: $(echo "$UPDATED" | jq -c '.')"
+          # The environment holds the secrets the reports use. Older envs may also
+          # have a repo-level copy, and some have a _NAME secret; clear all of them.
+          DELETED=()
+          delete_secret() {
+            SCOPE=$1
+            SECRET_NAME=$2
+            if [ "$SCOPE" = "environment" ]; then
+              SECRET_PATH="environments/$SECRETS_ENVIRONMENT/secrets/$SECRET_NAME"
+            else
+              SECRET_PATH="actions/secrets/$SECRET_NAME"
+            fi
+            # Only a 404 means "not there". Anything else (e.g. a token without
+            # access to environment secrets) must fail the run, not pass as success.
+            if OUT=$(gh api -X DELETE -H "Accept: application/vnd.github+json" \
+                       /repos/${{ github.repository }}/$SECRET_PATH 2>&1); then
+              echo "Secret $SECRET_NAME deleted at $SCOPE level."
+              DELETED+=("$SECRET_NAME ($SCOPE)")
+            elif grep -q 'HTTP 404' <<< "$OUT"; then
+              echo "Secret $SECRET_NAME not present at $SCOPE level."
+            else
+              echo "::error::Could not delete $SECRET_NAME at $SCOPE level: $OUT"
+              exit 1
+            fi
+          }
 
-          gh api \
-            -X PATCH \
-            -H "Accept: application/vnd.github+json" \
-            /repos/${{ github.repository }}/actions/variables/MINIO_ENVS \
-            -f value="$(echo "$UPDATED" | jq -c '.')"
-
-          for SUFFIX in URL USER PASSWORD; do
-            SECRET_NAME="MINIO_${ENV_UPPER}_${SUFFIX}"
-            gh api \
-              -X DELETE \
-              -H "Accept: application/vnd.github+json" \
-              /repos/${{ github.repository }}/actions/secrets/$SECRET_NAME \
-              && echo "Secret $SECRET_NAME deleted." \
-              || echo "Secret $SECRET_NAME not found, skipping."
+          for SUFFIX in URL USER PASSWORD NAME; do
+            delete_secret environment "MINIO_${ENV_UPPER}_${SUFFIX}"
+            delete_secret repository  "MINIO_${ENV_UPPER}_${SUFFIX}"
           done
+
+          if [ "$LISTED" = true ]; then
+            RESULT="Removed from MINIO_ENVS."
+          else
+            RESULT="Not in MINIO_ENVS — variable unchanged."
+          fi
+          if [ ${#DELETED[@]} -eq 0 ]; then
+            RESULT="$RESULT No MINIO_${ENV_UPPER}_* secrets were found."
+          else
+            RESULT="$RESULT Deleted: ${DELETED[*]}"
+          fi
+
+          if [ "$LISTED" = false ] && [ ${#DELETED[@]} -eq 0 ]; then
+            echo "ENV_STATUS=not_found" >> $GITHUB_ENV
+          elif [ ${#DELETED[@]} -eq 0 ]; then
+            echo "::warning::No MINIO_${ENV_UPPER}_* secrets were found to delete."
+            echo "ENV_STATUS=no_secrets" >> $GITHUB_ENV
+          elif [ "$LISTED" = false ]; then
+            echo "ENV_STATUS=secrets_only" >> $GITHUB_ENV
+          fi
+          echo "$RESULT"
 
           echo "## Manage MinIO Environment" >> $GITHUB_STEP_SUMMARY
           echo "**Action:** Remove" >> $GITHUB_STEP_SUMMARY
           echo "**Environment:** $ENV" >> $GITHUB_STEP_SUMMARY
-          echo "**Result:** Removed from MINIO_ENVS and secrets deleted." >> $GITHUB_STEP_SUMMARY
+          echo "**Result:** $RESULT" >> $GITHUB_STEP_SUMMARY
 
       - name: Notify Slack
         if: always()
@@ -202,7 +264,7 @@ jobs:
           if [ "${ENV_STATUS:-}" = "not_found" ]; then
             ICON=":information_source:"
             TITLE="MinIO Env Not Found"
-            DETAIL="Environment \`$ENV\` was not found in MINIO_ENVS. No changes were made."
+            DETAIL="Environment \`$ENV\` was not found in MINIO_ENVS and has no secrets. No changes were made."
           elif [ "$STEP_OUTCOME" != "success" ]; then
             ICON=":warning:"
             TITLE="MinIO Env Change Failed"
@@ -217,6 +279,14 @@ jobs:
               TITLE="MinIO Env Added"
               DETAIL="\`$ENV\` has been added to MINIO_ENVS and its secrets created."
             fi
+          elif [ "${ENV_STATUS:-}" = "secrets_only" ]; then
+            ICON=":x:"
+            TITLE="MinIO Env Secrets Removed"
+            DETAIL="\`$ENV\` was not in MINIO_ENVS. Its leftover secrets have been deleted."
+          elif [ "${ENV_STATUS:-}" = "no_secrets" ]; then
+            ICON=":x:"
+            TITLE="MinIO Env Removed"
+            DETAIL="\`$ENV\` has been removed from MINIO_ENVS. No secrets were found for it."
           else
             ICON=":x:"
             TITLE="MinIO Env Removed"

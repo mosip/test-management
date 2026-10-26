@@ -11,7 +11,7 @@ on:
           - add
           - remove
       env_name:
-        description: 'Environment name (e.g. qa22, 131ga, qa-1.3) — must be lowercase'
+        description: 'Environment name (e.g. qa22, 131ga, qa-1.3) — converted to lowercase'
         required: true
         type: string
       minio_url:
@@ -50,6 +50,7 @@ jobs:
           done
 
       - name: Validate inputs
+        id: validate
         env:
           ACTION:        ${{ inputs.action }}
           ENV_NAME:      ${{ inputs.env_name }}
@@ -57,10 +58,17 @@ jobs:
           MINIO_USER:    ${{ inputs.minio_user }}
           MINIO_PASSWORD: ${{ inputs.minio_password }}
         run: |
-          if [[ ! "$ENV_NAME" =~ ^[a-z0-9_-][a-z0-9._-]*$ ]]; then
-            echo "Invalid env name '$ENV_NAME'. Use lowercase letters, numbers, dots, hyphens, underscores only, not starting with a dot."
+          # Env names and sheet tabs are lowercase, so QA22 is the same env as qa22
+          ENV=$(printf '%s' "$ENV_NAME" | tr '[:upper:]' '[:lower:]')
+          if [ "$ENV" != "$ENV_NAME" ]; then
+            echo "Using env name '$ENV' for '$ENV_NAME'."
+          fi
+
+          if [[ ! "$ENV" =~ ^[a-z0-9_-][a-z0-9._-]*$ ]]; then
+            echo "Invalid env name '$ENV_NAME'. Use letters, numbers, dots, hyphens, underscores only, not starting with a dot."
             exit 1
           fi
+          echo "env_name=$ENV" >> $GITHUB_OUTPUT
 
           if [ "$ACTION" = "add" ]; then
             if [ -z "$MINIO_URL" ] || [ -z "$MINIO_USER" ] || [ -z "$MINIO_PASSWORD" ]; then
@@ -88,7 +96,7 @@ jobs:
         if: inputs.action == 'add'
         env:
           GH_TOKEN:      ${{ secrets.ACTION_PAT }}
-          ENV_NAME:      ${{ inputs.env_name }}
+          ENV_NAME:      ${{ steps.validate.outputs.env_name }}
           CURRENT:       ${{ steps.read_envs.outputs.current }}
           MINIO_URL:     ${{ inputs.minio_url }}
           MINIO_USER:    ${{ inputs.minio_user }}
@@ -162,7 +170,7 @@ jobs:
         if: inputs.action == 'remove'
         env:
           GH_TOKEN:  ${{ secrets.ACTION_PAT }}
-          ENV_NAME:  ${{ inputs.env_name }}
+          ENV_NAME:  ${{ steps.validate.outputs.env_name }}
           CURRENT:   ${{ steps.read_envs.outputs.current }}
         run: |
           ENV="$ENV_NAME"
@@ -248,7 +256,7 @@ jobs:
           ADD_OUTCOME:       ${{ steps.add_env.outcome }}
           REMOVE_OUTCOME:    ${{ steps.remove_env.outcome }}
           ACTION:            ${{ inputs.action }}
-          ENV_NAME:          ${{ inputs.env_name }}
+          ENV_NAME:          ${{ steps.validate.outputs.env_name || inputs.env_name }}
           ACTOR_NAME:        ${{ github.actor }}
           RUN_URL:           ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: |

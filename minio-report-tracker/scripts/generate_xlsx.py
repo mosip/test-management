@@ -156,7 +156,7 @@ if os.path.isdir(status_dir):
     for sf in os.listdir(status_dir):
         if not sf.endswith(".json"):
             continue
-        alias_name = sf.replace("status_", "").replace(".json", "")
+        alias_name = sf.removeprefix("status_").removesuffix(".json")
         try:
             with open(os.path.join(status_dir, sf)) as f:
                 data = json.load(f)
@@ -172,7 +172,7 @@ for file in os.listdir(csv_dir):
     if not file.endswith(".csv"):
         continue
 
-    alias    = file.replace(".csv", "")
+    alias    = file.removesuffix(".csv")
     csv_path = os.path.join(csv_dir, file)
     processed.add(alias)
 

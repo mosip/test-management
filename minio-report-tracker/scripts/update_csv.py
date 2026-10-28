@@ -1,7 +1,9 @@
 import os
 import json
 import re
+import shlex
 import subprocess
+import time
 from datetime import datetime, timedelta, timezone
 
 import pandas as pd
@@ -15,6 +17,9 @@ except Exception:
 
 env_name = os.getenv("MINIO_ENV") or os.getenv("MINIO_ALIAS")
 env_list = os.getenv("MINIO_ENVS")
+# mc aliases must match ^[A-Za-z][A-Za-z0-9_-]*$, so an env such as 131ga is reached through a
+# separate alias. Only honoured for a single env; the env name is still used for the CSV and status.
+mc_alias_override = os.getenv("MINIO_MC_ALIAS") if env_name else None
 
 if env_name:
     MINIO_ALIASES = [env_name]
@@ -27,7 +32,10 @@ else:
 MINIO_BUCKETS = ["apitestrig", "automation", "dslreports", "uitestrig"]
 columns = ["Date", "Module", "T", "P", "S", "F", "I", "KI"]
 
+# An env is "failed" only when nothing could be fetched at all. "partial" means
+# MinIO answered but some listings still failed, or it held no recent reports.
 failed_aliases     = []
+partial_aliases    = []
 successful_aliases = []
 failure_reasons    = {}
 
@@ -40,39 +48,127 @@ def format_date_str(dt):
     return dt.strftime("%d-%B-%Y")
 
 
-def date_key_from_minio_ts(ts: str) -> str:
+def minio_ts(ts: str) -> datetime:
     ts_norm = ts.replace("Z", "+00:00")
     try:
-        dt = datetime.fromisoformat(ts_norm)
+        return datetime.fromisoformat(ts_norm)
     except ValueError:
-        dt = datetime.strptime(ts_norm[:19], "%Y-%m-%dT%H:%M:%S").replace(tzinfo=timezone.utc)
-    return format_date_str(dt.astimezone(IST))
+        return datetime.strptime(ts_norm[:19], "%Y-%m-%dT%H:%M:%S").replace(tzinfo=timezone.utc)
 
 
-# Remove timeout parameter and exception handler
-def run_mc_json_lines(alias, command):
-    result = subprocess.run(
-        command, shell=True, capture_output=True, text=True
-    )
-    output = result.stdout
+def date_key_from_minio_ts(ts: str) -> str:
+    return format_date_str(minio_ts(ts).astimezone(IST))
 
-    entries = []
-    for line in output.splitlines():
+
+# A listing that times out or errors is retried. If it still fails it is
+# recorded, so the env is reported as partial (some listings failed) or failed
+# (none worked) instead of passing off a thin sheet as "no reports today".
+MC_TIMEOUT  = int(os.getenv("MC_TIMEOUT", "120"))
+MC_ATTEMPTS = int(os.getenv("MC_ATTEMPTS", "3"))
+
+# Real answers that mean "nothing here", not a failed listing.
+MC_EMPTY_CODES = {"NoSuchBucket", "NoSuchKey"}
+
+
+def mc_error_code(entry):
+    cause = (entry.get("error") or {}).get("cause") or {}
+    return (cause.get("error") or {}).get("Code", "")
+
+
+def mc_error_text(entry):
+    error = entry.get("error") or {}
+    text  = (error.get("cause") or {}).get("message") or error.get("message") or "unknown error"
+    code  = mc_error_code(entry)
+    return f"{text} ({code})" if code else text
+
+
+# Per-env tally of listings, reset at the start of each env's scan.
+listings = {"ok": 0, "failed": []}
+
+
+def parse_mc_json(alias, output):
+    # mc --json prints one JSON object per entry or error. Read them as a
+    # stream rather than line by line, so an object printed over several
+    # lines is still read instead of being skipped.
+    decoder, values, pos = json.JSONDecoder(), [], 0
+    while True:
+        pos = re.compile(r"\s*").match(output, pos).end()
+        if pos == len(output):
+            return values
         try:
-            entries.append(json.loads(line))
+            value, pos = decoder.raw_decode(output, pos)
         except json.JSONDecodeError:
-            if line.strip():
-                log(alias, f"Skipping non-JSON mc output: {line[:200]}")
-    return entries
+            end = output.find("\n", pos)
+            end = len(output) if end == -1 else end
+            log(alias, f"Skipping non-JSON mc output: {output[pos:end][:200]}")
+            pos = end
+            continue
+        if isinstance(value, dict):
+            values.append(value)
 
 
-def append_row(all_data_by_date, date_key, module, row):
-    all_data_by_date.setdefault(date_key, [])
-    if not any(existing[1] == module for existing in all_data_by_date[date_key]):
-        all_data_by_date[date_key].append(row)
+def run_mc_json_lines(alias, command):
+    for attempt in range(1, MC_ATTEMPTS + 1):
+        try:
+            result = subprocess.run(
+                shlex.split(command), capture_output=True, text=True, timeout=MC_TIMEOUT
+            )
+        except subprocess.TimeoutExpired:
+            problem = f"timed out after {MC_TIMEOUT}s"
+        else:
+            entries, errors = [], []
+            for entry in parse_mc_json(alias, result.stdout):
+                # mc --json reports errors as JSON objects with status "error".
+                (errors if entry.get("status") == "error" else entries).append(entry)
+
+            failed = [e for e in errors if mc_error_code(e) not in MC_EMPTY_CODES]
+            if result.returncode != 0 and not entries and not errors:
+                # mc failed without a JSON error to say why (a crash or usage
+                # error), which is not the same as an empty folder.
+                detail  = (result.stderr.strip().splitlines() or ["no output"])[0]
+                problem = f"mc exited {result.returncode} with no JSON output: {detail[:200]}"
+            elif not failed:
+                listings["ok"] += 1
+                return entries
+            else:
+                problem = mc_error_text(failed[0])
+
+        log(alias, f"mc attempt {attempt}/{MC_ATTEMPTS} {problem}: {command}")
+        if attempt < MC_ATTEMPTS:
+            time.sleep(5 * attempt)
+
+    log(alias, f"Giving up on listing after {MC_ATTEMPTS} attempts: {command}")
+    listings["failed"].append(f"{command.split()[-1]} ({problem})")
+    if listings["ok"] == 0:
+        # Nothing has worked yet, so MinIO cannot be read. Stop now rather than
+        # wait out every remaining listing's timeouts.
+        raise RuntimeError(f"Could not read from MinIO: {listings['failed'][0]}")
+    return []
+
+
+# Upload time of the report kept for each (date, module), reset at the start of each env's scan.
+kept_uploads = {}
+
+
+def append_row(all_data_by_date, date_key, module, row, uploaded):
+    # A module can run more than once a day. Keep its latest report, so a
+    # rerun replaces the earlier result instead of being ignored.
+    rows     = all_data_by_date.setdefault(date_key, [])
+    uploaded = minio_ts(uploaded)
+    for i, existing in enumerate(rows):
+        if existing[1] == module:
+            if uploaded > kept_uploads[(date_key, module)]:
+                rows[i] = row
+                kept_uploads[(date_key, module)] = uploaded
+            return
+    rows.append(row)
+    kept_uploads[(date_key, module)] = uploaded
 
 
 for alias in MINIO_ALIASES:
+    mc_alias = mc_alias_override or alias
+    listings["ok"], listings["failed"] = 0, []
+    kept_uploads.clear()
     try:
         log(alias, "Starting MinIO scan")
         csv_filename   = f"{alias}.csv"
@@ -84,13 +180,15 @@ for alias in MINIO_ALIASES:
             folders = []
 
             if bucket == "dslreports":
-                entries = run_mc_json_lines(alias, f"mc ls --json {alias}/dslreports/full/")
+                entries = run_mc_json_lines(alias, f"mc ls --json {mc_alias}/dslreports/full/")
                 log(alias, f"dslreports/full entries scanned: {len(entries)}")
 
                 for info in entries:
                     try:
                         fn       = info["key"]
-                        if fn.startswith("ExtentReport-"):
+                        # A DSL run also uploads a -full-error- copy with the same
+                        # counts but no KI or I, so it would write KI=0.
+                        if fn.startswith("ExtentReport-") or "-full-error-" in fn:
                             continue
                         date_key = date_key_from_minio_ts(info["lastModified"])
                     except (KeyError, ValueError):
@@ -105,13 +203,13 @@ for alias in MINIO_ALIASES:
                     t_val, p_val, ki_val, i_val, s_val, f_val = m.groups()
                     append_row(all_data_by_date, date_key, "dsl",
                                [date_key, "dsl", t_val, p_val, s_val, f_val,
-                                i_val or "0", ki_val or "0"])
+                                i_val or "0", ki_val or "0"], info["lastModified"])
                     matched_rows += 1
                     bucket_stats[bucket] += 1
                 continue
 
             if bucket == "uitestrig":
-                entries = run_mc_json_lines(alias, f"mc ls --json {alias}/{bucket}/")
+                entries = run_mc_json_lines(alias, f"mc ls --json {mc_alias}/{bucket}/")
                 log(alias, f"uitestrig root entries scanned: {len(entries)}")
 
                 for info in entries:
@@ -134,11 +232,11 @@ for alias in MINIO_ALIASES:
                         continue
                     t_val, p_val, s_val, f_val = m.groups()
                     append_row(all_data_by_date, date_key, module,
-                               [date_key, module, t_val, p_val, s_val, f_val, "0", "0"])
+                               [date_key, module, t_val, p_val, s_val, f_val, "0", "0"], info["lastModified"])
                     matched_rows += 1
                     bucket_stats[bucket] += 1
 
-            folder_entries = run_mc_json_lines(alias, f"mc ls --json {alias}/{bucket}/")
+            folder_entries = run_mc_json_lines(alias, f"mc ls --json {mc_alias}/{bucket}/")
             for info in folder_entries:
                 try:
                     folders.append(info["key"].strip("/"))
@@ -151,7 +249,7 @@ for alias in MINIO_ALIASES:
 
             for folder in folders:
                 if bucket == "uitestrig" and folder.lower() == "pmpui":
-                    for info in run_mc_json_lines(alias, f"mc ls --json {alias}/{bucket}/{folder}/"):
+                    for info in run_mc_json_lines(alias, f"mc ls --json {mc_alias}/{bucket}/{folder}/"):
                         try:
                             fn       = info["key"]
                             date_key = date_key_from_minio_ts(info["lastModified"])
@@ -164,12 +262,12 @@ for alias in MINIO_ALIASES:
                             continue
                         t_val, p_val, s_val, f_val = m.groups()
                         append_row(all_data_by_date, date_key, "pmpui",
-                                   [date_key, "pmpui", t_val, p_val, s_val, f_val, "0", "0"])
+                                   [date_key, "pmpui", t_val, p_val, s_val, f_val, "0", "0"], info["lastModified"])
                         matched_rows += 1
                         bucket_stats[bucket] += 1
                     continue
 
-                for info in run_mc_json_lines(alias, f"mc ls --json {alias}/{bucket}/{folder}/"):
+                for info in run_mc_json_lines(alias, f"mc ls --json {mc_alias}/{bucket}/{folder}/"):
                     try:
                         fn       = info["key"]
                         date_key = date_key_from_minio_ts(info["lastModified"])
@@ -192,7 +290,7 @@ for alias in MINIO_ALIASES:
 
                     append_row(all_data_by_date, date_key, module,
                                [date_key, module, t_val, p_val, s_val, f_val,
-                                i_val or "0", ki_val or "0"])
+                                i_val or "0", ki_val or "0"], info["lastModified"])
                     matched_rows += 1
                     bucket_stats[bucket] += 1
 
@@ -210,15 +308,26 @@ for alias in MINIO_ALIASES:
         log(alias, f"Available date buckets (IST): {sorted_dates[:10]}")
         log(alias, f"Selected latest 5 working days: {weekdays_only}")
 
+        log(alias, f"Listings: {listings['ok']} ok, {len(listings['failed'])} failed")
+
         dfs = [pd.DataFrame(all_data_by_date[d], columns=columns) for d in weekdays_only]
 
-        if not dfs:
-            reason = "No usable report data found after parsing MinIO objects and applying the latest 5 working days filter."
+        if listings["ok"] == 0:
+            reason = f"Could not read from MinIO: every listing failed. First error: {listings['failed'][0]}"
             log(alias, reason)
-            failure_reasons[alias] = {"reason": reason,
+            failure_reasons[alias] = {"state": "failed", "reason": reason,
+                                      "failed_listings": listings["failed"]}
+            failed_aliases.append(alias)
+            continue
+
+        if not dfs:
+            reason = "MinIO answered, but holds no reports from the latest 5 working days."
+            log(alias, reason)
+            failure_reasons[alias] = {"state": "partial", "reason": reason,
+                                      "failed_listings": listings["failed"],
                                       "available_dates": sorted_dates[:10],
                                       "bucket_stats": bucket_stats}
-            failed_aliases.append(alias)
+            partial_aliases.append(alias)
             continue
 
         max_len = max(len(df) for df in dfs)
@@ -230,13 +339,23 @@ for alias in MINIO_ALIASES:
 
         os.makedirs("../csv", exist_ok=True)
         pd.concat(dfs, axis=1).to_csv(f"../csv/{csv_filename}", index=False)
-        successful_aliases.append(alias)
         log(alias, f"CSV written to ../csv/{csv_filename}")
+
+        if listings["failed"]:
+            reason = (f"{len(listings['failed'])} listing(s) failed after {MC_ATTEMPTS} attempts; "
+                      f"modules under them may be missing: {', '.join(listings['failed'])}")
+            log(alias, reason)
+            failure_reasons[alias] = {"state": "partial", "reason": reason,
+                                      "failed_listings": listings["failed"]}
+            partial_aliases.append(alias)
+        else:
+            failure_reasons[alias] = {"state": "success", "reason": ""}
+            successful_aliases.append(alias)
 
     except Exception as exc:
         log(alias, f"Failed with exception: {exc}")
         failed_aliases.append(alias)
-        failure_reasons[alias] = {"reason": str(exc)}
+        failure_reasons[alias] = {"state": "failed", "reason": str(exc)}
         continue
 
 
@@ -245,5 +364,6 @@ os.makedirs("../status", exist_ok=True)
 alias_name = env_name if env_name else "all"
 with open(f"../status/status_{alias_name}.json", "w", encoding="utf-8") as handle:
     json.dump({"success": successful_aliases,
+               "partial": partial_aliases,
                "failed":  failed_aliases,
                "details": failure_reasons}, handle, indent=2)

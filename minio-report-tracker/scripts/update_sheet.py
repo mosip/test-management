@@ -1,10 +1,13 @@
 import os
 import csv
 import json
+import random
 import gspread
 from datetime import datetime, timezone, timedelta
 from google.oauth2.service_account import Credentials as GoogleCredentials
 from googleapiclient.discovery import build
+from googleapiclient.errors import HttpError
+from googleapiclient.http import HttpRequest
 import time
 
 try:
@@ -13,8 +16,11 @@ try:
 except Exception:
     IST = timezone(timedelta(hours=5, minutes=30))
 
-SOURCE_DIR      = "minio-report-tracker/csv"
-STATUS_DIR      = "status"
+# Each env's job writes its own tab, and Summary writes whatever an env job could not.
+SOURCE_DIR      = os.getenv("SHEET_CSV_DIR", "minio-report-tracker/csv")
+STATUS_DIR      = os.getenv("SHEET_STATUS_DIR", "status")
+# Where to record what was written and whether Google's quota was hit (optional).
+REPORT_FILE     = os.getenv("SHEET_REPORT")
 SPREADSHEET_ID  = "1UqmeHphhNNW8AfrQtT-Bl260xYRGN9elmJJa5NvM8KI"
 CREDENTIALS_FILE = "creds.json"
 
@@ -29,6 +35,70 @@ COLORS = {
     "light_grey_fill":  {"red": 0.85, "green": 0.85, "blue": 0.85}
 }
 BORDER = {"style": "SOLID", "width": 1}
+
+# Google allows about 60 Sheets writes a minute per service account, and every
+# env's job writes through the same one. A request refused with 429 is retried
+# with backoff, and every refusal is counted so the run summary can report it.
+QUOTA_ATTEMPTS = 6
+quota = {"hits": 0, "waited": 0.0}
+
+
+def is_quota_error(exc):
+    if isinstance(exc, HttpError):
+        return exc.resp.status == 429
+    if isinstance(exc, gspread.exceptions.APIError):
+        response = getattr(exc, "response", None)
+        return getattr(exc, "code", None) == 429 or getattr(response, "status_code", None) == 429
+    return False
+
+
+def with_quota_retry(call):
+    for attempt in range(1, QUOTA_ATTEMPTS + 1):
+        try:
+            return call()
+        except Exception as exc:
+            if not is_quota_error(exc):
+                raise
+            quota["hits"] += 1
+            if attempt == QUOTA_ATTEMPTS:
+                raise
+            wait = min(2 ** attempt, 64) + random.uniform(0, 1)
+            quota["waited"] += wait
+            print(f"  Google Sheets quota hit, retrying in {wait:.0f}s (attempt {attempt}/{QUOTA_ATTEMPTS})")
+            time.sleep(wait)
+
+
+# Every Sheets API call goes through one of these two methods, so wrapping them
+# covers every call site below without touching each one.
+_execute = HttpRequest.execute
+HttpRequest.execute = lambda self, *a, **kw: with_quota_retry(lambda: _execute(self, *a, **kw))
+
+if hasattr(gspread, "http_client"):    # gspread 6
+    _gspread_owner = gspread.http_client.HTTPClient
+else:                                  # gspread 5
+    _gspread_owner = gspread.Client
+_gspread_request = _gspread_owner.request
+_gspread_owner.request = lambda self, *a, **kw: with_quota_retry(lambda: _gspread_request(self, *a, **kw))
+
+
+def find_date_col(headers, date_label):
+    """
+    Column of the block for date_label, or -1. The date is written as
+    "02-November-2026" but Sheets stores it as a date and shows
+    "2-November-2026", so compare dates, not text. Matching as text missed
+    every block on days 1-9, and each run added a duplicate block.
+    """
+    def as_date(value):
+        try:
+            return datetime.strptime(str(value).strip(), "%d-%B-%Y").date()
+        except ValueError:
+            return None
+
+    wanted = as_date(date_label)
+    for idx, header in enumerate(headers):
+        if wanted and as_date(header) == wanted:
+            return idx
+    return -1
 
 
 def col_to_a1(col_idx):
@@ -191,8 +261,14 @@ def add_failure_note(service, spreadsheet, sheet_name, reason):
     max_rows   = max(len(master_module_list), 1)
     sheet_headers = existing_data[0] if existing_data else []
 
-    # Find or insert the date column
-    target_col = sheet_headers.index(today) if today in sheet_headers else -1
+    # An earlier run already wrote today's block; its data stands, so do not
+    # mark it FAILED.
+    if find_date_col(sheet_headers, today) != -1:
+        print(f"  '{today}' already has a block on '{sheet_name}' from an earlier run; leaving it as is.")
+        return
+
+    # Insert the date column
+    target_col = -1
 
     if target_col == -1:
         target_col = START_COL
@@ -306,7 +382,7 @@ def update_sheet(service, spreadsheet, sheet_name, csv_path):
     aligned_data_block = [csv_data_map.get(m, [None] * NUM_DATA_COLS) for m in master_module_list]
 
     sheet_headers = existing_data[0] if existing_data else []
-    target_col    = sheet_headers.index(date_label) if date_label in sheet_headers else -1
+    target_col    = find_date_col(sheet_headers, date_label)
 
     if target_col == -1:
         print(f"  Date '{date_label}' not found. Beginning column insertion process.")
@@ -375,27 +451,51 @@ def main():
         client        = gspread.authorize(gspread_creds)
         spreadsheet   = client.open_by_key(SPREADSHEET_ID)
 
-        # Update sheets for successful envs (have a CSV)
+        # One tab failing (e.g. quota still exhausted after every retry) must not
+        # stop the others; it is recorded and the run summary reports it.
+        written, not_written = [], {}
+
+        # Update sheets for envs that produced a CSV
         if os.path.isdir(SOURCE_DIR):
             for filename in sorted(f for f in os.listdir(SOURCE_DIR) if f.endswith(".csv")):
                 sheet_name = os.path.splitext(filename)[0]
-                update_sheet(service, spreadsheet, sheet_name, os.path.join(SOURCE_DIR, filename))
+                try:
+                    update_sheet(service, spreadsheet, sheet_name, os.path.join(SOURCE_DIR, filename))
+                    written.append(sheet_name)
+                except Exception as e:
+                    print(f"Could not update '{sheet_name}': {e}")
+                    not_written[sheet_name] = str(e)
 
-        # Add failure notes for envs that failed entirely (no CSV produced)
+        # Add failure notes for envs that failed entirely (nothing could be fetched)
         if os.path.isdir(STATUS_DIR):
-            for sf in sorted(f for f in os.listdir(STATUS_DIR) if f.endswith(".json")):
-                alias = sf.replace("status_", "").replace(".json", "")
+            for sf in sorted(f for f in os.listdir(STATUS_DIR)
+                             if f.startswith("status_") and f.endswith(".json")):
+                alias = sf.removeprefix("status_").removesuffix(".json")
                 try:
                     with open(os.path.join(STATUS_DIR, sf)) as f:
                         data = json.load(f)
                     reason = data.get("reason", "").strip()
                     if alias in data.get("failed", []) and reason:
                         add_failure_note(service, spreadsheet, alias, reason)
+                        written.append(alias)
                 except (json.JSONDecodeError, IOError) as e:
                     print(f"Could not read status for '{alias}': {e}")
+                except Exception as e:
+                    print(f"Could not add the failure block to '{alias}': {e}")
+                    not_written[alias] = str(e)
+
+        print(f"Google Sheets quota hits: {quota['hits']}, waited {quota['waited']:.0f}s")
+        if REPORT_FILE:
+            with open(REPORT_FILE, "w", encoding="utf-8") as handle:
+                json.dump({"written": written, "not_written": not_written,
+                           "quota_hits": quota["hits"], "quota_waited_s": round(quota["waited"])},
+                          handle, indent=2)
+        if not_written:
+            raise SystemExit(f"Not written: {', '.join(not_written)}")
 
     except FileNotFoundError:
         print(f"CRITICAL ERROR: Credentials file '{CREDENTIALS_FILE}' not found.")
+        raise
     except Exception as e:
         print(f"A critical error occurred in main(): {e}")
         raise

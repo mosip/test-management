@@ -86,6 +86,27 @@ def mc_error_text(entry):
 listings = {"ok": 0, "failed": []}
 
 
+def parse_mc_json(alias, output):
+    # mc --json prints one JSON object per entry or error. Read them as a
+    # stream rather than line by line, so an object printed over several
+    # lines is still read instead of being skipped.
+    decoder, values, pos = json.JSONDecoder(), [], 0
+    while True:
+        pos = re.compile(r"\s*").match(output, pos).end()
+        if pos == len(output):
+            return values
+        try:
+            value, pos = decoder.raw_decode(output, pos)
+        except json.JSONDecodeError:
+            end = output.find("\n", pos)
+            end = len(output) if end == -1 else end
+            log(alias, f"Skipping non-JSON mc output: {output[pos:end][:200]}")
+            pos = end
+            continue
+        if isinstance(value, dict):
+            values.append(value)
+
+
 def run_mc_json_lines(alias, command):
     for attempt in range(1, MC_ATTEMPTS + 1):
         try:
@@ -96,21 +117,21 @@ def run_mc_json_lines(alias, command):
             problem = f"timed out after {MC_TIMEOUT}s"
         else:
             entries, errors = [], []
-            for line in result.stdout.splitlines():
-                try:
-                    entry = json.loads(line)
-                except json.JSONDecodeError:
-                    if line.strip():
-                        log(alias, f"Skipping non-JSON mc output: {line[:200]}")
-                    continue
+            for entry in parse_mc_json(alias, result.stdout):
                 # mc --json reports errors as JSON objects with status "error".
                 (errors if entry.get("status") == "error" else entries).append(entry)
 
             failed = [e for e in errors if mc_error_code(e) not in MC_EMPTY_CODES]
-            if not failed:
+            if result.returncode != 0 and not entries and not errors:
+                # mc failed without a JSON error to say why (a crash or usage
+                # error), which is not the same as an empty folder.
+                detail  = (result.stderr.strip().splitlines() or ["no output"])[0]
+                problem = f"mc exited {result.returncode} with no JSON output: {detail[:200]}"
+            elif not failed:
                 listings["ok"] += 1
                 return entries
-            problem = mc_error_text(failed[0])
+            else:
+                problem = mc_error_text(failed[0])
 
         log(alias, f"mc attempt {attempt}/{MC_ATTEMPTS} {problem}: {command}")
         if attempt < MC_ATTEMPTS:

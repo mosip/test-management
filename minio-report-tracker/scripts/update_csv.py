@@ -48,13 +48,16 @@ def format_date_str(dt):
     return dt.strftime("%d-%B-%Y")
 
 
-def date_key_from_minio_ts(ts: str) -> str:
+def minio_ts(ts: str) -> datetime:
     ts_norm = ts.replace("Z", "+00:00")
     try:
-        dt = datetime.fromisoformat(ts_norm)
+        return datetime.fromisoformat(ts_norm)
     except ValueError:
-        dt = datetime.strptime(ts_norm[:19], "%Y-%m-%dT%H:%M:%S").replace(tzinfo=timezone.utc)
-    return format_date_str(dt.astimezone(IST))
+        return datetime.strptime(ts_norm[:19], "%Y-%m-%dT%H:%M:%S").replace(tzinfo=timezone.utc)
+
+
+def date_key_from_minio_ts(ts: str) -> str:
+    return format_date_str(minio_ts(ts).astimezone(IST))
 
 
 # A listing that times out or errors is retried. If it still fails it is
@@ -122,15 +125,29 @@ def run_mc_json_lines(alias, command):
     return []
 
 
-def append_row(all_data_by_date, date_key, module, row):
-    all_data_by_date.setdefault(date_key, [])
-    if not any(existing[1] == module for existing in all_data_by_date[date_key]):
-        all_data_by_date[date_key].append(row)
+# Upload time of the report kept for each (date, module), reset at the start of each env's scan.
+kept_uploads = {}
+
+
+def append_row(all_data_by_date, date_key, module, row, uploaded):
+    # A module can run more than once a day. Keep its latest report, so a
+    # rerun replaces the earlier result instead of being ignored.
+    rows     = all_data_by_date.setdefault(date_key, [])
+    uploaded = minio_ts(uploaded)
+    for i, existing in enumerate(rows):
+        if existing[1] == module:
+            if uploaded > kept_uploads[(date_key, module)]:
+                rows[i] = row
+                kept_uploads[(date_key, module)] = uploaded
+            return
+    rows.append(row)
+    kept_uploads[(date_key, module)] = uploaded
 
 
 for alias in MINIO_ALIASES:
     mc_alias = mc_alias_override or alias
     listings["ok"], listings["failed"] = 0, []
+    kept_uploads.clear()
     try:
         log(alias, "Starting MinIO scan")
         csv_filename   = f"{alias}.csv"
@@ -149,8 +166,7 @@ for alias in MINIO_ALIASES:
                     try:
                         fn       = info["key"]
                         # A DSL run also uploads a -full-error- copy with the same
-                        # counts but no KI or I. It lists first, and the first row
-                        # per date wins, so it would write KI=0.
+                        # counts but no KI or I, so it would write KI=0.
                         if fn.startswith("ExtentReport-") or "-full-error-" in fn:
                             continue
                         date_key = date_key_from_minio_ts(info["lastModified"])
@@ -166,7 +182,7 @@ for alias in MINIO_ALIASES:
                     t_val, p_val, ki_val, i_val, s_val, f_val = m.groups()
                     append_row(all_data_by_date, date_key, "dsl",
                                [date_key, "dsl", t_val, p_val, s_val, f_val,
-                                i_val or "0", ki_val or "0"])
+                                i_val or "0", ki_val or "0"], info["lastModified"])
                     matched_rows += 1
                     bucket_stats[bucket] += 1
                 continue
@@ -195,7 +211,7 @@ for alias in MINIO_ALIASES:
                         continue
                     t_val, p_val, s_val, f_val = m.groups()
                     append_row(all_data_by_date, date_key, module,
-                               [date_key, module, t_val, p_val, s_val, f_val, "0", "0"])
+                               [date_key, module, t_val, p_val, s_val, f_val, "0", "0"], info["lastModified"])
                     matched_rows += 1
                     bucket_stats[bucket] += 1
 
@@ -225,7 +241,7 @@ for alias in MINIO_ALIASES:
                             continue
                         t_val, p_val, s_val, f_val = m.groups()
                         append_row(all_data_by_date, date_key, "pmpui",
-                                   [date_key, "pmpui", t_val, p_val, s_val, f_val, "0", "0"])
+                                   [date_key, "pmpui", t_val, p_val, s_val, f_val, "0", "0"], info["lastModified"])
                         matched_rows += 1
                         bucket_stats[bucket] += 1
                     continue
@@ -253,7 +269,7 @@ for alias in MINIO_ALIASES:
 
                     append_row(all_data_by_date, date_key, module,
                                [date_key, module, t_val, p_val, s_val, f_val,
-                                i_val or "0", ki_val or "0"])
+                                i_val or "0", ki_val or "0"], info["lastModified"])
                     matched_rows += 1
                     bucket_stats[bucket] += 1
 

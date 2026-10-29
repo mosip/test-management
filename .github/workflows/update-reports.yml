@@ -94,27 +94,38 @@ jobs:
             CONF="${!NAME}"
             [ -z "$CONF" ] && continue
 
+            # A slot that cannot be used is left out with a warning, so one bad
+            # secret does not stop every env from being scanned. wg-quick reads
+            # key names in any case, so match them that way.
+            KEY=$(printf '%s\n' "$CONF" | sed -n 's/^[[:space:]]*PrivateKey[[:space:]]*=[[:space:]]*//Ip' | tr -d '[:space:]')
+            # A bare address means /32 to wg-quick, so compare it that way.
+            ADDR=$(printf '%s\n' "$CONF" | sed -n 's/^[[:space:]]*Address[[:space:]]*=[[:space:]]*//Ip' \
+                     | tr -d '[:space:]' | sed -E 's#^([0-9.]+)$#\1/32#')
+            if [ -z "$KEY" ]; then
+              echo "::warning::$NAME has no PrivateKey line, so it is not used."
+              continue
+            fi
+            KEY=$(printf '%s' "$KEY" | sha256sum | cut -c1-16)
+
             # Two slots with the same key or tunnel address are one peer, and
             # would roam exactly like a single shared config.
-            KEY=$(printf '%s\n' "$CONF" | sed -n 's/^[[:space:]]*PrivateKey[[:space:]]*=[[:space:]]*//p' | sha256sum | cut -c1-16)
-            # A bare address means /32 to wg-quick, so compare it that way.
-            ADDR=$(printf '%s\n' "$CONF" | sed -n 's/^[[:space:]]*Address[[:space:]]*=[[:space:]]*//p' \
-                     | tr -d '[:space:]' | sed -E 's#^([0-9.]+)$#\1/32#')
             if [ -n "${KEY_OWNER[$KEY]:-}" ]; then
-              echo "::error::$NAME has the same PrivateKey as ${KEY_OWNER[$KEY]}. Every slot needs its own WireGuard peer."
-              exit 1
+              echo "::warning::$NAME has the same PrivateKey as ${KEY_OWNER[$KEY]}, so it is not used. Every slot needs its own WireGuard peer."
+              continue
             fi
-            if [ -n "${ADDR_OWNER[$ADDR]:-}" ]; then
-              echo "::error::$NAME has the same Address as ${ADDR_OWNER[$ADDR]}. Every slot needs its own tunnel address."
-              exit 1
+            if [ -n "$ADDR" ] && [ -n "${ADDR_OWNER[$ADDR]:-}" ]; then
+              echo "::warning::$NAME has the same Address as ${ADDR_OWNER[$ADDR]}, so it is not used. Every slot needs its own tunnel address."
+              continue
             fi
             KEY_OWNER[$KEY]=$NAME
-            ADDR_OWNER[$ADDR]=$NAME
+            if [ -n "$ADDR" ]; then
+              ADDR_OWNER[$ADDR]=$NAME
+            fi
             SLOTS+=("$NAME")
           done
 
           if [ ${#SLOTS[@]} -eq 0 ]; then
-            echo "::error::No WIREGUARD_CONF secret is set."
+            echo "::error::No usable WIREGUARD_CONF secret is set."
             exit 1
           fi
           echo "WireGuard slots: ${SLOTS[*]}"
@@ -320,19 +331,26 @@ jobs:
           mkdir -p minio-report-tracker/status
 
           STATE=""; REASON=""; LISTINGS="[]"
+          # A truncated file must not stop the step, or the env would be
+          # reported as cancelled instead of failed.
           if [ -f "$ORIG_STATUS" ]; then
-            STATE=$(jq -r --arg env "$ENV_NAME" '.details[$env].state // ""' "$ORIG_STATUS")
-            REASON=$(jq -r --arg env "$ENV_NAME" '.details[$env].reason // ""' "$ORIG_STATUS")
-            LISTINGS=$(jq -c --arg env "$ENV_NAME" '.details[$env].failed_listings // []' "$ORIG_STATUS")
+            STATE=$(jq -r --arg env "$ENV_NAME" '.details[$env].state // ""' "$ORIG_STATUS" 2>/dev/null || echo "")
+            REASON=$(jq -r --arg env "$ENV_NAME" '.details[$env].reason // ""' "$ORIG_STATUS" 2>/dev/null || echo "")
+            LISTINGS=$(jq -c --arg env "$ENV_NAME" '.details[$env].failed_listings // []' "$ORIG_STATUS" 2>/dev/null || echo "[]")
           fi
           if [ -z "$STATE" ]; then
             STATE=failed
             REASON=$(cat /tmp/step_failure_reason.txt 2>/dev/null || true)
+            if [ -z "$REASON" ] && [ -f "$ORIG_STATUS" ]; then
+              REASON="The scan's status file could not be read."
+            fi
             REASON=${REASON:-"The scan did not finish; see this job's log."}
           elif [ "$STATE" = success ] && [ ! -f "$CSV_FILE" ]; then
             STATE=failed
             REASON="The scan finished but no CSV was collected."
           fi
+          # One line: the reason goes into an ::error:: annotation and a table row.
+          REASON=${REASON//[$'\r\n']/ }
 
           jq -n --arg env "$ENV_NAME" --arg state "$STATE" --arg reason "$REASON" --argjson listings "$LISTINGS" '{
             state: $state, reason: $reason, failed_listings: $listings,
@@ -500,7 +518,10 @@ jobs:
           # MINIO_ENVS entries that never got a job
           if [ "$PLAN_RESULT" != "success" ]; then
             FAILED="$FAILED MINIO_ENVS"
-            ROWS="$ROWS| MINIO_ENVS | :x: failed | not a JSON array of env names, or no WireGuard config |"$'\n'
+            ROWS="$ROWS| MINIO_ENVS | :x: failed | Plan environments failed, so nothing was scanned. Its log says why: MINIO_ENVS is not a JSON array, or no usable WireGuard slot is set. |"$'\n'
+          elif [ "$(jq length <<< "${PLANNED:-[]}")" -eq 0 ] && [ "$(jq length <<< "${INVALID_ENVS:-[]}")" -eq 0 ]; then
+            FAILED="$FAILED MINIO_ENVS"
+            ROWS="$ROWS| MINIO_ENVS | :x: failed | MINIO_ENVS lists no environments, so nothing was scanned. |"$'\n'
           fi
           while IFS=$'\t' read -r INVALID_NAME INVALID_REASON; do
             [ -n "$INVALID_NAME" ] || continue
@@ -585,6 +606,8 @@ jobs:
           } >> $GITHUB_STEP_SUMMARY
           echo "Quota hits: $HITS, waited ${WAITED}s"
           # One line, no stray whitespace: an empty value must stay empty for the Slack condition.
+          # No globbing: Google's error text can hold [429] or *, which must not match file names.
+          set -f
           echo "UNWRITTEN_TABS=$(echo $UNWRITTEN)" >> $GITHUB_ENV
 
       - name: Notify Slack

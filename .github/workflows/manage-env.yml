@@ -176,13 +176,25 @@ jobs:
           ENV="$ENV_NAME"
           ENV_UPPER=$(printf '%s' "$ENV" | tr '[:lower:]' '[:upper:]' | tr -c 'A-Z0-9' '_')
 
-          EXISTS=$(echo "$CURRENT" | jq --arg env "$ENV" 'map(select(. == $env)) | length')
-          if [ "$EXISTS" -eq 0 ]; then
+          # MINIO_ENVS may hold the name in another case (QA22 for qa22), and a
+          # different name can use the same secrets: qa-1, qa.1 and qa_1 all map
+          # to MINIO_QA_1_*. Never delete secrets another listed env reads.
+          LISTED_AS=$(echo "$CURRENT" | jq -r --arg env "$ENV" \
+            'map(select(type == "string" and ascii_downcase == $env)) | join(", ")')
+          CLASH=$(echo "$CURRENT" | jq -r --arg env "$ENV" --arg key "$ENV_UPPER" \
+            'map(select(type == "string" and ascii_downcase != $env and (ascii_upcase | gsub("[^A-Z0-9]"; "_")) == $key)) | join(", ")')
+          if [ -n "$CLASH" ]; then
+            echo "::error::The MINIO_${ENV_UPPER}_* secrets belong to $CLASH, not '$ENV'. Nothing was changed."
+            exit 1
+          fi
+
+          if [ -z "$LISTED_AS" ]; then
             # Still clear its secrets: earlier removals left them in the environment.
             echo "Environment '$ENV' not found in MINIO_ENVS — variable unchanged. Checking for leftover secrets."
             LISTED=false
           else
-            UPDATED=$(echo "$CURRENT" | jq --arg env "$ENV" 'map(select(. != $env))')
+            UPDATED=$(echo "$CURRENT" | jq --arg env "$ENV" 'map(select(type != "string" or ascii_downcase != $env))')
+            echo "Removing $LISTED_AS from MINIO_ENVS."
             echo "Updated MINIO_ENVS: $(echo "$UPDATED" | jq -c '.')"
 
             gh api \
